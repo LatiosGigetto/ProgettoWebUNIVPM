@@ -35,6 +35,7 @@
                 <li><a href="#">Login</a> <span style="padding: 5px">|</span> </li>
                 <li><a href="#">Registrazione</a></li>
             </ul>
+            @endif
         </nav>
     </header>
 
@@ -58,4 +59,3 @@
     </footer>
 </body>
 </html>
-
