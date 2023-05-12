@@ -1,98 +1,55 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
+<?php
 
-            .riquadro1 {
-                width:500px;
-                height:220px;
-                border:1px solid black ;
-                margin: auto;
-                align-items: center;
-                justify-content: center;
-                display: flex;
-            }
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-            .riquadro2 {
-                width:400px;
-                height:500px;
-                border:1px solid black ;
-                margin: auto;
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+define('LARAVEL_START', microtime(true));
 
-            .testo{
-                align-self: start;
-                width: 100%;
-            }
+/*
+|--------------------------------------------------------------------------
+| Check If The Application Is Under Maintenance
+|--------------------------------------------------------------------------
+|
+| If the application is in maintenance / demo mode via the "down" command
+| we will load this file so that any pre-rendered content can be shown
+| instead of starting the framework, which could cause an exception.
+|
+*/
 
-            .riquadro_immagine{
-                position: absolute;
-            }
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 
-            .titolo {
-                text-align: center;
-                padding-bottom: 50px;
-                padding-top: 50px;
-            }
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
 
-            .sottotitolo {
-                color: blue;
-            }
-            /*.carousel-control {
-                position: absolute;
-                top: 40%;
-                left: 15px;
-                width: 40px;
-                height: 40px;
-                margin-top: -20px;
-                font-size: 60px;
-                font-weight: 100;
-                line-height: 30px;
-                color: #fff;
-                text-align: center;
-                background: #222;
-                border: 3px solid #fff;
-                -webkit-border-radius: 23px;
-                -moz-border-radius: 23px;
-                border-radius: 23px;
-                opacity: .5;
-                filter: alpha(opacity=50)
-            }*/
-            img {
-                width: 50px;
-                height: 50px;
-            }
+require __DIR__.'/../vendor/autoload.php';
 
-        </style>
-    </head>
-    <body>
-        <!-- <a class="carousel-control">></a> -->
-        <div class="riquadro1">
-            <img src="logosito.png" alt="questo è il logo del nostro sito" class="riquadro_immagine">
-        </div>
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request using
+| the application's HTTP kernel. Then, we will send the response back
+| to this client's browser, allowing them to enjoy our application.
+|
+*/
 
-        <div class="titolo">
-            <strong>testo introduttivo del nostro sito</strong>
-        </div>
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-        <div class="riquadro2">
-            <div class="testo">
-                Offerte del giorno
-            </div>
-            <div class="riquadro_immagine">
-                <img src="logosito.png" alt="queste sono le offerte del giorno">
-            </div>
-        </div>
+$kernel = $app->make(Kernel::class);
 
-    </body>
-</html>
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);
