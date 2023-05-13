@@ -1,0 +1,60 @@
+.riquadro1 {
+    width: 80%;
+    height: 220px;
+    border: 1px solid black ;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.riquadro2 {
+    width:65%;
+    height:400px;
+    border:1px solid black ;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.testo{
+    align-self: start;
+    width: 100%;
+}
+
+.titolo {
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.spazio_header {
+    border: 1px solid;
+    height: 100px;
+    text-align: center
+}
+
+.spazio_barra_laterale {
+    border: 1px solid;
+    width: 100px;
+    height: 500px;
+    float: left
+}
+
+.spazio_catologo {
+    border: 1px solid;
+    width: 100%;
+}
+
+.blocco_offerta {
+    border: 1px solid green;
+    height: 50px;
+    display: flex
+}
+
+.spazio_contenuto {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}

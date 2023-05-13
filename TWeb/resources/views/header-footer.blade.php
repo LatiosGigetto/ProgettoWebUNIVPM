@@ -8,12 +8,12 @@
 <body>
     <header style="background-color: #c603fc; position: relative">
         <div style="text-align: center">
-            
-            <img style="max-height: 10%; max-width: 10%" src="./longe.png" alt="longe">
+
+            <img style="max-height: 10%; max-width: 10%" src="images/longe.png" alt="longe">
             <p>
                 Il nostro sito
             </p>
-            
+
         </div>
         <nav style="text-align: left; position: absolute; bottom: 5px">
             <ul style="display: flex; list-style-type: none">
@@ -21,7 +21,7 @@
                 <li><a href="#">Lista aziende</a></li>
             </ul>
         </nav>
-        
+
         <nav style="text-align: right">
             @auth
             <p> Benvenuto, {{ Auth::user()->name }}</p>
@@ -45,12 +45,12 @@
 
     <footer style="background-color: #c603fc; width: 100%">
         <nav style="width: 100%; margin: auto">
-            <img style="max-height: 10%;max-width: 10%; padding: 10px" src="./longe.png" alt="longe">
+            <img style="max-height: 10%;max-width: 10%; padding: 10px" src="images/longe.png" alt="longe">
             <p style="text-align: center;">&copy; Copyright LOLOLOLOLOL</p>
-            
+
             <!-- Per qualche motivo noto solo a Tim Berners Lee le ul in HTML hanno un padding naturale a sinistra di 16px. L'ho forzato a 0 e adesso
                 la lista è centrata come dovrebbe essere. Grazie, John HTML.-->
-            
+
             <ul style=" list-style-type: none;text-align: center; padding: 0px">
                 <li><a href="#">Contatti</a> </li>
                 <li><a href="#">Faq</a></li>
