@@ -4,93 +4,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="it">
+
 <head>
+
     <title>Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
 
-        .riquadro1 {
-            width:500px;
-            height:220px;
-            border:1px solid black ;
-            margin: auto;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-
-        .riquadro2 {
-            width:400px;
-            height:500px;
-            border:1px solid black ;
-            margin: auto;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .testo{
-            align-self: start;
-            width: 100%;
-        }
-
-        .riquadro_immagine{
-            position: absolute;
-        }
-
-        .titolo {
-            text-align: center;
-            padding-bottom: 50px;
-            padding-top: 50px;
-        }
-
-
-        /*.carousel-control {
-            position: absolute;
-            top: 40%;
-            left: 15px;
-            width: 40px;
-            height: 40px;
-            margin-top: -20px;
-            font-size: 60px;
-            font-weight: 100;
-            line-height: 30px;
-            color: #fff;
-            text-align: center;
-            background: #222;
-            border: 3px solid #fff;
-            -webkit-border-radius: 23px;
-            -moz-border-radius: 23px;
-            border-radius: 23px;
-            opacity: .5;
-            filter: alpha(opacity=50)
-        }*/
         img {
             width: 50px;
             height: 50px;
+            position: absolute;
         }
 
     </style>
+
 </head>
+
 <body>
-<!-- <a class="carousel-control">></a> -->
-<div class="riquadro1">
-    <img src="logosito.png" alt="questo è il logo del nostro sito" class="riquadro_immagine">
-</div>
 
-<div class="titolo">
-    <strong>testo introduttivo del nostro sito</strong>
-</div>
+    <div class="riquadro1">
+        <h2 style="align-self: start">*contenuto introduttivo*</h2>
+        <img src="images/logosito.png" alt="questo è il logo del nostro sito">
+    </div>
 
-<div class="riquadro2">
-    <div class="testo">
-        Offerte del giorno
+    <div class="titolo">
+        <strong>testo introduttivo del nostro sito</strong>
     </div>
-    <div class="riquadro_immagine">
-        <img src="logosito.png" alt="queste sono le offerte del giorno">
+
+    <div class="riquadro2">
+        <div class="testo">
+            <h3 style="margin-left: 10px">Offerte del giorno</h3>
+        </div>
+        <img src="images/logosito.png" alt="queste sono le offerte del giorno">
     </div>
-</div>
 
 </body>
 </html>
