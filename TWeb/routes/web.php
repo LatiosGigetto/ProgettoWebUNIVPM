@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/{param}', function ($param) {
     return view($param);
 });
+
+Route::get('/gestioneaziende', function () {
+    return view('gestione aziende');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
