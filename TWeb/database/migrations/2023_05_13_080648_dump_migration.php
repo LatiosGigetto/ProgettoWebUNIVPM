@@ -13,11 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
+        DB::unprepared( file_get_contents( "database/migrations/couponDB.sql" ) );
     }
 
     /**
@@ -27,6 +23,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('azienda');
+        Schema::dropIfExists('coupon');
+        Schema::dropIfExists('faq');
+        Schema::dropIfExists('gestoriaziende');
+        Schema::dropIfExists('offerta');
+        Schema::dropIfExists('utente');
     }
 };
