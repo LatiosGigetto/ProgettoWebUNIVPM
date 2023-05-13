@@ -74,26 +74,6 @@ CREATE TABLE `gestoriaziende` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dump dei dati per la tabella `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(2, '2023_05_13_080648_dump_migration', 1);
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `offerta`
 --
 
@@ -110,20 +90,6 @@ CREATE TABLE `offerta` (
 --
 -- Struttura della tabella `personal_access_tokens`
 --
-
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
 
 --
 -- Struttura della tabella `utente`
@@ -172,25 +138,11 @@ ALTER TABLE `gestoriaziende`
   ADD KEY `ref_Id_Azienda` (`Id_Azienda`);
 
 --
--- Indici per le tabelle `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indici per le tabelle `offerta`
 --
 ALTER TABLE `offerta`
   ADD PRIMARY KEY (`Id_Offerta`),
   ADD KEY `ref_Id_azienda_offerta` (`Id_Azienda`);
-
---
--- Indici per le tabelle `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Indici per le tabelle `utente`

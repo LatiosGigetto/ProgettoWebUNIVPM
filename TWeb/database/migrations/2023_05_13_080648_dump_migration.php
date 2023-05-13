@@ -27,6 +27,7 @@ return new class extends Migration
         Schema::dropIfExists('coupon');
         Schema::dropIfExists('faq');
         Schema::dropIfExists('gestoriaziende');
+        Schema::dropIfExists('migrations');
         Schema::dropIfExists('offerta');
         Schema::dropIfExists('utente');
     }
