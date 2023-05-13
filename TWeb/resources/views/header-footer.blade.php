@@ -9,7 +9,7 @@
     <header style="background-color: #c603fc; position: relative">
         <div style="text-align: center">
 
-            <img style="max-height: 10%; max-width: 10%" src="images/longe.png" alt="longe">
+            <img style="height: 100px; width: 100px; position: static; margin: 10px" src="images/longe.png" alt="longe">
             <p>
                 Il nostro sito
             </p>

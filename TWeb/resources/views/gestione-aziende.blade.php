@@ -3,8 +3,12 @@
 
 <head>
 
+    @extends('header-footer')
+    
     <meta charset="UTF-8">
-    <title>Gestione Aziende</title>
+    @section("title")
+    Gestione aziende
+    @endsection
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -35,6 +39,8 @@
     </style>
 
 </head>
+
+@section("content")
 
 <body>
 
@@ -111,5 +117,7 @@
     </div>
 
 </body>
+
+@endsection
 
 </html>

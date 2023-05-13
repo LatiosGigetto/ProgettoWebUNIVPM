@@ -5,9 +5,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html lang="it">
 
+    @extends('header-footer')
+    
 <head>
-
-    <title>Home</title>
+    @section("title")
+        Home
+    @endsection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
@@ -25,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </head>
 
 <body>
-
+@section('content')
     <div class="riquadro1">
         <h2 style="align-self: start">*contenuto introduttivo*</h2>
         <img src="images/logosito.png" alt="questo è il logo del nostro sito">
@@ -43,4 +46,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </div>
 
 </body>
+
+@endsection
 </html>

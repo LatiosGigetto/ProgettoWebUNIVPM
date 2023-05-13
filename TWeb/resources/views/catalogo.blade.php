@@ -2,10 +2,14 @@
 
 <html lang="it">
 
+    @extends('header-footer')
+    
 <head>
 
     <meta charset="UTF-8">
-    <title>Catlogo</title>
+    @section("title")
+        Catlogo
+    @endsection
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -36,6 +40,7 @@
 </head>
 
 <body>
+@section("content")
 
     <div class="spazio_header">
         <h1>*spazio per l'header*</h1>
@@ -94,5 +99,7 @@
     </div>
 
 </body>
+
+@endsection
 
 </html>
