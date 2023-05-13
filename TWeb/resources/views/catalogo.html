@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Catlogo</title>
+    <style>
+        img{
+            height: 100%;
+            float: left;
+            border: 1px solid red;
+        }
+        h3{
+            text-align: center;
+            border: 1px solid blue;
+            align-self: start;
+            float: left;
+            margin-top: 0;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        p{
+            border: 1px solid violet;
+            align-self: start;
+            width: 100%;
+            margin-top:0;
+            height: 100%;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid; height: 100px; text-align: center">
+        <h1>*spazio per l'header*</h1>
+    </div>
+    <div style="display: flex">
+        <div style="border: 1px solid; width: 100px; height: 500px; float: left">
+            *spazio per la barra laterale*
+        </div>
+
+        <div style="border: 1px solid; width: 100%;">
+            <!-- Questo è il blocco di una singola offerta -->
+            <div style="border: 1px solid green; height: 50px; display: flex">
+                <img src="xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <div style="display: flex; flex-direction: column; width: 100%">
+                    <h3>Azienda 1</h3>
+                    <p>
+                        Testo dell'offerta 1
+                    </p>
+                </div>
+            </div>
+            <!-- Fine del blocco -->
+            <!-- Questo è il blocco di una singola offerta -->
+            <div style="border: 1px solid green; height: 50px; display: flex">
+                <img src="xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <div style="display: flex; flex-direction: column; width: 100%">
+                    <h3>Azienda 2</h3>
+                    <p>
+                        Testo dell'offerta 2
+                    </p>
+                </div>
+            </div>
+            <!-- Fine del blocco -->
+            <!-- Questo è il blocco di una singola offerta -->
+            <div style="border: 1px solid green; height: 50px; display: flex">
+                <img src="xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <div style="display: flex; flex-direction: column; width: 100%">
+                    <h3>Azienda 3</h3>
+                    <p>
+                        Testo dell'offerta 3
+                    </p>
+                </div>
+            </div>
+            <!-- Fine del blocco -->
+        </div>
+    </div>
+</body>
+</html>
