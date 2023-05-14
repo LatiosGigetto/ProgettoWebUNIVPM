@@ -42,9 +42,6 @@
 <body>
 @section("content")
 
-    <div class="spazio_header">
-        <h1>*spazio per l'header*</h1>
-    </div>
 
     <div style="display: flex">
 

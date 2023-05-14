@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @extends('header-footer')
     <meta charset="UTF-8">
-    <title>Le FAQ</title>
+    @section('title')
+        Le FAQ
+    @endsection
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="spazio_header">
-        <h1>*spazio per l'header*</h1>
-    </div>
+@section('content')
     <div class="faq">
         <!-- Lo stile del form è da ripensare -->
         <form action="" style="margin: 10px;">
@@ -25,4 +26,5 @@
 
     </div>
 </body>
+@endsection
 </html>

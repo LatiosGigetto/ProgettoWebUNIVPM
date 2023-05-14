@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+@extends('header-footer')
     <meta charset="UTF-8">
-    <title>Ciao, Capo!</title>
+    @section('title')
+        Ciao, Capo!
+    @endsection
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="spazio_header">
-    <h1>*spazio per l'header*</h1>
-</div>
+@section('content')
 <div class="profilo">
     <h2>Area riservata Utente (cliente)</h2>
     <a href="">Gestione aziende</a>
@@ -22,4 +23,5 @@
     <a href="">Aggiornamento FAQ</a>
 </div>
 </body>
+@endsection
 </html>

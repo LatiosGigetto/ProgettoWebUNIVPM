@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+@extends('header-footer')
     <meta charset="UTF-8">
-    <title>Gestione Promozioni</title>
+    @section('Gestione Promozioni')
+        Gestione Promozioni
+    @endsection
     <link rel="stylesheet" href="css/style.css">
     <style>
-        img{
+        .image_logo{
             width: 20px;
             float: left;
             border: 1px solid red;
@@ -35,15 +38,9 @@
     </style>
 </head>
 <body>
-<div class="spazio_header">
-    <h1>*spazio per l'header*</h1>
-</div>
+@section('content')
+
 <div style="display: flex">
-    <div class="spazio_barra_laterale">
-        *spazio per la barra laterale*
-    </div>
-
-
 
 
     <div class="spazio_blocco">
@@ -93,18 +90,8 @@
 
             </tbody>
         </table>
-
-
-
-
     </div>
-
-
-
-
-ciaoooooooooooo
-
-
 </div>
 </body>
+@endsection
 </html>

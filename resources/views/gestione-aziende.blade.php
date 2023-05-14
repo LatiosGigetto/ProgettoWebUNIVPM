@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     @section("title")
-    Gestione aziende
+        Gestione aziende
     @endsection
     <link rel="stylesheet" href="css/style.css">
 
@@ -44,9 +44,6 @@
 
 <body>
 
-    <div class="spazio_header">
-        <h1>*spazio per l'header*</h1>
-    </div>
 
     <div style="display: flex">
         <div class="spazio_barra_laterale">
