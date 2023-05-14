@@ -25,7 +25,7 @@
             width: 100%;
             margin-bottom: 0;
         }
-        p{
+        .paragraph{
             border: 1px solid violet;
             align-self: start;
             width: 100%;
@@ -44,21 +44,21 @@
                 <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 1</h3>
-                    <p>Dati azienda</p>
+                    <p class="paragraph">Dati azienda</p>
                 </div>
             </div>
             <div class="blocco_offerta">
                 <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 2</h3>
-                    <p>Dati azienda</p>
+                    <p class="paragraph">Dati azienda</p>
                 </div>
             </div>
             <div class="blocco_offerta">
                 <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 3</h3>
-                    <p>Dati azienda</p>
+                    <p class="paragraph">Dati azienda</p>
                 </div>
             </div>
         </div>
