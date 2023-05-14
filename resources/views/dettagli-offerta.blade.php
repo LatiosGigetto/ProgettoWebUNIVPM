@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
+    
+    @extends('header-footer')
+    
 <head>
     <meta charset="UTF-8">
-    <title>dettagli offerta</title>
+    @section('title')
+        Dettagli offerta
+    @endsection
     <link rel="stylesheet" href="css/style.css">
     <style>
-        img {
+        logosito {
             width: 150px;
             height: 150px;
 
@@ -38,10 +43,10 @@
 
     </style>
 </head>
+
+@section('content')
 <body>
-<div class="spazio_header">
-    <h1>*spazio per l'header*</h1>
-</div>
+
 <div style="display: flex">
     <div class="spazio_barra_laterale">
         *spazio per la barra laterale*
@@ -54,7 +59,7 @@
         <!-- i seguenti due div servono per allineare i contenuti al centro esclusivamente in orizzontale -->
         <div class="row">
             <div class="center">
-               <img src="images/logosito.png" alt="Descrizione dell'immagine">
+               <img id = logosito src="images/logosito.png" alt="Descrizione dell'immagine">
 
                <div class="testoconlink">
                    <a href="linkdaseguire">Nome azienda</a>
@@ -83,4 +88,6 @@
 
 </div>
 </body>
+
+@endsection
 </html>
