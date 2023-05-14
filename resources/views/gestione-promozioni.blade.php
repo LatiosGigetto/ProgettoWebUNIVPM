@@ -35,7 +35,9 @@
     </style>
 </head>
 <body>
-
+<div class="spazio_header">
+    <h1>*spazio per l'header*</h1>
+</div>
 <div style="display: flex">
     <div class="spazio_barra_laterale">
         *spazio per la barra laterale*
@@ -64,10 +66,10 @@
                 <td>02-02-2024</td>
                 <td>Fano</td>
                 <td>
-                    <button name="modificapromozione1" id="modificapromozione1">Modifica</button>
+                    <button>Clicca qui</button>
                 </td>
                 <td>
-                    <button name="eliminapromozione1" id="eliminapromozione1">Elimina</button>
+                    <button>Clicca qui</button>
                 </td>
             </tr>
             <tr>
@@ -76,15 +78,15 @@
                 <td>04-04-2024</td>
                 <td>Ancona</td>
                 <td>
-                    <button name="modificapromozione2" id="modificapromozione2">Modifica</button>
+                    <button>Clicca qui</button>
                 </td>
                 <td>
-                    <button name="eliminapromozione2" id="eliminapromozione2">Elimina</button>
+                    <button>Clicca qui</button>
                 </td>
             </tr>
             <tr>
                 <td colspan="6" >
-                    <button name="aggiungipromozione" id="aggiungipromozione" style="margin-left: 250px" >Clicca per aggiungere una promozione</button>
+                    <button style="margin-left: 530px" >Clicca per aggiungere una promozione</button>
                 </td>
 
             </tr>
@@ -98,6 +100,9 @@
     </div>
 
 
+
+
+ciaoooooooooooo
 
 
 </div>

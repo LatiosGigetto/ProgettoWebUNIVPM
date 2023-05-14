@@ -9,7 +9,7 @@
     <header style="background-color: #c603fc; position: relative">
         <div style="text-align: center">
 
-            <img style="height: 100px; width: 100px; margin: 10px" src="images/longe.png" alt="longe">
+            <a href="/home"><img style="height: 100px; width: 100px; margin: 10px" src="images/longe.png" alt="longe"></a>
             <p>
                 Il nostro sito
             </p>
@@ -32,8 +32,8 @@
             @else
             <p> Non sei autenticato</p>
             <ul style="display: inline-flex; list-style-type: none">
-                <li><a href="#">Login</a> <span style="padding: 5px">|</span> </li>
-                <li><a href="#">Registrazione</a></li>
+                <li><a href="/login">Login</a> <span style="padding: 5px">|</span> </li>
+                <li><a href="/registrazione">Registrazione</a></li>
             </ul>
             @endif
         </nav>
@@ -55,8 +55,8 @@
                 la lista è centrata come dovrebbe essere. Grazie, John HTML.-->
 
             <ul style=" list-style-type: none;text-align: center; width: 100%; padding: 0px">
-                <li><a href="#">Contatti</a> </li>
-                <li><a href="#">Faq</a></li>
+                <li><a href="/contatti">Contatti</a> </li>
+                <li><a href="/faq">Faq</a></li>
             </ul>
         </nav>
     </footer>

@@ -44,14 +44,14 @@
 
 <body>
 
-
+    <div class="spazio_header">
+        <h1>*spazio per l'header*</h1>
+    </div>
 
     <div style="display: flex">
-        <div style="display: flex">
-            <div class="spazio_barra_laterale">
-                *spazio per la barra laterale*
-            </div>
-
+        <div class="spazio_barra_laterale">
+            *spazio per la barra laterale*
+        </div>
 
         <div class="spazio_blocco">
 
@@ -84,10 +84,10 @@
                     <td>Utensili da cucina</td>
                     <td>l'azienda si occupa di...</td>
                     <td>
-                        <button name="modificaazienda1" id="modificaazienda1">Modifica</button>
+                        <button>Clicca qui</button>
                     </td>
                     <td>
-                        <button  name="eliminaaazienda1" id="eliminaazienda1">Elimina</button>
+                        <button>Clicca qui</button>
                     </td>
                 </tr>
 
@@ -101,15 +101,12 @@
                     <td>Utensili da bagno</td>
                     <td>L'azienda fa</td>
                     <td>
-                        <button name="modificaazienda2" id="modificaazienda2">Modifica</button>
+                        <button>Clicca qui</button>
                     </td>
                     <td>
-                        <button name="eliminaazienda2" id="eliminaazienda2">Elimina</button>
+                        <button>Clicca qui</button>
                     </td>
                 </tr>
-                <td colspan="8" >
-                    <button name="aggiungiazienda"  id=aggiungiazienda style="margin-left: 250px" >Clicca per aggiungere un azienda</button>
-                </td>
 
                 </tbody>
 
