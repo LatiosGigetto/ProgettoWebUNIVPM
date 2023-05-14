@@ -49,10 +49,11 @@
 
         <div>
             <div class="numerocoupon" name="numerocoupon" id="numerocoupon">
-                Numero totale coupon emessi:
+                Numero totale coupo emessi:
             </div>
         </div>
-
+        </div>
+    </div>
     </body>
 
 @endsection

@@ -56,7 +56,7 @@
                 <th>Scadenza</th>
                 <th>Luogo</th>
                 <th>Modifica</th>
-                <th>Elimina</th>
+                <th>Eliminaa</th>
             </tr>
             </thead>
             <tbody>

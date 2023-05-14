@@ -87,7 +87,7 @@
                         <button>Clicca qui</button>
                     </td>
                     <td>
-                        <button>Clicca qui</button>
+                        <button>Clicca</button>
                     </td>
                 </tr>
 

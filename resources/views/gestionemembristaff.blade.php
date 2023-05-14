@@ -96,7 +96,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Azienda 5</td>
+                    <td>Azienda 5.</td>
                     <td>
                         <button name="rimuovi azcin da mem2" id="rimuovi azcin da mem2">elimina azienda assocciata</button>
                     </td>

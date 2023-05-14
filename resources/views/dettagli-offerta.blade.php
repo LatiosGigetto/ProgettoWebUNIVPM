@@ -72,7 +72,7 @@
                        genera
                    </button>
                    <button name="indietro" id="indietro">
-                       torna indietro
+                       torna indietr
                    </button>
                </div>
             </div>
