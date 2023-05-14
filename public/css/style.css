@@ -58,3 +58,11 @@
     flex-direction: column;
     width: 100%
 }
+
+.profilo, .faq {
+    min-height: 70vh;
+    width: 80%;
+    border: 1px solid;
+    margin: auto;
+    padding-left: 10px
+}
