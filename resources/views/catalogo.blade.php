@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        img{
+        .imgage_logo{
             height: 100%;
             float: left;
             border: 1px solid red;
@@ -57,7 +57,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 1</h3>
                     <p>Testo dell'offerta 1</p>
@@ -69,7 +69,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 2</h3>
                     <p>
@@ -83,7 +83,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
                 <div class="spazio_contenuto">
                     <h3>Azienda 3</h3>
                     <p>

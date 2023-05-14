@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html lang="it">
 
     @extends('header-footer')
-    
+
 <head>
     @section("title")
         Home
@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
     <style>
 
-        img {
+        .image_logo {
             width: 50px;
             height: 50px;
             position: absolute;
@@ -31,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 @section('content')
     <div class="riquadro1">
         <h2 style="align-self: start">*contenuto introduttivo*</h2>
-        <img src="images/logosito.png" alt="questo è il logo del nostro sito">
+        <img src="images/logosito.png" alt="questo è il logo del nostro sito" class="image_logo">
     </div>
 
     <div class="titolo">
@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class="testo">
             <h3 style="margin-left: 10px">Offerte del giorno</h3>
         </div>
-        <img src="images/logosito.png" alt="queste sono le offerte del giorno">
+        <img src="images/logosito.png" alt="queste sono le offerte del giorno" class="image_logo">
     </div>
 
 </body>

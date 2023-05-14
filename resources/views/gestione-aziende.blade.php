@@ -13,7 +13,7 @@
 
     <style>
 
-        img{
+        .imgage_logo{
             width: 20px;
             float: left;
             border: 1px solid red;
@@ -78,7 +78,7 @@
                     <td>Azienda 1</td>
                     <td>A1</td>
                     <td>
-                        <img src ="images/xampp_logo.png" alt="logo azienda">
+                        <img src ="images/xampp_logo.png" alt="logo azienda" class="imgage_logo">
                     </td>
                     <td>Fano</td>
                     <td>Utensili da cucina</td>
@@ -95,7 +95,7 @@
                     <td>Azienda1</td>
                     <td>A2</td>
                     <td>
-                        <img src ="images/xampp_logo.png" alt="logo azienda">
+                        <img src ="images/xampp_logo.png" alt="logo azienda" class="imgage_logo">
                     </td>
                     <td>Ascoli Piceno</td>
                     <td>Utensili da bagno</td>
