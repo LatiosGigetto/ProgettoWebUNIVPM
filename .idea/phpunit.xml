@@ -5,6 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/TWeb/tests/Unit" />
         <option value="$PROJECT_DIR$/TWeb/tests/Feature" />
+        <option value="$PROJECT_DIR$/tests/Unit" />
+        <option value="$PROJECT_DIR$/tests/Feature" />
       </list>
     </option>
   </component>

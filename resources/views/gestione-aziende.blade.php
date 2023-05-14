@@ -4,7 +4,7 @@
 <head>
 
     @extends('header-footer')
-    
+
     <meta charset="UTF-8">
     @section("title")
     Gestione aziende
@@ -53,7 +53,7 @@
             *spazio per la barra laterale*
         </div>
 
-        <div class="spazio_contenuto">
+        <div class="spazio_blocco">
 
             <h1>gestione aziende</h1>
 

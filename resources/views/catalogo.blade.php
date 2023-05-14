@@ -3,7 +3,7 @@
 <html lang="it">
 
     @extends('header-footer')
-    
+
 <head>
 
     <meta charset="UTF-8">
@@ -52,7 +52,7 @@
             *spazio per la barra laterale*
         </div>
 
-        <div class="spazio_catologo">
+        <div class="spazio_blocco">
 
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
