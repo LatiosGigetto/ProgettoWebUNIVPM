@@ -4,7 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html lang="it">
-
+<!--da rivedere l'uso di class; forse basta id-->
 @extends('header-footer')
 
 <head>
@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
 
 <body>
@@ -23,9 +23,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <div class="titolo">
         <h1 style="text-align: center">Contatti</h1>
     </div>
-
+    <!--da cambiare e portare il css inline fuori-->
     <div style="width: 70%; border:1px solid black;margin: auto">
 
+        <!--da rivedere; forse basta un div unico-->
         <div class="testo">
             <h3> Inforamazioni utili per contattare l'amministratore</h3>
         </div>
