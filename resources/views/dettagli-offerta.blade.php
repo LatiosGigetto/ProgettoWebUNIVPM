@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
-    
+
     @extends('header-footer')
-    
+
 <head>
     <meta charset="UTF-8">
     @section('title')
@@ -68,7 +68,7 @@
                    <strong>Descrizione offerta</strong>
                </div>
                <div class="bottoni">
-                   <button name="genera" id="genera">
+                   <button name="generaofferta" id="generaofferta">
                        genera
                    </button>
                    <button name="indietro" id="indietro">
