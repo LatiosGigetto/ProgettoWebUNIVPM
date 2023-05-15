@@ -5,28 +5,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html lang="it">
 
-@extends('header-footer')
+@extends('contenitore')
 
-<head>
+    <head>
     @section("title")
-        coupon_generato
+        Coupon
     @endsection
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/coupon-generato.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-</head>
+    </head>
 
-<body>
-@section('content')
-
-    <div id="contenitore_coupon_generato">
-        <div class="contenuto"> <!-- ho definito class perchè lavora facendo ereditare le sue proprietà css a tutti i suoi figli-->
+@section('contenuto')
+     
             <div>
                 <h2>Acquisto Verificato</h2>
                 <p> Il codice del tuo coupon è:
-                <br>
+                    <br>
                     XXX_XXX_XXX
                 </p>
                 <img class = logosito src="images/logosito.png" alt="Descrizione dell'immagine">
@@ -47,10 +43,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
-
-</body>
-
 @endsection
 </html>
