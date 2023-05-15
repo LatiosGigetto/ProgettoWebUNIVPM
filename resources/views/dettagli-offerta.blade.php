@@ -1,87 +1,36 @@
 <!DOCTYPE html>
 <html lang="it">
 
-    @extends('header-footer')
+    @extends('contenitore')
 
 <head>
-    <meta charset="UTF-8">
     @section('title')
-        Dettagli offerta
+        dettagli offerta
     @endsection
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-
-        .row {
-            display: flex;
-            justify-content: center;
-        }
-
-        .center {
-            text-align: center;
-            font-size: 20px;
-        }
-
-        .testoconlink  {
-            margin-top: 40px;
-        }
-
-        .testosenzalink {
-            margin-top: 40px;
-        }
-        .bottoni {
-            margin-top: 40px;
-        }
-
-
-
-
-
-
-    </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+    @section("contenuto")
+        <div>
+                <img id = "logosito" src="images/logosito.png" alt="Descrizione dell'immagine">
+                <div>
+                    <a href="linkdaseguire">Nome azienda</a>
 
-@section('content')
-<body>
-
-<div style="display: flex">
-
-
-
-
-
-    <div class="spazio_blocco">
-        <!-- i seguenti due div servono per allineare i contenuti al centro esclusivamente in orizzontale -->
-        <div class="row">
-            <div class="center">
-               <img id = logosito src="images/logosito.png" alt="Descrizione dell'immagine">
-
-               <div class="testoconlink">
-                   <a href="linkdaseguire">Nome azienda</a>
-               </div>
-               <div class="testosenzalink">
-                   <strong>Descrizione offerta</strong>
-               </div>
-               <div class="bottoni">
-                   <button name="generaofferta" id="generaofferta">
-                       genera
-                   </button>
-                   <button name="indietro" id="indietro">
-                       torna indietro
-                   </button>
-               </div>
-            </div>
+                </div>
+                <br>
+                <div>
+                <strong>Descrizione offerta</strong>
+                    <br>
+                </div>
+                <br>
+                <div>
+                <button name="generaofferta" id="generaofferta" >
+                    genera
+                </button>
+                <button name="indietro" id="indietro">
+                    torna indietro
+                </button>
+                </div>
         </div>
-
-    </div>
-
-
-
-
-
-
-
-</div>
-</body>
-
-@endsection
+    @endsection
 </html>

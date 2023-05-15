@@ -4,11 +4,11 @@
     width: 50%;
     border: 1px solid;
     margin: auto;
-    padding-left:10px;
     text-align:center;
     display: flex;/*dispone gli elementi*/
     flex-direction: column;/*dispone gli elementi in colonna*/
     justify-content: center;/*posiziona gli elementi al centro*/
+    align-items: center;
 }
 /* deprecato
 #contenuto{
