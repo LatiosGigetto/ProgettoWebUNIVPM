@@ -1,0 +1,23 @@
+
+#contenitore_contatti{
+    min-height: 70vh;
+    width: 50%;
+    border: 1px solid;
+    margin: auto;
+    padding-left:10px;
+    text-align:center;
+    display: flex;
+    align-items: center;/*allinea i sui elementi al centro*/
+}
+#contenuto{
+    margin:auto;
+}
+
+#contatti{
+    grid-row: 2;
+    text-align: center;
+    align-items: center; /* posiziona le stringhe al centro come un unico elemento*/
+    margin: auto;
+
+
+}
