@@ -11,17 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
     @section("contenuto")
-        <div>
+                <!--TODO padding-->
+                <h2>Dettagli</h2>
                 <img id = "logosito" src="images/logosito.png" alt="Descrizione dell'immagine">
-                <div>
-                    <a href="linkdaseguire">Nome azienda</a>
-
-                </div>
+                <a href="linkdaseguire">Nome azienda</a>
                 <br>
-                <div>
+
                 <strong>Descrizione offerta</strong>
-                    <br>
-                </div>
                 <br>
                 <div>
                 <button name="generaofferta" id="generaofferta" >
@@ -31,6 +27,5 @@
                     torna indietro
                 </button>
                 </div>
-        </div>
     @endsection
 </html>

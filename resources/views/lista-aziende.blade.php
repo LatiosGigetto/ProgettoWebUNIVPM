@@ -6,39 +6,30 @@
 
 <head>
     <meta charset="UTF-8">
-    @section("title")
-        Lista aziende
-    @endsection
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/aziende.css">
+@section("title")
+    Lista aziende
+@endsection
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<!--TODO da finire-->
 @section('content')
-    <div style="min-height: 50vh">
-        <div class="spazio_blocco">
-            <div class="blocco_offerta">
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="titolo_azienda">Azienda 1</h3>
-                    <p class="paragraph">Dati azienda</p>
-                </div>
-            </div>
-            <div class="blocco_offerta">
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="titolo_azienda">Azienda 2</h3>
-                    <p class="paragraph">Dati azienda</p>
-                </div>
-            </div>
-            <div class="blocco_offerta">
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="titolo_azienda">Azienda 3</h3>
-                    <p class="paragraph">Dati azienda</p>
-                </div>
-            </div>
-        </div>
+    <div style="border:1px solid black">
+        <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+        <h3>Azienda 1</h3>
+        <p>Dati azienda</p>
     </div>
-</body>
+    <div style="border:1px solid black">
+        <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+        <h3>Azienda 1</h3>
+        <p>Dati azienda</p>
+
+    </div>
+
+    <div style="border:1px solid black">
+        <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp">
+        <h3>Azienda 1</h3>
+        <p>Dati azienda</p>
+    </div>
 @endsection

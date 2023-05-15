@@ -18,21 +18,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
 
 @section('contenuto')
-     
-            <div>
+
+
                 <h2>Acquisto Verificato</h2>
-                <p> Il codice del tuo coupon è:
-                    <br>
+                <p>Il codice del tuo coupon è:
+                <br>
                     XXX_XXX_XXX
                 </p>
                 <img class = logosito src="images/logosito.png" alt="Descrizione dell'immagine">
-                <div>
-                    <a href="linkdaseguire">Coupon generato</a>
-                </div>
+                <a href="linkdaseguire">Coupon generato</a>
                 <br>
-                <div>
-                    <strong>Descrizione offerta</strong>
-                </div>
+                <strong>Descrizione offerta</strong>
                 <br>
                 <div>
                     <button name="genera" id="genera">
@@ -42,6 +38,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         riepilogo acquisti
                     </button>
                 </div>
-            </div>
+
 @endsection
 </html>
