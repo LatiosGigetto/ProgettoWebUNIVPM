@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html lang="it">
 <!--da rivedere: va centrato il blocco di testo-->
-@extends('header-footer')
+@extends('contenitore')
 
 <head>
     @section("title")
@@ -13,14 +13,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     @endsection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contatti.css">
 
 </head>
-
-<body>
-@section('content')
-
-    <div id="contenitore_contatti">
+        
+        @section("contenuto")
         <div id="contenuto">
             <h1 id="titolo_sezione">Contatti</h1>
             <h3> Informazioni utili per contattare l'amministratore</h3>
@@ -31,8 +27,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <p>Telefono: 1234567890</p>
             </address>
         </div>
-    </div>
-</body>
+        @endsection
 
-@endsection
 </html>
