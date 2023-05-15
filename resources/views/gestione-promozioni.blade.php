@@ -7,8 +7,9 @@
         Gestione Promozioni
     @endsection
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabelle.css">
     <style>
-        .image_logo{
+     /*   .image_logo{
             width: 20px;
             float: left;
             border: 1px solid red;
@@ -32,7 +33,7 @@
         }
 
 
-
+*/
 
 
     </style>

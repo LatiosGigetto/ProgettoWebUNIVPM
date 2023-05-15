@@ -7,13 +7,14 @@
 
     <meta charset="UTF-8">
     @section("title")
-    Gestione aziende
+        Gestione aziende
     @endsection
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabelle.css">
+
 
     <style>
 
-        .imgage_logo{
+     .imgage_logo{
             width: 20px;
             float: left;
             border: 1px solid red;
@@ -35,20 +36,17 @@
         th {
             background-color: #f2f2f2;
         }
-
     </style>
 
 </head>
 
 @section("content")
 
-<body>
+    <body>
 
-    <div class="spazio_header">
-        <h1>*spazio per l'header*</h1>
-    </div>
 
-    <div style="display: flex">
+
+
 
 
         <div class="spazio_blocco">
@@ -118,9 +116,9 @@
 
         </div>
 
-    </div>
 
-</body>
+
+    </body>
 
 @endsection
 
