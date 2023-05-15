@@ -6,7 +6,7 @@
     margin: auto;
     padding-left:10px;
     text-align:center;
-    display: flex;
+    display: flex;/*si adatta al contenuto*/
     align-items: center;/*allinea i sui elementi al centro*/
 }
 #contenuto{

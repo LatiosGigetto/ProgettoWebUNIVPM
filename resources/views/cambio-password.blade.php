@@ -20,13 +20,13 @@
             <label>Vecchia Password</label>
 
             <form name="vecchia_password" style="margin: 2%">
-                <input required>
+                <input type="password" required>
             </form>
 
             <label>Nuova Password</label>
 
             <form name="nuova_password" style="margin: 2%">
-                <input required>
+                <input type="password" required>
             </form>
 
             <button id="modifiedbutton" style="margin: 2%">
