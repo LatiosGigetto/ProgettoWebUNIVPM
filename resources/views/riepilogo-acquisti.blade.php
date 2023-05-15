@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     @endsection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/riepilogo_acquisti.css">
     <style>
             .h2{
                 text-align: center;
@@ -26,11 +26,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <body>
 @section('content')
 
-    <div class="riquadro2" style="flex-direction: column">
-        <h2 style="text-align: center">Riepilogo acquisti</h2>
-        <div class="lista_acquisti " style="border:1px solid">
-
+    <div id="contenitore_riepilogo_acquisti">
+        <h2>Riepilogo acquisti</h2>
+        <div id="tabella_riepilgo">
             <!--la tabella deve cambiare dinamicamente in base all'utente loggato-->
+            <!--questa è una prova fatta con due elementi fittizi-->
+            <!--TODO eliminare gli inline per l'immagine-->
             <table>
                 <tbody>
                 <tr>
@@ -49,7 +50,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <a href="Coupon1">Coupon1</a>
                     </td>
                 </tr>
-
                 </tbody>
             </table>
         </div>
