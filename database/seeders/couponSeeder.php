@@ -19,14 +19,14 @@ class couponSeeder extends Seeder
             
             // Seeding utenti
             
-            ['Username' => 'admin', 'Nome' => 'John', 'Cognome' => 'Doe', 'Livello' => 3, 'Mail' => 'test@provider.com',
-                'Password' => 'admin123', 'Età' => 35, 'Genere' => 'Maschio'],
-            ['Username' => 'utente1', 'Nome' => 'Mario', 'Cognome' => 'Rossi', 'Livello' => 1, 'Mail' => 'mariorossi@provider.com',
-                'Password' => 'mr99', 'Età' => 24, 'Genere' => 'Maschio'],
-            ['Username' => 'staff1', 'Nome' => 'Jane', 'Cognome' => 'Smith', 'Livello' => 2, 'Mail' => 'janesmith@provider.com',
-                'Password' => 'jane123', 'Età' => 30, 'Genere' => 'Femmina'],
-            ['Username' => 'staff2', 'Nome' => 'Gloria', 'Cognome' => 'Bianchi', 'Livello' => 2, 'Mail' => 'gbianchi95@provider.com',
-                'Password' => 'vivalavida', 'Età' => 28, 'Genere' => 'Femmina']
+            ['Username' => 'admin', 'Nome' => 'John', 'Cognome' => 'Doe', 'Livello' => 3, 
+                'Mail' => 'test@provider.com','Telefono' => '1234567890','Password' => 'admin123', 'Età' => 35, 'Genere' => 'Maschio'],
+            ['Username' => 'utente1', 'Nome' => 'Mario', 'Cognome' => 'Rossi', 'Livello' => 1, 
+                'Mail' => 'mariorossi@provider.com','Telefono' => '3322334445','Password' => 'mr99', 'Età' => 24, 'Genere' => 'Maschio'],
+            ['Username' => 'staff1', 'Nome' => 'Jane', 'Cognome' => 'Smith', 'Livello' => 2, 
+                'Mail' => 'janesmith@provider.com','Telefono' => '3333333333','Password' => 'jane123', 'Età' => 30, 'Genere' => 'Femmina'],
+            ['Username' => 'staff2', 'Nome' => 'Gloria', 'Cognome' => 'Bianchi', 'Livello' => 2, 
+                'Mail' => 'gbianchi95@provider.com','Telefono' => '3391234567', 'Password' => 'vivalavida', 'Età' => 28, 'Genere' => 'Femmina']
         ]);
         
         DB::table('azienda')->insert([

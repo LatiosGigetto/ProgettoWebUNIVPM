@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Mag 13, 2023 alle 11:39
+-- Host: localhost
+-- Creato il: Mag 15, 2023 alle 09:40
 -- Versione del server: 10.4.28-MariaDB
--- Versione PHP: 8.0.28
+-- Versione PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel`
+-- Database: `coupon`
 --
 
 -- --------------------------------------------------------
@@ -88,10 +88,6 @@ CREATE TABLE `offerta` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `personal_access_tokens`
---
-
---
 -- Struttura della tabella `utente`
 --
 
@@ -100,6 +96,7 @@ CREATE TABLE `utente` (
   `Nome` varchar(30) NOT NULL,
   `Cognome` varchar(30) NOT NULL,
   `Livello` enum('1','2','3') NOT NULL,
+  `Telefono` varchar(10) NOT NULL,
   `Mail` varchar(30) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Età` tinyint(3) UNSIGNED NOT NULL,
@@ -167,24 +164,6 @@ ALTER TABLE `faq`
   MODIFY `Id_Domanda` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT per la tabella `offerta`
---
-ALTER TABLE `offerta`
-  MODIFY `Id_Offerta` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- Limiti per le tabelle scaricate
 --
 
@@ -192,21 +171,21 @@ ALTER TABLE `personal_access_tokens`
 -- Limiti per la tabella `coupon`
 --
 ALTER TABLE `coupon`
-  ADD CONSTRAINT `ref_offerta` FOREIGN KEY (`Id_Offerta`) REFERENCES `offerta` (`Id_Offerta`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ref_username_coupon` FOREIGN KEY (`UsernameUtente`) REFERENCES `utente` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `red_OffertaCoupon` FOREIGN KEY (`Id_Offerta`) REFERENCES `offerta` (`Id_Offerta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `red_UsernameCoupon` FOREIGN KEY (`UsernameUtente`) REFERENCES `utente` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `gestoriaziende`
 --
 ALTER TABLE `gestoriaziende`
-  ADD CONSTRAINT `ref_Id_Azienda` FOREIGN KEY (`Id_Azienda`) REFERENCES `azienda` (`Id_Azienda`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ref_username` FOREIGN KEY (`UsernameUtente`) REFERENCES `utente` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ref_AziendaGestione` FOREIGN KEY (`Id_Azienda`) REFERENCES `azienda` (`Id_Azienda`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ref_UtenteGestione` FOREIGN KEY (`UsernameUtente`) REFERENCES `utente` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `offerta`
 --
 ALTER TABLE `offerta`
-  ADD CONSTRAINT `ref_Id_azienda_offerta` FOREIGN KEY (`Id_Azienda`) REFERENCES `azienda` (`Id_Azienda`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `ref_OffertaAzienda` FOREIGN KEY (`Id_Azienda`) REFERENCES `azienda` (`Id_Azienda`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
