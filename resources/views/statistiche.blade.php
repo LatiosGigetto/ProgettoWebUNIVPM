@@ -10,9 +10,10 @@
         Statistiche
     @endsection
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabelle.css">
 
     <style>
-     .margine {
+    /* .margine {
          margin-top:50px;
      }
      table {
@@ -43,7 +44,7 @@
 -->
 
 <h1>Statistiche</h1>
-<div class="margine"> <strong>numero totale coupone emessi: </strong></div>
+<div class="marginestats"> <strong>numero totale coupone emessi: </strong></div>
 
 <div class="margine"><strong>lista coupon</strong></div>
 <div class="margine">

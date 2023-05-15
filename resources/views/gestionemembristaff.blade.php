@@ -9,11 +9,11 @@
     @section("title")
         Gestione aziende
     @endsection
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tabelle.css">
 
     <style>
 
-        .imgage_logo{
+     /*   .imgage_logo{
             width: 20px;
             float: left;
             border: 1px solid red;
@@ -34,7 +34,7 @@
 
         th {
             background-color: #f2f2f2;
-        }
+        } */
 
     </style>
 
@@ -48,7 +48,7 @@
 
 
         <div class="spazio_blocco">
-
+            <h1>Gestione membri dello staff</h1>
             <table>
                 <thead>
                 <tr>
