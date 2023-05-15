@@ -45,10 +45,7 @@
     <body>
 
 
-    <div style="display: flex">
-        <div class="spazio_barra_laterale">
-            *spazio per la barra laterale*
-        </div>
+
 
         <div class="spazio_blocco">
 
@@ -102,7 +99,7 @@
                     </td>
                 </tr>
                 <td colspan="4" >
-                    <button name="aggiungimembrostaff"  id=aggiungimembrostaff style="margin-left: 250px" >Clicca per aggiungere un membro dello staff</button>
+                    <button name="aggiungimembrostaff"  id=aggiungimembrostaff style="margin-left: 600px" >Clicca per aggiungere un membro dello staff</button>
                 </td>
 
                 </tbody>

@@ -10,11 +10,7 @@
     @endsection
     <link rel="stylesheet" href="css/style.css">
     <style>
-        logosito {
-            width: 150px;
-            height: 150px;
 
-        }
         .row {
             display: flex;
             justify-content: center;
@@ -48,9 +44,7 @@
 <body>
 
 <div style="display: flex">
-    <div class="spazio_barra_laterale">
-        *spazio per la barra laterale*
-    </div>
+
 
 
 
@@ -72,7 +66,7 @@
                        genera
                    </button>
                    <button name="indietro" id="indietro">
-                       torna indietr
+                       torna indietro
                    </button>
                </div>
             </div>

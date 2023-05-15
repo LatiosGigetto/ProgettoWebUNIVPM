@@ -40,10 +40,6 @@
 <body>
 @section('content')
 
-<div style="display: flex">
-    <div class="spazio_barra_laterale">
-        *spazio per la barra laterale*
-    </div>
 
 
 
@@ -68,10 +64,10 @@
                 <td>02-02-2024</td>
                 <td>Fano</td>
                 <td>
-                    <button>Clicca qui</button>
+                    <button name="mod prom1" id="mod prom1">Modifica</button>
                 </td>
                 <td>
-                    <button>Clicca qui</button>
+                    <button name="el prom1" id="el prom1">Elimina</button>
                 </td>
             </tr>
             <tr>
@@ -80,15 +76,15 @@
                 <td>04-04-2024</td>
                 <td>Ancona</td>
                 <td>
-                    <button>Clicca qui</button>
+                    <button name="mod prom2" id="mod prom2">Modifica</button>
                 </td>
                 <td>
-                    <button>Clicca qui</button>
+                    <button name="el prom2" id="el prom2">Elimina</button>
                 </td>
             </tr>
             <tr>
                 <td colspan="6" >
-                    <button style="margin-left: 530px" >Clicca per aggiungere una promozione</button>
+                    <button style="margin-left: 600px" >Clicca per aggiungere una promozione</button>
                 </td>
 
             </tr>

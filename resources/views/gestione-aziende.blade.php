@@ -49,9 +49,7 @@
     </div>
 
     <div style="display: flex">
-        <div class="spazio_barra_laterale">
-            *spazio per la barra laterale*
-        </div>
+
 
         <div class="spazio_blocco">
 
@@ -84,10 +82,10 @@
                     <td>Utensili da cucina</td>
                     <td>l'azienda si occupa di...</td>
                     <td>
-                        <button>Clicca qui</button>
+                        <button name="mod az1" id="mod az1">Modifica</button>
                     </td>
                     <td>
-                        <button>Clicca</button>
+                        <button name="elim az1" id="elim az1">Elimina</button>
                     </td>
                 </tr>
 
@@ -101,11 +99,17 @@
                     <td>Utensili da bagno</td>
                     <td>L'azienda fa</td>
                     <td>
-                        <button>Clicca qui</button>
+                        <button name="mod az2" id="mod az2">Modifica</button>
                     </td>
                     <td>
-                        <button>Clicca qui</button>
+                        <button name="el az2" id="el az2">Elimina</button>
                     </td>
+                </tr>
+                <tr>
+                    <td colspan="8" >
+                        <button name="add azienda"  id="add azienda" style="margin-left: 600px" >Clicca per aggiungere un azienda </button>
+                    </td>
+
                 </tr>
 
                 </tbody>
