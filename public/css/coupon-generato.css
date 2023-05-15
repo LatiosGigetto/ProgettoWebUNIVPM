@@ -1,5 +1,5 @@
-
-#contenitore_contatti{
+/*questo file come gli altri andranno alla fine accorpati in un unico file css*/
+#contenitore_coupon_generato{
     min-height: 70vh;
     width: 50%;
     border: 1px solid;
@@ -20,5 +20,3 @@
     align-items: center;
     margin: auto;
 }*/
-
-

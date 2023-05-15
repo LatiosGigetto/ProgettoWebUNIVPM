@@ -13,58 +13,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     @endsection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-        <style>
-            .row {
-                display: flex;
-                justify-content: center;
-            }
+    <link rel="stylesheet" href="css/coupon-generato.css">
 
-            .center {
-                text-align: center;
-            }
-
-            .testoconlink  {
-                margin-top: auto;
-            }
-
-            .testosenzalink {
-                margin-top: auto;
-            }
-            .bottoni {
-                margin-bottom: auto
-            }
-            .logosito {
-                width: 40%;
-                height: 40%;
-            }
-
-        </style>
 
 </head>
 
 <body>
 @section('content')
 
-    <div class="riquadro2">
-        <div class="row">
-            <div class="center">
+    <div id="contenitore_coupon_generato">
+        <div class="contenuto"> <!-- ho definito class perchè lavora facendo ereditare le sue proprietà css a tutti i suoi figli-->
+            <div>
                 <h2>Acquisto Verificato</h2>
                 <p> Il codice del tuo coupon è:
                 <br>
                     XXX_XXX_XXX
                 </p>
                 <img class = logosito src="images/logosito.png" alt="Descrizione dell'immagine">
-
-                <div class="testoconlink">
+                <div>
                     <a href="linkdaseguire">Coupon generato</a>
                 </div>
                 <br>
-                <div class="testosenzalink">
+                <div>
                     <strong>Descrizione offerta</strong>
                 </div>
                 <br>
-                <div class="bottoni">
+                <div>
                     <button name="genera" id="genera">
                         continua ad acquistare
                     </button>
