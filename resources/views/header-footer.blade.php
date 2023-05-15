@@ -60,7 +60,7 @@
             <div style='display: flex; align-items: flex-end'>
                 <nav>
                     <ul style="display: inline-flex; list-style-type: none; padding: 5px">
-                        <li><a href="#">Lista offerte</a> <span>|</span> </li>
+                        <li><a href="/catalogo">Lista offerte</a> <span>|</span> </li>
                         <li><a href="/lista-aziende">Lista aziende</a></li>
                     </ul>
                 </nav>
