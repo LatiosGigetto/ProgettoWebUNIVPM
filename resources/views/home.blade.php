@@ -14,38 +14,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-
-        .image_logo {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/home.css">
 
 </head>
 
 <body>
 @section('content')
-    <div class="riquadro1">
-        <h2 style="align-self: start">*contenuto introduttivo*</h2>
-        <img src="images/logosito.png" alt="questo è il logo del nostro sito" class="image_logo">
+    <div id="riquadro1">
+        <h2 id="contenuto_introduttivo">*contenuto introduttivo*</h2>
+        <img src="images/logosito.png" alt="questo è il logo del nostro sito" id="image_logo">
     </div>
 
-    <div class="titolo">
+    <div id="titolo">
         <strong>testo introduttivo del nostro sito</strong>
     </div>
 
-    <div class="riquadro2">
-        <div class="testo">
-            <h3 style="margin-left: 10px">Offerte del giorno</h3>
-        </div>
-        <img src="images/logosito.png" alt="queste sono le offerte del giorno" class="image_logo">
+    <div id="riquadro2">
+        <h3 id="testo">Offerte del giorno</h3>
+        <img src="images/logosito.png" alt="queste sono le offerte del giorno" id="image_logo">
     </div>
-
 </body>
-
 @endsection
+
 </html>

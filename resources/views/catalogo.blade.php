@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="it">
-
-    @extends('header-footer')
-
+@extends('header-footer')
 <head>
 
     <meta charset="UTF-8">
@@ -11,38 +9,12 @@
         Catlogo
     @endsection
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .imgage_logo{
-            height: 100%;
-            float: left;
-            border: 1px solid red;
-        }
-        h3{
-            text-align: center;
-            border: 1px solid blue;
-            align-self: start;
-            float: left;
-            margin-top: 0;
-            width: 100%;
-            margin-bottom: 0;
-        }
-        p{
-            border: 1px solid violet;
-            align-self: start;
-            width: 100%;
-            margin-top:0;
-            height: 100%;
-            margin-bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/catalogo.css">
 
 </head>
 
 <body>
 @section("content")
-
-
     <div style="display: flex">
 
         <div class="spazio_barra_laterale">
@@ -50,14 +22,13 @@
         </div>
 
         <div class="spazio_blocco">
-
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
                 <div class="spazio_contenuto">
-                    <h3>Azienda 1</h3>
-                    <p>Testo dell'offerta 1</p>
+                    <h3 id="nome_azienda">Azienda 1</h3>
+                    <p id="descrizione_offerta">Testo dell'offerta 1</p>
                 </div>
 
             </div>
@@ -66,10 +37,10 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
                 <div class="spazio_contenuto">
-                    <h3>Azienda 2</h3>
-                    <p>
+                    <h3 id="nome_azienda">Azienda 2</h3>
+                    <p id="descrizione_offerta">
                         Testo dell'offerta 2
                     </p>
                 </div>
@@ -80,23 +51,19 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="imgage_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
                 <div class="spazio_contenuto">
-                    <h3>Azienda 3</h3>
-                    <p>
+                    <h3 id="nome_azienda">Azienda 3</h3>
+                    <p id="descrizione_offerta">
                         Testo dell'offerta 3
                     </p>
                 </div>
 
             </div>
             <!-- Fine del blocco -->
-
         </div>
-
     </div>
-
 </body>
-
 @endsection
 
 </html>
