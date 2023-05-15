@@ -4,45 +4,9 @@
         
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/header-footer.css">
         
         <title>@yield('title')</title>
-
-        <style>
-
-        .logoheader {
-            height: 100px; 
-            width: 100px;  
-            margin: auto; 
-            margin-top: 1%
-        }
-
-        .authlist {
-            display: inline-flex; 
-            list-style-type: none;
-            padding: 0px
-        }
-
-        .header-footer {
-            background-color: #c603fc;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .contact-list {
-
-        list-style-type: none;
-        width: 100%; 
-        padding: 0;
-        margin: auto
-        }
-
-        span {
-        
-        margin: 2px
-        
-        }
-        
-        </style>
 
     </head>
 
