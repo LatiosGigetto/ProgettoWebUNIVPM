@@ -1,7 +1,7 @@
 
 #contenitore{
     min-height: 70vh;
-    width: 50%;
+    width: 60%;
     border: 1px solid;
     margin: auto;
     text-align:center;
@@ -9,6 +9,7 @@
     flex-direction: column;/*dispone gli elementi in colonna*/
     justify-content: center;/*posiziona gli elementi al centro*/
     align-items: center;
+    background-color: whitesmoke;
 }
 /* deprecato
 #contenuto{

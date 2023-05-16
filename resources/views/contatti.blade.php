@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     @endsection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>ph
+</head>
 
         @section("contenuto")
             <h1 id="titolo_sezione">Contatti</h1>
