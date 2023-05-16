@@ -1,15 +1,13 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
+namespace app\Models;
 
-/**
- * Description of GestoriAziende
- *
- * @author Oathbound
- */
-class GestoriAziende {
-    //put your code here
+use Illuminate\Database\Eloquent\Model;
+
+class GestoriAziende extends Model {
+
+    protected $table = 'products';
+    public $timestamps = false;
+
+    // TODO: aggiungere metodi utili
 }

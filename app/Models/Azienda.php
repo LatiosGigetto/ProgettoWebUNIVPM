@@ -1,15 +1,14 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
+namespace app\Models;
 
-/**
- * Description of Azienda
- *
- * @author Oathbound
- */
-class Azienda {
-    //put your code here
+use Illuminate\Database\Eloquent\Model;
+
+class Azienda extends Model {
+
+    protected $table = 'azienda';
+    protected $primaryKey = 'id_Azienda';
+    public $timestamps = false;
+
+    // TODO: inserire metodi utili
 }

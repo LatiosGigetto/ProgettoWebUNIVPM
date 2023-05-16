@@ -1,15 +1,19 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
+namespace app\Models;
 
-/**
- * Description of Offerta
- *
- * @author Oathbound
- */
-class Offerta {
-    //put your code here
+use Illuminate\Database\Eloquent\Model;
+
+class Offerta extends Model {
+
+    protected $table = 'offerta';
+    protected $primaryKey = 'id_Offerta';
+    public $timestamps = false;
+
+    // TODO: Aggiungere getter e altri metodi utili
+
+    public function offertaAzienda() {
+        return $this->hasOne(Azienda::class, 'Id_Azienda', 'id_Azienda');
+    }
+
 }

@@ -1,15 +1,22 @@
 <?php
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPClass.php to edit this template
- */
+namespace app\Models;
 
-/**
- * Description of FAQ
- *
- * @author Oathbound
- */
-class FAQ {
-    //put your code here
+use Illuminate\Database\Eloquent\Model;
+
+class FAQ extends Model {
+
+    protected $table = 'faq';
+    protected $primaryKey = 'Id_Domanda';
+
+    // TODO: aggiungere altri metodi utili
+    
+    public function getDomanda() {
+        return $this->Domanda;
+    }
+
+    public function getRisposta() {
+        return $this->Risposta;
+    }
+
 }
