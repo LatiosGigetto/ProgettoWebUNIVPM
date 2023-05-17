@@ -19,7 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
 @section('contenuto')
 
-
+<!--TODO: come in dettagli offerta-->
                 <h2>Acquisto Verificato</h2>
                 <p>Il codice del tuo coupon è:
                 <br>
