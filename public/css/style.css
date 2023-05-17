@@ -28,8 +28,7 @@
     border: 1px solid;
     height: 100px;
     text-align: center
-}
-
+}/*chiamato da catalogo*/
 .spazio_barra_laterale {
     border: 1px solid;
     width: 100px;
@@ -53,7 +52,49 @@
     flex-direction: column;
     width: 100%
 }
+.image_logo {
+    height: 100%;
+    float: left;
+    border: 1px solid red;
+}
 
+.nome_azienda {
+    text-align: center;
+    border: 1px solid blue;
+    align-self: start;
+    float: left;
+    margin-top: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.descrizione_offerta {
+    border: 1px solid violet;
+    align-self: start;
+    width: 100%;
+    margin-top:0;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+/*chiamato da catalogo*/
+/* chiamata da home*/
+#image_logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+#contenuto_introduttivo {
+    align-self: start;
+}
+
+#testo{
+    align-self: start;
+    width: 100%;
+    margin-left: 10px;
+}
+/*chiamato da home*/
 .profilo, .faq {
     min-height: 70vh;
     width: 80%;

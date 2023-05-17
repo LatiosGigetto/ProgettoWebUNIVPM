@@ -9,7 +9,6 @@
         Catlogo
     @endsection
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/catalogo.css">
 
 </head>
 
@@ -25,10 +24,10 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
                 <div class="spazio_contenuto">
-                    <h3 id="nome_azienda">Azienda 1</h3>
-                    <p id="descrizione_offerta">Testo dell'offerta 1</p>
+                    <h3 class="nome_azienda">Azienda 1</h3>
+                    <p class="descrizione_offerta">Testo dell'offerta 1</p>
                 </div>
 
             </div>
@@ -39,8 +38,8 @@
 
                 <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
                 <div class="spazio_contenuto">
-                    <h3 id="nome_azienda">Azienda 2</h3>
-                    <p id="descrizione_offerta">
+                    <h3 class="nome_azienda">Azienda 2</h3>
+                    <p class="descrizione_offerta">
                         Testo dell'offerta 2
                     </p>
                 </div>
@@ -53,8 +52,8 @@
 
                 <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
                 <div class="spazio_contenuto">
-                    <h3 id="nome_azienda">Azienda 3</h3>
-                    <p id="descrizione_offerta">
+                    <h3 class="nome_azienda">Azienda 3</h3>
+                    <p class="descrizione_offerta">
                         Testo dell'offerta 3
                     </p>
                 </div>

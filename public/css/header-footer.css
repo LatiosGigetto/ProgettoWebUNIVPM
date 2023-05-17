@@ -1,32 +1,32 @@
-        .logoheader {
-            height: 100px; 
-            width: 100px;  
-            margin: auto;                   /* Sono abbastanza sicuro che servano entrambe le defiziioni di margin per evitare */
-            margin-top: 1%                  /* sorprese simpatiche          */               
-        }
+.logoheader {
+    height: 100px;
+    width: 100px;
+    margin: auto;                   /* Sono abbastanza sicuro che servano entrambe le defiziioni di margin per evitare */
+    margin-top: 1%                  /* sorprese simpatiche          */
+}
 
-        .authlist {
-            display: inline-flex; 
-            list-style-type: none;
-            padding: 0px
-        }
+.authlist {
+    display: inline-flex;
+    list-style-type: none;
+    padding: 0px
+}
 
-        .header-footer {                     /* Proprietà applicabili sia all'header che al footer*/
-            background-color: #c603fc;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .contact-list {
+.header-footer {                     /* Proprietà applicabili sia all'header che al footer*/
+    background-color: #c603fc;
+    width: 100%;
+    text-align: center;
+}
 
-        list-style-type: none;   /* Rimozione puntini/numeri */
-        width: 100%; 
-        padding: 0;       /* Le ul hanno un padding default a lato, così lo si forza a 0 */
-        margin: auto
-        }
+.contact-list {
 
-        span {
-        
-        margin: 2px /* Serve per non lasciare i link della list attaccata */
-        
-        }
+list-style-type: none;   /* Rimozione puntini/numeri */
+width: 100%;
+padding: 0;       /* Le ul hanno un padding default a lato, così lo si forza a 0 */
+margin: auto
+}
+
+span {
+
+margin: 2px /* Serve per non lasciare i link della list attaccata */
+
+}
