@@ -12,11 +12,11 @@ table {
     width: 100%;
 }
 
-th, td {
+tr, td {
     border: 1px solid black;
     padding: 8px;
 }
 
-th {
-    background-color: #f2f2f2;
+tr {
+    background-color: grey;
 }

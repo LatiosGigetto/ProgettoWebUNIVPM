@@ -12,25 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tabelle.css">
 
-    <style>
-    /* .margine {
-         margin-top:50px;
-     }
-     table {
-         border-collapse: collapse;
-         width: 100%;
-     }
 
-     th, td {
-         border: 1px solid black;
-         padding: 8px;
-     }
-
-     th {
-         background-color: #f2f2f2;
-     }
-
-    </style>
 
 </head>
 
@@ -44,9 +26,11 @@
 -->
 
 <h1>Statistiche</h1>
+<div class="container" style="justify-content: start">
 <div class="marginestats"> <strong>numero totale coupone emessi: </strong></div>
 
 <div class="margine"><strong>lista coupon</strong></div>
+
 <div class="margine">
     <table>
         <tbody>
@@ -104,6 +88,7 @@
 
         </tbody>
     </table>
+</div>
 </div>
     </body>
 

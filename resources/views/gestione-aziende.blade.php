@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/tabelle.css">
 
 
-    <style>
+  <!--  <style>
 
      .imgage_logo{
             width: 20px;
@@ -34,10 +34,10 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: grey;
         }
     </style>
-
+  -->
 </head>
 
 @section("content")
