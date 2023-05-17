@@ -69,7 +69,7 @@
                     <td>Azienda 1</td>
                     <td>A1</td>
                     <td>
-                        <img src ="images/xampp_logo.png" alt="logo azienda" class="imgage_logo">
+                        <img src ="images/xampp_logo.png" alt="logo azienda" class="image_logo_2">
                     </td>
                     <td>Fano</td>
                     <td>Utensili da cucina</td>
@@ -86,7 +86,7 @@
                     <td>Azienda1</td>
                     <td>A2</td>
                     <td>
-                        <img src ="images/xampp_logo.png" alt="logo azienda" class="imgage_logo">
+                        <img src ="images/xampp_logo.png" alt="logo azienda" class="image_logo_2">
                     </td>
                     <td>Ascoli Piceno</td>
                     <td>Utensili da bagno</td>
