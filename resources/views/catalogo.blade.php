@@ -24,7 +24,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo_1">
                 <div class="spazio_contenuto">
                     <h3 class="nome_azienda">Azienda 1</h3>
                     <p class="descrizione_offerta">Testo dell'offerta 1</p>
@@ -36,7 +36,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo_2">
                 <div class="spazio_contenuto">
                     <h3 class="nome_azienda">Azienda 2</h3>
                     <p class="descrizione_offerta">
@@ -50,7 +50,7 @@
             <!-- Questo è il blocco di una singola offerta -->
             <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
+                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo_2">
                 <div class="spazio_contenuto">
                     <h3 class="nome_azienda">Azienda 3</h3>
                     <p class="descrizione_offerta">

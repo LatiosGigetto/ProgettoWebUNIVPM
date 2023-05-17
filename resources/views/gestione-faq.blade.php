@@ -10,7 +10,7 @@
 </head>
 <body>
 @section('content')
-    <div class="faq">
+    <div id="faq">
         <!-- Lo stile del form è da ripensare -->
         <form action="" style="margin: 10px;">
             <div style="display: flex">

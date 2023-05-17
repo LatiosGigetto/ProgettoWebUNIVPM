@@ -27,7 +27,7 @@
 
 <h1>Statistiche</h1>
 <div class="container" style="justify-content: start">
-<div class="marginestats"> <strong>numero totale coupone emessi: </strong></div>
+<div id="marginestats"> <strong>numero totale coupone emessi: </strong></div>
 
 <div class="margine"><strong>lista coupon</strong></div>
 
