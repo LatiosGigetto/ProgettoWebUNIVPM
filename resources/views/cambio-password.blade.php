@@ -15,7 +15,7 @@
 @section('content')
     <div style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
 
-        <p>Cambio Password</p>
+        <h2>Cambio Password</h2>
 
         <div>
             <label>Vecchia Password</label>

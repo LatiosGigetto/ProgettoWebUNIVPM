@@ -21,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 @section('content')
     <div id="riquadro1">
         <h2 id="contenuto_introduttivo">*contenuto introduttivo*</h2>
-        <img src="images/logosito.png" alt="questo è il logo del nostro sito" class="image_logo_2">
+        <img src="images/logosito.png" alt="questo è il logo del nostro sito" id="image_logo">
     </div>
 
     <div id="titolo">
@@ -30,7 +30,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
     <div id="riquadro2">
         <h3 id="testo">Offerte del giorno</h3>
-        <img src="images/logosito.png" alt="queste sono le offerte del giorno" class="image_logo_2">
+        <img src="images/logosito.png" alt="queste sono le offerte del giorno" id="image_logo">
     </div>
 </body>
 @endsection
