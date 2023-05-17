@@ -16,7 +16,7 @@
 <body>
 @section('content')
 
-    <div class="container" style="justify-content: start">
+    <div class="container text-center" style="justify-content: start; padding: 100px">
       <h1>Eliminazione Utente</h1>
       <table>
           <thead>

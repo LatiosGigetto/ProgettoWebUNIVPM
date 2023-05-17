@@ -15,12 +15,12 @@
 <body>
 @section("content")
   <div class="container mt-1" style="justify-content: start">
-    <h1>Catalogo Offerte</h1>
+    <h1 class="text-center">Catalogo Offerte</h1>
 
       <div class="container text-center">
           <div class="row">
               <div class="col">
-                  <div class="card" style="width: 10rem;">
+                  <div class="card" style="width: 18rem;">
                       <img src="images/xampp_logo.png" class="card-img-top" alt="...">
                       <div class="card-body">
                           <h5 class="card-title">Offerta 1</h5>
@@ -30,7 +30,7 @@
                   </div>
               </div>
               <div class="col">
-                  <div class="card" style="width: 10rem;">
+                  <div class="card" style="width: 18rem;">
                       <img src="images/xampp_logo.png" class="card-img-top" alt="...">
                       <div class="card-body">
                           <h5 class="card-title">Offerta 2</h5>
@@ -40,7 +40,7 @@
                   </div>
               </div>
               <div class="col">
-                  <div class="card" style="width: 10rem;">
+                  <div class="card" style="width: 18rem;">
                       <img src="images/xampp_logo.png" class="card-img-top" alt="...">
                       <div class="card-body">
                           <h5 class="card-title">Offerta 3</h5>
