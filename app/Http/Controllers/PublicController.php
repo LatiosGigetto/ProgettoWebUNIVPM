@@ -22,7 +22,7 @@ class PublicController extends Controller {
     
     // Funzione per prendere e paginare la lista offerte
     
-    public function showOfferteList() {
+    public function showOfferteByAzienda($azienda) {
         
         $offerte = Offerta::paginate(10);
         
