@@ -37,12 +37,12 @@
                         <a class="stile_header_footer" href="/catalogo">Catalogo Offerte</a>
                     </li>
                     <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                        <a class="stile_header_footer" href="/lista-aziende">Lista Offerte </a>
+                        <a class="stile_header_footer" href="/lista-aziende">Lista Aziende </a>
                     </li>
                 </ul>
             </div>
             <div>
-                <p>Non sei registro(?).</p>
+                <b>Non sei registro(?).</b>
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
                         <a class="stile_header_footer" href="/registrazione">Registrati</a>
