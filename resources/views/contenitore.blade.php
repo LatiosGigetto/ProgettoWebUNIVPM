@@ -2,7 +2,7 @@
 @extends("header-footer")
 
 <head>
-<link rel="stylesheet" href="css/contenitore.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <!-- Questo template funziona in maniera identica ad header-footer ma aggiunge   -->
@@ -10,7 +10,7 @@
 <!-- con il contenuto definito nella pagina estesa nella section "contenuto".    -->
 
 
-@section("content")             
+@section("content")
 <div id = "contenitore">
     @yield("contenuto")
 </div>

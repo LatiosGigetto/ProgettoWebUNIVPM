@@ -1,3 +1,52 @@
+/* TODO parte di aziende
+.image_logo{
+    height: 100%;
+    float: left;
+    border: 1px solid red;
+}
+
+.titolo_azienda{
+    text-align: center;
+    border: 1px solid blue;
+    align-self: start;
+    float: left;
+    margin-top: 0;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.paragraph{
+    border: 1px solid violet;
+    align-self: start;
+    width: 100%;
+    margin-top:0;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+#contenuto{
+    margin:auto;
+}
+
+#contatti{
+    grid-row: 2;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+*/
+
+/* TODO stili deprecati (molto probabile che li dovremo eliminare)
+.spazio_header {
+    border: 1px solid;
+    height: 100px;
+    text-align: center
+}
+
+ */
+
+
 #riquadro1 {
     width: 80%;
     height: 220px;
@@ -24,12 +73,8 @@
     padding-top: 50px;
 }
 
-.spazio_header {
-    border: 1px solid;
-    height: 100px;
-    text-align: center
-}/*chiamato da catalogo*/
-.spazio_barra_laterale {
+/*chiamato da catalogo*/
+#spazio_barra_laterale {
     border: 1px solid;
     width: 100px;
     height: 500px;
@@ -52,7 +97,7 @@
     flex-direction: column;
     width: 100%
 }
-.image_logo {
+.image_logo_1 {
     height: 100%;
     float: left;
     border: 1px solid red;
@@ -79,7 +124,7 @@
 
 /*chiamato da catalogo*/
 /* chiamata da home*/
-#image_logo {
+.image_logo_2 {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -95,7 +140,7 @@
     margin-left: 10px;
 }
 /*chiamato da home*/
-.profilo, .faq {
+.profilo, #faq {
     min-height: 70vh;
     width: 80%;
     border: 1px solid;
@@ -103,6 +148,19 @@
     padding-left: 10px
 }
 
-.marginestats {
+#marginestats {
     margin-top:50px;
+}
+
+#contenitore{
+    min-height: 70vh;
+    width: 60%;
+    border: 1px solid;
+    margin: auto;
+    text-align:center;
+    display: flex;/*dispone gli elementi*/
+    flex-direction: column;/*dispone gli elementi in colonna*/
+    justify-content: center;/*posiziona gli elementi al centro*/
+    align-items: center;
+    background-color: whitesmoke;
 }
