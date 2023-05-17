@@ -44,11 +44,6 @@
 
     <body>
 
-
-
-
-
-
         <div class="spazio_blocco">
 
             <h1>gestione aziende</h1>
