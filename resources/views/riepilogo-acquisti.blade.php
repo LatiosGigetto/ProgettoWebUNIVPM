@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html lang="it">
 
-@extends('contenitore')
+@extends('header-footer')
 
 <head>
     @section("title")
@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </head>
 
 <body>
-@section('contenuto')
+@section('content')
 
     <h2 style="text-align: center">Riepilogo acquisti</h2>
     <div id="tabella_riepilgo">
