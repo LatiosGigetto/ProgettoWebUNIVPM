@@ -19,80 +19,62 @@
 @section("content")
 
     <body>
-    <!--
-        <div class="spazio_barra_laterale">
-            *spazio per la barra laterale*
-        </div>
-    -->
-
     <h1>Statistiche</h1>
-        <div style="padding: 50px">
-            <div>
-                <strong>numero totale coupone emessi: </strong>
+    <h3>Numero totale coupon emessi:</h3>
+    <h5>Lista coupon</h5>
+    <div class="container" style="margin-left: 0; padding-left: 0">
+        <div class="row">
+            <div class="col col-2">
+                <p>Promozione 1</p>
             </div>
-            <div style="margin-top: 10px"></div>
-                <strong>lista coupon</strong>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td>Promozione 1</td>
-                        <td>
-                            <button name="vediprom1" id="vediprom1">vedi numero coupon</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Promozione 2</td>
-                        <td>
-                            <button name="vediprom2" id="vediprom2">vedi numero coupon</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Promozione 3</td>
-                        <td>
-                            <button name="vediprom3" id="vediprom3">vedi numero coupon</button>
-                        </td>
-
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="col">
+                <button name="vediprom1" id="vediprom1">vedi numero coupon</button>
             </div>
         </div>
-    <div style="padding: 50px">
-        <div>
-            <strong>numero totale coupone emessi: </strong>
+        <div class="row">
+            <div class="col col-2">
+                <p>Promozione 2</p>
+            </div>
+            <div class="col">
+                <button name="vediprom2" id="vediprom2">vedi numero coupon</button>
+            </div>
         </div>
-        <div style="margin-top: 10px"></div>
-        <strong>lista coupon</strong>
-        <table>
-            <tbody>
-            <tr>
-                <td>Cliente 1</td>
-                <td>
-                    <button name="vediprom1" id="vediprom1">vedi numero coupon</button>
-                </td>
-
-            </tr>
-            <tr>
-                <td>Cliente 2</td>
-                <td>
-                    <button name="vediprom2" id="vediprom2">vedi numero coupon</button>
-                </td>
-
-            </tr>
-            <tr>
-                <td>CLiente 3</td>
-                <td>
-                    <button name="vediprom3" id="vediprom3">vedi numero coupon</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col col-2">
+                <p>Promozione 3</p>
+            </div>
+            <div class="col">
+                <button name="vediprom3" id="vediprom3">vedi numero coupon</button>
+            </div>
+        </div>
     </div>
+    <h5>Lista clienti</h5>
+    <div class="container" style="margin-left: 0; padding-left: 0">
+        <div class="row">
+            <div class="col col-2">
+                Cliente 1
+            </div>
+            <div class="col">
+                <button name="vedicli1" id="vedicli1">vedi numero coupon</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2">
+                Cliente 2
+            </div>
+            <div class="col">
+                <button name="vedicli2" id="vedicli2">vedi numero coupon</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2">
+                Cliente 3
+            </div>
+            <div class="col">
+                <button name="vedicli3" id="vedicli3">vedi numero coupon</button>
+            </div>
+        </div>
     </div>
     </body>
-
 @endsection
-
 </html>
