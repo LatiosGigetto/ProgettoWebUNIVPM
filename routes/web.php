@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PublicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/testPag', [PublicController::class, 'showAziendeList']);
+
 Route::get('/{param}', function ($param) {
     return view($param);
 });
+
