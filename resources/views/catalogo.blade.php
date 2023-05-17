@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     @section("title")
-        Catlogo
+        Catalogo
     @endsection
     <link rel="stylesheet" href="css/style.css">
 
@@ -14,54 +14,62 @@
 
 <body>
 @section("content")
-    <div style="display: flex">
+  <div class="container mt-1" style="justify-content: start">
+    <h1>Catalogo Offerte</h1>
 
-        <div class="spazio_barra_laterale">
-            *spazio per la barra laterale*
-        </div>
+      <div class="container text-center">
+          <div class="row">
+              <div class="col">
+                  <div class="card" style="width: 10rem;">
+                      <img src="images/xampp_logo.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Offerta 1</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Genera coupon</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="card" style="width: 10rem;">
+                      <img src="images/xampp_logo.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Offerta 2</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Genera coupon</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="card" style="width: 10rem;">
+                      <img src="images/xampp_logo.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Offerta 3</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Genera coupon</a>
+                      </div>
+                  </div>
+              </div>
+      </div>
 
-        <div class="spazio_blocco">
-            <!-- Questo è il blocco di una singola offerta -->
-            <div class="blocco_offerta">
+  </div>
+  </div>
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" class="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="nome_azienda">Azienda 1</h3>
-                    <p class="descrizione_offerta">Testo dell'offerta 1</p>
-                </div>
 
-            </div>
-            <!-- Fine del blocco -->
 
-            <!-- Questo è il blocco di una singola offerta -->
-            <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="nome_azienda">Azienda 2</h3>
-                    <p class="descrizione_offerta">
-                        Testo dell'offerta 2
-                    </p>
-                </div>
 
-            </div>
-            <!-- Fine del blocco -->
 
-            <!-- Questo è il blocco di una singola offerta -->
-            <div class="blocco_offerta">
 
-                <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp" id="image_logo">
-                <div class="spazio_contenuto">
-                    <h3 class="nome_azienda">Azienda 3</h3>
-                    <p class="descrizione_offerta">
-                        Testo dell'offerta 3
-                    </p>
-                </div>
 
-            </div>
-            <!-- Fine del blocco -->
-        </div>
-    </div>
+
+
+
+
+
+
+
+
+
 </body>
 @endsection
 
