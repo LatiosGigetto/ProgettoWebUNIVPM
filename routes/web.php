@@ -19,9 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/testPag', [PublicController::class, 'showAziendeList']);
+Route::get('/testDB', [PublicController::class, 'showAziendeList']);
 
 Route::get('/{param}', function ($param) {
     return view($param);
 });
-

@@ -19,7 +19,7 @@ class PublicController extends Controller {
 
         $aziende = Azienda::paginate(10);
 
-        return view('testPaginazione')->with('aziende', $aziende);
+        return view('lista-aziende')->with('aziende', $aziende);
     }
 
     // Funzione per prendere e paginare la lista offerte dato il nome di un azienda
