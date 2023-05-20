@@ -41,17 +41,31 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <b>Non sei registro(?).</b>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                        <a class="stile_header_footer" href="/registrazione">Registrati</a>
-                    </li>
-                    <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                        <a class="stile_header_footer" href="/login">Login</a>
-                    </li>
-                </ul>
-            </div>
+            @auth
+                <div>
+                    <b>Benvenuto, {{Auth::user()->username}}.</b>
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
+                            <a class="stile_header_footer" href="/registrazione">Registrati</a>
+                        </li>
+                        <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
+                            <a class="stile_header_footer" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <div>
+                    <b>Non sei registrato(?).</b>
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
+                            <a class="stile_header_footer" href="/registrazione">Registrati</a>
+                        </li>
+                        <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
+                            <a class="stile_header_footer" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            @endif
         </div>
 
     </nav>

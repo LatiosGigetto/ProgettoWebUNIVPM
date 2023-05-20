@@ -14,13 +14,13 @@ use Illuminate\Validation\Rules;
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * chiama la vista
      *
      * @return \Illuminate\View\View
      */
     public function create()
     {
-        return view('auth.register');
+        return view('auth.registrazione');
     }
 
     /**
@@ -32,21 +32,27 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
-    {
+    {   // definisco le regole per i parametri
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'nome' => ['required', 'string', 'max:30'],
+            'cognome' => ['required', 'string', 'max:30'],
+            'email' => ['required', 'string', 'email', 'max:30'],
+            'username' => ['required', 'string', 'unique:utente', 'max:30'],
+            'password' => ['required', 'max:255', Rules\Password::defaults()],
+            'telefono' => ['required', 'string','max:10'],
+            'età' => ['required', 'integer','max:999']
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'surname' => $request->surname,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'Nome' => $request->nome,
+            'Cognome' => $request->cognome,
+            'Mail' => $request->email,
+            'Username' => $request->username,
+            'Password' => Hash::make($request->password),
+            'Telefono' => $request->telefono,
+            'Età' => $request->età,
+            'Genere' => $request->genere
+
         ]);
 
         event(new Registered($user));

@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+        $this->loadRoutesFrom(base_path(path: 'routes/auth.php'));
     }
 
     /**
