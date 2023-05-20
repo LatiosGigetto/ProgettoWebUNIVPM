@@ -18,9 +18,11 @@ use App\Http\Controllers\PublicController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('home', function () {
+    return view('home');
+});
 Route::get('/testDB', [PublicController::class, 'showAziendeList']);
 
-Route::get('/{param}', function ($param) {
+/*Route::get('/{param}', function ($param) {
     return view($param);
-});
+});*/
