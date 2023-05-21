@@ -44,7 +44,7 @@
             @auth
                     <div>
                         <p style="text-align: right; margin-right: 10px">
-                            <b>Ave, {{Auth::user()->Username}}.</b>
+                            <b>Benvenuto, {{Auth::user()->username}}.</b>
                         </p>
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">

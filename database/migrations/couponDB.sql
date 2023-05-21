@@ -92,13 +92,13 @@ CREATE TABLE `offerta` (
 --
 
 CREATE TABLE `utente` (
-  `Username` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `Nome` varchar(30) NOT NULL,
   `Cognome` varchar(30) NOT NULL,
-  `Livello` enum('1','2','3') NOT NULL,
+  `Livello` enum('1','2','3') NOT NULL DEFAILT '1',
   `Telefono` varchar(10) NOT NULL,
   `Mail` varchar(30) NOT NULL,
-  `Password` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `Età` tinyint(3) UNSIGNED NOT NULL,
   `Genere` enum('Maschio','Femmina') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

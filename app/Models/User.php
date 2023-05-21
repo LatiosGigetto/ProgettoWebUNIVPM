@@ -24,9 +24,9 @@ class User extends Authenticatable
     protected $fillable = [
         'Nome',
         'Mail',
-        'Password',
+        'password',
         'Cognome',
-        'Username',
+        'username',
         'Telefono',
         'Età',
         'Genere'
@@ -38,8 +38,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     /**
@@ -51,7 +50,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $primaryKey = 'Username';
+    protected $primaryKey = 'username';
     public $incrementing = false;
 
 }

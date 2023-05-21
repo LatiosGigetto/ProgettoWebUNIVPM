@@ -17,24 +17,23 @@
         <div style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
             <p>Inserisci le tue credenziali d'accesso</p>
 
+            {{ Form::open(array('route' => 'login'))}}
             <div>
-                <label>Nome utente:</label>
+                <div  style="margin: 2%">
+                    {{ Form::label('username', 'Nome Utente') }}
+                    {{ Form::text('username', '') }}
+                </div>
 
-                <form name="username" style="margin: 2%">
-                    <input>
-                </form>
+                <div  style="margin: 2%">
+                    {{ Form::label('password', 'Password') }}
+                    {{ Form::password('password') }}
+                </div>
 
-                <label>Password:</label>
+                <div style="margin: 2%">
+                    {{ Form::submit('Accedi') }}
+                </div>
 
-                <form name="password" style="margin: 2%">
-                    <input>
-                </form>
-
-                <button id="loginbutton" style="margin: 2%">
-                    Accedi
-                </button>
-
-
+                {{ Form::close() }}
             </div>
 
         </div>
