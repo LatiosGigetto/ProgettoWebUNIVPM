@@ -23,6 +23,10 @@ Route::get('home', function () {
 });
 Route::get('/testDB', [PublicController::class, 'showAziendeList']);
 
+
+
 /*Route::get('/{param}', function ($param) {
     return view($param);
 });*/
+
+require __DIR__.'/auth.php';

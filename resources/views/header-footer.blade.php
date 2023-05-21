@@ -43,13 +43,15 @@
             </div>
             @auth
                 <div>
-                    <b>Benvenuto, {{Auth::user()->username}}.</b>
+                    <p style="text-align: right; margin-right: 10px">
+                        <b>Ave, {{Auth::user()->Username}}.</b>
+                    </p>
                     <ul class="list-group list-group-horizontal">
                         <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                            <a class="stile_header_footer" href="/registrazione">Registrati</a>
+                            <a class="stile_header_footer" href="/logout">Logout</a>
                         </li>
                         <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                            <a class="stile_header_footer" href="/login">Login</a>
+                            <a class="stile_header_footer" href="/login">Profilo</a>
                         </li>
                     </ul>
                 </div>

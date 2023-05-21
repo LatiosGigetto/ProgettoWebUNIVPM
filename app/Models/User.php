@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
 
     protected $table = 'utente';
+
     public $timestamps = false;
     protected $fillable = [
         'Nome',
@@ -49,5 +50,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $primaryKey = 'Username';
+    public $incrementing = false;
 
 }
