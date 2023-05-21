@@ -95,7 +95,7 @@ CREATE TABLE `utente` (
   `username` varchar(30) NOT NULL,
   `Nome` varchar(30) NOT NULL,
   `Cognome` varchar(30) NOT NULL,
-  `Livello` enum('1','2','3') NOT NULL DEFAILT '1',
+  `Livello` enum('1','2','3') NOT NULL DEFAULT '1',
   `Telefono` varchar(10) NOT NULL,
   `Mail` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
