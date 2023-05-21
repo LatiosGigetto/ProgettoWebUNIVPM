@@ -11,15 +11,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
-class RegisteredUserController extends Controller
-{
+class RegisteredUserController extends Controller {
+
     /**
      * chiama la vista
      *
      * @return \Illuminate\View\View
      */
-    public function create()
-    {
+    public function create() {
         return view('auth.registrazione');
     }
 
@@ -31,28 +30,29 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
-    {   // definisco le regole per i parametri
+    public function store(Request $request) {   
+    
+    // definisco le regole per i parametri
+        
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:30'],
             'username' => ['required', 'string', 'unique:utente', 'max:30'],
             'password' => ['required', 'max:255', Rules\Password::defaults()],
-            'telefono' => ['required', 'string','max:10'],
-            'età' => ['required', 'integer','max:999']
+            'telefono' => ['required', 'string', 'max:10'],
+            'età' => ['required', 'integer', 'max:999']
         ]);
 
         $user = User::create([
-            'Nome' => $request->nome,
-            'Cognome' => $request->cognome,
-            'Mail' => $request->email,
-            'Username' => $request->username,
-            'Password' => Hash::make($request->password),
-            'Telefono' => $request->telefono,
-            'Età' => $request->età,
-            'Genere' => $request->genere
-
+                    'Nome' => $request->nome,
+                    'Cognome' => $request->cognome,
+                    'Mail' => $request->email,
+                    'Username' => $request->username,
+                    'Password' => Hash::make($request->password),
+                    'Telefono' => $request->telefono,
+                    'Età' => $request->età,
+                    'Genere' => $request->genere
         ]);
 
         event(new Registered($user));
@@ -61,4 +61,5 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
 }
