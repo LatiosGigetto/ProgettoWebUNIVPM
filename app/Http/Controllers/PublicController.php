@@ -24,12 +24,18 @@ class PublicController extends Controller {
 
     // Funzione per prendere e paginare la lista offerte dato il nome di un azienda
 
-    public function showOfferteByAzienda($nomeAzienda) {
+   /* public function showOfferteByAzienda($nomeAzienda) {
 
         $offerte = $this->_offertaModel
                         ->getOfferteByAzienda($nomeAzienda)::paginate(10);
 
         return view('testPaginazione')->with('offerte', $offerte);
+    }*/
+
+    public function showOfferteList (){
+        $offerte=Offerta::paginate(10);
+        return view('catalogo')->with('offerte', $offerte);
     }
+
 
 }

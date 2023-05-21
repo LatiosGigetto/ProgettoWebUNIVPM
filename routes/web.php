@@ -21,10 +21,12 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home');
 });
-Route::get('/testDB', [PublicController::class, 'showAziendeList']);
-
-
-
+Route::get('/lista-aziende', [PublicController::class, 'showAziendeList']);
+Route::view("/faq","faq");
+Route::view("/contatti","contatti");
+Route::get("/catalogo" , [PublicController::class, 'showOfferteList']);
+Route::view("/dettagli-offerta","dettagli-offerta");
+Route::view("/coupon-generato","coupon-generato");
 /*Route::get('/{param}', function ($param) {
     return view($param);
 });*/
