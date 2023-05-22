@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\ChangePasswordController;
 
 Route::middleware('guest')->group(function () {
     Route::get('registrazione', [RegisteredUserController::class, 'create'])
@@ -17,6 +18,11 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('password', [ChangePasswordController::class, 'create'])
+        ->name('password');
+
+    Route::post('password', [ChangePasswordController::class, 'store']);
+
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });

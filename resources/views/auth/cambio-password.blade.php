@@ -1,43 +1,32 @@
-<!doctype html>
-
 @extends('header-footer')
 
-<html lang="it">
-<head>
-    @section("title")
-        cambio password
-    @endsection
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<!--TODO togliere style inline-->
-<body>
+@section("title")
+    Cambio Password
+@endsection
+
 @section('content')
+    <!--TODO togliere lo stile inline-->
     <div style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
+        <h3>Cambio Password</h3>
 
-        <h2>Cambio Password</h2>
-
+        {{ Form::open(array('route' => 'password'))}}
         <div>
-            <label>Vecchia Password</label>
+            <div  style="margin: 2%">
+                {{ Form::label('current_password', 'Vecchia Password') }}
+                {{ Form::password('current_password') }}
+            </div>
 
-            <form name="vecchia_password" style="margin: 2%">
-                <input type="password" required>
-            </form>
+            <div  style="margin: 2%">
+                {{ Form::label('password', 'Nuova Password') }}
+                {{ Form::password('password') }}
+            </div>
 
-            <label>Nuova Password</label>
+            <div style="margin: 2%">
+                {{ Form::submit('Conferma') }}
+            </div>
 
-            <form name="nuova_password" style="margin: 2%">
-                <input type="password" required>
-            </form>
-
-            <button id="modifiedbutton" style="margin: 2%">
-                Modifica
-            </button>
+            {{ Form::close() }}
         </div>
 
     </div>
-</body>
-
 @endsection
-
-</html>

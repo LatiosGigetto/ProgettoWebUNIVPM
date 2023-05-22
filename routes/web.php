@@ -33,6 +33,9 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 Route::view("/coupon-generato", "coupon-generato");
 
+Route::view('/profilo', 'profilo-cliente');
+
+Route::view('cambia-pass', 'auth.cambio-password');
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {
   return view($param);
