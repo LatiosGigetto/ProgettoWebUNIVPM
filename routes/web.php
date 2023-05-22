@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\Auth\ModificainfoController;
 
 /*
   |--------------------------------------------------------------------------
@@ -38,10 +40,13 @@ Route::view("/coupon-generato", "coupon-generato");
 
 Route::view('/profilo', 'profilo-cliente');
 
-Route::view('cambia-pass', 'auth.cambio-password');
+Route::view('/cambia-pass', 'auth.cambio-password');
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {
   return view($param);
   }); */
 
 require __DIR__ . '/auth.php';
+
+Route::view('/modifica-info', 'auth.modifica-info');
+Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
