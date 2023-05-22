@@ -26,6 +26,9 @@ Route::view("/faq", "faq");
 
 Route::view("/contatti", "contatti");
 
+Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
+        ->name('ricerca-offerte');
+
 Route::get("/catalogo", [PublicController::class, 'showOfferteList']);
 
 Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOfferta'])
