@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Azienda;
 use App\Models\Offerta;
+use Illuminate\Http\Request;
 
 class PublicController extends Controller {
 
@@ -22,40 +23,47 @@ class PublicController extends Controller {
         return view('lista-aziende')->with('aziende', $aziende);
     }
 
-    public function getAziendaByID ($idAzienda) {
-        
-        return Azienda::where('Id_Azienda' , $idAzienda)->get();
-        
+    public function getAziendaByID($idAzienda) {
+
+        return Azienda::where('Id_Azienda', $idAzienda)->get();
     }
-    
-    public function getOffertaByID ($idOfferta) {
-        
-        return  Offerta::where('Id_Offerta' , $idOfferta)->first();
-        
+
+    public function getOffertaByID($idOfferta) {
+
+        return Offerta::where('Id_Offerta', $idOfferta)->first();
     }
-    
+
     public function showDettagliOfferta($idOfferta) {
-        
+
         $offerta = $this->getOffertaByID($idOfferta);
-        
+
         return view('dettagli-offerta')->with('offerta', $offerta);
-        
     }
-    
-    // Funzione per prendere e paginare la lista offerte dato il nome di un azienda
 
-   /* public function showOfferteByAzienda($nomeAzienda) {
+    // Funzione per prendere e paginare la lista offerte dato il nome e/o
+    // il contenuto della descrizione di un'offerta.
 
-        $offerte = $this->_offertaModel
-                        ->getOfferteByAzienda($nomeAzienda)::paginate(10);
+    public function showOfferte(Request $request) {
 
-        return view('testPaginazione')->with('offerte', $offerte);
-    }*/
+        $offerte = $this->_offertaModel;
+        
+        $nomeAzienda = $request->azienda;
+        $descrizione = $request->descrizione;
+        
+        if ($nomeAzienda != "") {
+           $offerte = $offerte->getOfferteByAzienda($nomeAzienda);
+        }
 
-    public function showOfferteList (){
-        $offerte=Offerta::paginate(10);
+        if ($descrizione != "") {
+           $offerte = $offerte->getOfferteByDescrizione($descrizione);
+        }
+        
         return view('catalogo')->with('offerte', $offerte);
     }
 
+    public function showOfferteList() {
+        $offerte = Offerta::paginate(10);
+        return view('catalogo')->with('offerte', $offerte);
+    }
 
 }

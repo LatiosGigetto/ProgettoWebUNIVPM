@@ -14,9 +14,9 @@ use Illuminate\Validation\Rules;
 class RegisteredUserController extends Controller {
 
     /**
-     * chiama la vista
+     * Chiama la vista
      *
-     * @return \Illuminate\View\View
+     * 
      */
     public function create() {
         return view('auth.registrazione');
