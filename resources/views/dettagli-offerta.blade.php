@@ -1,35 +1,29 @@
-<!DOCTYPE html>
-<html lang="it">
-
     @extends('contenitore')
 
-<head>
+
     @section('title')
-        dettagli offerta
+        Dettagli offerta
     @endsection
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
     @section("contenuto")
                 <!--TODO padding-->
                 <!--TODO: sarebbe carino dargli la stessa grafica delle cards del catologo-->
                 <h2>Dettagli</h2>
-                <img id = "logosito" src="images/logosito.png" alt="Descrizione dell'immagine">
-                <!-- TODO FUNZIONE JAVASCRIPT DA CORREEGGERE PER METTERE VALORI DEL DATABASE -->
-                <script>
-                    // Recupera il valore dell'ID dal parametro dell'URL
-                    var urlParams = new URLSearchParams(window.location.search);
-                    var id = urlParams.get('id');
-                    if(id){
-                        document.write("Offerta3")
-                    }
-
-                </script>
+                <img id = "logosito" src="{{asset("images/logosito.png")}}" alt="Descrizione dell'immagine">
+                
                 <a href="linkdaseguire">Nome azienda</a>
                 <br>
 
                 <strong>Descrizione offerta</strong>
+                
+                <p> {{ $offerta->Descrizione}} </p>
+                
                 <br>
+                
+                <strong>Luogo di fruizione</strong>
+                
+                <p> {{ $offerta->Luogo}}</p>
+                
                 <div>
                 <button name="generaofferta" id="generaofferta" >
                     genera
@@ -40,5 +34,15 @@
                 </div>
 
 
-    @endsection
-</html>
+    @endsection 
+
+<!-- TODO FUNZIONE JAVASCRIPT DA CORREEGGERE PER METTERE VALORI DEL DATABASE
+                <script>
+                    // Recupera il valore dell'ID dal parametro dell'URL
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var id = urlParams.get('id');
+                    if(id){
+                        document.write("Offerta3")
+                    }
+
+                </script> -->

@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="it">
-
-<head>
 
     @extends('header-footer')
 
-    <meta charset="UTF-8">
     @section("title")
         Gestione aziende
     @endsection
-    <link rel="stylesheet" href="css/tabelle.css">
+    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
 
-    <style>
+    <!<!-- <style>
 
      /*   .imgage_logo{
             width: 20px;
@@ -36,16 +31,10 @@
             background-color: #f2f2f2;
         } */
 
-    </style>
+    </style> -->
 
-</head>
 
 @section("content")
-
-    <body>
-
-
-
 
         <div class="spazio_blocco">
             <h1>Gestione membri dello staff</h1>
@@ -105,19 +94,9 @@
                 </tbody>
             </table>
 
-
-
-
-
-
-
-
         </div>
 
     </div>
 
-    </body>
 
 @endsection
-
-</html>

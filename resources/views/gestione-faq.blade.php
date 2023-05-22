@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     @extends('header-footer')
-    <meta charset="UTF-8">
+    
     @section('title')
-        Le FAQ
+        FAQ
     @endsection
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+
 @section('content')
     <div class="faq">
         <!-- Lo stile del form è da ripensare -->
@@ -25,6 +21,6 @@
         </form>
 
     </div>
-</body>
+
 @endsection
-</html>
+

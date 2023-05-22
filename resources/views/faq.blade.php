@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 @extends('contenitore')
-<head>
-    <meta charset="UTF-8">
+
     @section("title")
         Le FAQ
     @endsection
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-</head>
 
 @section("contenuto")
     <h1>Domande frequenti</h1>
@@ -22,4 +15,3 @@
 
 
 @endsection
-</html>

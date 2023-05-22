@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-
-<html lang="it">
 
 @extends('header-footer')
 
-<head>
-    <meta charset="UTF-8">
 @section("title")
     Lista aziende
 @endsection
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 
-<!--TODO da finire-->
+
 @section('content')
 
     @foreach($aziende as $azienda)

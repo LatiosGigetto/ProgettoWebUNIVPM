@@ -22,6 +22,26 @@ class PublicController extends Controller {
         return view('lista-aziende')->with('aziende', $aziende);
     }
 
+    public function getAziendaByID ($idAzienda) {
+        
+        return Azienda::where('Id_Azienda' , $idAzienda)->get();
+        
+    }
+    
+    public function getOffertaByID ($idOfferta) {
+        
+        return  Offerta::where('Id_Offerta' , $idOfferta)->first();
+        
+    }
+    
+    public function showDettagliOfferta($idOfferta) {
+        
+        $offerta = $this->getOffertaByID($idOfferta);
+        
+        return view('dettagli-offerta')->with('offerta', $offerta);
+        
+    }
+    
     // Funzione per prendere e paginare la lista offerte dato il nome di un azienda
 
    /* public function showOfferteByAzienda($nomeAzienda) {

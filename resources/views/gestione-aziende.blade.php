@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="it">
-
-<head>
 
     @extends('header-footer')
 
-    <meta charset="UTF-8">
+
     @section("title")
         Gestione aziende
     @endsection
-    <link rel="stylesheet" href="css/tabelle.css">
-
 
   <!--  <style>
 
@@ -38,11 +32,8 @@
         }
     </style>
   -->
-</head>
 
 @section("content")
-
-    <body>
 
         <div class="spazio_blocco">
 
@@ -110,11 +101,5 @@
             </table>
 
         </div>
-
-
-
-    </body>
-
 @endsection
 
-</html>

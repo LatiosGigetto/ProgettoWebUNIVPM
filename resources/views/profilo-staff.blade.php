@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
 @extends('header-footer')
     <meta charset="UTF-8">
     @section('title')
@@ -18,6 +16,6 @@
     <br>
     <a href="">Modifica informazioni personali</a>
 </div>
-</body>
+
 @endsection
-</html>
+

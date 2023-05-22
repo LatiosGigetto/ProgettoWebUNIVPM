@@ -1,19 +1,10 @@
-<!doctype html>
 
 @extends('header-footer')
 
-<html lang="it">
-<head>
     @section("title")
         Registrazione
     @endsection
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/tabelle.css">
 
-</head>
-
-<body>
 @section('content')
 
     <div class="container text-center" style="justify-content: start; padding: 100px">
@@ -41,6 +32,6 @@
 
       </table>
     </div>
-</body>
+
 @endsection
-</html>
+

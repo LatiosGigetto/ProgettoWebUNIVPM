@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap demo</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset("css/style.css")}}">
+        
+        
         <title>@yield('title')</title>
         <!--TODO da sistemare lo stile-->
         <style>
@@ -26,7 +27,7 @@
                 <!--definisco un contenitore dove posizionare gli elementi centrati e con margin 2px-->
 
                 <div class="text-center mt-2">
-                    <a href="/home"><img src="images/longe.png" class="rounded"style="width: 100px" alt="longe"></a>
+                    <a href="/home"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
                     <h1 class="stile_header_footer">Doggo Discount</h1>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: flex-end">
@@ -60,7 +61,7 @@
                     </div>
             @else
                     <div>
-                        <b>Non sei registrato(?).</b>
+                        <b style="text-align: right">Non sei registrato.</b>
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
                                 <a class="stile_header_footer" href="/registrazione">Registrati</a>
@@ -84,7 +85,7 @@
             <nav style="background: purple">
                 <div style="display: flex; align-items: center; justify-content: space-between">
                     <div>
-                        <img src="images/longe.png" class="rounded" style="width: 50px;" alt="longe">
+                        <img src="{{asset("images/longe.png")}}" class="rounded" style="width: 50px;" alt="longe">
                     </div>
                     <div style="text-align: center">
                         <b class="stile_header_footer">Diritti</b>

@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
+
     @extends('header-footer')
-    <meta charset="UTF-8">
+
     @section('title')
         Gestione Promozioni
     @endsection
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/tabelle.css">
-    <style>
+    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+    
+    
+    <!-- <style>
      /*   .image_logo{
             width: 20px;
             float: left;
@@ -36,13 +35,9 @@
 */
 
 
-    </style>
-</head>
-<body>
+    </style> -->
+
 @section('content')
-
-
-
 
 
     <div class="spazio_blocco">
@@ -93,11 +88,8 @@
             </tbody>
         </table>
 
-
-
-
     </div>
 </div>
-</body>
+
 @endsection
-</html>
+

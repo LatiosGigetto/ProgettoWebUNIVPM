@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="it">
 
-<head>
 
     @extends('header-footer')
 
-    <meta charset="UTF-8">
     @section("title")
         Statistiche
     @endsection
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/tabelle.css">
 
-
-
-</head>
+    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
 
 @section("content")
 
-    <body>
     <h1>Statistiche</h1>
     <h3>Numero totale coupon emessi:</h3>
     <h5>Lista coupon</h5>
@@ -75,6 +66,6 @@
             </div>
         </div>
     </div>
-    </body>
+
 @endsection
-</html>
+
