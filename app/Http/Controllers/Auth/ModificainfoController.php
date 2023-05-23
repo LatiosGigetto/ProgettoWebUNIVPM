@@ -29,8 +29,8 @@ class ModificainfoController extends Controller
         $user = Auth::user();
         // Modifica delle informazioni dell'utente
         //TODO cosi if da sistemare
-        if ($request->input('nome')!=null)
-            $user->Nome = $request->input('nome');
+
+        $user->Nome = $request->input('nome');
         $user->Cognome = $request->input('cognome');
         $user->Mail = $request->input('mail');
         $user->username = $request->input('username');
