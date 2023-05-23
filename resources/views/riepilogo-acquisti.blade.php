@@ -14,23 +14,18 @@
         <!--TODO da sistemare-->
         <table>
             <tbody>
+            @foreach($coupons as $coupon)
             <tr>
                 <td>
                     <img style="width: 20%" src="images/logosito.png" alt="Descrizione dell'immagine">
                 </td>
                 <td>
-                    <a href="Coupon1">Coupon1</a>
+                    <a>Coupon :{{$coupon->Id_Coupon}}</a>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <img style="width: 20%" src="images/logosito.png" alt="Descrizione dell'immagine">
-                </td>
-                <td>
-                    <a href="Coupon1">Coupon1</a>
-                </td>
-            </tr>
+            @endforeach
             </tbody>
+
         </table>
     </div>
 

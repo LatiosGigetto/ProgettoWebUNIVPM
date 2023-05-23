@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
 
 
-
     Route::get('/acquisto/{id}', [ClientController::class, 'acquista'])->name('acquisto');
+
+    Route::get("riepilogo", [ClientController::class, 'riepilogo'])->name('riepilogo');
 });

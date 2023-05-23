@@ -22,4 +22,10 @@ class ClientController extends Controller
         $coupon->save();
         return to_route("dettagli-offerta", [$id_offerta]);
     }
+
+    public function  riepilogo() {
+        $user=Auth::user();
+        $coupons=Coupon::where('UsernameUtente',$user->username)->get();
+        return view('riepilogo-acquisti')->with('coupons',$coupons);
+    }
 }
