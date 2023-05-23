@@ -21,7 +21,8 @@ Route::get('/', function () {
 });
 Route::get('home', function () {
     return view('home');
-});
+})->name('home');
+
 Route::get('/lista-aziende', [PublicController::class, 'showAziendeList']);
 
 Route::view("/faq", "faq");
@@ -42,7 +43,15 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 Route::view("/coupon-generato", "coupon-generato");
 
-Route::view('/profilo', 'profilo-cliente');
+// Rotte profilo in base al livello di autenticazione
+
+Route::view('/profilo/cliente', 'profilo-cliente')->middleware('can:isUser');
+
+Route::view('/profilo/staff', 'profilo-staff')->middleware('can:isStaff')
+        ->name('staff');
+
+Route::view('/profilo/admin', 'profilo-admin')->middleware('can:isAdmin')
+        ->name('admin');
 
 
 

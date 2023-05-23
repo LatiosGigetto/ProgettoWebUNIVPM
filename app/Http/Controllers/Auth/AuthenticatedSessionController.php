@@ -31,21 +31,20 @@ class AuthenticatedSessionController extends Controller {
 
         $request->session()->regenerate();
 
-        /**
-         * Redirezione su diverse Home Page in base alla classe d'utenza.
-         */
-//        return redirect()->intended(RouteServiceProvider::HOME);
         /*
-                $role = auth()->user()->role;
-                switch ($role) {
-                    case 'admin': return redirect()->route('admin');
-                        break;
-                    case 'user': return redirect()->route('user');
-                        break;
-                    default: return redirect('/');
-                }
-        */
-        return redirect("/home");
+         * Redirezione in base al livello
+         */
+
+        $livello = auth()->user()->Livello;
+        switch ($livello) {
+            case '3': return redirect()->route('admin');
+
+            case '2': return redirect()->route('staff');
+
+            case '1': return redirect()->route('home');
+
+            default: return redirect('/');
+        }
     }
 
     /**

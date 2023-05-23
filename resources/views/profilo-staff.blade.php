@@ -9,7 +9,7 @@
 <body>
 @section('content')
 <div class="profilo">
-    <h2>Area riservata Utente (cliente)</h2>
+    <h2>Area riservata Staff ({{Auth::user()->username}})</h2>
     <a href="">Cambia password</a>
     <br>
     <a href="">Gestione promozioni</a>

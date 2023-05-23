@@ -55,7 +55,15 @@
                                 </form>
                             </li>
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="/profilo">Profilo</a>
+                                @can ('isUser')
+                                <a class="stile_header_footer" href="/profilo/cliente">Profilo</a>
+                                @endcan
+                                @can ('isStaff')
+                                <a class="stile_header_footer" href="/profilo/staff">Profilo</a>
+                                @endcan
+                                @can ('isAdmin')
+                                <a class="stile_header_footer" href="/profilo/admin">Profilo</a>
+                                @endcan
                             </li>
                         </ul>
                     </div>

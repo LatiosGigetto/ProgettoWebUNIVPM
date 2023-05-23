@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="profilo">
-    <h2>Area riservata Utente (cliente)</h2>
+    <h2>Area riservata Amministratore ({{Auth::user()->username}})</h2>
     <a href="">Gestione aziende</a>
     <br>
     <a href="">Cancellazione utenti</a>
