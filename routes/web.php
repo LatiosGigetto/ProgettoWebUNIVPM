@@ -44,7 +44,7 @@ Route::view("/coupon-generato", "coupon-generato");
 
 Route::view('/profilo', 'profilo-cliente');
 
-Route::view('/test', 'auth.modifica-info');
+
 
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {

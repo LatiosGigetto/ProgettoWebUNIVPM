@@ -8,11 +8,11 @@
 @section('content')
     <div class="profilo">
         <h2>Area riservata Utente (cliente)</h2>
-        <a href="/cambia-pass">Cambia password</a>
+        <a href="/password">Cambia password</a>
         <br>
         <a href="">Coupon generati</a>
         <br>
-        <a href="/test">Modifica informazioni personali</a>
+        <a href="/modifica-info">Modifica informazioni personali</a>
     </div>
 
 @endsection
