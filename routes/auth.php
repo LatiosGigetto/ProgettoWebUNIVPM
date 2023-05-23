@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\ModificainfoController;
+use App\Http\Controllers\ClientController;
 
 Route::middleware('guest')->group(function () {
     Route::get('registrazione', [RegisteredUserController::class, 'create'])
@@ -30,4 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/modifica-info', [ModificainfoController::class, 'create']);
 
     Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
+
+
+
+    Route::get('/acquisto/{id}', [ClientController::class, 'acquista'])->name('acquisto');
 });
