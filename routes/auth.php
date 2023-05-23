@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ChangePasswordController;
+use App\Http\Controllers\Auth\ModificainfoController;
 
 Route::middleware('guest')->group(function () {
     Route::get('registrazione', [RegisteredUserController::class, 'create'])
@@ -18,11 +19,15 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+
     Route::get('password', [ChangePasswordController::class, 'create'])
         ->name('password');
 
     Route::post('password', [ChangePasswordController::class, 'store']);
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+    Route::get('/modifica-info', [ModificainfoController::class], 'create');
+
+    Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
 });

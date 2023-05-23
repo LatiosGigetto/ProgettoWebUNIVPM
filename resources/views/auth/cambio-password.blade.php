@@ -14,11 +14,19 @@
             <div  style="margin: 2%">
                 {{ Form::label('current_password', 'Vecchia Password') }}
                 {{ Form::password('current_password') }}
+                <br>
+                @error('current_password')
+                    <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div  style="margin: 2%">
                 {{ Form::label('password', 'Nuova Password') }}
                 {{ Form::password('password') }}
+                <br>
+                @error('password')
+                    <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">

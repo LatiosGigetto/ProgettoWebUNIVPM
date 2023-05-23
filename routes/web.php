@@ -40,7 +40,8 @@ Route::view("/coupon-generato", "coupon-generato");
 
 Route::view('/profilo', 'profilo-cliente');
 
-Route::view('/cambia-pass', 'auth.cambio-password');
+Route::view('/test', 'auth.modifica-info');
+
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {
   return view($param);
@@ -48,5 +49,4 @@ Route::view('/cambia-pass', 'auth.cambio-password');
 
 require __DIR__ . '/auth.php';
 
-Route::view('/modifica-info', 'auth.modifica-info');
-Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
+

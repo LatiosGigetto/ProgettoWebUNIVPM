@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class ChangePasswordController extends Controller
 {
@@ -16,7 +17,7 @@ class ChangePasswordController extends Controller
     public function store(Request $request) {
         $request->validate([
             'current_password' => 'required',
-            'password' => 'required',
+            'password' => ['required', 'max:255', Rules\Password::defaults()],
         ]);
 
         $user = Auth::user();
