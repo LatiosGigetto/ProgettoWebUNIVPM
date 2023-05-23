@@ -12,7 +12,7 @@
         <br>
         <a href="">Coupon generati</a>
         <br>
-        <a href="/auth.modifica-info">Modifica informazioni personali</a>
+        <a href="/test">Modifica informazioni personali</a>
     </div>
 
 @endsection
