@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\ModificainfoController;
+use App\Models\Azienda;
 
 /*
   |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ Route::get("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
 
 // Route::get("/catalogo", [PublicController::class, 'showOfferteList']);
-Route::view("/catalogo", 'sezione-pubblica/catalogo', ['offerte' => 'inizio'])->name('catalogo');
+Route::view("/catalogo", 'sezione-pubblica/catalogo', ['offerte' => 'inizio', 'aziende' => Azienda::paginate(5)])->name('catalogo');
 
 Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOfferta'])
         ->name('dettagli-offerta');

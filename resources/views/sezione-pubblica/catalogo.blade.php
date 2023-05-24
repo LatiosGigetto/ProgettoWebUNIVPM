@@ -27,8 +27,21 @@
 
                 <div style="text-align: center; width: 50%">
 
-                    <h1> Inserisci i parametri di ricerca nella barra di ricerca a
-                        destra per iniziare a sfogliare le offerte.</h1>
+                    <h1> Sfoglia le offerte per azienda</h1>
+                    
+                    @foreach($aziende as $azienda)
+                    
+                    <div class="col">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="{{$azienda->Logo}}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <strong class='card-title'> {{$azienda->NomeAzienda}}</strong>
+                                            <a href="{{ route('ricerca-offerte', ['azienda' => $azienda->NomeAzienda])}}"
+                                               class="btn btn-primary">Vai alle offerte</a>
+                                        </div>
+                                    </div>
+                                </div>
+                    @endforeach
                     @break
                 </div>
 
@@ -47,6 +60,8 @@
                     <div class="container text-center">
                         <div class="row">
                             @foreach($offerte as $offerta)
+                            <!-- Controllo validità offerta  -->
+                                @if ($offerta->Validità >= Date::now()->toDateString())
                                 <div class="col">
                                     <div class="card" style="width: 18rem;">
                                         <img src="{{asset("images/xampp_logo.png")}}" class="card-img-top" alt="...">
@@ -59,6 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
