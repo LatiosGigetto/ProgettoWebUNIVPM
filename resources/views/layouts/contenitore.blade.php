@@ -1,5 +1,4 @@
-
-@extends("header-footer")
+@extends("layouts.header-footer")
 
 <!-- Questo template funziona in maniera identica ad header-footer ma aggiunge   -->
 <!-- un riquadro centrale con caratteristiche di stile predefinite da riempire   -->
@@ -7,7 +6,7 @@
 
 
 @section("content")
-<div id = "contenitore">
-    @yield("contenuto")
-</div>
+    <div id="contenitore">
+        @yield("contenuto")
+    </div>
 @endsection

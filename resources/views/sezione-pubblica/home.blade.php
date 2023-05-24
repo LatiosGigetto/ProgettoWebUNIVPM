@@ -1,9 +1,9 @@
-   @extends('header-footer')
+@extends('layouts.header-footer')
 
-    @section("title")
-        Home
-    @endsection
-   
+@section("title")
+    Home
+@endsection
+
 
 @section('content')
     <div id="riquadro1">

@@ -17,17 +17,19 @@ use App\Http\Controllers\Auth\ModificainfoController;
  */
 
 Route::get('/', function () {
-    return view('home');
+    return view('sezione-pubblica/home');
 });
+
+//TODO rimuovere questa rotta che è inutile e ridondante
 Route::get('home', function () {
-    return view('home');
+    return view('sezione-pubblica/home');
 })->name('home');
 
-Route::get('/lista-aziende', [PublicController::class, 'showAziendeList']);
+Route::get('/lista-aziende', [PublicController::class, 'showAziendeList'])->name('lista-aziende');
 
-Route::view("/faq", "faq");
+Route::view("/faq", "sezione-pubblica/faq")->name("faq");
 
-Route::view("/contatti", "contatti");
+Route::view("/contatti", "sezione-pubblica/contatti")->name("contatti");
 
 Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
@@ -36,24 +38,23 @@ Route::get("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
 
 // Route::get("/catalogo", [PublicController::class, 'showOfferteList']);
-Route::view("/catalogo", 'catalogo', ['offerte' => 'inizio']);
+Route::view("/catalogo", 'sezione-pubblica/catalogo', ['offerte' => 'inizio'])->name('catalogo');
 
 Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOfferta'])
         ->name('dettagli-offerta');
 
-Route::view("/coupon-generato", "coupon-generato");
+Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->name('coupon-generato');
 
 // Rotte profilo in base al livello di autenticazione
 
-Route::view('/profilo/cliente', 'profilo-cliente')->middleware('can:isUser');
+Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')
+        ->name('cliente');
 
-Route::view('/profilo/staff', 'profilo-staff')->middleware('can:isStaff')
+Route::view('/profilo/staff', 'sezione-staff/profilo-staff')->middleware('can:isStaff')
         ->name('staff');
 
-Route::view('/profilo/admin', 'profilo-admin')->middleware('can:isAdmin')
+Route::view('/profilo/admin', 'sezione-admin/profilo-admin')->middleware('can:isAdmin')
         ->name('admin');
-
-
 
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {

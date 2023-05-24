@@ -1,9 +1,8 @@
+@extends('layouts.header-footer')
 
-@extends('header-footer')
-
-    @section("title")
-        Riepilogo acquisti
-    @endsection
+@section("title")
+    Riepilogo acquisti
+@endsection
 
 @section('content')
 
@@ -15,14 +14,14 @@
         <table>
             <tbody>
             @foreach($coupons as $coupon)
-            <tr>
-                <td>
-                    <img style="width: 20%" src="images/logosito.png" alt="Descrizione dell'immagine">
-                </td>
-                <td>
-                    <a>Coupon :{{$coupon->Id_Coupon}}</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <img style="width: 20%" src="images/logosito.png" alt="Descrizione dell'immagine">
+                    </td>
+                    <td>
+                        <a>Coupon :{{$coupon->Id_Coupon}}</a>
+                    </td>
+                </tr>
             @endforeach
             </tbody>
 

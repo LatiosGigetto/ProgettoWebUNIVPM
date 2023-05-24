@@ -1,20 +1,19 @@
+@extends('layouts.header-footer')
 
-@extends('header-footer')
-
-    @section("title")
-        Registrazione
-    @endsection
+@section("title")
+    Registrazione
+@endsection
 
 @section('content')
 
     <div class="container text-center" style="justify-content: start; padding: 100px">
-      <h1>Eliminazione Utente</h1>
-      <table>
-          <thead>
+        <h1>Eliminazione Utente</h1>
+        <table>
+            <thead>
             <th>Nome Utente</th>
             <th>Eliminazione Utente</th>
-           </thead>
-          <tbody>
+            </thead>
+            <tbody>
             <tr>
                 <td>Utente 1</td>
                 <td>
@@ -28,9 +27,9 @@
                 </td>
 
             </tr>
-          </tbody>
+            </tbody>
 
-      </table>
+        </table>
     </div>
 
 @endsection

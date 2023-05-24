@@ -1,9 +1,8 @@
+@extends('layouts.header-footer')
 
-    @extends('header-footer')
-    
-    @section('title')
-        FAQ
-    @endsection
+@section('title')
+    FAQ
+@endsection
 
 @section('content')
     <div class="faq">
@@ -16,7 +15,7 @@
             <br><br>
             <div style="display: flex">
                 <label style="vertical-align: top; min-width: fit-content; margin-right: 5px">Risposta 1</label>
-                <input  style="height: 30vh; width: 100%">
+                <input style="height: 30vh; width: 100%">
             </div>
         </form>
 

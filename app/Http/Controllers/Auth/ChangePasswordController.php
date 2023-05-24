@@ -11,7 +11,7 @@ use Illuminate\Validation\Rules;
 class ChangePasswordController extends Controller
 {
     public function create() {
-        return view('auth.cambio-password');
+        return view('auth/cambio-password');
     }
 
     public function store(Request $request) {

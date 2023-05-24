@@ -16,10 +16,10 @@ class RegisteredUserController extends Controller {
     /**
      * Chiama la vista
      *
-     * 
+     *
      */
     public function create() {
-        return view('auth.registrazione');
+        return view('auth/registrazione');
     }
 
     /**
@@ -30,10 +30,10 @@ class RegisteredUserController extends Controller {
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request) {   
-    
+    public function store(Request $request) {
+
     // definisco le regole per i parametri
-        
+
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],

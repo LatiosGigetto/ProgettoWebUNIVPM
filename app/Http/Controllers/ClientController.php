@@ -26,6 +26,6 @@ class ClientController extends Controller
     public function  riepilogo() {
         $user=Auth::user();
         $coupons=Coupon::where('UsernameUtente',$user->username)->get();
-        return view('riepilogo-acquisti')->with('coupons',$coupons);
+        return view('sezione-clienti/riepilogo-acquisti')->with('coupons',$coupons);
     }
 }

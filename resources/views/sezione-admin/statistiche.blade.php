@@ -1,12 +1,10 @@
+@extends('layouts.header-footer')
 
+@section("title")
+    Statistiche
+@endsection
 
-    @extends('header-footer')
-
-    @section("title")
-        Statistiche
-    @endsection
-
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
 
 @section("content")
 

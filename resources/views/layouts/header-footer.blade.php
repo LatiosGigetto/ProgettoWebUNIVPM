@@ -27,7 +27,7 @@
                 <!--definisco un contenitore dove posizionare gli elementi centrati e con margin 2px-->
 
                 <div class="text-center mt-2">
-                    <a href="/home"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
+                    <a href="{{route('home')}}"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
                     <h1 class="stile_header_footer">Doggo Discount</h1>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: flex-end">
@@ -35,10 +35,10 @@
                     <div >
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="/catalogo">Catalogo Offerte</a>
+                                <a class="stile_header_footer" href="{{route('catalogo')}}">Catalogo Offerte</a>
                             </li>
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="/lista-aziende">Lista Aziende </a>
+                                <a class="stile_header_footer" href="{{route('lista-aziende')}}">Lista Aziende </a>
                             </li>
                         </ul>
                     </div>
@@ -56,13 +56,13 @@
                             </li>
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
                                 @can ('isUser')
-                                <a class="stile_header_footer" href="/profilo/cliente">Profilo</a>
+                                <a class="stile_header_footer" href="{{route('cliente')}}">Profilo</a>
                                 @endcan
                                 @can ('isStaff')
-                                <a class="stile_header_footer" href="/profilo/staff">Profilo</a>
+                                <a class="stile_header_footer" href="{{route('staff')}}">Profilo</a>
                                 @endcan
                                 @can ('isAdmin')
-                                <a class="stile_header_footer" href="/profilo/admin">Profilo</a>
+                                <a class="stile_header_footer" href="{{route('admin')}}">Profilo</a>
                                 @endcan
                             </li>
                         </ul>
@@ -72,10 +72,10 @@
                         <b style="text-align: right">Non sei registrato.</b>
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="/registrazione">Registrati</a>
+                                <a class="stile_header_footer" href="{{route('registrazione')}}">Registrati</a>
                             </li>
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="/login">Login</a>
+                                <a class="stile_header_footer" href="{{route('login')}}">Login</a>
                             </li>
                         </ul>
                     </div>
@@ -99,9 +99,9 @@
                         <b class="stile_header_footer">Diritti</b>
                     </div>
                     <div style="text-align: center">
-                        <a class="stile_header_footer" href="/contatti">Contatti</a>
+                        <a class="stile_header_footer" href="{{route('contatti')}}">Contatti</a>
                         <br>
-                        <a class="stile_header_footer" href="/faq">Faq</a>
+                        <a class="stile_header_footer" href="{{route('faq')}}">Faq</a>
                     </div>
                 </div>
             </nav>

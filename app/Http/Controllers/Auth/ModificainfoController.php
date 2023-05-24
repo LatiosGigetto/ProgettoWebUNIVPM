@@ -15,7 +15,7 @@ class ModificainfoController extends Controller {
      */
 
     public function create() {
-        return view('auth.modifica-info');
+        return view('auth/modifica-info');
     }
 
     public function store(Request $request) {

@@ -28,10 +28,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('password', [ChangePasswordController::class, 'store']);
 
-    Route::get('/modifica-info', [ModificainfoController::class, 'create']);
+    Route::get('/modifica-info', [ModificainfoController::class, 'create'])->name('modifica-info');
 
-    Route::post('/modifica-info', [ModificainfoController::class, 'store'])->name('modifica-info');
-
+    Route::post('/modifica-info', [ModificainfoController::class, 'store']);
 
     Route::get('/acquisto/{id}', [ClientController::class, 'acquista'])->name('acquisto');
 

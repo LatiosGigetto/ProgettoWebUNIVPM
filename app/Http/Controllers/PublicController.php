@@ -20,7 +20,7 @@ class PublicController extends Controller {
 
         $aziende = Azienda::paginate(10);
 
-        return view('lista-aziende')->with('aziende', $aziende);
+        return view('sezione-pubblica/lista-aziende')->with('aziende', $aziende);
     }
 
     public function getAziendaByID($idAzienda) {
@@ -37,7 +37,7 @@ class PublicController extends Controller {
 
         $offerta = $this->getOffertaByID($idOfferta);
 
-        return view('dettagli-offerta')->with('offerta', $offerta);
+        return view('sezione-pubblica/dettagli-offerta')->with('offerta', $offerta);
     }
 
     // Funzione per prendere e paginare la lista offerte dato il nome e/o
@@ -88,17 +88,17 @@ class PublicController extends Controller {
 
         if ($offerte->isEmpty()) {
 
-            return view('catalogo')->with('offerte', false);
-        
+            return view('sezione-pubblica/catalogo')->with('offerte', false);
+
         } else {
 
-            return view('catalogo')->with('offerte', $offerte);
+            return view('sezione-pubblica/catalogo')->with('offerte', $offerte);
         }
     }
 
     public function showOfferteList() {
         $offerte = Offerta::paginate(5);
-        return view('catalogo')->with('offerte', $offerte);
+        return view('sezione-pubblica/catalogo')->with('offerte', $offerte);
     }
 
 }
