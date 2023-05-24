@@ -12,5 +12,10 @@ class Azienda extends Model {
 
     // TODO: inserire metodi utili
 
+    public static function getNomeAziendaById ($id) {
+        
+        return Azienda::where('Id_Azienda', $id)->only('NomeAzienda');
+        
+    }
 
 }

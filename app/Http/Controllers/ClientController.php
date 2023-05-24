@@ -18,7 +18,7 @@ class ClientController extends Controller
         $coupon = new Coupon;
         $coupon->UsernameUtente = $user->username;
         $coupon->Id_Offerta = $id_offerta;
-        $coupon->Id_Coupon = mt_rand(1, 11);;
+        $coupon->Id_Coupon = mt_rand(1, 11);
         $coupon->save();
         return to_route("dettagli-offerta", [$id_offerta]);
     }
