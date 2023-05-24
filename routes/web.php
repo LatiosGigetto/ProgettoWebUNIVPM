@@ -45,6 +45,9 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->name('coupon-generato');
 
+Route::get("/gestione-aziende", [AdminController::class, ''])
+    ->name('gestione-aziende');
+
 // Rotte profilo in base al livello di autenticazione
 
 Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')
@@ -55,6 +58,7 @@ Route::view('/profilo/staff', 'sezione-staff/profilo-staff')->middleware('can:is
 
 Route::view('/profilo/admin', 'sezione-admin/profilo-admin')->middleware('can:isAdmin')
         ->name('admin');
+
 
 // Deprecato LOL
 /* Route::get('/{param}', function ($param) {

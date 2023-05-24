@@ -13,7 +13,7 @@ class Coupon extends Model {
 
     protected $guarded = ['Id_Coupon'];
 
-    // Ritorna lo username dell'utente associato al coupon
+    /*// Ritorna lo username dell'utente associato al coupon
 
     public function getCouponUser() {
         return $this->UsernameUtente;
@@ -25,6 +25,9 @@ class Coupon extends Model {
         return $this->Id_Offerta;
     }
 
-    // TODO: aggiungere altri metodi utili
-    
+  */
+    public function getTable(){
+        return $this->table;
+    }
+
 }
