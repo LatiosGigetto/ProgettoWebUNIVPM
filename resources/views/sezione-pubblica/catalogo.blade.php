@@ -5,6 +5,10 @@ Catalogo
 @endsection
 <link rel="stylesheet" href="{{asset("css/style.css")}}">
 
+<!-- Per qualche esoterico motivo artisan carica il progetto Laraver prima di 
+  QUALSIASI comando, tra cui il migrate, quindi non si possono usare
+  Model nel file delle rotte e quindi devo fare questa bruttura (anche in Contatti) -->
+
             <?php 
             
             use App\Models\Azienda;
