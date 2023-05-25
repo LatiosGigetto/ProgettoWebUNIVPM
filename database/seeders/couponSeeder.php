@@ -42,8 +42,7 @@ class couponSeeder extends Seeder
 
             // Seeding gestoriaziende
 
-            ['UsernameUtente' => 'staff1', 'id_Azienda' => 1],
-            ['UsernameUtente' => 'staff2', 'id_Azienda' => 2],
+            ['UsernameUtente' => 'staffstaff', 'id_Azienda' => 1],
         ]);
 
         DB::table('offerta')->insert([

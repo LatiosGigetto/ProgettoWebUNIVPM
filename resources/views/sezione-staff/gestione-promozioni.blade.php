@@ -43,20 +43,23 @@
         <table>
             <thead>
             <tr>
-                <th>Nome promozione</th>
+                <th>Descrizione promozione</th>
                 <th>Azienda</th>
                 <th>Scadenza</th>
                 <th>Luogo</th>
                 <th>Modifica</th>
-                <th>Eliminaa</th>
+                <th>Elimina</th>
             </tr>
             </thead>
             <tbody>
+                
+                @foreach($offerte as $offerta)
+                
             <tr>
-                <td>Promozione 1</td>
-                <td>Azienda 1</td>
-                <td>02-02-2024</td>
-                <td>Fano</td>
+                <td>Descrizione: {{ $offerta-> Descrizione }}</td>
+                <td>Azienda: {{ Azienda::where('id_Azienda', $offerta->Id_Azienda)->only('NomeAzienda') }} </td>
+                <td>Luogo: {{ $offerta-> Luogo }}</td>
+                <td>Validità: {{ $offerta-> Validità }}</td>
                 <td>
                     <button name="mod prom1" id="mod prom1">Modifica</button>
                 </td>
@@ -64,18 +67,7 @@
                     <button name="el prom1" id="el prom1">Elimina</button>
                 </td>
             </tr>
-            <tr>
-                <td>Promozione 2</td>
-                <td>Azienda 2</td>
-                <td>04-04-2024</td>
-                <td>Ancona</td>
-                <td>
-                    <button name="mod prom2" id="mod prom2">Modifica</button>
-                </td>
-                <td>
-                    <button name="el prom2" id="el prom2">Elimina</button>
-                </td>
-            </tr>
+            
             <tr>
                 <td colspan="6">
                     <button style="margin-left: 600px">Clicca per aggiungere una promozione</button>
