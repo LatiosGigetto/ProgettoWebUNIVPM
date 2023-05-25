@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use app\Models\Azienda;
 use app\Models\Coupon;
+use app\Models\FAQ;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -153,7 +154,7 @@ class AdminController extends Controller{
             'domanda' => ['required', 'string'],
             'risposta' => ['required', 'string'],
         ]);
-        $faq = new Faq();
+        $faq = new FAQ();
         $faq->Id_Domanda = $request->id_domanda;
         $faq->Domanda = $request->domanda;
         $faq->Risposta = $request->risposta;

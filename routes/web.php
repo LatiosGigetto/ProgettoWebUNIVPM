@@ -47,7 +47,7 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->name('coupon-generato');
 
-Route::get("/gestione-aziende", [AdminController::class, ''])
+Route::post("/gestione-aziende", [AdminController::class, ''])->middleware('can:isAdmin')
     ->name('gestione-aziende');
 
 // Rotte profilo in base al livello di autenticazione
