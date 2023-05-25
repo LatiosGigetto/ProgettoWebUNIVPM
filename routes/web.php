@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\ModificainfoController;
 use App\Models\Azienda;
+use App\Models\User;
 
 /*
   |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/lista-aziende', [PublicController::class, 'showAziendeList'])->name
 
 Route::view("/faq", "sezione-pubblica/faq")->name("faq");
 
-Route::view("/contatti", "sezione-pubblica/contatti")->name("contatti");
+Route::view("/contatti", "sezione-pubblica/contatti", ['admin' => User::where('Livello', 3)->first()])->name("contatti");
 
 Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
