@@ -5,11 +5,6 @@
 Contatti
 @endsection
 
-    <?php 
-    
-    use App\Models\User;
-    
-    $admin = User::where('Livello', 3)->first(); ?>
 
 @section("contenuto")
 <h1 id="titolo_sezione">Contatti</h1>

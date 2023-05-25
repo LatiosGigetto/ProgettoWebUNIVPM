@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Azienda;
 use App\Models\Offerta;
+use App\Models\User;
+use App\Models\FAQ;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller {
-
-    protected $_offertaModel;
-
-    public function __construct() {
-        $this->_offertaModel = new Offerta;
-    }
 
     // Funzione per prendere e paginare la lista offerte
 
@@ -42,13 +38,12 @@ class PublicController extends Controller {
 
     // Funzione per prendere e paginare la lista offerte dato il nome e/o
     // il contenuto della descrizione di un'offerta.
-    // TODO: implementare paginazione.
 
     public function showOfferte(Request $request) {
 
-        // Crea una Collection di tutte le offerte da filtrare.
+        // Crea un Builder di Offerta e lo ordina per ID.
 
-        $offerte = Offerta::all();
+        $offerte = Offerta::orderBy('Id_Offerta', 'asc');
 
         // Variabili per storare l'ingresso della richiesta.
         // flash() se le salva nella sessione per riprenderle nella vista.
@@ -58,7 +53,7 @@ class PublicController extends Controller {
 
         $request->flash();
 
-        // Filtra in base ai campi non vuoti
+        // Filtra in base ai campi non vuoti.
 
         if ($nomeAzienda != "") {
 
@@ -68,37 +63,43 @@ class PublicController extends Controller {
             $id = Azienda::where('NomeAzienda', 'LIKE', '%' . $nomeAzienda . '%')
                             ->pluck('id_Azienda')->toArray();
             $offerte = $offerte->whereIn('Id_Azienda', $id);
+            
         }
 
         if ($descrizione != "") {
 
-            // Ritorna le offerte in base al contenuto della variabile $descrizione
-            // Lo "use" in questo contesto permette alla
-            // funzione del filter di accedere a variabili fuori dal suo scope.
-            // "stripos" compara l'elemento Descrizione di $offerta con $descrizione
-            // in maniera case-insensitive e ritorna false se non trova niente.
-
-            $offerte = $offerte->filter(function ($offerta) use ($descrizione) {
-                return stripos($offerta['Descrizione'], $descrizione) !== false;
-            });
+            // Ritorna le offerte in base al contenuto della variabile $descrizione.
+            
+            $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $descrizione . '%');
         }
 
+        $offerte = $offerte->paginate(1);
+        
         // Controlla se $offerte è vuota, ritorna "false" se vero, altrimenti
-        // ritorna la Collection filtrata.
+        // ritorna le offerte.
 
-        if ($offerte->isEmpty()) {
+        if ($offerte->total() == 0) {
 
             return view('sezione-pubblica/catalogo')->with('offerte', false);
-
         } else {
-
+            
             return view('sezione-pubblica/catalogo')->with('offerte', $offerte);
         }
     }
 
-    public function showOfferteList() {
-        $offerte = Offerta::paginate(5);
-        return view('sezione-pubblica/catalogo')->with('offerte', $offerte);
+    public function showAziendeInCatalogo() {
+        $aziende = Azienda::paginate(5);
+        return view('sezione-pubblica/catalogo')->with(['offerte' => 'inizio', 'aziende' => $aziende]);
+    }
+
+    public function showContatti() {
+        $admin = User::where('Livello', 3)->first();
+        return view('sezione-pubblica/contatti')->with('admin', $admin);
+    }
+
+    public function showFAQ() {
+        $faq = FAQ::all();
+        return view('sezione-pubblica/faq')->with('faqs', $faq);
     }
 
 }

@@ -5,15 +5,6 @@ Catalogo
 @endsection
 <link rel="stylesheet" href="{{asset("css/style.css")}}">
 
-<!-- Per qualche esoterico motivo artisan carica il progetto Laraver prima di 
-  QUALSIASI comando, tra cui il migrate, quindi non si possono usare
-  Model nel file delle rotte e quindi devo fare questa bruttura (anche in Contatti) -->
-
-            <?php 
-            
-            use App\Models\Azienda;
-            
-            $aziende = Azienda::paginate(5); ?>
 
 @section("content")
 
@@ -51,7 +42,7 @@ Catalogo
                 </div>
             </div>
         </div>
-                    @endforeach
+                    @endforeach      
                     @break
     </div>
 
@@ -69,9 +60,12 @@ Catalogo
 
         <div class="container text-center">
             <div class="row">
+
                             @foreach($offerte as $offerta)
                 <!-- Controllo validità offerta  -->
+
                                 @if ($offerta->Validità >= Date::now()->toDateString())
+
                 <div class="col">
                     <div class="card" style="width: 18rem;">
                         <img src="{{asset("images/xampp_logo.png")}}" class="card-img-top" alt="...">
@@ -86,6 +80,8 @@ Catalogo
                 </div>
                                 @endif
                             @endforeach
+
+                            @include('paginator.paginator', ['paginator' => $offerte])
             </div>
         </div>
     </div>

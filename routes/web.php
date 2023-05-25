@@ -16,20 +16,25 @@ use App\Http\Controllers\Auth\ModificainfoController;
   |
  */
 
-Route::get('/', function () {
-    return view('sezione-pubblica/home');
-});
+// Sezione pubblica del sito
 
-//TODO rimuovere questa rotta che è inutile e ridondante
-Route::get('home', function () {
-    return view('sezione-pubblica/home');
-})->name('home');
+Route::view('/', 'sezione-pubblica/home')
+        ->name('home');
 
-Route::get('/lista-aziende', [PublicController::class, 'showAziendeList'])->name('lista-aziende');
+Route::view('/home', 'sezione-pubblica/home')
+        ->name('home');
 
-Route::view("/faq", "sezione-pubblica/faq")->name("faq");
+Route::get('/lista-aziende', [PublicController::class, 'showAziendeList'])
+        ->name('lista-aziende');
 
-Route::view("/contatti", "sezione-pubblica/contatti")->name("contatti");
+Route::get("/faq",[PublicController::class, 'showFAQ'])
+        ->name("faq");
+
+Route::get("/contatti", [PublicController::class, 'showContatti'])
+        ->name('contatti');
+
+Route::get("/catalogo", [PublicController::class, 'showAziendeInCatalogo'])
+        ->name('catalogo');
 
 Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
@@ -37,13 +42,17 @@ Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
 Route::get("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
         ->name('ricerca-offerte');
 
-// Route::get("/catalogo", [PublicController::class, 'showOfferteList']);
-Route::view("/catalogo", 'sezione-pubblica/catalogo', ['offerte' => 'inizio'])->name('catalogo');
-
 Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOfferta'])
         ->name('dettagli-offerta');
 
-Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->name('coupon-generato');
+// Sezione riservata al Cliente (Livello 1)
+
+Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("can:isUser")
+        ->name('coupon-generato');
+
+// Sezione riservata allo Staff (Livello 2)
+
+// Rotte Amministratore
 
 Route::post("/gestione-aziende", [AdminController::class, ''])->middleware('can:isAdmin')
     ->name('gestione-aziende');
@@ -58,12 +67,6 @@ Route::view('/profilo/staff', 'sezione-staff/profilo-staff')->middleware('can:is
 
 Route::view('/profilo/admin', 'sezione-admin/profilo-admin')->middleware('can:isAdmin')
         ->name('admin');
-
-
-// Deprecato LOL
-/* Route::get('/{param}', function ($param) {
-  return view($param);
-  }); */
 
 require __DIR__ . '/auth.php';
 
