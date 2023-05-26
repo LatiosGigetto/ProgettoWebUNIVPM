@@ -2,6 +2,7 @@
 
 @section("title")
 Catalogo
+
 @endsection
 <link rel="stylesheet" href="{{asset("css/style.css")}}">
 
@@ -9,9 +10,12 @@ Catalogo
 @section("content")
 
 <div style='display: flex; justify-content: space-evenly'>
+    <div>
+        <button type="submit" id="mostrabarradiricerca">Vai alla barra di ricerca</button>
+    </div>
 
         {{ Form::open(['route' => 'ricerca-offerte', 'method' => 'GET'])}}
-    <nav style="text-align: left; display: flex; flex-direction: column">
+    <nav id="barradiricerca" style="text-align: left; display: flex; flex-direction: column; display: none;" >
             {{ Form::label('azienda', 'Cerca per azienda') }}
             {{ Form::text('azienda', old('azienda') )}}
 
@@ -42,7 +46,7 @@ Catalogo
                 </div>
             </div>
         </div>
-                    @endforeach      
+                    @endforeach
                     @break
     </div>
 
@@ -89,6 +93,18 @@ Catalogo
         @endswitch
 
 </div>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var barradiricerca = document.getElementById("barradiricerca");
+        var bottone = document.getElementById("mostrabarradiricerca");
+        bottone.addEventListener("click", function() {
+            if (barradiricerca.style.display === "none") {
+                barradiricerca.style.display = "flex";
+            } else {
+                barradiricerca.style.display = "none";
+            }
+        });
+    });
+</script>
 @endsection
 

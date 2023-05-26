@@ -15,7 +15,9 @@ class ModificainfoController extends Controller {
      */
 
     public function create() {
-        return view('auth/modifica-info');
+        $user = Auth::user(); // Ottieni l'utente corrente autenticato
+        return view('auth/modifica-info', ['user' => $user]);
+        // return view('auth/modifica-info');
     }
 
     public function store(Request $request) {
