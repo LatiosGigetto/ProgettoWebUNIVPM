@@ -17,7 +17,7 @@
                 {{ Form::password('current_password') }}
                 <br>
                 @error('current_password')
-                <span style="color: red">{{ $message }}</span>
+                    <span style="color: red">{{ $message }}</span>
                 @enderror
             </div>
 
@@ -26,7 +26,7 @@
                 {{ Form::password('password') }}
                 <br>
                 @error('password')
-                <span style="color: red">{{ $message }}</span>
+                    <span style="color: red">{{ $message }}</span>
                 @enderror
             </div>
 
