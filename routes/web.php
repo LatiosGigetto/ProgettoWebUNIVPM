@@ -52,6 +52,9 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Sezione riservata allo Staff (Livello 2)
 
+//Route::get("/gestione-promozioni", "sezione-staff/gestione-promozioni")->middleware("can:isStaff")
+//        ->name("gestione-promozioni");
+
 // Rotte Amministratore
 
 Route::post("/gestione-aziende", [AdminController::class, ''])->middleware('can:isAdmin')

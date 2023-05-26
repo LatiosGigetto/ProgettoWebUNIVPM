@@ -10,7 +10,7 @@
         style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
         <h3>Cambio Password</h3>
 
-        {{ Form::open(array('route' => 'password'))}}
+        {{ Form::open(array('route' => 'cambia-password'))}}
         <div>
             <div style="margin: 2%">
                 {{ Form::label('current_password', 'Vecchia Password') }}

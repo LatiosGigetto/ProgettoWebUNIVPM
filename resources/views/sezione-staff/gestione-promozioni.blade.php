@@ -52,9 +52,9 @@
             </tr>
             </thead>
             <tbody>
-                
-                @foreach($offerte as $offerta)
-                
+
+            @foreach($offerte as $offerta)
+
             <tr>
                 <td>Descrizione: {{ $offerta-> Descrizione }}</td>
                 <td>Azienda: {{ Azienda::where('id_Azienda', $offerta->Id_Azienda)->only('NomeAzienda') }} </td>
@@ -67,7 +67,7 @@
                     <button name="el prom1" id="el prom1">Elimina</button>
                 </td>
             </tr>
-            
+            @endforeach
             <tr>
                 <td colspan="6">
                     <button style="margin-left: 600px">Clicca per aggiungere una promozione</button>

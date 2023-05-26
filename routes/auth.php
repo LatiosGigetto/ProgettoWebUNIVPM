@@ -23,10 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-    Route::get('password', [ChangePasswordController::class, 'create'])
-        ->name('password');
+    Route::get('cambia-password', [ChangePasswordController::class, 'create'])
+        ->name('cambia-password');
 
-    Route::post('password', [ChangePasswordController::class, 'store']);
+    Route::post('cambia-password', [ChangePasswordController::class, 'store']);
 
     Route::get('/modifica-info', [ModificainfoController::class, 'create'])->name('modifica-info');
 
