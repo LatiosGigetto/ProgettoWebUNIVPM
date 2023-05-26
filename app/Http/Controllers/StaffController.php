@@ -11,18 +11,37 @@ class StaffController extends Controller {
 
     protected $currentStaff;
     protected $currentAziende;
+    protected $currentOfferte;
 
-    public function __construct() {
+    // Auth::user() ritorna null se si trova nel costruttore del Controller
+    // quindi si sposta il costruttore in un metodo custom da far runnare
+    // prima di ogni metodo.
 
-        $this->currentStaff = Auth::user();
-        $this->currentAziende = GestoriAziende::where('UsernameUtente', $this->currentStaff->username)
+    public function setup() {
+        
+        $this->currentStaff = Auth::user()->username;
+        $this->currentAziende = GestoriAziende::where('UsernameUtente', $this->currentStaff)
                 ->pluck('Id_Azienda');
+        $this->currentOfferte = Offerta::whereIn('id_Azienda', $this->currentAziende)
+                ->get()->toArray();
+        return;
+        
     }
-
-    // Creates new Offerta from given request.
+    
+    public function showGestioneOfferta() {
+        
+        $this->setup();
+        
+        return view ('sezione-staff/gestione-promozioni')->with('offerte', $this->currentOfferte);
+        
+    }
+    
+    // Crea una nuova Offerta dalla Request.
 
     public function createOfferta(Request $request) {
 
+        $this->setup();
+        
         $request->validate([
             'luogo' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string', 'max:999'],
@@ -40,8 +59,12 @@ class StaffController extends Controller {
         return redirect('gestione-promozioni');
     }
 
+    // Modifica l'offerta passata nella Request
+    
     public function modifyOfferta(Request $request) {
 
+        $this->setup();
+        
         $request->validate([
             'luogo' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string', 'max:999'],
@@ -60,8 +83,12 @@ class StaffController extends Controller {
 
     }
 
+    // Elimina l'offerta nella Request.
+    
     public function deleteOfferta(Request $request) {
 
+        $this->setup();
+        
         $offerta = Offerta::where('id_Offerta', $request->idOfferta)->first();
 
         $offerta->delete();

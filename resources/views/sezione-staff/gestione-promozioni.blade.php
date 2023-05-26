@@ -1,9 +1,26 @@
 @extends('layouts.header-footer')
 
 @section('title')
-    Gestione Promozioni
+Gestione Promozioni
 @endsection
 <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+// TODO implementare funzione per bene
+
+$(document).ready(function() {
+    $('#mod prom').on('click', function () {
+        
+        $('#modDescInput').text();
+        
+        $('#mod-prom-sezione').show();
+        
+            
+    
+}
+
+</script>
 
 
 <!-- <style>
@@ -38,10 +55,11 @@
 
 @section('content')
 
-    <div class="spazio_blocco">
-        <h1>Gestione Promozioni</h1>
-        <table>
-            <thead>
+<div class="spazio_blocco">
+    <h1>Gestione Promozioni</h1>
+
+    <table>
+        <thead>
             <tr>
                 <th>Descrizione promozione</th>
                 <th>Azienda</th>
@@ -50,21 +68,22 @@
                 <th>Modifica</th>
                 <th>Elimina</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
 
             @foreach($offerte as $offerta)
 
             <tr>
-                <td>Descrizione: {{ $offerta-> Descrizione }}</td>
-                <td>Azienda: {{ Azienda::where('id_Azienda', $offerta->Id_Azienda)->only('NomeAzienda') }} </td>
-                <td>Luogo: {{ $offerta-> Luogo }}</td>
-                <td>Validità: {{ $offerta-> Validità }}</td>
+                <td id='idOff'>{{ $offerta-> Id_Offerta }} </td>
+                <td id='descOff'>{{ $offerta-> Descrizione }}</td>
+                <td id='nomeAz'>{{ $offerta->getNomeAzienda() }} </td>
+                <td id='luogoOff'>{{ $offerta-> Luogo }}</td>
+                <td id='valOff'>{{ $offerta-> Validità }}</td>
                 <td>
-                    <button name="mod prom1" id="mod prom1">Modifica</button>
+                    <button id="mod prom">Modifica</button>
                 </td>
                 <td>
-                    <button name="el prom1" id="el prom1">Elimina</button>
+                    <button id="el prom">Elimina</button>
                 </td>
             </tr>
             @endforeach
@@ -75,11 +94,39 @@
 
             </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+
+
+    <div id ="mod-prom-sezione">
+
+        {{ Form::open('route' => 'modifica-promo') }}
+        
+        <div style="margin: 2%">
+                {{ Form::label('descrizione', 'Descrizione') }}
+                {{ Form::text('descrizione', '', ['id' => 'modDescInput']) }}
+        </div>
+
+        <div style="margin: 2%">
+                {{ Form::label('azienda', 'Azienda') }}
+                {{ Form::select('azienda', $offerte->getNomeAzienda(), '') }}
+        </div>
+
+
+        <div style="margin: 2%">
+                {{ Form::label('luogo', 'Luogo') }}
+                {{ Form::text('luogo', '', ['id' => 'modLuogoInput']) }}
+        </div>
+
+        <div style="margin: 2%">
+                {{ Form::label('validità', 'Validità') }}
+                {{ Form::text('validità', '', ['id' => 'modValiditàInput']) }}
+        </div>
+
 
     </div>
-    </div>
+
+</div>
 
 @endsection
 
