@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\ModificainfoController;
+use App\Http\Controllers\StaffController;
 
 /*
   |--------------------------------------------------------------------------
@@ -52,8 +53,8 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Sezione riservata allo Staff (Livello 2)
 
-//TODO Route::get("/gestione-promozioni", "sezione-staff/gestione-promozioni")->middleware("can:isStaff")
-//        ->name("gestione-promozioni");
+ Route::get("/gestione-promozioni", [StaffController::class , 'showGestioneOfferta'])->middleware("can:isStaff")
+        ->name("gestione-promozioni");
 
 // Rotte Amministratore
 
