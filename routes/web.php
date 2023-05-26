@@ -52,7 +52,7 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Sezione riservata allo Staff (Livello 2)
 
-//Route::get("/gestione-promozioni", "sezione-staff/gestione-promozioni")->middleware("can:isStaff")
+//TODO Route::get("/gestione-promozioni", "sezione-staff/gestione-promozioni")->middleware("can:isStaff")
 //        ->name("gestione-promozioni");
 
 // Rotte Amministratore
