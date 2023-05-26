@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GestoriAziende extends Model {
 
-    protected $table = 'products';
+    protected $table = 'gestoriaziende';
     
     public $incrementing = false;
     

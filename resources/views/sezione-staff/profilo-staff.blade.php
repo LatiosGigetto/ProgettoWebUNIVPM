@@ -11,7 +11,7 @@
         <h2>Area riservata Staff ({{Auth::user()->username}})</h2>
         <a href="{{route("cambia-password")}}">Cambia password</a>
         <br>
-        <a href="{{--{{route("gestione-promozioni")}}--}}">Gestione promozioni</a>
+        <a href="{{route("gestione-promozioni")}}">Gestione promozioni</a>
         <br>
         <a href="{{route("modifica-info")}}">Modifica informazioni personali</a>
     </div>
