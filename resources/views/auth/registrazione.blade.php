@@ -75,41 +75,73 @@
             <div style="margin: 2%">
                 {{ Form::label('nome', 'Nome') }}
                 {{ Form::text('nome', '')}}
+                <br>
+                @error('nome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('cognome', 'Cognome') }}
                 {{ Form::text('cognome', '') }}
+                <br>
+                @error('cognome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('email', 'Email') }}
                 {{ Form::text('email', '') }}
+                <br>
+                @error('email')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('username', 'Nome Utente') }}
                 {{ Form::text('username', '') }}
+                <br>
+                @error('username')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('password', 'Password') }}
                 {{ Form::password('password') }}
+                <br>
+                @error('password')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('età', 'Età') }}
                 {{ Form::text('età','') }}
+                <br>
+                @error('età')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('telefono', 'Telefono') }}
                 {{ Form::text('telefono','') }}
+                <br>
+                @error('telefono')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">
                 {{ Form::label('genere', 'Genere') }}
                 {{ Form::select('genere',['Maschio'=>'Maschio', 'Femmina'=>'Femmina']) }}
+                <br>
+                @error('genere')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div style="margin: 2%">

@@ -13,21 +13,24 @@
         {{ Form::open(array('route' => 'cambia-password'))}}
         <div>
             <div style="margin: 2%">
-                {{ Form::label('current_password', 'Vecchia Password') }}
-                {{ Form::password('current_password') }}
+                {{ Form::label('vecchia_password', 'Vecchia Password') }}
+                {{ Form::password('vecchia_password') }}
                 <br>
-                @error('current_password')
+                @error('vecchia_password')
                     <span style="color: red">{{ $message }}</span>
                 @enderror
             </div>
 
             <div style="margin: 2%">
-                {{ Form::label('password', 'Nuova Password') }}
-                {{ Form::password('password') }}
+                {{ Form::label('nuova_password', 'Nuova Password') }}
+                {{ Form::password('nuova_password') }}
                 <br>
-                @error('password')
+                @error('nuova_password')
                     <span style="color: red">{{ $message }}</span>
                 @enderror
+                @if(session('success'))
+                    <span style="color: green">{{ session('success') }}</span>
+                @endif
             </div>
 
             <div style="margin: 2%">
