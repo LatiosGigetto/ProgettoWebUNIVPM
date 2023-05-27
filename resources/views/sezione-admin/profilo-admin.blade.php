@@ -11,7 +11,7 @@
         <br>
         <a href="{{route('gestione-membristaff')}}">Gestione staff</a>
         <br>
-        <a href="{{route('gestione-faq')}}">Aggiornamento FAQ</a>
+        <a href="{{route('gestione-faq')}}">Gestione FAQ</a>
         <br>
         <a href="{{route('statistiche')}}">Genera statistiche</a>
         <br>

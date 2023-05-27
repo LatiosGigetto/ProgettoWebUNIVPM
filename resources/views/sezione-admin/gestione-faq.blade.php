@@ -5,21 +5,38 @@
 @endsection
 
 @section('content')
-    <div class="faq">
-        <!-- Lo stile del form è da ripensare -->
-        <form action="" style="margin: 10px;">
-            <div style="display: flex">
-                <label style="min-width: fit-content; margin-right: 5px">Domanda 1</label>
-                <input style="width: 100%;">
-            </div>
-            <br><br>
-            <div style="display: flex">
-                <label style="vertical-align: top; min-width: fit-content; margin-right: 5px">Risposta 1</label>
-                <input style="height: 30vh; width: 100%">
-            </div>
-        </form>
+    <div class="spazio_blocco">
+        <h1>Gestione FAQ</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Domanda</th>
+                <th>Risposta</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+            </thead>
 
-    </div>
+            <tbody>
+            @foreach($faq as $faq)
+                <tr>
+                    <td>{{ $faq-> Domanda }}</td>
+                    <td>{{ $faq-> Risposta }}</td>
+                    <td>
+                        <button name="mod-faq" id="mod-faq">Modifica</button>
+                    </td>
+                    <td>
+                        <button name="elim-fafq" id="elim-faq">Elimina</button>
+                    </td>
+                </tr>
+            @endforeach
+            <tr>
+                <td colspan="6">
+                    <button style="margin-left: 600px">Clicca per aggiungere una promozione</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
 @endsection
 

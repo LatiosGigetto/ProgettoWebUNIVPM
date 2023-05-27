@@ -6,29 +6,36 @@
 
 @section('content')
 
-    <div class="container text-center" style="justify-content: start; padding: 100px">
-        <h1>Eliminazione Utente</h1>
+    <div class="spazio_blocco">
+        <h1>Eliminazione Utenti</h1>
         <table>
             <thead>
-            <th>Nome Utente</th>
-            <th>Eliminazione Utente</th>
+            <tr>
+                <th>Username</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Mail</th>
+                <th>Età</th>
+                <th>Genere</th>
+            </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Utente 1</td>
-                <td>
-                    <button name="eliminautente1" id="eliminautente1">Elimina Utente</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Utente 2</td>
-                <td>
-                    <button name="eliminautente2" id="eliminautente2">Elimina Utente</button>
-                </td>
-
-            </tr>
+            @foreach($utenti as $utente)
+                <tr>
+                    <td>{{ $utente-> username }}</td>
+                    <td>{{ $utente-> Nome }}</td>
+                    <td>{{ $utente-> Cognome }}</td>
+                    <td>{{ $utente-> Telefono }}</td>
+                    <td>{{ $utente-> Mail }}</td>
+                    <td>{{ $utente-> Età }}</td>
+                    <td>{{ $utente-> Genere }}</td>
+                    <td>
+                        <button name="elim-staff" id="elim-staff">Elimina</button>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
-
         </table>
     </div>
 

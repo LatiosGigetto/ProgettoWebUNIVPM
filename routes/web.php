@@ -56,19 +56,19 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
  Route::get("/gestione-promozioni", [StaffController::class , 'showGestioneOfferta'])->middleware("can:isStaff")
         ->name("gestione-promozioni");
- 
+
  Route::get("/gestione-promozioni/mod/{id}", [StaffController::class , 'showModificaOfferta'])->middleware("can:isStaff")
         ->name("modifica-offerta-view");
- 
+
   Route::post("/gestione-promozioni/mod/conferma", [StaffController::class , 'modifyOfferta'])->middleware("can:isStaff")
         ->name("modifica-offerta");
- 
+
  Route::get("/gestione-promozioni/elim/{id}", [StaffController::class , 'deleteOfferta'])->middleware("can:isStaff")
         ->name("elimina-offerta");
- 
+
  Route::get("/gestione-promozioni/crea", [StaffController::class , 'showCreaOfferta'])->middleware("can:isStaff")
         ->name("crea-offerta");
- 
+
   Route::post("/gestione-promozioni/crea", [StaffController::class , 'createOfferta'])->middleware("can:isStaff")
         ->name("crea-offerta");
 

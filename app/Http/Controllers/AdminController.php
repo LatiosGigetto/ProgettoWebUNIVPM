@@ -171,13 +171,22 @@ class AdminController extends Controller{
         $faq->delete();
         return redirect('gestione-faq');
     }
-
+    //metodi per visualizzare il contenuto
     public function getListaAziende(){
         $aziende = Azienda::all();
         return view('sezione-admin/gestione-aziende')->with('aziende', $aziende);
     }
     public function getListaStaff(){
-        return User::where('Livello', 2)->all();
+        $staff = User::where('Livello', 2)->get();
+        return view('sezione-admin/gestione-membristaff')->with('staff', $staff);
+    }
+    public function getListaUtenti(){
+        $utenti = User::where('Livello', 1)->get();
+        return view('sezione-admin/eliminazione-utenti')->with('utenti', $utenti);
+    }
+    public function getFaq(){
+        $faq = FAQ::all();
+        return view('sezione-admin/gestione-faq')->with('faq', $faq);
     }
 
 
