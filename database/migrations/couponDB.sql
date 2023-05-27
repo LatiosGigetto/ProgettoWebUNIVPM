@@ -45,7 +45,7 @@ CREATE TABLE `azienda` (
 CREATE TABLE `coupon` (
   `UsernameUtente` varchar(30) NOT NULL,
   `Id_Offerta` int(11) NOT NULL,
-  `Id_Coupon` int(11) NOT NULL
+  `Id_Coupon` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -162,6 +162,12 @@ ALTER TABLE `azienda`
 --
 ALTER TABLE `faq`
   MODIFY `Id_Domanda` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `offerta`
+--
+ALTER TABLE `offerta`
+  MODIFY `Id_Offerta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate

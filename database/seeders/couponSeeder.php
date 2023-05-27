@@ -32,9 +32,9 @@ class couponSeeder extends Seeder
 
             // Seeding aziende
 
-            ['id_Azienda' => 1, 'NomeAzienda' => 'Baldini Scarpe SRL', 'Logo' => '', 'Sede' => 'Fermo', 'Descrizione' => 'lol',
+            ['Id_Azienda' => 1, 'NomeAzienda' => 'Baldini Scarpe SRL', 'Logo' => '', 'Sede' => 'Fermo', 'Descrizione' => 'lol',
                 'Categoria' => 'Calzature'],
-            ['id_Azienda' => 2, 'NomeAzienda' => 'Franchi SPA', 'Logo' => '', 'Sede' => 'Fano', 'Descrizione' => 'lololol',
+            ['Id_Azienda' => 2, 'NomeAzienda' => 'Franchi SPA', 'Logo' => '', 'Sede' => 'Fano', 'Descrizione' => 'lololol',
                 'Categoria' => 'Supermercato']
         ]);
 
@@ -49,9 +49,9 @@ class couponSeeder extends Seeder
 
             // Seeding offerta
 
-            ['id_Offerta' => 1, 'id_Azienda' => 1, 'Luogo' => 'Fermo', 'Descrizione' => 'prova example',
+            ['Id_Offerta' => 1, 'Id_Azienda' => 1, 'Luogo' => 'Fermo', 'Descrizione' => 'prova example',
                 'Validità' => '2023-12-22'],
-            ['id_Offerta' => 2, 'id_Azienda' => 2, 'Luogo' => 'Fano', 'Descrizione' => 'prova example',
+            ['Id_Offerta' => 2, 'Id_Azienda' => 2, 'Luogo' => 'Fano', 'Descrizione' => 'prova example',
                 'Validità' => '2023-10-12']
 
         ]);

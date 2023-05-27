@@ -9,16 +9,22 @@ class Azienda extends Model {
     protected $table = 'azienda';
     protected $primaryKey = 'id_Azienda';
     public $timestamps = false;
+    public $incrementing = true;
+    
+    protected $fillable = [
+        'NomeAzienda',
+        'Logo',
+        'Sede',
+        'Descrizione',
+        'Categoria',
+    ];
 
-    // TODO: inserire metodi utili
-
-    public static function getNomeAziendaById ($id) {
+    public static function getNomeAziendaById($id) {
 
         return Azienda::where('Id_Azienda', $id)->only('NomeAzienda');
-
     }
-    public function offerte()
-    {
+
+    public function offerte() {
         return $this->hasMany(Offerta::class);
     }
 
