@@ -56,7 +56,7 @@
                             </li>
                             <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
                                 @can ('isUser')
-                                <a class="stile_header_footer" href="{{route('cliente')}}">Profilo</a>
+                                <a class="stile_header_footer" href="{{route('profilo-cliente')}}">Profilo</a>
                                 @endcan
                                 @can ('isStaff')
                                 <a class="stile_header_footer" href="{{route('staff')}}">Profilo</a>

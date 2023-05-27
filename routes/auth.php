@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::get('cambia-password', [ChangePasswordController::class, 'create'])
         ->name('cambia-password');
 
+    Route::get('/profilo-cliente', [ClientController::class, 'show'])->name('profilo-cliente');
+
     Route::post('cambia-password', [ChangePasswordController::class, 'store']);
 
     Route::get('/modifica-info', [ModificainfoController::class, 'create'])->name('modifica-info');

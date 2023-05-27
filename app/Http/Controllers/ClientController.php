@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Coupon;
+use App\Models\User;
 
 class ClientController extends Controller
 {
@@ -28,4 +30,17 @@ class ClientController extends Controller
         $coupons=Coupon::where('UsernameUtente',$user->username)->get();
         return view('sezione-clienti/riepilogo-acquisti')->with('coupons',$coupons);
     }
+
+    public function show()
+    {
+
+        $user=Auth::user();
+        return view('sezione-clienti/profilo-cliente')->with('user', $user);
+    }
+
+  /*  public function invia(Request $request)
+    {
+
+    } */
+
 }
