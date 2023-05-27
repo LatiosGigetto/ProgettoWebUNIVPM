@@ -7,15 +7,15 @@
 @section('content')
     <div class="profilo">
         <h2>Area riservata Amministratore ({{Auth::user()->username}})</h2>
-        <a href="{{--{{route('gestione-aziende')}}--}}">Gestione aziende</a>
+        <a href="{{route('gestione-aziende')}}">Gestione aziende</a>
         <br>
-        <a href="{{--{{route('gestione-membristaff')}}--}}">Gestione staff</a>
+        <a href="{{route('gestione-membristaff')}}">Gestione staff</a>
         <br>
-        <a href="{{--{{route('gestione-faq')}}--}}">Aggiornamento FAQ</a>
+        <a href="{{route('gestione-faq')}}">Aggiornamento FAQ</a>
         <br>
-        <a href="{{--{{route('statistiche')}}--}}">Genera statistiche</a>
+        <a href="{{route('statistiche')}}">Genera statistiche</a>
         <br>
-        <a href="{{--{{route('eliminazione-utenti')}}--}}">Cancellazione utenti</a>
+        <a href="{{route('eliminazione-utenti')}}">Cancellazione utenti</a>
     </div>
 
 @endsection
