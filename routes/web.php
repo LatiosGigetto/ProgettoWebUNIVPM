@@ -56,22 +56,40 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
  Route::get("/gestione-promozioni", [StaffController::class , 'showGestioneOfferta'])->middleware("can:isStaff")
         ->name("gestione-promozioni");
+ 
+ Route::get("/gestione-promozioni/mod/{id}", [StaffController::class , 'showModificaOfferta'])->middleware("can:isStaff")
+        ->name("modifica-offerta-view");
+ 
+  Route::post("/gestione-promozioni/mod/conferma", [StaffController::class , 'modifyOfferta'])->middleware("can:isStaff")
+        ->name("modifica-offerta");
+ 
+ Route::get("/gestione-promozioni/elim/{id}", [StaffController::class , 'deleteOfferta'])->middleware("can:isStaff")
+        ->name("elimina-offerta");
+ 
+ Route::get("/gestione-promozioni/crea", [StaffController::class , 'showCreaOfferta'])->middleware("can:isStaff")
+        ->name("crea-offerta");
+ 
+  Route::post("/gestione-promozioni/crea", [StaffController::class , 'createOfferta'])->middleware("can:isStaff")
+        ->name("crea-offerta");
 
 // Rotte Amministratore
 
 Route::get("/gestione-aziende", [AdminController::class, 'getListaAziende'])->middleware('can:isAdmin')
     ->name('gestione-aziende');
 
+Route::view("/modifiche-azienda", 'sezione-admin/modifiche-azienda')->middleware('can:isAdmin')
+    ->name('modifiche-azienda');
+
 Route::get("/gestione-membristaff", [AdminController::class, 'getListaStaff'])->middleware('can:isAdmin')
     ->name('gestione-membristaff');
 
-Route::get("/gestione-faq", [AdminController::class, ''])->middleware('can:isAdmin')
+Route::get("/gestione-faq", [AdminController::class, 'getFaq'])->middleware('can:isAdmin')
     ->name('gestione-faq');
 
 Route::get("/statistiche", [AdminController::class, ''])->middleware('can:isAdmin')
     ->name('statistiche');
 
-Route::get("/eliminazione-utenti", [AdminController::class, ''])->middleware('can:isAdmin')
+Route::get("/eliminazione-utenti", [AdminController::class, 'getListaUtenti'])->middleware('can:isAdmin')
     ->name('eliminazione-utenti');
 
 // Rotte profilo in base al livello di autenticazione
