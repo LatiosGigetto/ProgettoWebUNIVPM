@@ -8,6 +8,9 @@
 @section("content")
 
     <div class="spazio_blocco">
+        @switch($azione)
+
+            @case('view')
         <h1>Gestione membri dello staff</h1>
         <table>
             <thead>
@@ -46,6 +49,7 @@
             </td>
             </tbody>
         </table>
+        @endswitch
     </div>
 
 @endsection

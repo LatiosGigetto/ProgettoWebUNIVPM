@@ -13,12 +13,38 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller{
 
-    protected $admin;
     protected $listaAziende;
     protected $listaUtenti;
     protected $listaStaff;
 
+    public function setup() {
+
+        // carico nel costuttore la lista di tuple che devo manipolare
+        $this->listaAziende = Azienda::all();
+        $this->listaUtenti = User::where('Livello', 1)->get();
+        $this->listaStaff = User::where('Livello', 2)->get();
+    }
+
+    // metodi per gestire il contenuto di aziende
+    public function showGestioneAziende(){
+        $this->setup();
+        return view('sezione-admin/gestione-aziende')
+            ->with([
+                'aziende' => $this->listaAziende,
+                'azione'=> 'view'
+            ]);
+    }
+    public function showModifyAzienda($id){
+        //$this->setup();
+        return view('sezione-admin/gestione-aziende')
+            ->with([
+                'aziendaSel' => Azienda::find($id),
+                'azione'=> 'mod'
+            ]);
+    }
+
     //CRUD Aziende
+
     public function createAzienda(Request $request) {
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
@@ -37,35 +63,60 @@ class AdminController extends Controller{
         $azienda->save();
         return redirect('gestione-aziende');
     }
-    public function modifyAzienda(Request $request) {
 
+    public function modifyAzienda(Request $request) {
+        $this->setup();
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
-            'logo' => ['required', 'image|mimes:jpeg,png'],
+            'logo' => ['required', 'image', 'mimes:jpeg,png'],
             'sede' => ['required', 'string', 'max:30'],
-            'descrizione' => ['required', 'text'],
+            'descrizione' => ['required', 'string'],
             'categoria' => ['required', 'string', 'max:30'],
         ]);
-        $azienda = Azienda::where('id_Azienda', $request->idAzienda)->first(); //first prende il primo record dalla tabella e in particolare il primo id
+        $azienda = Azienda::find('id_Azienda', $request->idAzienda);
         $azienda->NomeAzienda = $request->nomeazienda;
         $azienda->Logo = $request->logo;
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
         $azienda->save();
-        return redirect('gestione-aziende');
+        return redirect('gestione-aziende')->with('azione', 'view');
     }
+
     public function deleteAzienda(Request $request) {
         $azienda = Azienda::where('id_Azienda', $request->idAzienda)->first();
         $azienda->delete();
         return redirect('gestione-aziende');
     }
+
+    public function showGestioneStaff(){
+        $this->setup();
+        return view('sezione-admin/gestione-membristaff')
+            ->with([
+                'staff' => $this->listaStaff,
+                'azione'=> 'view'
+            ]);
+    }
+
+    public function showGestioneUtenti(){
+        $utenti = User::where('Livello', 1)->get();
+        return view('sezione-admin/eliminazione-utenti')->with('utenti', $utenti);
+    }
+
+    public function showGestioneFaq(){
+        $faq = FAQ::all();
+        return view('sezione-admin/gestione-faq')->with('faq', $faq);
+    }
+
+
     //CRUD Staff
+
     public function deleteUtente(Request $request) {
         $utente = User::where('username', $request->username)->first();
         $utente->delete();
         return redirect('eliminazione-utenti');
     }
+
     public function createStaff(Request $request) {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
@@ -91,6 +142,7 @@ class AdminController extends Controller{
         event(new Registered($user));
         return redirect('gestione-membristaff');
     }
+
     public function modifyStaff(Request $request) {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
@@ -124,22 +176,29 @@ class AdminController extends Controller{
 
         return redirect()->back()->with('success', 'Informazioni modificate con successo!');
     }
+
     public function deleteStaff(Request $request) {
         $user = User::where('Username', $request->username)->first();
         $user->delete();
         return redirect('gestione-membristaff');
     }
+
     //Stats
+
     public function numeroCoupon(){
         return DB::table('coupon')->count();
     }
+
     public function numeroCouponPromozione(Request $request){
         return DB::table('coupon')->where('Id_Offerta',$request->id_offerta)->count();
     }
+
     public function numeroCouponUser(Request $request){
         return DB::table('coupon')->where('UsernameUtente',$request->username)->count();
     }
+
     //CRUD Faq
+
     public function creaFaq(Request $request){
         $request->validate([
             'id_domanda' => ['required', 'integer'],
@@ -153,6 +212,7 @@ class AdminController extends Controller{
         $faq->save();
         return redirect('gestione-faq');
     }
+
     public function modifyFaq(Request $request) {
         $request->validate([
             'id_domanda' => ['required', 'integer'],
@@ -166,28 +226,14 @@ class AdminController extends Controller{
         $faq->save();
         return redirect('gestione-faq');
     }
+
     public function deleteFaq(Request $request) {
         $faq = Azienda::where('Id_Domanda', $request->id_domanda)->first();
         $faq->delete();
         return redirect('gestione-faq');
     }
-    //metodi per visualizzare il contenuto
-    public function getListaAziende(){
-        $aziende = Azienda::all();
-        return view('sezione-admin/gestione-aziende')->with('aziende', $aziende);
-    }
-    public function getListaStaff(){
-        $staff = User::where('Livello', 2)->get();
-        return view('sezione-admin/gestione-membristaff')->with('staff', $staff);
-    }
-    public function getListaUtenti(){
-        $utenti = User::where('Livello', 1)->get();
-        return view('sezione-admin/eliminazione-utenti')->with('utenti', $utenti);
-    }
-    public function getFaq(){
-        $faq = FAQ::all();
-        return view('sezione-admin/gestione-faq')->with('faq', $faq);
-    }
+
+
 
 
 

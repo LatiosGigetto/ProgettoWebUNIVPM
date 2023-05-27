@@ -74,13 +74,16 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Rotte Amministratore
 
-Route::get("/gestione-aziende", [AdminController::class, 'getListaAziende'])->middleware('can:isAdmin')
+Route::get("/gestione-aziende", [AdminController::class, 'showGestioneAziende'])->middleware('can:isAdmin')// apre la lista di aziende
     ->name('gestione-aziende');
 
-Route::view("/modifiche-azienda", 'sezione-admin/modifiche-azienda')->middleware('can:isAdmin')
-    ->name('modifiche-azienda');
+Route::get("/gestione-aziende/mod/{id}", [AdminController::class , 'showModifyAzienda'])->middleware("can:isAdmin")// apre la form di modifica
+    ->name("modifica-azienda-view");
 
-Route::get("/gestione-membristaff", [AdminController::class, 'getListaStaff'])->middleware('can:isAdmin')
+Route::post("/gestione-promozioni/mod/conferma", [AdminController::class , 'modifyAzienda'])->middleware("can:isAdmin")// effettua la modifica
+    ->name("modifica-azienda");
+
+Route::get("/gestione-membristaff", [AdminController::class, 'showGestioneStaff'])->middleware('can:isAdmin')
     ->name('gestione-membristaff');
 
 Route::get("/gestione-faq", [AdminController::class, 'getFaq'])->middleware('can:isAdmin')
