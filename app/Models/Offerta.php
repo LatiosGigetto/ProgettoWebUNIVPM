@@ -8,7 +8,7 @@ use App\Models\Azienda;
 class Offerta extends Model {
 
     protected $table = 'offerta';
-    protected $primaryKey = 'id_Offerta';
+    protected $primaryKey = 'Id_Offerta';
     public $timestamps = false;
     public $incrementing = true;
 

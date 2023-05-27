@@ -118,11 +118,9 @@ class StaffController extends Controller {
     public function deleteOfferta($idOff) {
 
         $this->setup();
-
-        $offerta = Offerta::find($idOff);
-
-        $offerta->delete();
-
+              
+        $offerta = Offerta::destroy($idOff);
+        
         return redirect('gestione-promozioni')->with('azione', 'view');
     }
 

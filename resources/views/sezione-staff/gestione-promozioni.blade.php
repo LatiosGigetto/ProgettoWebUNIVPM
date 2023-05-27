@@ -4,22 +4,33 @@
 @section('title')
 Gestione Promozioni
 @endsection
-<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous">
-    
-  $('#el prom').(function(event) {
-  
-    let idOff = $(this).attr('name');
-    let conferma = confirm("Sei sicuro di voler eliminare l'offerta?")
-    
-    if (conferma) {
-    
-        window.location.href = "/gestione-promozioni/elim/" + idOff;
-    
-  }
 
+@section("link-scripts")
+
+<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+
+
+<script>
     
+    // TODO: Mettere il JS in un file separato.
+    
+    $(document).ready(function() {
+    
+   $('.el-prom').on('click', function() {
+       
+  if (confirm("Sei sicuro di voler eliminare quest'offerta?")) {
+      
+    var idOff = $(this).attr('name');
+    
+    window.location.href = '/gestione-promozioni/elim/' + idOff;
+  }
+});
+
+  });              
 </script>
+
+@endsection
+
 
 @section('content')
 
@@ -55,11 +66,11 @@ Gestione Promozioni
                 <td id='valOff'>{{ $offerta-> Validità }}</td>
                 <td>
                     <a href="{{ route('modifica-offerta-view', ['id' => $offerta->Id_Offerta])}}">
-                        <button id="mod prom">Modifica</button>
+                        <button id="mod-prom">Modifica</button>
                     </a>
                 </td>
                 <td>
-                    <button id="el prom"  name="{{$offerta->Id_Offerta}}" >Elimina</button>
+                    <button class="el-prom"  name="{{$offerta->Id_Offerta}}" >Elimina</button>
                 </td>
             </tr>
             @endforeach
