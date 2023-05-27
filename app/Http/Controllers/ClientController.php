@@ -16,12 +16,16 @@ class ClientController extends Controller
     }
 
     public function acquista($id_offerta) {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $randomString = substr(str_shuffle($characters), 0, 10);
+
 
         $user = Auth::user();
         $coupon = new Coupon;
         $coupon->UsernameUtente = $user->username;
         $coupon->Id_Offerta = $id_offerta;
-        $coupon->Id_Coupon = mt_rand(1, 10);
+        //$coupon->Id_Coupon = mt_rand(1, 10);
+        $coupon->Id_Coupon = $randomString;
         $coupon->save();
         return to_route("dettagli-offerta", [$id_offerta]);
     }
