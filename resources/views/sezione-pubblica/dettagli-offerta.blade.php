@@ -35,6 +35,12 @@
             torna indietro
         </button>
     </div>
+    @if(session('success'))
+    <span style="color: green">{{ session('success') }}</span>
+    @endif
+    @error("error")
+    <span style="color: red">{{ $message }}</span>
+    @enderror
 
 @endsection
 
