@@ -63,18 +63,18 @@ class PublicController extends Controller {
             $id = Azienda::where('NomeAzienda', 'LIKE', '%' . $nomeAzienda . '%')
                             ->pluck('id_Azienda')->toArray();
             $offerte = $offerte->whereIn('Id_Azienda', $id);
-            
+
         }
 
         if ($descrizione != "") {
 
             // Ritorna le offerte in base al contenuto della variabile $descrizione.
-            
+
             $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $descrizione . '%');
         }
 
-        $offerte = $offerte->paginate(1);
-        
+        $offerte = $offerte->paginate(6);
+
         // Controlla se $offerte è vuota, ritorna "false" se vero, altrimenti
         // ritorna le offerte.
 
@@ -82,7 +82,7 @@ class PublicController extends Controller {
 
             return view('sezione-pubblica/catalogo')->with('offerte', false);
         } else {
-            
+
             return view('sezione-pubblica/catalogo')->with('offerte', $offerte);
         }
     }
@@ -100,6 +100,13 @@ class PublicController extends Controller {
     public function showFAQ() {
         $faq = FAQ::all();
         return view('sezione-pubblica/faq')->with('faqs', $faq);
+    }
+
+    public function show($id)
+    {
+        $azienda = Azienda::with('offerte')->find($id);
+
+        return view('azienda.show', compact('azienda'));
     }
 
 }

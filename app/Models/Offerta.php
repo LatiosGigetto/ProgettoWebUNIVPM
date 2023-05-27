@@ -12,12 +12,17 @@ class Offerta extends Model {
     public $timestamps = false;
 
     public function getNomeAzienda() {
-        
+
         return Azienda::where('id_Azienda', $this->Id_Azienda)->value('NomeAzienda');
     }
-    
+
     public function offertaAzienda() {
         return $this->hasOne(Azienda::class, 'Id_Azienda', 'id_Azienda');
+    }
+
+    public function azienda()
+    {
+        return $this->belongsTo(Azienda::class);
     }
 
 }

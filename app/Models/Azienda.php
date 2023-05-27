@@ -17,5 +17,9 @@ class Azienda extends Model {
         return Azienda::where('Id_Azienda', $id)->only('NomeAzienda');
 
     }
+    public function offerte()
+    {
+        return $this->hasMany(Offerta::class);
+    }
 
 }

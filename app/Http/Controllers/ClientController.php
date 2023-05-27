@@ -16,11 +16,12 @@ class ClientController extends Controller
     }
 
     public function acquista($id_offerta) {
+
         $user = Auth::user();
         $coupon = new Coupon;
         $coupon->UsernameUtente = $user->username;
         $coupon->Id_Offerta = $id_offerta;
-        $coupon->Id_Coupon = mt_rand(1, 11);
+        $coupon->Id_Coupon = mt_rand(1, 10);
         $coupon->save();
         return to_route("dettagli-offerta", [$id_offerta]);
     }
@@ -38,9 +39,6 @@ class ClientController extends Controller
         return view('sezione-clienti/profilo-cliente')->with('user', $user);
     }
 
-  /*  public function invia(Request $request)
-    {
 
-    } */
 
 }
