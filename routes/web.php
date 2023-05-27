@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Auth;
@@ -58,8 +59,20 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Rotte Amministratore
 
-Route::post("/gestione-aziende", [AdminController::class, ''])->middleware('can:isAdmin')
+Route::get("/gestione-aziende", [AdminController::class, 'getListaAziende'])->middleware('can:isAdmin')
     ->name('gestione-aziende');
+
+Route::get("/gestione-membristaff", [AdminController::class, 'getListaStaff'])->middleware('can:isAdmin')
+    ->name('gestione-membristaff');
+
+Route::get("/gestione-faq", [AdminController::class, ''])->middleware('can:isAdmin')
+    ->name('gestione-faq');
+
+Route::get("/statistiche", [AdminController::class, ''])->middleware('can:isAdmin')
+    ->name('statistiche');
+
+Route::get("/eliminazione-utenti", [AdminController::class, ''])->middleware('can:isAdmin')
+    ->name('eliminazione-utenti');
 
 // Rotte profilo in base al livello di autenticazione
 

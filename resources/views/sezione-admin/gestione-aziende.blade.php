@@ -5,41 +5,11 @@
     Gestione aziende
 @endsection
 
-<!--  <style>
-
-     .imgage_logo{
-            width: 20px;
-            float: left;
-            border: 1px solid red;
-        }
-        h1{
-            text-align: center;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-        }
-
-        th {
-            background-color: grey;
-        }
-    </style>
-  -->
-
 @section("content")
 
     <div class="spazio_blocco">
-
-        <h1>gestione aziende</h1>
-
+        <h1>Gestione Aziende</h1>
         <table>
-
             <thead>
             <tr>
                 <th>Nome Azienda</th>
@@ -54,53 +24,52 @@
             </thead>
 
             <tbody>
-
+            @foreach($aziende as $azienda)
+                <tr>
+                    <td>Nome Azienda: {{ $azienda-> NomeAzienda }}</td>
+                    <td>Logo: {{ $azienda-> Logo }}</td>
+                    <td>Sede: {{ $azienda->Sede }}</td>
+                    <td>Descrizione: {{ $azienda->Descrizione }}</td>
+                    <td>Categoria: {{ $azienda->Categoria }}</td>
+                    <td>
+                        <button name="mod-azienda" id="mod-azienda">Modifica</button>
+                    </td>
+                    <td>
+                        <button name="elim-azienda" id="elim-azienda">Elimina</button>
+                    </td>
+                </tr>
+            @endforeach
             <tr>
-                <td>Azienda 1</td>
-                <td>A1</td>
-                <td>
-                    <img src="images/xampp_logo.png" alt="logo azienda" class="image_logo_2">
-                </td>
-                <td>Fano</td>
-                <td>Utensili da cucina</td>
-                <td>l'azienda si occupa di...</td>
-                <td>
-                    <button name="mod az1" id="mod az1">Modifica</button>
-                </td>
-                <td>
-                    <button name="elim az1" id="elim az1">Elimina</button>
+                <td colspan="6">
+                    <button style="margin-left: 600px">Clicca per aggiungere una promozione</button>
                 </td>
             </tr>
-
-            <tr>
-                <td>Azienda1</td>
-                <td>A2</td>
-                <td>
-                    <img src="images/xampp_logo.png" alt="logo azienda" class="image_logo_2">
-                </td>
-                <td>Ascoli Piceno</td>
-                <td>Utensili da bagno</td>
-                <td>L'azienda fa</td>
-                <td>
-                    <button name="mod az2" id="mod az2">Modifica</button>
-                </td>
-                <td>
-                    <button name="el az2" id="el az2">Elimina</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="8">
-                    <button name="add azienda" id="add azienda" style="margin-left: 600px">Clicca per aggiungere un
-                        azienda
-                    </button>
-                </td>
-
-            </tr>
-
             </tbody>
-
         </table>
+
+{{--        <div id ="mod-azienda-sezione">--}}
+{{--            {{ Form::open('route' => 'modifica-azienda') }}--}}
+{{--            <div style="margin: 2%">--}}
+{{--                {{ Form::label('nomeazienda', 'Nome Azienda') }}--}}
+{{--                {{ Form::text('nomeazienda', '') }}--}}
+{{--            </div>--}}
+{{--            <div style="margin: 2%">--}}
+{{--                {{ Form::label('logo', 'Logo') }}--}}
+{{--                {{ Form::file('logo', '') }} //TODO verificare il metodo della facade per le immagini--}}
+{{--            </div>--}}
+{{--            <div style="margin: 2%">--}}
+{{--                {{ Form::label('sede', 'Sede') }}--}}
+{{--                {{ Form::select('sede','') }}--}}
+{{--            </div>--}}
+{{--            <div style="margin: 2%">--}}
+{{--                {{ Form::label('descrizione', 'Descrizione') }}--}}
+{{--                {{ Form::text('descrizione', '') }}--}}
+{{--            </div>--}}
+{{--            <div style="margin: 2%">--}}
+{{--                {{ Form::label('categoria', 'Categoria') }}--}}
+{{--                {{ Form::text('categoria', '') }}--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </div>
 @endsection
-

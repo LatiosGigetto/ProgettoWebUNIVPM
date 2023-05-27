@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\RegisteredUserController;
-use app\Models\Azienda;
-use app\Models\Coupon;
-use app\Models\FAQ;
+use App\Models\Azienda;
+use App\Models\FAQ;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,12 +18,6 @@ class AdminController extends Controller{
     protected $listaUtenti;
     protected $listaStaff;
 
-    public function __construct(){
-        $this->admin = Auth::user();
-        $this->listaAziende = Azienda::all('Id_Azienda');
-        $this->listaUtenti = User::where('Livello',1)->get();
-        $this->listaStaff = User::where('Livello',2)->get();
-    }
     //CRUD Aziende
     public function createAzienda(Request $request) {
         $request->validate([
@@ -179,6 +171,15 @@ class AdminController extends Controller{
         $faq->delete();
         return redirect('gestione-faq');
     }
+
+    public function getListaAziende(){
+        $aziende = Azienda::all();
+        return view('sezione-admin/gestione-aziende')->with('aziende', $aziende);
+    }
+    public function getListaStaff(){
+        return User::where('Livello', 2)->all();
+    }
+
 
 
 }
