@@ -14,21 +14,22 @@ class ChangePasswordController extends Controller
         return view('auth/cambio-password');
     }
 
+    //TODO: sistemare i messaggi d'errore in modo che funzioni meglio il controllo sulla vecchia password
     public function store(Request $request) {
         $request->validate([
-            'current_password' => 'required',
-            'password' => ['required', 'max:255', Password::defaults()],
+            'vecchia_password' => 'required',
+            'nuova_password' => ['required', 'max:255', Password::defaults()],
         ]);
 
         $user = Auth::user();
 
-        if (Hash::check($request->current_password, $user->password)) {
-            $user->password = Hash::make($request->password);
+        if (Hash::check($request->vecchia_password, $user->password)) {
+            $user->password = Hash::make($request->nuova_password);
             $user->save();
 
-            return redirect()->back()->with('success', 'Password cambiata con successo!');
+            return redirect()->back()->with('success', 'Hai cambiato la passsword con successo!');
         }
 
-        return redirect()->back()->withErrors(['current_password' => 'La password corrente non è corretta.']);
+        return redirect()->back()->withErrors(['vecchia_password' => 'La vecchia password non è corretta.']);
     }
 }

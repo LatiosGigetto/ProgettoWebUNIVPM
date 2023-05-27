@@ -27,7 +27,7 @@ class ModificainfoController extends Controller {
             'email' => ['nullable', 'string', 'email', 'max:30'],
             //'username' => ['string', 'unique:utente', 'max:30'],
             'telefono' => ['nullable', 'string', 'max:10'],
-            'età' => ['nullable', 'integer', 'max:999']
+            'età' => ['nullable', 'integer', 'max:200']
         ]);
 
         $user = Auth::user();
@@ -39,7 +39,7 @@ class ModificainfoController extends Controller {
         if ($request->input('cognome') != null) {
             $user->Cognome = $request->input('cognome');
         }
-        if ($request->input('mail') != null) {
+        if ($request->input('email') != null) {
             $user->Mail = $request->input('mail');
         }
        /* if ($request->input('username') != null) {
@@ -56,7 +56,7 @@ class ModificainfoController extends Controller {
         }
         $user->save();
 
-        return redirect()->back()->with('success', 'Informazioni modificate con successo!');
+        return redirect()->back()->with('success', 'Hai modificato le tue informazioni con successo!');
     }
 
 }
