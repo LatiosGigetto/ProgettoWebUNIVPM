@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Azienda extends Model {
 
     protected $table = 'azienda';
-    protected $primaryKey = 'id_Azienda';
+    protected $primaryKey = 'Id_Azienda';
     public $timestamps = false;
     public $incrementing = true;
-    
+
     protected $fillable = [
         'NomeAzienda',
         'Logo',
