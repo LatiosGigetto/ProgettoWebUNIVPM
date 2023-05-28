@@ -11,8 +11,8 @@
         <br>
         <a href="{{route('gestione-membristaff')}}">Gestione staff</a>
         <br>
-        {{--<a href="{{route('gestione-assegnamento-aziende')}}">Assegna aziende</a>
-        <br> --}}
+        <a href="{{route('gestione-assegnamento')}}">Assegna aziende</a>
+        <br>
         <a href="{{route('gestione-faq')}}">Gestione FAQ</a>
         <br>
         <a href="{{route('statistiche')}}">Genera statistiche</a>

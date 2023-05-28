@@ -142,6 +142,25 @@ Route::get("/eliminazione-utenti", [AdminController::class, 'showGestioneUtenti'
 Route::get("/eliminazione-utenti/{username}", [AdminController::class, 'deleteUtenti'])->middleware('can:isAdmin')
     ->name('elimina-utenti-view');
 
+// Rotte per la gestione della assegnazione di aziende a staff
+Route::get("/gestione-assegnamento-aziende", [AdminController::class, 'showGestioneAssegnamento'])->middleware('can:isAdmin')
+    ->name('gestione-assegnamento');
+
+Route::get("/gestione-assegnamento/mod/{id}", [AdminController::class , 'showModifyAssegnamento'])->middleware("can:isAdmin")// apre la form di modifica
+->name("modifica-assegnamento-view");
+
+/*Route::post("/gestione-faq/mod/conferma", [AdminController::class , 'modifyFaq'])->middleware("can:isAdmin")// effettua la modifica
+->name("modifica-faq-conf");
+
+Route::get("/gestione-faq/crea", [AdminController::class , 'showCreaFaq'])->middleware("can:isAdmin")
+    ->name("crea-faq-view");
+
+Route::post("/gestione-faq/crea", [AdminController::class , 'createFaq'])->middleware("can:isAdmin")
+    ->name("crea-faq-conf");
+
+Route::get("/gestione-faq/elim/{id}", [AdminController::class , 'deleteFaq'])->middleware("can:isAdmin")
+    ->name("elimina-faq-view");
+*/
 // Rotte profilo in base al livello di autenticazione
 
 Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')

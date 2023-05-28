@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Azienda;
 use App\Models\FAQ;
+use App\Models\GestoriAziende;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
@@ -17,6 +18,7 @@ class AdminController extends Controller{
     protected $listaUtenti;
     protected $listaStaff;
     protected $listaFaq;
+    protected $listaassegnamenti;
 
     public function setup() {
 
@@ -25,6 +27,9 @@ class AdminController extends Controller{
         $this->listaUtenti = User::where('Livello', 1)->get();
         $this->listaStaff = User::where('Livello', 2)->get();
         $this->listaFaq = Faq::all();
+        $this->listaassegnamenti = GestoriAziende::join('Azienda','GestoriAziende.Id_Azienda','=','Azienda.Id_Azienda')
+            ->select('GestoriAziende.*','Azienda.NomeAzienda')->get();
+
     }
 
     // metodi per gestire il contenuto di aziende
@@ -259,6 +264,22 @@ class AdminController extends Controller{
     }
     public function numeroCouponUser(Request $request){
         return DB::table('coupon')->where('UsernameUtente',$request->username)->count();
+    }
+
+    // metodo per la gestione degli asssegnamenti
+    public function showGestioneAssegnamento(){
+        $this->setup();
+        return view('sezione-admin/gestione-assegnamento-aziende')
+            ->with(['azienda_assegnata'=> $this->listaassegnamenti,
+                    'azione' => 'view'
+    ]);
+    }
+    public function showModifyAssegnamento($id){
+        return view('sezione-admin/gestione-assegnamento-aziende')
+            ->with([
+                'assegnamentoSel' => GestoriAziende::find($id),
+                'azione'=> 'mod'
+            ]);
     }
 
 
