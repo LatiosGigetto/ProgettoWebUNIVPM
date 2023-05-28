@@ -38,7 +38,7 @@ Catalogo
 
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="{{$azienda->Logo}}" class="card-img-top" alt="...">
+                <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <strong class='card-title'> {{$azienda->NomeAzienda}}</strong>
                     <a href="{{ route('ricerca-offerte', ['azienda' => $azienda->NomeAzienda])}}"
@@ -72,7 +72,7 @@ Catalogo
 
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{asset("images/xampp_logo.png")}}" class="card-img-top" alt="...">
+                        <img src="data:image/png/jpeg;base64,{{ base64_encode($offerta->getLogoAzienda())}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h4 class='card-title'> {{$offerta->getNomeAzienda()}}</h4>
                             <h5 class="card-title">{{$offerta->Luogo}}</h5>

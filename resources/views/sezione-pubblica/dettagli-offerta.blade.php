@@ -7,7 +7,7 @@
 @section("contenuto")
     <div class="d-flex justify-content-center align-items-center flex-column">
         <h2>Dettagli</h2>
-        <img id="logosito" src="{{asset('images/logosito.png')}}" alt="Descrizione dell'immagine">
+        <img id="logosito" src="data:image/png/jpeg;base64,{{ base64_encode($offerta->getLogoAzienda())}}" alt="Logo azienda offerta">
 
         <br>
         <strong>Nome Azienda</strong>

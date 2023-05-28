@@ -165,7 +165,22 @@ return [
             'required' => "Non hai inserito la data di validità dell'offerta",
         ],
         'azienda' => [
-            'required' => "Non hai inserito l'azienda relativa all'offera",
+            'required' => "Non hai inserito l'azienda relativa all'offerta",
+        ],
+        'nomeAzienda' => [
+            'required' => "Non hai inserito il nome dell'azienda",
+        ],
+        'categoria' => [
+            'required' => "Non hai inserito la categoria dell'azienda",
+        ],
+        'sede' => [
+            'required' => "Non hai inserito la sede dell'azienda",
+        ],
+        'logo' => [
+            'required' => "Non hai inserito il logo dell'azienda",
+        ],
+        'descrizioneAzienda' => [
+            'required' => "Non hai inserito la descrizione dell'azienda",
         ],
     ],
 
@@ -193,6 +208,11 @@ return [
         'azienda' => 'L\'azienda',
         'validità' => 'La validità',
         'luogo' => 'Il luogo',
+        'nomeAzienda' => "Il nome dell'azienda",
+        "descrizioneAzienda" => "La descrizione",
+        "logo" => "Il logo",
+        "categoria" => "La categoria",
+        "sede" => "La sede",
     ],
 
 ];

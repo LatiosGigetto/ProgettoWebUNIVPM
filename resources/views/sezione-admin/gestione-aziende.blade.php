@@ -2,119 +2,177 @@
 
 
 @section("title")
-    Gestione aziende
+Gestione aziende
+@endsection
+
+@section("link-scripts")
+
+<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+
 @endsection
 
 @section("content")
 
-    <div class="spazio_blocco">
+<div class="spazio_blocco">
         @switch($azione)
 
             @case('view')
-                <h1>Gestione Aziende</h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Nome Azienda</th>
-                        <th>R.S.</th>
-                        <th>Logo</th>
-                        <th>Sede</th>
-                        <th>Descrizione</th>
-                        <th>Modifica</th>
-                        <th>Elimina</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+    <h1>Gestione Aziende</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome Azienda</th>
+                <th>Tipologia</th>
+                <th>Logo</th>
+                <th>Sede</th>
+                <th>Descrizione</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                    <!--popolo la tabella-->
+            <!--popolo la tabella-->
                     @foreach($aziende as $azienda)
-                        <tr>
-                            <td>{{ $azienda-> NomeAzienda }}</td>
-                            <td>{{ $azienda->Categoria }}</td>
-                            <td>{{ $azienda-> Logo }}</td>
-                            <td>{{ $azienda->Sede }}</td>
-                            <td>{{ $azienda->Descrizione }}</td>
-                            <td>
-                                <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                                    <button id="mod prom">Modifica</button>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                                    <button id="elim prom">Elimina</button>
-                                </a>
-                            </td>
-                        </tr>
+            <tr>
+                <td>{{ $azienda-> NomeAzienda }}</td>
+                <td>{{ $azienda->Categoria }}</td>
+                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}", style="width: 100px; height: 100px" }}"></td>
+                <td>{{ $azienda->Sede }}</td>
+                <td>{{ $azienda->Descrizione }}</td>
+                <td>
+                    <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda])}}">
+                        <button id="mod-az">Modifica</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
+                        <button id="elim-az">Elimina</button>
+                    </a>
+                </td>
+            </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="6">
-                            <a href="{{ route('crea-azienda-view')}}">
-                                <button id="mod prom">Crea Nuova Azienda</button>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <tr>
+                <td colspan="6">
+                    <a href="{{ route('crea-azienda-view')}}">
+                        <button id="mod-az">Crea Nuova Azienda</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="text-align: center">
+                @if(session('success'))
+        <strong style="color: green">{{ session('success') }}</strong>
+                @endif
+                @error('azienda-non-trovata')
+        <span style="color: red">{{ $message }}</span>
+                @enderror
+
+                @include('paginator.paginator', ['paginator' => $aziende])
+    </div>
+
                 @break
 
             @case('mod')
-                <h1>Modifica Azienda</h1>
+    <h1>Modifica Azienda</h1>
 
-                <div id ="mod-azienda-sezione">
-                    {{ Form::open(['route' => 'modifica-azienda']) }}
+    <div id ="mod-azienda-sezione">
+                    {{ Form::open(['route' => 'modifica-azienda', 'files' => 'true']) }}
                     {{ Form::hidden('idAzienda', $aziendaSel->Id_Azienda) }}
-                    <div style="margin: 2%">
+        <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::text('nomeazienda', $aziendaSel->NomeAzienda) }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('nomeAzienda')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('categoria', 'Categoria') }}
                         {{ Form::text('categoria', $aziendaSel->Categoria) }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('categoria')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('logo', 'Logo') }}
                         {{ Form::file('logo') }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('logo')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('sede', 'Sede') }}
                         {{ Form::text('sede', $aziendaSel->Sede) }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('sede')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::text('descrizione', $aziendaSel->Descrizione) }}
-                    </div>
+            <br>
+                @error('descrizioneAzienda')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-                </div>
+    </div>
                 @break
             @case('create')
 
-                <h1>Crea Azienda</h1>
-                <div id ="crea-azienda-sezione">
-                    {{ Form::open(['route' => 'crea-azienda']) }}
-                    <div style="margin: 2%">
+    <h1>Crea Azienda</h1>
+    <div id ="crea-azienda-sezione">
+                    {{ Form::open(['route' => 'crea-azienda', 'files' => 'true']) }}
+        <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::text('nomeazienda', '') }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('nomeAzienda')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('categoria', 'Categoria') }}
                         {{ Form::text('categoria', '') }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('categoria')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('logo', 'Logo') }}
                         {{ Form::file('logo') }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('logo')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('sede', 'Sede') }}
                         {{ Form::text('sede', '') }}
-                    </div>
-                    <div style="margin: 2%">
+            <br>
+                @error('sede')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::text('descrizione', '') }}
-                    </div>
+            <br>
+                @error('descrizioneAzienda')
+            <span style="color: red">{{ $message }}</span>
+                @enderror
+        </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-                </div>
+    </div>
                 @break
       @endswitch
 @endsection
