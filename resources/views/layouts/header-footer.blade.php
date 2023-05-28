@@ -22,91 +22,99 @@
 
     </head>
     <body>
-        <header>
-            <!--chiamo la classe di bootstrap-->
-            <!--expand lo estende per tutta la larghezza della pagine-->
-            <nav style="background: purple">
-                <!--definisco un contenitore dove posizionare gli elementi centrati e con margin 2px-->
+    <header style="background-color: #750C8E; border: 1px solid;">
 
-                <div class="text-center mt-2">
-                    <a href="{{route('home')}}"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
-                    <h1 class="stile_header_footer">Doggo Discount</h1>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-end">
-                    <!--TODO sistemare i bottoni-->
-                    <div >
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="{{route('catalogo')}}">Catalogo Offerte</a>
-                            </li>
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="{{route('lista-aziende')}}">Lista Aziende </a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="text-center mt-2">
+            <a href="{{route('home')}}"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
+            <h1 class="stile_header_footer">Doggo Discount</h1>
+        </div>
+
+        <div class="container-fluid text-center" style="background-color: #A70BCD;">
             @auth
-                    <div>
-                        <p style="text-align: right; margin-right: 10px">
-                            <b>Benvenuto, {{Auth::user()->username}}.</b>
-                        </p>
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
-                                <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                                </form>
-                            </li>
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                @can ('isUser')
-                                <a class="stile_header_footer" href="{{route('profilo-cliente')}}">Profilo</a>
-                                @endcan
-                                @can ('isStaff')
-                                <a class="stile_header_footer" href="{{route('staff')}}">Profilo</a>
-                                @endcan
-                                @can ('isAdmin')
-                                <a class="stile_header_footer" href="{{route('admin')}}">Profilo</a>
-                                @endcan
-                            </li>
-                        </ul>
-                    </div>
+                <div class="row" style="text-align: right; min-width: 100%;">
+                    <b>Benvenuto, {{ Auth::user()->username }}</b>
+                </div>
             @else
-                    <div>
-                        <b style="text-align: right">Non sei registrato.</b>
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="{{route('registrazione')}}">Registrati</a>
-                            </li>
-                            <li class="list-group-item list-group-item-primary" style="background-color: transparent; border:transparent">
-                                <a class="stile_header_footer" href="{{route('login')}}">Login</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="row" style="text-align: right; min-width: 100%;">
+                <b>Non sei registrato.</b>
+            </div>
             @endif
+
+            <div class="row">
+                <div class="col-sm-auto">
+                    <ul class="nav">
+                        <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
+                            <a class="nav-link stile_header_footer" href="{{route('catalogo')}}">Catalogo Offerte</a>
+                        </li>
+                        <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
+                            <a class="nav-link stile_header_footer" href="{{route('lista-aziende')}}">Lista Aziende </a>
+                        </li>
+                    </ul>
                 </div>
+                <div class="col">
 
-            </nav>
+                </div>
+                @auth
+                <div class="col-sm-auto">
+                    <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
+                            <a class="nav-link stile_header_footer" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                            <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                        </li>
+                        @can('isUser')
+                        <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                            <a class="nav-link stile_header_footer" href="{{route('profilo-cliente')}}">Profilo</a>
+                        </li>
+                        @endcan
+                        @can('isStaff')
+                            <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                                <a class="nav-link stile_header_footer" href="{{route('staff')}}">Profilo</a>
+                            </li>
+                        @endcan
+                        @can('isAdmin')
+                            <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                                <a class="nav-link stile_header_footer" href="{{route('admin')}}">Profilo</a>
+                            </li>
+                        @endcan
+                    </ul>
+                </div>
+                @else
+                <div class="col-sm-auto">
+                    <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
+                            <a class="nav-link stile_header_footer" href="{{route('registrazione')}}">Registrati</a>
+                        </li>
+                        <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                            <a class="nav-link stile_header_footer" href="{{route('login')}}">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                @endif
+            </div>
+        </div>
+    </header>
 
-        </header>
-        <main>
+    <main>
     @yield('content')
-        </main>
+    </main>
 
-        <footer>
-            <nav style="background: purple">
-                <div style="display: flex; align-items: center; justify-content: space-between">
-                    <div>
-                        <img src="{{asset("images/longe.png")}}" class="rounded" style="width: 50px;" alt="longe">
-                    </div>
-                    <div style="text-align: center">
-                        <b class="stile_header_footer">Diritti</b>
-                    </div>
-                    <div style="text-align: center">
-                        <a class="stile_header_footer" href="{{route('contatti')}}">Contatti</a>
-                        <br>
-                        <a class="stile_header_footer" href="{{route('faq')}}">Faq</a>
+    <footer>
+        <div class="container-fluid" style="background-color: #750C8E;">
+            <div class="row">
+                <div class="col">
+                    <img src="{{ asset("images/longe.png") }}" class="rounded" style="width: 50px;" alt="longe">
+                </div>
+                <div class="col text-center" style="align-self: center;">
+                    <div class="stile_header_footer">
+                        <b>Diritti</b>
                     </div>
                 </div>
-            </nav>
-        </footer>
+                <div class="col text-end">
+                    <a class="nav-link stile_header_footer" href="{{route('contatti')}}">Contatti</a>
+                    <a class="nav-link stile_header_footer" href="{{route('faq')}}">Faq</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
