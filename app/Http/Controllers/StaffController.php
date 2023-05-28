@@ -86,7 +86,10 @@ class StaffController extends Controller {
                 'Id_Azienda' => $request->azienda
         ]);
 
-        return redirect('gestione-promozioni')->with('azione', 'view');
+        return redirect('gestione-promozioni')->with([
+                'azione' => 'view',
+                'success' => 'Offerta creata con successo'
+            ]);
     }
 
     // Modifica l'offerta passata nella Request
@@ -110,7 +113,10 @@ class StaffController extends Controller {
 
         $offerta->save();
 
-        return redirect('gestione-promozioni')->with('azione', 'view');
+        return redirect('gestione-promozioni')->with([
+                'azione' => 'view',
+                'success' => 'Offerta modificata con successo'
+            ]);
     }
 
     // Elimina l'offerta con l'ID fornito.
@@ -119,9 +125,19 @@ class StaffController extends Controller {
 
         $this->setup();
               
-        $offerta = Offerta::destroy($idOff);
+        if($offerta = Offerta::destroy($idOff)) {
         
-        return redirect('gestione-promozioni')->with('azione', 'view');
+        return redirect('gestione-promozioni')->with([
+                'azione' => 'view',
+                'success' => 'Offerta eliminata con successo'
+            ]);
+        
+        } else {
+            
+             return redirect('gestione-promozioni')->withErrors(["offerta-non-trovta" => "Qualcosa è andato storto. L'offerta non è stata trovata"]);
+            
+        }
+       
     }
 
 }

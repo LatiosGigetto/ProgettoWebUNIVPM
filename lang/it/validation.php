@@ -31,7 +31,7 @@ return [
     ],
     'boolean'              => ":attribute deve essere vero o falso.",
     'confirmed'            => ":attribute non corrisponde.",
-    'date'                 => ":attribute non è una data valida.",
+    'date'                 => ":attribute non è una data valida (YYYY-MM-DD).",
     'date_equals'          => ":attribute deve essere uguale a :date.",
     'date_format'          => ":attribute non corrisponde al formato :format.",
     'different'            => ":attribute e :other devono essere diversi.",
@@ -155,6 +155,18 @@ return [
         'telefono' => [
             'required' => "Non hai inserito il numero di telefono",
         ],
+        'descrizione' => [
+            'required' => "Non hai inserito la descrizione dell'offerta",
+        ],
+        'luogo' => [
+            'required' => "Non hai inserito il luogo dell'offerta",
+        ],
+        'validità' => [
+            'required' => "Non hai inserito la data di validità dell'offerta",
+        ],
+        'azienda' => [
+            'required' => "Non hai inserito l'azienda relativa all'offera",
+        ],
     ],
 
     /*
@@ -177,6 +189,10 @@ return [
         'età' => 'L\'età',
         'telefono' => 'Il numero di telefono',
         'password' => 'La password',
+        'descrizione' => 'La descrizione',
+        'azienda' => 'L\'azienda',
+        'validità' => 'La validità',
+        'luogo' => 'Il luogo',
     ],
 
 ];
