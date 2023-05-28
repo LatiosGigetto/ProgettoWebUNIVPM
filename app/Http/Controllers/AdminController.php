@@ -42,51 +42,62 @@ class AdminController extends Controller{
                 'azione'=> 'mod'
             ]);
     }
+    public function showCreaAzienda() {
+        return view('sezione-admin/gestione-aziende')
+            ->with([
+                'azione' => 'create'
+            ]);
+    }
 
     //CRUD Aziende
 
     public function createAzienda(Request $request) {
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
-            'logo' => ['required', 'image|mimes:jpeg,png'], //TODO da decidere dim massime per l'immagine
+            //'logo' => ['required', 'image','mimes:jpeg,png'],
             'sede' => ['required', 'string', 'max:30'],
-            'descrizione' => ['required', 'text'],
+            'descrizione' => ['required', 'string','max:999'],
             'categoria' => ['required', 'string', 'max:30'],
         ]);
         $azienda = new Azienda();
         $azienda->NomeAzienda = $request->nomeazienda;
-        $azienda->Logo = $request->logo;
+        $azienda->Logo = '';
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
         $azienda->Id_Azienda = $request->idAzienda;
         $azienda->save();
-        return redirect('gestione-aziende');
+        return redirect('gestione-aziende')
+            ->with('azione', 'view');
     }
 
     public function modifyAzienda(Request $request) {
-        $this->setup();
+        //$this->setup();
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
-            'logo' => ['required', 'image', 'mimes:jpeg,png'],
+            //'logo' => ['required', 'image', 'mimes:jpeg,png'],
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string'],
             'categoria' => ['required', 'string', 'max:30'],
         ]);
-        $azienda = Azienda::find('id_Azienda', $request->idAzienda);
+        $azienda = Azienda::find($request->idAzienda);
         $azienda->NomeAzienda = $request->nomeazienda;
-        $azienda->Logo = $request->logo;
+        //$azienda->Logo = $request->logo;
+        $azienda->Logo = "";
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
         $azienda->save();
-        return redirect('gestione-aziende')->with('azione', 'view');
+        return redirect('gestione-aziende')
+            ->with([
+                'azione'=> 'view'
+            ]);
     }
 
-    public function deleteAzienda(Request $request) {
-        $azienda = Azienda::where('id_Azienda', $request->idAzienda)->first();
-        $azienda->delete();
-        return redirect('gestione-aziende');
+    public function deleteAzienda($idAzienda) {
+        $this->setup();
+        $this->listaAziende = Azienda::destroy($idAzienda);
+        return redirect('gestione-aziende')->with('azione', 'view');
     }
 
     public function showGestioneStaff(){
