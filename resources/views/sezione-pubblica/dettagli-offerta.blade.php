@@ -10,8 +10,7 @@
     <!--TODO: sarebbe carino dargli la stessa grafica delle cards del catologo-->
     <h2>Dettagli</h2>
     <img id="logosito" src="{{asset("images/logosito.png")}}" alt="Descrizione dell'immagine">
-
-    <a href="linkdaseguire">Nome azienda</a>
+    
     <br>
 
     <strong>Descrizione offerta</strong>

@@ -42,15 +42,27 @@ class StaffController extends Controller {
 
         $this->setup();
 
+        //Preparo la lista delle aziende che il membro dello Staff può gestire
+
         $listaAziende = Azienda::whereIn('Id_Azienda', $this->currentAziende)
                 ->pluck('NomeAzienda', 'Id_Azienda');
 
-        return view('sezione-staff/gestione-promozioni')
-                        ->with([
-                            'listaAziende' => $listaAziende,
-                            'azione' => 'mod',
-                            'offertaSel' => Offerta::find($id)
-        ]);
+        $offerta = Offerta::find($id);
+
+        if ($offerta != null) {
+
+            return view('sezione-staff/gestione-promozioni')
+                            ->with([
+                                'listaAziende' => $listaAziende,
+                                'azione' => 'mod',
+                                'offertaSel' => Offerta::find($id)
+            ]);
+        } else {
+
+            return redirect('gestione-promozioni')->withErrors([
+                        "offerta-non-trovata" => "Offerta non trovata, qualcosa è andato storto"
+            ]);
+        }
     }
 
     public function showCreaOfferta() {
@@ -80,16 +92,16 @@ class StaffController extends Controller {
         ]);
 
         Offerta::create([
-                'Luogo'  => $request->luogo,
-                'Descrizione'  => $request->descrizione,
-                'Validità'  => $request->validità,
-                'Id_Azienda' => $request->azienda
+            'Luogo' => $request->luogo,
+            'Descrizione' => $request->descrizione,
+            'Validità' => $request->validità,
+            'Id_Azienda' => $request->azienda
         ]);
 
         return redirect('gestione-promozioni')->with([
-                'azione' => 'view',
-                'success' => 'Offerta creata con successo'
-            ]);
+                    'azione' => 'view',
+                    'success' => 'Offerta creata con successo'
+        ]);
     }
 
     // Modifica l'offerta passata nella Request
@@ -114,9 +126,9 @@ class StaffController extends Controller {
         $offerta->save();
 
         return redirect('gestione-promozioni')->with([
-                'azione' => 'view',
-                'success' => 'Offerta modificata con successo'
-            ]);
+                    'azione' => 'view',
+                    'success' => 'Offerta modificata con successo'
+        ]);
     }
 
     // Elimina l'offerta con l'ID fornito.
@@ -124,20 +136,17 @@ class StaffController extends Controller {
     public function deleteOfferta($idOff) {
 
         $this->setup();
-              
-        if($offerta = Offerta::destroy($idOff)) {
-        
-        return redirect('gestione-promozioni')->with([
-                'azione' => 'view',
-                'success' => 'Offerta eliminata con successo'
+
+        if ($offerta = Offerta::destroy($idOff)) {
+
+            return redirect('gestione-promozioni')->with([
+                        'azione' => 'view',
+                        'success' => 'Offerta eliminata con successo'
             ]);
-        
         } else {
-            
-             return redirect('gestione-promozioni')->withErrors(["offerta-non-trovta" => "Qualcosa è andato storto. L'offerta non è stata trovata"]);
-            
+
+            return redirect('gestione-promozioni')->withErrors(["offerta-non-trovta" => "Qualcosa è andato storto. L'offerta non è stata trovata"]);
         }
-       
     }
 
 }

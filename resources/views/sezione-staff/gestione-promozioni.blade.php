@@ -56,17 +56,15 @@ Gestione Promozioni
                 </td>
             </tr>
             @endforeach
-            <tr>
-                <td colspan="6">
-                    <a href="{{ route('crea-offerta')}}">
-                        <button style="margin-left: 600px">Aggiungi promozione</button>
-                    </a>
-                </td>
-
-            </tr>
-
         </tbody>
     </table>
+    
+    <div style="display: flex; justify-content: center">
+                    <a href="{{ route('crea-offerta')}}" style="margin: 1%">
+                        <button >Aggiungi promozione</button>
+                    </a>
+    </div>        
+    
     <div style="text-align: center">
                 @if(session('success'))
                 <strong style="color: green">{{ session('success') }}</strong>
