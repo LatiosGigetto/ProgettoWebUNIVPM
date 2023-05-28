@@ -1,46 +1,49 @@
 @extends('layouts.contenitore')
 
-
 @section('title')
     Dettagli offerta
 @endsection
 
 @section("contenuto")
-    <!--TODO padding-->
-    <!--TODO: sarebbe carino dargli la stessa grafica delle cards del catologo-->
-    <h2>Dettagli</h2>
-    <img id="logosito" src="{{asset("images/logosito.png")}}" alt="Descrizione dell'immagine">
-    
-    <br>
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <h2>Dettagli</h2>
+        <img id="logosito" src="{{asset('images/logosito.png')}}" alt="Descrizione dell'immagine">
 
-    <strong>Descrizione offerta</strong>
+        <br>
+        <strong>Nome Azienda</strong>
 
-    <p> {{ $offerta->Descrizione }} </p>
+        <p>{{ $offerta->getNomeAzienda() }}</p>
 
-    <br>
+        <br>
+        <strong>Descrizione offerta</strong>
 
-    <strong>Luogo di fruizione</strong>
+        <p>{{ $offerta->Descrizione }}</p>
 
-    <p>{{ $offerta->Luogo }}</p>
+        <br>
 
-    <div>
-        <a href="{{route('acquisto', ['id' => $offerta-> Id_Offerta])}}">
-            <button name="generaofferta" id="generaofferta">
-                genera
+        <strong>Luogo di fruizione</strong>
+
+        <p>{{ $offerta->Luogo }}</p>
+
+        <div>
+            <a href="{{ route('acquisto', ['id' => $offerta->Id_Offerta]) }}">
+                <button name="generaofferta" id="generaofferta">
+                    genera
+                </button>
+            </a>
+
+            <button name="indietro" id="indietro">
+                torna indietro
             </button>
-        </a>
+        </div>
 
-        <button name="indietro" id="indietro">
-            torna indietro
-        </button>
+        @if(session('success'))
+            <span style="color: green">{{ session('success') }}</span>
+        @endif
+        @error("error")
+        <span style="color: red">{{ $message }}</span>
+        @enderror
     </div>
-    @if(session('success'))
-    <span style="color: green">{{ session('success') }}</span>
-    @endif
-    @error("error")
-    <span style="color: red">{{ $message }}</span>
-    @enderror
-
 @endsection
 
 <!-- TODO FUNZIONE JAVASCRIPT DA CORREEGGERE PER METTERE VALORI DEL DATABASE
