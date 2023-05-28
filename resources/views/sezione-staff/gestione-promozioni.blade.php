@@ -9,25 +9,7 @@ Gestione Promozioni
 
 <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
 
-
-<script>
-    
-    // TODO: Mettere il JS in un file separato.
-    
-    $(document).ready(function() {
-    
-   $('.el-prom').on('click', function() {
-       
-  if (confirm("Sei sicuro di voler eliminare quest'offerta?")) {
-      
-    var idOff = $(this).attr('name');
-    
-    window.location.href = '/gestione-promozioni/elim/' + idOff;
-  }
-});
-
-  });              
-</script>
+<script src="{{asset("js/gestione-promo.js")}}"></script>
 
 @endsection
 
@@ -59,14 +41,14 @@ Gestione Promozioni
             @foreach($offerte as $offerta)
 
             <tr>
-                <td id='idOff'>{{ $offerta-> Id_Offerta }} </td>
-                <td id='descOff'>{{ $offerta-> Descrizione }}</td>
-                <td id='nomeAz'>{{ $offerta->getNomeAzienda() }} </td>
-                <td id='luogoOff'>{{ $offerta-> Luogo }}</td>
-                <td id='valOff'>{{ $offerta-> Validità }}</td>
+                <td class='idOff'>{{ $offerta-> Id_Offerta }} </td>
+                <td class='descOff'>{{ $offerta-> Descrizione }}</td>
+                <td class='nomeAz'>{{ $offerta->getNomeAzienda() }} </td>
+                <td class='luogoOff'>{{ $offerta-> Luogo }}</td>
+                <td class='valOff'>{{ $offerta-> Validità }}</td>
                 <td>
                     <a href="{{ route('modifica-offerta-view', ['id' => $offerta->Id_Offerta])}}">
-                        <button id="mod-prom">Modifica</button>
+                        <button class="mod-prom">Modifica</button>
                     </a>
                 </td>
                 <td>
@@ -85,6 +67,16 @@ Gestione Promozioni
 
         </tbody>
     </table>
+    <div style="text-align: center">
+                @if(session('success'))
+                <strong style="color: green">{{ session('success') }}</strong>
+                @endif
+                @error('offerta-non-trovata')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
+                
+                @include('paginator.paginator', ['paginator' => $offerte])
+    </div>
     @break
 
 
@@ -100,23 +92,39 @@ Gestione Promozioni
 
         <div style="margin: 2%">
                 {{ Form::label('descrizione', 'Descrizione') }}
-                {{ Form::text('descrizione', $offertaSel->Descrizione) }}
+                {{ Form::textarea('descrizione', $offertaSel->Descrizione) }}
+            <br>
+                @error('descrizione')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         <div style="margin: 2%">
                 {{ Form::label('azienda', 'Azienda') }}
                 {{ Form::select('azienda', $listaAziende, $offertaSel->getNomeAzienda()) }}
+            <br>
+                @error('azienda')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
 
         <div style="margin: 2%">
                 {{ Form::label('luogo', 'Luogo') }}
                 {{ Form::text('luogo', $offertaSel->Luogo, ) }}
+            <br>
+                @error('luogo')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         <div style="margin: 2%">
                 {{ Form::label('validità', 'Validità') }}
                 {{ Form::text('validità', $offertaSel->Validità) }}
+            <br>
+                @error('validità')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         {{ Form::submit('Modifica') }}
@@ -139,22 +147,38 @@ Gestione Promozioni
         <div style="margin: 2%">
                 {{ Form::label('descrizione', 'Descrizione') }}
                 {{ Form::text('descrizione', '') }}
+            <br>
+            @error('descrizione')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         <div style="margin: 2%">
                 {{ Form::label('azienda', 'Azienda') }}
                 {{ Form::select('azienda', $listaAziende) }}
+            <br>
+            @error('azienda')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
 
         <div style="margin: 2%">
                 {{ Form::label('luogo', 'Luogo') }}
                 {{ Form::text('luogo', '' ) }}
+            <br>
+            @error('luogo')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         <div style="margin: 2%">
                 {{ Form::label('validità', 'Validità') }}
                 {{ Form::text('validità', '') }}
+            <br>
+            @error('validità')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
         </div>
 
         {{ Form::submit('Crea') }}
@@ -167,6 +191,8 @@ Gestione Promozioni
 
     @endswitch
 
+    
+    
 </div>
 
 @endsection

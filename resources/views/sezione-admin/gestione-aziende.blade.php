@@ -41,7 +41,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{-- route('elimina-aziende-view', ['id' => $azienda->Id_Azienda])--}}">
+                                <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
                                     <button id="mod prom">Elimina</button>
                                 </a>
                             </td>
@@ -49,7 +49,9 @@
                     @endforeach
                     <tr>
                         <td colspan="6">
-                            <button style="margin-left: 600px">Clicca per aggiungere una promozione</button>
+                            <a href="{{ route('crea-azienda-view')}}">
+                                <button id="mod prom">Crea Nuova Azienda</button>
+                            </a>
                         </td>
                     </tr>
                     </tbody>
@@ -95,6 +97,42 @@
                     {{ Form::close() }}
                 </div>
                 @break
+            @case('create')
 
-       @endswitch
+                <h1>Crea Azienda</h1>
+
+                <div id ="crea-azienda-sezione">
+
+                    {{ Form::open(['route' => 'crea-azienda']) }}
+
+                    <div style="margin: 2%">
+                        {{ Form::label('nomeazienda', 'NomeAzienda') }}
+                        {{ Form::text('nomeazienda', '') }}
+                    </div>
+
+                    <div style="margin: 2%">
+                        {{ Form::label('categoria', 'Categoria') }}
+                        {{ Form::text('categoria', '') }}
+                    </div>
+
+                    <div style="margin: 2%">
+                        {{ Form::label('logo', 'Logo') }}
+                        {{ Form::file('logo') }}
+                    </div>
+
+                    <div style="margin: 2%">
+                        {{ Form::label('sede', 'Sede') }}
+                        {{ Form::text('sede', '') }}
+                    </div>
+
+                    <div style="margin: 2%">
+                        {{ Form::label('descrizione', 'Descrizione') }}
+                        {{ Form::text('descrizione', '') }}
+                    </div>
+
+                    {{ Form::submit('Crea') }}
+                    {{ Form::close() }}
+                </div>
+                @break
+             @endswitch
 @endsection

@@ -80,8 +80,17 @@ Route::get("/gestione-aziende", [AdminController::class, 'showGestioneAziende'])
 Route::get("/gestione-aziende/mod/{id}", [AdminController::class , 'showModifyAzienda'])->middleware("can:isAdmin")// apre la form di modifica
     ->name("modifica-azienda-view");
 
-Route::post("/gestione-promozioni/mod/conferma", [AdminController::class , 'modifyAzienda'])->middleware("can:isAdmin")// effettua la modifica
+Route::post("/gestione-aziende/mod/conferma", [AdminController::class , 'modifyAzienda'])->middleware("can:isAdmin")// effettua la modifica
     ->name("modifica-azienda");
+
+Route::get("/gestione-aziende/crea", [AdminController::class , 'showCreaAzienda'])->middleware("can:isAdmin")
+    ->name("crea-azienda-view");
+
+Route::post("/gestione-aziende/crea", [AdminController::class , 'createAzienda'])->middleware("can:isAdmin")
+    ->name("crea-azienda");
+
+Route::get("/gestione-aziende/elim/{id}", [AdminController::class , 'deleteAzienda'])->middleware("can:isAdmin")
+    ->name("elimina-azienda-view");
 
 Route::get("/gestione-membristaff", [AdminController::class, 'showGestioneStaff'])->middleware('can:isAdmin')
     ->name('gestione-membristaff');
