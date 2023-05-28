@@ -73,7 +73,7 @@ class PublicController extends Controller {
             $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $descrizione . '%');
         }
 
-        $offerte = $offerte->paginate(6);
+        $offerte = $offerte->paginate(5);
 
         // Controlla se $offerte è vuota, ritorna "false" se vero, altrimenti
         // ritorna le offerte.

@@ -41,14 +41,14 @@ Gestione Promozioni
             @foreach($offerte as $offerta)
 
             <tr>
-                <td id='idOff'>{{ $offerta-> Id_Offerta }} </td>
-                <td id='descOff'>{{ $offerta-> Descrizione }}</td>
-                <td id='nomeAz'>{{ $offerta->getNomeAzienda() }} </td>
-                <td id='luogoOff'>{{ $offerta-> Luogo }}</td>
-                <td id='valOff'>{{ $offerta-> Validità }}</td>
+                <td class='idOff'>{{ $offerta-> Id_Offerta }} </td>
+                <td class='descOff'>{{ $offerta-> Descrizione }}</td>
+                <td class='nomeAz'>{{ $offerta->getNomeAzienda() }} </td>
+                <td class='luogoOff'>{{ $offerta-> Luogo }}</td>
+                <td class='valOff'>{{ $offerta-> Validità }}</td>
                 <td>
                     <a href="{{ route('modifica-offerta-view', ['id' => $offerta->Id_Offerta])}}">
-                        <button id="mod-prom">Modifica</button>
+                        <button class="mod-prom">Modifica</button>
                     </a>
                 </td>
                 <td>
@@ -74,6 +74,8 @@ Gestione Promozioni
                 @error('offerta-non-trovata')
                 <span style="color: red">{{ $message }}</span>
                 @enderror
+                
+                @include('paginator.paginator', ['paginator' => $offerte])
     </div>
     @break
 
@@ -90,7 +92,7 @@ Gestione Promozioni
 
         <div style="margin: 2%">
                 {{ Form::label('descrizione', 'Descrizione') }}
-                {{ Form::text('descrizione', $offertaSel->Descrizione) }}
+                {{ Form::textarea('descrizione', $offertaSel->Descrizione) }}
             <br>
                 @error('descrizione')
                 <span style="color: red">{{ $message }}</span>
@@ -189,6 +191,8 @@ Gestione Promozioni
 
     @endswitch
 
+    
+    
 </div>
 
 @endsection

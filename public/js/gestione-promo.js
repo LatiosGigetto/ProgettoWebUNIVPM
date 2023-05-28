@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     let dataOdierna = new Date().toISOString().split('T')[0];
 
-    $('#valOff').each(function () {
+    $('.valOff').each(function () {
 
         if ($(this).text() < dataOdierna) {
 
