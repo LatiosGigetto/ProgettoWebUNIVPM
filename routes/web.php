@@ -74,6 +74,7 @@ Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("
 
 // Rotte Amministratore
 
+// Rotte di gestione-aziende
 Route::get("/gestione-aziende", [AdminController::class, 'showGestioneAziende'])->middleware('can:isAdmin')// apre la lista di aziende
     ->name('gestione-aziende');
 
@@ -92,17 +93,54 @@ Route::post("/gestione-aziende/crea", [AdminController::class , 'createAzienda']
 Route::get("/gestione-aziende/elim/{id}", [AdminController::class , 'deleteAzienda'])->middleware("can:isAdmin")
     ->name("elimina-azienda-view");
 
+// Rotte per gestione-membristff
 Route::get("/gestione-membristaff", [AdminController::class, 'showGestioneStaff'])->middleware('can:isAdmin')
     ->name('gestione-membristaff');
 
-Route::get("/gestione-faq", [AdminController::class, 'getFaq'])->middleware('can:isAdmin')
+Route::get("/gestione-membristaff/mod/{username}", [AdminController::class , 'showModifyStaff'])->middleware("can:isAdmin")// apre la form di modifica
+    ->name("modifica-staff-view");
+
+Route::post("/gestione-membristaff/mod/conferma", [AdminController::class , 'modifyStaff'])->middleware("can:isAdmin")// effettua la modifica
+    ->name("modifica-staff-conf");
+
+Route::get("/gestione-membristaff/crea", [AdminController::class , 'showCreaStaff'])->middleware("can:isAdmin")
+    ->name("crea-staff-view");
+
+Route::post("/gestione-membristaff/crea", [AdminController::class , 'createStaff'])->middleware("can:isAdmin")
+    ->name("crea-staff-conf");
+
+Route::get("/gestione-membristaff/elim/{username}", [AdminController::class , 'deleteStaff'])->middleware("can:isAdmin")
+    ->name("elimina-staff-view");
+
+// Rotte per gestione-faq
+Route::get("/gestione-faq", [AdminController::class, 'showGestioneFaq'])->middleware('can:isAdmin')
     ->name('gestione-faq');
 
-Route::get("/statistiche", [AdminController::class, ''])->middleware('can:isAdmin')
+Route::get("/gestione-faq/mod/{id}", [AdminController::class , 'showModifyFaq'])->middleware("can:isAdmin")// apre la form di modifica
+    ->name("modifica-faq-view");
+
+Route::post("/gestione-faq/mod/conferma", [AdminController::class , 'modifyFaq'])->middleware("can:isAdmin")// effettua la modifica
+    ->name("modifica-faq-conf");
+
+Route::get("/gestione-faq/crea", [AdminController::class , 'showCreaFaq'])->middleware("can:isAdmin")
+    ->name("crea-faq-view");
+
+Route::post("/gestione-faq/crea", [AdminController::class , 'createFaq'])->middleware("can:isAdmin")
+    ->name("crea-faq-conf");
+
+Route::get("/gestione-faq/elim/{id}", [AdminController::class , 'deleteFaq'])->middleware("can:isAdmin")
+    ->name("elimina-faq-view");
+
+// Rotte per statistiche
+Route::get("/statistiche", [AdminController::class, 'numeroCoupon'])->middleware('can:isAdmin')
     ->name('statistiche');
 
-Route::get("/eliminazione-utenti", [AdminController::class, 'getListaUtenti'])->middleware('can:isAdmin')
-    ->name('eliminazione-utenti');
+// Rotte per eliminazione-utenti
+Route::get("/eliminazione-utenti", [AdminController::class, 'showGestioneUtenti'])->middleware('can:isAdmin')
+    ->name('elimina-utenti');
+
+Route::get("/eliminazione-utenti/{username}", [AdminController::class, 'deleteUtenti'])->middleware('can:isAdmin')
+    ->name('elimina-utenti-view');
 
 // Rotte profilo in base al livello di autenticazione
 

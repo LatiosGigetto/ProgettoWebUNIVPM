@@ -27,7 +27,6 @@
                     <tbody>
 
                     <!--popolo la tabella-->
-
                     @foreach($aziende as $azienda)
                         <tr>
                             <td>{{ $azienda-> NomeAzienda }}</td>
@@ -42,7 +41,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                                    <button id="mod prom">Elimina</button>
+                                    <button id="elim prom">Elimina</button>
                                 </a>
                             </td>
                         </tr>
@@ -62,37 +61,28 @@
                 <h1>Modifica Azienda</h1>
 
                 <div id ="mod-azienda-sezione">
-
                     {{ Form::open(['route' => 'modifica-azienda']) }}
-
                     {{ Form::hidden('idAzienda', $aziendaSel->Id_Azienda) }}
-
                     <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::text('nomeazienda', $aziendaSel->NomeAzienda) }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('categoria', 'Categoria') }}
                         {{ Form::text('categoria', $aziendaSel->Categoria) }}
                     </div>
-
-
                     <div style="margin: 2%">
                         {{ Form::label('logo', 'Logo') }}
                         {{ Form::file('logo') }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('sede', 'Sede') }}
                         {{ Form::text('sede', $aziendaSel->Sede) }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::text('descrizione', $aziendaSel->Descrizione) }}
                     </div>
-
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
                 </div>
@@ -100,39 +90,31 @@
             @case('create')
 
                 <h1>Crea Azienda</h1>
-
                 <div id ="crea-azienda-sezione">
-
                     {{ Form::open(['route' => 'crea-azienda']) }}
-
                     <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::text('nomeazienda', '') }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('categoria', 'Categoria') }}
                         {{ Form::text('categoria', '') }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('logo', 'Logo') }}
                         {{ Form::file('logo') }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('sede', 'Sede') }}
                         {{ Form::text('sede', '') }}
                     </div>
-
                     <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::text('descrizione', '') }}
                     </div>
-
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
                 </div>
                 @break
-             @endswitch
+      @endswitch
 @endsection

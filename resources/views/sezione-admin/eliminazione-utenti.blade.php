@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Registrazione
+    Elimina sti Utenti
 @endsection
 
 @section('content')
@@ -31,7 +31,9 @@
                     <td>{{ $utente-> Età }}</td>
                     <td>{{ $utente-> Genere }}</td>
                     <td>
-                        <button name="elim-staff" id="elim-staff">Elimina</button>
+                        <a href="{{ route('elimina-utenti-view', ['username' => $utente->username])}}">
+                            <button id="elim prom">Elimina</button>
+                        </a>
                     </td>
                 </tr>
             @endforeach

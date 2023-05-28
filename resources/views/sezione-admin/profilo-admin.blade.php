@@ -11,11 +11,13 @@
         <br>
         <a href="{{route('gestione-membristaff')}}">Gestione staff</a>
         <br>
+        {{--<a href="{{route('gestione-assegnamento-aziende')}}">Assegna aziende</a>
+        <br> --}}
         <a href="{{route('gestione-faq')}}">Gestione FAQ</a>
         <br>
         <a href="{{route('statistiche')}}">Genera statistiche</a>
         <br>
-        <a href="{{route('eliminazione-utenti')}}">Cancellazione utenti</a>
+        <a href="{{route('elimina-utenti')}}">Cancellazione utenti</a>
     </div>
 
 @endsection

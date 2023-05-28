@@ -6,7 +6,7 @@ use App\Models\Azienda;
 use App\Models\FAQ;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +16,7 @@ class AdminController extends Controller{
     protected $listaAziende;
     protected $listaUtenti;
     protected $listaStaff;
+    protected $listaFaq;
 
     public function setup() {
 
@@ -23,6 +24,7 @@ class AdminController extends Controller{
         $this->listaAziende = Azienda::all();
         $this->listaUtenti = User::where('Livello', 1)->get();
         $this->listaStaff = User::where('Livello', 2)->get();
+        $this->listaFaq = Faq::all();
     }
 
     // metodi per gestire il contenuto di aziende
@@ -50,11 +52,10 @@ class AdminController extends Controller{
     }
 
     //CRUD Aziende
-
     public function createAzienda(Request $request) {
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
-            //'logo' => ['required', 'image','mimes:jpeg,png'],
+            //'logo' => ['required', 'image','mimes:jpeg,png'], TODO da sistemare
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string','max:999'],
             'categoria' => ['required', 'string', 'max:30'],
@@ -70,12 +71,11 @@ class AdminController extends Controller{
         return redirect('gestione-aziende')
             ->with('azione', 'view');
     }
-
     public function modifyAzienda(Request $request) {
-        //$this->setup();
+
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
-            //'logo' => ['required', 'image', 'mimes:jpeg,png'],
+            //'logo' => ['required', 'image', 'mimes:jpeg,png'], TODO da sistemare
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string'],
             'categoria' => ['required', 'string', 'max:30'],
@@ -93,13 +93,13 @@ class AdminController extends Controller{
                 'azione'=> 'view'
             ]);
     }
-
     public function deleteAzienda($idAzienda) {
         $this->setup();
         $this->listaAziende = Azienda::destroy($idAzienda);
         return redirect('gestione-aziende')->with('azione', 'view');
     }
 
+    // metodi per la gestione del contenuto staff
     public function showGestioneStaff(){
         $this->setup();
         return view('sezione-admin/gestione-membristaff')
@@ -108,142 +108,158 @@ class AdminController extends Controller{
                 'azione'=> 'view'
             ]);
     }
-
-    public function showGestioneUtenti(){
-        $utenti = User::where('Livello', 1)->get();
-        return view('sezione-admin/eliminazione-utenti')->with('utenti', $utenti);
+    public function showModifyStaff($username){
+        return view('sezione-admin/gestione-membristaff')
+            ->with([
+                'staffSel' => User::find($username),
+                'azione'=> 'mod'
+            ]);
     }
-
-    public function showGestioneFaq(){
-        $faq = FAQ::all();
-        return view('sezione-admin/gestione-faq')->with('faq', $faq);
+    public function showCreaStaff() {
+        return view('sezione-admin/gestione-membristaff')
+            ->with([
+                'azione' => 'create'
+            ]);
     }
-
 
     //CRUD Staff
-
-    public function deleteUtente(Request $request) {
-        $utente = User::where('username', $request->username)->first();
-        $utente->delete();
-        return redirect('eliminazione-utenti');
-    }
-
     public function createStaff(Request $request) {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
-            'email' => ['required', 'string', 'email', 'max:30'],
+            'mail' => ['required', 'string', 'email', 'max:30'],
             'username' => ['required', 'string', 'unique:utente', 'max:30'],
             'password' => ['required', 'max:255', Rules\Password::defaults()],
             'telefono' => ['required', 'string', 'max:10'],
             'età' => ['required', 'integer', 'max:999'],
-            'livello' => ['required', 'in:2']
         ]);
-        $user = User::create([
-            'Nome' => $request->nome,
-            'Cognome' => $request->cognome,
-            'Mail' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'Telefono' => $request->telefono,
-            'Età' => $request->età,
-            'Genere' => $request->genere,
-            'Livello' => $request->livello,
-        ]);
+        $user = new User();
+        $user->Nome = $request->nome;
+        $user->Cognome = $request->cognome;
+        $user->Mail = $request->mail;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
+        $user->Telefono = $request->telefono;
+        $user->Età = $request->età;
+        $user->Genere = $request->genere;
+        $user->Livello = 2;
+        $user->save();
         event(new Registered($user));
-        return redirect('gestione-membristaff');
+        return redirect('gestione-membristaff')
+            ->with('azione', 'view');
     }
-
     public function modifyStaff(Request $request) {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
-            'email' => ['required', 'string', 'email', 'max:30'],
-            'telefono' => ['required', 'string', 'max:10'],
             'età' => ['required', 'integer', 'max:999'],
+            'telefono' => ['required', 'string', 'max:10'],
+            'mail' => ['required', 'string', 'email', 'max:30'],
         ]);
-        $user = Auth::user();
-        // Modifica delle informazioni dell'utente
 
-        if ($request->input('nome') != null) {
-            $user->Nome = $request->input('nome');
-        }
-        if ($request->input('cognome') != null) {
-            $user->Cognome = $request->input('cognome');
-        }
-        if ($request->input('mail') != null) {
-            $user->Mail = $request->input('mail');
-        }
-        if ($request->input('telefono') != null) {
-            $user->Telefono = $request->input('telefono');
-        }
-        if ($request->input('età') != null) {
-            $user->Età = $request->input('età');
-        }
-        if ($request->input('genere') != null) {
-            $user->Genere = $request->input('genere');
-        }
-        $user->save();
-
-        return redirect()->back()->with('success', 'Informazioni modificate con successo!');
+        $staff = User::find($request->username);
+        $staff->Nome = $request->nome;
+        $staff->Cognome = $request->cognome;
+        $staff->Età = $request->età;
+        $staff->Telefono = $request->telefono;
+        $staff->Mail = $request->mail;
+        $staff->Genere = $request->genere;
+        $staff->save();
+        return redirect('gestione-membristaff')
+            ->with([
+                'azione'=> 'view'
+            ]);
+    }
+    public function deleteStaff($username) {
+        $this->setup();
+        $this->listaAziende = User::destroy($username);
+        return redirect('gestione-mebristaff')
+            ->with('azione', 'view');
     }
 
-    public function deleteStaff(Request $request) {
-        $user = User::where('Username', $request->username)->first();
-        $user->delete();
-        return redirect('gestione-membristaff');
+    // metodi per la gestione di faq
+    public function showGestioneFaq(){
+        $this->setup();
+        return view('sezione-admin/gestione-faq')
+            ->with(['faq' => $this->listaFaq,
+                    'azione' => 'view',
+        ]);
+    }
+    public function showModifyFaq($id){
+        return view('sezione-admin/gestione-faq')
+            ->with([
+                'faqSel' => FAQ::find($id),
+                'azione'=> 'mod'
+            ]);
+    }
+    public function showCreaFaq() {
+        return view('sezione-admin/gestione-faq')
+            ->with([
+                'azione' => 'create'
+            ]);
     }
 
-    //Stats
-
-    public function numeroCoupon(){
-        return DB::table('coupon')->count();
-    }
-
-    public function numeroCouponPromozione(Request $request){
-        return DB::table('coupon')->where('Id_Offerta',$request->id_offerta)->count();
-    }
-
-    public function numeroCouponUser(Request $request){
-        return DB::table('coupon')->where('UsernameUtente',$request->username)->count();
-    }
-
-    //CRUD Faq
-
-    public function creaFaq(Request $request){
+    // CRUD Faq
+    public function createFaq(Request $request){
         $request->validate([
-            'id_domanda' => ['required', 'integer'],
             'domanda' => ['required', 'string'],
             'risposta' => ['required', 'string'],
         ]);
         $faq = new FAQ();
-        $faq->Id_Domanda = $request->id_domanda;
         $faq->Domanda = $request->domanda;
         $faq->Risposta = $request->risposta;
         $faq->save();
-        return redirect('gestione-faq');
+        return redirect('gestione-faq')
+            ->with([
+                'azione' => 'view'
+            ]);
     }
-
     public function modifyFaq(Request $request) {
+
         $request->validate([
-            'id_domanda' => ['required', 'integer'],
-            'domanda' => ['required', 'string'],
-            'risposta' => ['required', 'string'],
+            'domanda' => ['required', 'string','max:100'],
+            'risposta' => ['required', 'string', 'max:999'],
         ]);
-        $faq = Azienda::where('Id_Domanda', $request->id_domanda)->first(); //first prende il primo record dalla tabella e in particolare il primo id
-        $faq->Id_Domanda = $request->id_domanda;
+        $faq = FAQ::find( $request->id_domanda);
         $faq->Domanda = $request->domanda;
         $faq->Risposta = $request->risposta;
         $faq->save();
-        return redirect('gestione-faq');
+        return redirect('gestione-faq')
+            ->with([
+               'azione' =>'view'
+            ]);
+    }
+    public function deleteFaq($idFaq) {
+        $this->setup();
+        $this->listaFaq = FAQ::destroy($idFaq);
+        return redirect('gestione-faq')
+            ->with('azione', 'view');
     }
 
-    public function deleteFaq(Request $request) {
-        $faq = Azienda::where('Id_Domanda', $request->id_domanda)->first();
-        $faq->delete();
-        return redirect('gestione-faq');
+    // metodo per la gestione di eliminazioni utenti
+    public function showGestioneUtenti(){
+        $this->setup();
+        return view('sezione-admin/eliminazione-utenti')
+            ->with('utenti', $this->listaUtenti);
     }
 
+    // eliminazione utenti
+    public function deleteUtenti(Request $request) {
+        $user = User::where('Username', $request->username)->first();
+        $user->delete();
+        return redirect('eliminazione-utenti');
+    }
+
+    //Stats
+    public function numeroCoupon(){
+        return DB::table('coupon')->count();
+    }
+    public function numeroCouponPromozione(Request $request){
+        return DB::table('coupon')->where('Id_Offerta',$request->id_offerta)->count();
+    }
+    public function numeroCouponUser(Request $request){
+        return DB::table('coupon')->where('UsernameUtente',$request->username)->count();
+    }
 
 
 

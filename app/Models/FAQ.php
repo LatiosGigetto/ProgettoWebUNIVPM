@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,15 +8,10 @@ class FAQ extends Model {
 
     protected $table = 'faq';
     protected $primaryKey = 'Id_Domanda';
-
-    // TODO: aggiungere altri metodi utili
-    
-    public function getDomanda() {
-        return $this->Domanda;
-    }
-
-    public function getRisposta() {
-        return $this->Risposta;
-    }
-
+    public $incrementing = true;
+    public $timestamps = false;
+    protected $fillable = [
+        'Domanda',
+        'Risposta',
+    ];
 }
