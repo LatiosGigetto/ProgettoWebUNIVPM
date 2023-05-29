@@ -23,7 +23,7 @@
 
         <div class="text-center mt-2">
             <a href="{{route('home')}}"><img src="{{asset("images/longe.png")}}" class="rounded" style="width: 100px" alt="longe"></a>
-            <h1 class="stile_header_footer">Doggo Discount</h1>
+            <h1 class="h-f_color">Doggo Discount</h1>
         </div>
 
         <div class="container-fluid text-center">

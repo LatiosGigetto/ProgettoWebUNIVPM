@@ -1,7 +1,7 @@
 /* Header e footer */
 .h-f_color{
     /* TODO non si capisce perché non prende lo stile da qua */
-    color: yellow;
+    color: yellow!important;
 }
 
 
