@@ -68,7 +68,8 @@ CREATE TABLE `faq` (
 
 CREATE TABLE `gestoriaziende` (
   `UsernameUtente` varchar(30) NOT NULL,
-  `Id_Azienda` int(11) NOT NULL
+  `Id_Azienda` int(11) NOT NULL,
+   `id` int(11) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -131,6 +132,7 @@ ALTER TABLE `faq`
 -- Indici per le tabelle `gestoriaziende`
 --
 ALTER TABLE `gestoriaziende`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `ref_username` (`UsernameUtente`),
   ADD KEY `ref_Id_Azienda` (`Id_Azienda`);
 
@@ -168,6 +170,11 @@ ALTER TABLE `faq`
 --
 ALTER TABLE `offerta`
   MODIFY `Id_Offerta` int(11) NOT NULL AUTO_INCREMENT;
+
+-- AUTO_INCREMENT per la tabella `gestoriaziende`
+--
+ALTER TABLE `gestoriaziende`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate

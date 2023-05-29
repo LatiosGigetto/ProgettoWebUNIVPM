@@ -19,7 +19,7 @@
             </div>
             <div class="row">
                 <div class="col col-2">
-                    <img src="images/xampp_logo.png" alt="questo è letteralmente il logo di Xampp"
+                    <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" alt="Icona dell'azienda"
                          style="max-width: 100%">
                 </div>
                 <div class="col">
