@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     // Eliminazione utente con richiesta di conferma
 
-    $('.el-utente').on('click', function () {
+    $('.elim-utente').on('click', function () {
 
         if (confirm("Sei sicuro di voler eliminare questo utente?")) {
 

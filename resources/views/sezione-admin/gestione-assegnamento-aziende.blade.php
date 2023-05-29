@@ -7,6 +7,7 @@
 
 @section("link-scripts")
     <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+    <script src="{{asset("js/gestione-assegnamento.js")}}"></script>
 @endsection
 
 @section("content")
@@ -32,7 +33,7 @@
                         <tr>
 
                             <td>{{ $assegnamento->getNomeById() }}</td>
-                            <td>{{ $assegnamento->UsernameUtente }}</td>
+                            <td class="nome-staff">{{ $assegnamento->UsernameUtente }}</td>
                             <td>
                                 <a href="{{ route('modifica-assegnamento-view',[
                                     'id' => $assegnamento->id])
@@ -40,11 +41,8 @@
                                     <button id="mod assegnamento">Modifica</button>
                                 </a>
                             </td>
-                            <td>
-                                <a href="{{ route('elimina-assegnamento-view', [
-                                    'id' => $assegnamento->id])}}">
-                                    <button id="elim prom">Elimina</button>
-                                </a>
+                            <td>                               
+                                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>                             
                             </td>
                         </tr>
                     @endforeach

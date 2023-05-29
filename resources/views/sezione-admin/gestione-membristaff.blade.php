@@ -3,7 +3,14 @@
 @section("title")
     Gestione aziende
 @endsection
+    
+    @section("link-scripts")
+
+
 <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+<script src="{{asset("js/gestione-staff.js")}}"></script>
+
+@endsection
 
 @section("content")
 
@@ -40,9 +47,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('elimina-staff-view', ['username' => $membro_staff->username])}}">
-                                    <button id="elim staff">Elimina</button>
-                                </a>
+                                <button class="elim-staff" name="{{$membro_staff-> username}}">Elimina</button>                                
                             </td>
                         </tr>
                     @endforeach
@@ -83,7 +88,7 @@
                     <div style="margin: 2%">
                         {{ Form::label('genere', 'Genere') }}
                         {{ Form::select('genere',['maschio' => 'Maschio', 'femmina' => 'Femmina'], $staffSel ->Genere) }}
-                    </div>
+                    </div>                  
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
                 </div>
@@ -124,6 +129,10 @@
                         {{ Form::label('genere', 'Genere') }}
                         {{ Form::select('genere',['maschio' => 'Maschio', 'femmina' => 'Femmina'], '') }}
                     </div>
+                    <div style="margin: 2%">
+                        {{ Form::label('azienda', 'Azienda') }}
+                        {{ Form::select('azienda', $listaAziende) }}
+                    </div>                  
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
                 </div>

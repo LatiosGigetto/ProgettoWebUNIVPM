@@ -20,7 +20,6 @@ class AdminController extends Controller {
     protected $listaFaq;
     protected $listaAssegnamenti;
 
-
     public function setup() {
 
         // carico nel costuttore la lista di tuple che devo manipolare
@@ -61,7 +60,7 @@ class AdminController extends Controller {
     public function createAzienda(Request $request) {
 
         $request->validate([
-            'nomeazienda' => ['required', 'unique:azienda','string', 'max:30'],
+            'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string', 'max:999'],
@@ -129,7 +128,7 @@ class AdminController extends Controller {
     public function showModifyStaff($username) {
         return view('sezione-admin/gestione-membristaff')
                         ->with([
-                            'staffSel' => User::find($username),
+                            'staffSel' => User::find($username),                           
                             'azione' => 'mod'
         ]);
     }
@@ -137,7 +136,8 @@ class AdminController extends Controller {
     public function showCreaStaff() {
         return view('sezione-admin/gestione-membristaff')
                         ->with([
-                            'azione' => 'create'
+                            'azione' => 'create',
+                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda')
         ]);
     }
 
@@ -163,9 +163,20 @@ class AdminController extends Controller {
         $user->Genere = $request->genere;
         $user->Livello = 2;
         $user->save();
-        event(new Registered($user));
+        
+        // Creo il primo assegnamento all'Azienda del membro dello Staff
+        
+        $primaAzienda = new GestoriAziende();
+        $primaAzienda->UsernameUtente = $request->username;
+        $primaAzienda->Id_Azienda = $request->azienda;
+        $primaAzienda->save();
+        
+      //  event(new Registered($user));     Non credo serva a niente
         return redirect('gestione-membristaff')
-                        ->with('azione', 'view');
+                        ->with([
+                            'azione' => 'view',
+                            'success' => 'Membro staff creato con successo'
+        ]);
     }
 
     public function modifyStaff(Request $request) {
@@ -187,7 +198,8 @@ class AdminController extends Controller {
         $staff->save();
         return redirect('gestione-membristaff')
                         ->with([
-                            'azione' => 'view'
+                            'azione' => 'view',
+                            'success' => 'Membro staff modificato con successo'
         ]);
     }
 
@@ -195,7 +207,10 @@ class AdminController extends Controller {
         $this->setup();
         $this->listaStaff = User::destroy($username);
         return redirect('gestione-membristaff')
-                        ->with('azione', 'view');
+                        ->with([
+                            'azione' => 'view',
+                            'success' => 'Membro staff eliminato con successo'
+        ]);
     }
 
     // metodi per la gestione di faq
@@ -234,7 +249,8 @@ class AdminController extends Controller {
         $faq->save();
         return redirect('gestione-faq')
                         ->with([
-                            'azione' => 'view'
+                            'azione' => 'view',
+                            'success' => 'FAQ creata con successo'
         ]);
     }
 
@@ -250,7 +266,8 @@ class AdminController extends Controller {
         $faq->save();
         return redirect('gestione-faq')
                         ->with([
-                            'azione' => 'view'
+                            'azione' => 'view',
+                            'success' => 'FAQ modificata con successo'
         ]);
     }
 
@@ -258,7 +275,10 @@ class AdminController extends Controller {
         $this->setup();
         $this->listaFaq = FAQ::destroy($idFaq);
         return redirect('gestione-faq')
-                        ->with('azione', 'view');
+                        ->with([
+                            'azione' => 'view',
+                            'success' => 'FAQ eliminata con successo'
+        ]);
     }
 
     // metodo per la gestione di eliminazioni utenti
@@ -308,14 +328,15 @@ class AdminController extends Controller {
                             'azione' => 'mod'
         ]);
     }
+
     public function showCreaAssegnamento() {
         $this->setup();
         return view('sezione-admin/gestione-assegnamento-aziende')
-            ->with([
-                'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
-                'listastaff' => $this->listaStaff->pluck('username', 'username'),
-                'azione' => 'create'
-            ]);
+                        ->with([
+                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
+                            'listastaff' => $this->listaStaff->pluck('username', 'username'),
+                            'azione' => 'create'
+        ]);
     }
 
     // CRUD Assegnamento
@@ -323,50 +344,53 @@ class AdminController extends Controller {
 
         // query che cerca l'istanza
         $assegnamento = GestoriAziende::where(
-            'Id_Azienda', $request->nomeAzienda)
-            ->where('UsernameUtente', $request->usernameStaff)->first();
+                                'Id_Azienda', $request->nomeAzienda)
+                        ->where('UsernameUtente', $request->usernameStaff)->first();
 
         // check if alreay exist
-        if($assegnamento == null){
+        if ($assegnamento == null) {
             $assegnamento = GestoriAziende::find($request->id);
             $assegnamento->UsernameUtente = $request->usernameStaff;
             $assegnamento->Id_Azienda = $request->nomeAzienda;
             $assegnamento->save();
-        return redirect('gestione-assegnamento-aziende')
-            ->with([
-                'azione' => 'view'
+            return redirect('gestione-assegnamento-aziende')
+                            ->with([
+                                'azione' => 'view',
+                                'success' => 'Assegnamento modificato con successo'
             ]);
-        }
-        else{
-            return redirect()->back()->withErrors(['erroreAss' =>"L'assegnamento è già esistente per questa coppia"]);
+        } else {
+            return redirect()->back()->withErrors(['erroreAss' => "L'assegnamento è già esistente per questa coppia"]);
         }
     }
+
     public function deleteAssegnamento(Request $request) {
         $assegnamento = GestoriAziende::find($request->id);
 
         $assegnamento->delete();
-        return redirect('gestione-assegnamento-aziende');
+        return redirect('gestione-assegnamento-aziende')->with([
+                    'azione' => 'view',
+                    'success' => 'Assegnamento eliminato con successo'
+        ]);
     }
 
     public function createAssegnamento(Request $request) {
 
         $assegnamento = GestoriAziende::where(
-            'Id_Azienda', $request->nomeAzienda)
-            ->where('UsernameUtente', $request->nomestaff)->first();
-        if($assegnamento == null) {
+                                'Id_Azienda', $request->nomeAzienda)
+                        ->where('UsernameUtente', $request->nomestaff)->first();
+        if ($assegnamento == null) {
             $assegnamento = new GestoriAziende();
             $assegnamento->UsernameUtente = $request->nomestaff;
             $assegnamento->Id_Azienda = $request->nomeAzienda;
             $assegnamento->save();
             return redirect('gestione-assegnamento-aziende')
-                ->with([
-                    'azione' => 'view'
-                ]);
+                            ->with([
+                                'azione' => 'view',
+                                'success' => 'Assegnamento creato con successo'
+            ]);
+        } else {
+            return redirect()->back()->withErrors(['erroreAss' => "L'assegnamento è già esistente per questa coppia"]);
         }
-        else{
-                return redirect()->back()->withErrors(['erroreAss' =>"L'assegnamento è già esistente per questa coppia"]);
-            }
-        }
+    }
 
 }
-
