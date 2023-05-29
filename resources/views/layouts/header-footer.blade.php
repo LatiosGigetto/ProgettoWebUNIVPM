@@ -10,12 +10,6 @@
         @yield('link-scripts')
 
         <title>@yield('title')</title>
-        <!--TODO da sistemare lo stile-->
-        <style>
-            .stile_header_footer{
-                color:yellow;
-            }
-        </style>
 
     </head>
     <body style="background-color: white">
@@ -41,10 +35,10 @@
                 <div class="col-sm-auto">
                     <ul class="nav">
                         <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
-                            <a class="nav-link stile_header_footer" href="{{route('catalogo')}}">Catalogo Offerte</a>
+                            <a class="nav-link h-f_color" href="{{route('catalogo')}}">Catalogo Offerte</a>
                         </li>
                         <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
-                            <a class="nav-link stile_header_footer" href="{{route('lista-aziende')}}">Lista Aziende </a>
+                            <a class="nav-link h-f_color" href="{{route('lista-aziende')}}">Lista Aziende </a>
                         </li>
                     </ul>
                 </div>
@@ -55,22 +49,22 @@
                 <div class="col-sm-auto">
                     <ul class="nav nav-pills justify-content-end">
                         <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
-                            <a class="nav-link stile_header_footer" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
+                            <a class="nav-link h-f_color" href="" onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                             <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                         </li>
                         @can('isUser')
                         <li class="nav-item border border-black border-2 rounded-2 bg-primary">
-                            <a class="nav-link stile_header_footer" href="{{route('profilo-cliente')}}">Profilo</a>
+                            <a class="nav-link h-f_color" href="{{route('profilo-cliente')}}">Profilo</a>
                         </li>
                         @endcan
                         @can('isStaff')
                             <li class="nav-item border border-black border-2 rounded-2 bg-primary">
-                                <a class="nav-link stile_header_footer" href="{{route('staff')}}">Profilo</a>
+                                <a class="nav-link h-f_color" href="{{route('staff')}}">Profilo</a>
                             </li>
                         @endcan
                         @can('isAdmin')
                             <li class="nav-item border border-black border-2 rounded-2 bg-primary">
-                                <a class="nav-link stile_header_footer" href="{{route('admin')}}">Profilo</a>
+                                <a class="nav-link h-f_color" href="{{route('admin')}}">Profilo</a>
                             </li>
                         @endcan
                     </ul>
@@ -79,10 +73,10 @@
                 <div class="col-sm-auto">
                     <ul class="nav nav-pills justify-content-end">
                         <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
-                            <a class="nav-link stile_header_footer" href="{{route('registrazione')}}">Registrati</a>
+                            <a class="nav-link h-f_color" href="{{route('registrazione')}}">Registrati</a>
                         </li>
                         <li class="nav-item border border-black border-2 rounded-2 bg-primary">
-                            <a class="nav-link stile_header_footer" href="{{route('login')}}">Login</a>
+                            <a class="nav-link h-f_color" href="{{route('login')}}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -102,13 +96,13 @@
                     <img src="{{ asset("images/longe.png") }}" class="rounded" style="width: 50px;" alt="longe">
                 </div>
                 <div class="col text-center" style="align-self: center">
-                    <div class="stile_header_footer">
+                    <div class="h-f_color">
                         <b>Diritti</b>
                     </div>
                 </div>
                 <div class="col text-end nav flex-column">
-                    <a class="nav-link stile_header_footer p-0" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
-                    <a class="nav-link stile_header_footer p-0" href="{{route('faq')}}" style="text-decoration: underline">Faq</a>
+                    <a class="nav-link h-f_color p-0" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
+                    <a class="nav-link h-f_color p-0" href="{{route('faq')}}" style="text-decoration: underline">Faq</a>
                 </div>
             </div>
         </div>

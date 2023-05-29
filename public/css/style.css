@@ -1,7 +1,8 @@
 /* Header e footer */
 .h-f_color{
     /* TODO non si capisce perché non prende lo stile da qua */
-    color: yellow!important;
+    color: #FFCD00;
+    --bs-nav-link-color: #FFCD00;
 }
 
 
