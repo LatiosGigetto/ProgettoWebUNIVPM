@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset("css/style.css")}}">
+        <link href="{{asset("css/style.css")}}" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
         @yield('link-scripts')
@@ -15,13 +15,10 @@
             .stile_header_footer{
                 color:yellow;
             }
-            body{
-                background-color: white;
-            }
         </style>
 
     </head>
-    <body>
+    <body style="background-color: white">
     <header style="background-color: #750C8E; border: 1px solid;">
 
         <div class="text-center mt-2">
@@ -29,7 +26,7 @@
             <h1 class="stile_header_footer">Doggo Discount</h1>
         </div>
 
-        <div class="container-fluid text-center" style="background-color: #A70BCD;">
+        <div class="container-fluid text-center">
             @auth
                 <div class="row" style="text-align: right; min-width: 100%;">
                     <b>Benvenuto, {{ Auth::user()->username }}</b>
@@ -40,7 +37,7 @@
             </div>
             @endif
 
-            <div class="row">
+            <div class="row"  style="background-color: #A70BCD;">
                 <div class="col-sm-auto">
                     <ul class="nav">
                         <li class="nav-item border border-black border-2 rounded-2" style="background-color: #750C8E;">
@@ -104,14 +101,14 @@
                 <div class="col">
                     <img src="{{ asset("images/longe.png") }}" class="rounded" style="width: 50px;" alt="longe">
                 </div>
-                <div class="col text-center" style="align-self: center;">
+                <div class="col text-center" style="align-self: center">
                     <div class="stile_header_footer">
                         <b>Diritti</b>
                     </div>
                 </div>
-                <div class="col text-end">
-                    <a class="nav-link stile_header_footer" href="{{route('contatti')}}">Contatti</a>
-                    <a class="nav-link stile_header_footer" href="{{route('faq')}}">Faq</a>
+                <div class="col text-end nav flex-column">
+                    <a class="nav-link stile_header_footer p-0" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
+                    <a class="nav-link stile_header_footer p-0" href="{{route('faq')}}" style="text-decoration: underline">Faq</a>
                 </div>
             </div>
         </div>
