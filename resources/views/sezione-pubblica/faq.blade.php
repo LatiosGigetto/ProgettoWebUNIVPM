@@ -5,7 +5,7 @@
 @endsection
 
 @section("contenuto")
-    <div class="d-flex justify-content-center align-items-center flex-column">
+
     <h1>Domande frequenti</h1>
 
     @foreach($faqs as $faq)
