@@ -1,3 +1,13 @@
+/* Header e footer */
+.h-f_color{
+    /* TODO non si capisce perché non prende lo stile da qua */
+    color: yellow!important;
+}
+
+
+
+
+
 /* TODO parte di aziende
 .image_logo{
     height: 100%;
