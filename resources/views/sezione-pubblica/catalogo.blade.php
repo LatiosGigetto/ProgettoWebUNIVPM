@@ -66,9 +66,7 @@ Catalogo
             <div class="row">
 
                             @foreach($offerte as $offerta)
-                <!-- Controllo validità offerta  -->
-
-                                @if ($offerta->Validità >= Date::now()->toDateString())
+                
 
                 <div class="col">
                     <div class="card" style="width: 18rem;">
@@ -82,7 +80,7 @@ Catalogo
                         </div>
                     </div>
                 </div>
-                                @endif
+                                
                             @endforeach
 
                             @include('paginator.paginator', ['paginator' => $offerte])

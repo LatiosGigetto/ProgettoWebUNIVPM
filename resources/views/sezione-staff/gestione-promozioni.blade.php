@@ -1,4 +1,4 @@
-@extends('layouts.header-footer')
+    @extends('layouts.header-footer')
 
 
 @section('title')
@@ -90,7 +90,7 @@ Gestione Promozioni
 
         <div style="margin: 2%">
                 {{ Form::label('descrizione', 'Descrizione') }}
-                {{ Form::textarea('descrizione', $offertaSel->Descrizione) }}
+                {{ Form::textarea('descrizione', $offertaSel->Descrizione,) }}
             <br>
                 @error('descrizione')
                 <span style="color: red">{{ $message }}</span>
@@ -144,7 +144,7 @@ Gestione Promozioni
 
         <div style="margin: 2%">
                 {{ Form::label('descrizione', 'Descrizione') }}
-                {{ Form::text('descrizione', '') }}
+                {{ Form::textarea('descrizione', '') }}
             <br>
             @error('descrizione')
                 <span style="color: red">{{ $message }}</span>

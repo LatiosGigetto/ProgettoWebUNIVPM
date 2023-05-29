@@ -7,6 +7,7 @@ use App\Models\Offerta;
 use App\Models\User;
 use App\Models\FAQ;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class PublicController extends Controller {
 
@@ -41,9 +42,11 @@ class PublicController extends Controller {
 
     public function showOfferte(Request $request) {
 
-        // Crea un Builder di Offerta e lo ordina per ID.
+        // Crea un Builder di Offerta che prende solo quelle non scadute.
 
-        $offerte = Offerta::orderBy('Id_Offerta', 'asc');
+        $dataOdierna = Date::now()->toDateString();
+        
+        $offerte = Offerta::where('Validità', '>=', $dataOdierna);
 
         // Variabili per storare l'ingresso della richiesta.
         // flash() se le salva nella sessione per riprenderle nella vista.
