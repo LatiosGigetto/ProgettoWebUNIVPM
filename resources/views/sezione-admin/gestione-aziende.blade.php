@@ -34,33 +34,31 @@ Gestione aziende
 
             <!--popolo la tabella-->
                     @foreach($aziende as $azienda)
-            <tr>
-                <td>{{ $azienda-> NomeAzienda }}</td>
-                <td>{{ $azienda->Categoria }}</td>
-                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}", style="width: 100px; height: 100px" }}"></td>
-                <td>{{ $azienda->Sede }}</td>
-                <td>{{ $azienda->Descrizione }}</td>
-                <td>
-                    <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                        <button id="mod-az">Modifica</button>
-                    </a>
-                </td>
-                <td>
-                    <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                        <button id="elim-az">Elimina</button>
-                    </a>
-                </td>
-            </tr>
+                        <tr>
+                            <td>{{ $azienda-> NomeAzienda }}</td>
+                            <td>{{ $azienda->Categoria }}</td>
+                            <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}", style="width: 100px; height: 100px" }}></td>
+                            <td>{{ $azienda->Sede }}</td>
+                            <td>{{ $azienda->Descrizione }}</td>
+                            <td>
+                                <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda])}}">
+                                    <button id="mod-az">Modifica</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
+                                    <button id="elim-az">Elimina</button>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
-            <tr>
-                <td colspan="6">
-                    <a href="{{ route('crea-azienda-view')}}">
-                        <button id="mod-az">Crea Nuova Azienda</button>
-                    </a>
-                </td>
-            </tr>
         </tbody>
     </table>
+            <td colspan="6">
+                <a href="{{ route('crea-azienda-view')}}">
+                    <button id="mod-az">Crea Nuova Azienda</button>
+                </a>
+            </td>
 
     <div style="text-align: center">
                 @if(session('success'))

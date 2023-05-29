@@ -35,15 +35,13 @@
                             </td>
                         </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="6">
-                            <a href="{{ route('crea-faq-view')}}">
-                                <button id="crea faq">Crea Nuova Domanda</button>
-                            </a>
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
+                <td colspan="6">
+                    <a href="{{ route('crea-faq-view')}}">
+                        <button id="crea faq">Crea Nuova Domanda</button>
+                    </a>
+                </td>
                 @break
             @case('mod')
                 <h1>Modifica Faq</h1>

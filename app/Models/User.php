@@ -53,4 +53,12 @@ class User extends Authenticatable
     protected $primaryKey = 'username';
     public $incrementing = false;
 
+    // è statico perchè mi serve chiamarlo nel controller senza dover istanziare un ogg di user
+    public static function getUtenti(){
+        return User::where('Livello', 1)->get();
+    }
+
+    public static function getStaff(){
+        return User::where('Livello', 2)->get();
+    }
 }

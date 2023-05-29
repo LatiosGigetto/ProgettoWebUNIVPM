@@ -5,6 +5,10 @@
     Gestione Assegnamento
 @endsection
 
+@section("link-scripts")
+    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+@endsection
+
 @section("content")
 
     <div class="spazio_blocco">
@@ -24,88 +28,77 @@
                     <tbody>
 
                     <!--popolo la tabella-->
-                    @foreach($azienda_assegnata as $assegnamento)
+                    @foreach($aziendeAssegnate as $assegnamento)
                         <tr>
-                            {<td>{{ $assegnamento-> NomeAzienda }}</td>
+
+                            <td>{{ $assegnamento->getNomeById() }}</td>
                             <td>{{ $assegnamento->UsernameUtente }}</td>
                             <td>
-                                <a href="{{ route('modifica-assegnamento-view', ['id' => $assegnamento->Id_Azienda])}}">
+                                <a href="{{ route('modifica-assegnamento-view',[
+                                    'id' => $assegnamento->id])
+                                    }}">
                                     <button id="mod assegnamento">Modifica</button>
                                 </a>
                             </td>
                             <td>
-                                {{--<a href="{{ route('elimina-assegnamento-view', ['id' => $assegnamento->Id_Azienda])}}">--}}
+                                <a href="{{ route('elimina-assegnamento-view', [
+                                    'id' => $assegnamento->id])}}">
                                     <button id="elim prom">Elimina</button>
                                 </a>
                             </td>
                         </tr>
                     @endforeach
-                    <tr>
-                        <td colspan="6">
-                            {{--<a href="{{ route('crea-asssegnamento-view')}}">--}}
-                                <button id="mod prom">Crea Nuova Azienda</button>
-                            </a>
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
+                <td colspan="6">
+                    <a href="{{ route('crea-assegnamento-view')}}">
+                    <button id="mod prom">Crea Nuova Azienda</button>
+                    </a>
+                </td>
                 @break
 
             @case('mod')
-                <h1>Modifica Azienda</h1>
+                <h1>Modifica Assegnamento</h1>
 
-                <div id ="mod-azienda-sezione">
-                    {{ Form::open(['route' => 'modifica-assegnamento']) }}
-                    {{ Form::hidden('idAzienda', $aziendaSel->Id_Azienda) }}
+                <div id ="mod-assegnamento-sezione">
+                    {{ Form::open(['route' => 'modifica-assegnamento-conf']) }}
+                    {{ Form::hidden('id', $assegnamentoSel->id) }}
+
                     <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
-                        {{ Form::text('nomeazienda', $aziendaSel->NomeAzienda) }}
+                        {{ Form::select('nomeAzienda',$listaAziende ,$assegnamentoSel->getNomeById() ) }}
                     </div>
+
                     <div style="margin: 2%">
-                        {{ Form::label('categoria', 'Categoria') }}
-                        {{ Form::text('categoria', $aziendaSel->Categoria) }}
+                        {{ Form::label('usernameStaff', 'Staff') }}
+                        {{ Form::select('usernameStaff',$listastaff, $assegnamentoSel->UsernameUtente )}}
                     </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('logo', 'Logo') }}
-                        {{ Form::file('logo') }}
-                    </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('sede', 'Sede') }}
-                        {{ Form::text('sede', $aziendaSel->Sede) }}
-                    </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('descrizione', 'Descrizione') }}
-                        {{ Form::text('descrizione', $aziendaSel->Descrizione) }}
-                    </div>
+                    <br>
+                    @error('erroreAss')
+                    <span style="color: red">{{ $message }}</span>
+                    @enderror
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
                 </div>
+
                 @break
             @case('create')
 
-                <h1>Crea Azienda</h1>
-                <div id ="crea-azienda-sezione">
-                    {{ Form::open(['route' => 'crea-assegnamento']) }}
+                <h1>Crea Assegnamento</h1>
+                <div id ="crea-assegnamento-sezione">
+                    {{ Form::open(['route' => 'crea-assegnamento-conf']) }}
                     <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
-                        {{ Form::text('nomeazienda', '') }}
+                        {{ Form::select('nomeAzienda', $listaAziende) }}
                     </div>
                     <div style="margin: 2%">
-                        {{ Form::label('categoria', 'Categoria') }}
-                        {{ Form::text('categoria', '') }}
+                        {{ Form::label('nomestaff', 'Staff') }}
+                        {{ Form::select('nomestaff', $listastaff) }}
                     </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('logo', 'Logo') }}
-                        {{ Form::file('logo') }}
-                    </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('sede', 'Sede') }}
-                        {{ Form::text('sede', '') }}
-                    </div>
-                    <div style="margin: 2%">
-                        {{ Form::label('descrizione', 'Descrizione') }}
-                        {{ Form::text('descrizione', '') }}
-                    </div>
+                    <br>
+                    @error('erroreAss')
+                    <span style="color: red">{{ $message }}</span>
+                    @enderror
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
                 </div>

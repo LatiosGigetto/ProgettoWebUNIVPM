@@ -18,17 +18,17 @@ class AdminController extends Controller {
     protected $listaUtenti;
     protected $listaStaff;
     protected $listaFaq;
-    protected $listaassegnamenti;
+    protected $listaAssegnamenti;
+
 
     public function setup() {
 
         // carico nel costuttore la lista di tuple che devo manipolare
         $this->listaAziende = Azienda::paginate(5);
-        $this->listaUtenti = User::where('Livello', 1)->get();
-        $this->listaStaff = User::where('Livello', 2)->get();
-        $this->listaFaq = Faq::all();
-        $this->listaassegnamenti = GestoriAziende::join('Azienda', 'GestoriAziende.Id_Azienda', '=', 'Azienda.Id_Azienda')
-                        ->select('GestoriAziende.*', 'Azienda.NomeAzienda')->get();
+        $this->listaUtenti = User::getUtenti();
+        $this->listaStaff = User::getStaff();
+        $this->listaFaq = FAQ::all();
+        $this->listaAssegnamenti = GestoriAziende::all();
     }
 
     // metodi per gestire il contenuto di aziende
@@ -59,7 +59,7 @@ class AdminController extends Controller {
 
     //CRUD Aziende
     public function createAzienda(Request $request) {
-        
+
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
@@ -84,7 +84,7 @@ class AdminController extends Controller {
     }
 
     public function modifyAzienda(Request $request) {
-        
+
         $request->validate([
             'nomeazienda' => ['required', 'string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
@@ -291,18 +291,82 @@ class AdminController extends Controller {
     // metodo per la gestione degli asssegnamenti
     public function showGestioneAssegnamento() {
         $this->setup();
+
         return view('sezione-admin/gestione-assegnamento-aziende')
-                        ->with(['azienda_assegnata' => $this->listaassegnamenti,
+                        ->with(['aziendeAssegnate' => $this->listaAssegnamenti,
                             'azione' => 'view'
         ]);
     }
 
     public function showModifyAssegnamento($id) {
+        $this->setup();
         return view('sezione-admin/gestione-assegnamento-aziende')
                         ->with([
+                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
+                            'listastaff' => $this->listaStaff->pluck('username', 'username'),
                             'assegnamentoSel' => GestoriAziende::find($id),
                             'azione' => 'mod'
         ]);
     }
+    public function showCreaAssegnamento() {
+        $this->setup();
+        return view('sezione-admin/gestione-assegnamento-aziende')
+            ->with([
+                'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
+                'listastaff' => $this->listaStaff->pluck('username', 'username'),
+                'azione' => 'create'
+            ]);
+    }
+
+    // CRUD Assegnamento
+    public function modifyAssegnamento(Request $request) {
+
+        // query che cerca l'istanza
+        $assegnamento = GestoriAziende::where(
+            'Id_Azienda', $request->nomeAzienda)
+            ->where('UsernameUtente', $request->usernameStaff)->first();
+
+        // check if alreay exist
+        if($assegnamento == null){
+            $assegnamento = GestoriAziende::find($request->id);
+            $assegnamento->UsernameUtente = $request->usernameStaff;
+            $assegnamento->Id_Azienda = $request->nomeAzienda;
+            $assegnamento->save();
+        return redirect('gestione-assegnamento-aziende')
+            ->with([
+                'azione' => 'view'
+            ]);
+        }
+        else{
+            return redirect()->back()->withErrors(['erroreAss' =>"L'assegnamento è già esistente per questa coppia"]);
+        }
+    }
+    public function deleteAssegnamento(Request $request) {
+        $assegnamento = GestoriAziende::find($request->id);
+
+        $assegnamento->delete();
+        return redirect('gestione-assegnamento-aziende');
+    }
+
+    public function createAssegnamento(Request $request) {
+
+        $assegnamento = GestoriAziende::where(
+            'Id_Azienda', $request->nomeAzienda)
+            ->where('UsernameUtente', $request->nomestaff)->first();
+        if($assegnamento == null) {
+            $assegnamento = new GestoriAziende();
+            $assegnamento->UsernameUtente = $request->nomestaff;
+            $assegnamento->Id_Azienda = $request->nomeAzienda;
+            $assegnamento->save();
+            return redirect('gestione-assegnamento-aziende')
+                ->with([
+                    'azione' => 'view'
+                ]);
+        }
+        else{
+                return redirect()->back()->withErrors(['erroreAss' =>"L'assegnamento è già esistente per questa coppia"]);
+            }
+        }
 
 }
+

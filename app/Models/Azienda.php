@@ -21,7 +21,7 @@ class Azienda extends Model {
 
     public static function getNomeAziendaById($id) {
 
-        return Azienda::where('Id_Azienda', $id)->only('NomeAzienda');
+        return Azienda::where('Id_Azienda', $id)->value('NomeAzienda');
     }
 
     public function offerte() {

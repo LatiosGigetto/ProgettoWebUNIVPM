@@ -46,13 +46,13 @@
                             </td>
                         </tr>
                     @endforeach
-                    <td colspan="4">
-                        <a href="{{ route('crea-staff-view')}}">
-                            <button id="crea staff">Crea nuovo membro staff</button>
-                        </a>
-                    </td>
                     </tbody>
                 </table>
+                <td colspan="4">
+                    <a href="{{ route('crea-staff-view')}}">
+                        <button id="crea staff">Crea nuovo membro staff</button>
+                    </a>
+                </td>
                 @break
             @case('mod')
                 <h1>Modifica membro Staff</h1>

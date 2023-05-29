@@ -147,20 +147,19 @@ Route::get("/gestione-assegnamento-aziende", [AdminController::class, 'showGesti
     ->name('gestione-assegnamento');
 
 Route::get("/gestione-assegnamento/mod/{id}", [AdminController::class , 'showModifyAssegnamento'])->middleware("can:isAdmin")// apre la form di modifica
-->name("modifica-assegnamento-view");
+    ->name("modifica-assegnamento-view");
 
-/*Route::post("/gestione-faq/mod/conferma", [AdminController::class , 'modifyFaq'])->middleware("can:isAdmin")// effettua la modifica
-->name("modifica-faq-conf");
+Route::post("/gestione-assegnamento/mod/conferma", [AdminController::class , 'modifyAssegnamento'])->middleware("can:isAdmin")// effettua la modifica
+    ->name("modifica-assegnamento-conf");
 
-Route::get("/gestione-faq/crea", [AdminController::class , 'showCreaFaq'])->middleware("can:isAdmin")
-    ->name("crea-faq-view");
+Route::get("/gestione-assegnamento/crea", [AdminController::class , 'showCreaAssegnamento'])->middleware("can:isAdmin")
+    ->name("crea-assegnamento-view");
 
-Route::post("/gestione-faq/crea", [AdminController::class , 'createFaq'])->middleware("can:isAdmin")
-    ->name("crea-faq-conf");
+Route::post("/gestione-assegnamento/crea", [AdminController::class , 'createAssegnamento'])->middleware("can:isAdmin")
+    ->name("crea-assegnamento-conf");
 
-Route::get("/gestione-faq/elim/{id}", [AdminController::class , 'deleteFaq'])->middleware("can:isAdmin")
-    ->name("elimina-faq-view");
-*/
+Route::get("/gestione-assegnamento/elim/{id}", [AdminController::class , 'deleteAssegnamento'])->middleware("can:isAdmin")
+    ->name("elimina-assegnamento-view");
 // Rotte profilo in base al livello di autenticazione
 
 Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')

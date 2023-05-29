@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,9 +8,19 @@ class GestoriAziende extends Model {
 
     protected $table = 'gestoriaziende';
 
-    public $incrementing = false;
+    protected $primaryKey = 'id';
+
+    public $incrementing = true;
 
     public $timestamps = false;
 
-    // TODO: aggiungere metodi utili
+    protected $fillable = [
+        'Id_Azienda',
+        'UsernameUtente'
+    ];
+
+    public function getNomeById(){
+        return Azienda::getNomeAziendaById($this->Id_Azienda);
+
+    }
 }
