@@ -8,6 +8,7 @@ Gestione aziende
 @section("link-scripts")
 
 <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+<script src="{{asset("js/gestione-aziende.js")}}"></script>
 
 @endsection
 
@@ -46,9 +47,7 @@ Gestione aziende
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('elimina-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                                    <button id="elim-az">Elimina</button>
-                                </a>
+                                    <button class="elim-az" name="{{$azienda->Id_Azienda}}">Elimina</button>
                             </td>
                         </tr>
                     @endforeach
@@ -132,7 +131,7 @@ Gestione aziende
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::text('nomeazienda', '') }}
             <br>
-                @error('nomeAzienda')
+                @error('nomeazienda')
             <span style="color: red">{{ $message }}</span>
                 @enderror
         </div>
@@ -164,7 +163,7 @@ Gestione aziende
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::text('descrizione', '') }}
             <br>
-                @error('descrizioneAzienda')
+                @error('descrizione')
             <span style="color: red">{{ $message }}</span>
                 @enderror
         </div>

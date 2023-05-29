@@ -61,7 +61,7 @@ class AdminController extends Controller {
     public function createAzienda(Request $request) {
 
         $request->validate([
-            'nomeazienda' => ['required', 'string', 'max:30'],
+            'nomeazienda' => ['required', 'unique:azienda','string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string', 'max:999'],
@@ -193,8 +193,8 @@ class AdminController extends Controller {
 
     public function deleteStaff($username) {
         $this->setup();
-        $this->listaAziende = User::destroy($username);
-        return redirect('gestione-mebristaff')
+        $this->listaStaff = User::destroy($username);
+        return redirect('gestione-membristaff')
                         ->with('azione', 'view');
     }
 

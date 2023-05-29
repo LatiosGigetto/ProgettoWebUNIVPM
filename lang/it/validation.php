@@ -156,7 +156,7 @@ return [
             'required' => "Non hai inserito il numero di telefono",
         ],
         'descrizione' => [
-            'required' => "Non hai inserito la descrizione dell'offerta",
+            'required' => "Non hai inserito la descrizione",
         ],
         'luogo' => [
             'required' => "Non hai inserito il luogo dell'offerta",
@@ -167,7 +167,7 @@ return [
         'azienda' => [
             'required' => "Non hai inserito l'azienda relativa all'offerta",
         ],
-        'nomeAzienda' => [
+        'nomeazienda' => [
             'required' => "Non hai inserito il nome dell'azienda",
         ],
         'categoria' => [
@@ -178,9 +178,6 @@ return [
         ],
         'logo' => [
             'required' => "Non hai inserito il logo dell'azienda",
-        ],
-        'descrizioneAzienda' => [
-            'required' => "Non hai inserito la descrizione dell'azienda",
         ],
     ],
 
