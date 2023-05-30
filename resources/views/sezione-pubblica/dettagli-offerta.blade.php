@@ -32,9 +32,15 @@
                 </button>
             </a>
 
-            <button name="indietro" id="indietro">
-                torna indietro
-            </button>
+
+            <a href="{{ route('catalogo') }}">
+                <button name="tornaindietro" id="tornaindietro">
+                    Torna indietro
+                </button>
+            </a>
+
+
+
         </div>
 
         @if(session('success'))
