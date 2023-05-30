@@ -5,6 +5,11 @@
     --bs-nav-link-color: #FFCD00;
 }
 
+/* Home */
+.image_carousel{
+    max-height: 200px;
+}
+
 
 
 
