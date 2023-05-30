@@ -15,6 +15,11 @@
         <p>{{ $offerta->getNomeAzienda() }}</p>
 
         <br>
+        <strong>Oggetto offerta</strong>
+
+        <p>{{ $offerta->Oggetto }}</p>
+        
+        <br>
         <strong>Descrizione offerta</strong>
 
         <p>{{ $offerta->Descrizione }}</p>
@@ -31,16 +36,7 @@
                     genera
                 </button>
             </a>
-
-
-            <a href="{{ route('catalogo') }}">
-                <button name="tornaindietro" id="tornaindietro">
-                    Torna indietro
-                </button>
-            </a>
-
-
-
+            @include('layouts/tornaindietro')
         </div>
 
         @if(session('success'))

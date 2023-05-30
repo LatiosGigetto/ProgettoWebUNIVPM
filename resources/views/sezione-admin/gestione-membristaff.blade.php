@@ -3,7 +3,7 @@
 @section("title")
     Gestione aziende
 @endsection
-    
+
     @section("link-scripts")
 
 
@@ -29,6 +29,8 @@
                         <th>Mail</th>
                         <th>Età</th>
                         <th>Genere</th>
+                        <th>Modifica</th>
+                        <th>Elimina</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,7 +49,7 @@
                                 </a>
                             </td>
                             <td>
-                                <button class="elim-staff" name="{{$membro_staff-> username}}">Elimina</button>                                
+                                <button class="elim-staff" name="{{$membro_staff-> username}}">Elimina</button>
                             </td>
                         </tr>
                     @endforeach
@@ -88,9 +90,10 @@
                     <div style="margin: 2%">
                         {{ Form::label('genere', 'Genere') }}
                         {{ Form::select('genere',['maschio' => 'Maschio', 'femmina' => 'Femmina'], $staffSel ->Genere) }}
-                    </div>                  
+                    </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
+                    @include('layouts/tornaindietro')
                 </div>
                 @break
             @case('create')
@@ -132,9 +135,10 @@
                     <div style="margin: 2%">
                         {{ Form::label('azienda', 'Azienda') }}
                         {{ Form::select('azienda', $listaAziende) }}
-                    </div>                  
+                    </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
+                    @include('layouts/tornaindietro')
                 </div>
                 @break
         @endswitch

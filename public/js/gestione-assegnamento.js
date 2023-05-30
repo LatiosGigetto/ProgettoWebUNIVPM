@@ -12,19 +12,22 @@ $(document).ready(function () {
 
         let nomeStaff = cellaNomeStaff.text();
 
-        // Controlla se ci sono altri elementi con lo stesso nome
+        // Controlla se ci sono altri elementi con lo stesso nome.
+        // Se ce n'è almeno uno, setta ultimo a false.
 
         let colonneNome = $('.nome-staff').not(cellaNomeStaff);
         let ultimo = true;
 
         colonneNome.each(function () {
-        // TODO riparare if    
-            if ($(this).text === nomeStaff) {
+         
+            if ($(this).text() === nomeStaff) {
                 console.log("lol");
                 ultimo = false;
             }
 
         });
+       
+       // L'eliminazione è permessa solo se ultimo è false.
        
         if (!ultimo) {
             

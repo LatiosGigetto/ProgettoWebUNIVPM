@@ -53,7 +53,7 @@ Gestione aziende
                     @endforeach
         </tbody>
     </table>
-            <td colspan="6">
+            <td colspan="4">
                 <a href="{{ route('crea-azienda-view')}}">
                     <button id="mod-az">Crea Nuova Azienda</button>
                 </a>
@@ -69,7 +69,6 @@ Gestione aziende
 
                 @include('paginator.paginator', ['paginator' => $aziende])
     </div>
-
                 @break
 
             @case('mod')
@@ -120,6 +119,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
+        @include('layouts/tornaindietro')
     </div>
                 @break
             @case('create')
@@ -169,7 +169,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-    </div>
+        @include('layouts/tornaindietro')
                 @break
       @endswitch
 @endsection

@@ -84,6 +84,7 @@
             </div>
 
             {{ Form::close() }}
+            @include('layouts/tornaindietro')
         </div>
     </div>
 

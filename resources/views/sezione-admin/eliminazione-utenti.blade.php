@@ -38,7 +38,7 @@ Elimina sti Utenti
                 <td>{{ $utente-> Mail }}</td>
                 <td>{{ $utente-> Età }}</td>
                 <td>{{ $utente-> Genere }}</td>
-                <td>                   
+                <td>
                         <button class="elim-utente" name="{{ $utente->username }}">Elimina</button>
                 </td>
             </tr>

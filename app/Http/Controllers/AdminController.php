@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Models\User;
+use App\Models\Offerta;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +20,7 @@ class AdminController extends Controller {
     protected $listaStaff;
     protected $listaFaq;
     protected $listaAssegnamenti;
+    protected $listaOfferte;
 
     public function setup() {
 
@@ -28,6 +30,7 @@ class AdminController extends Controller {
         $this->listaStaff = User::getStaff();
         $this->listaFaq = FAQ::all();
         $this->listaAssegnamenti = GestoriAziende::all();
+        $this->listaOfferte = Offerta::all();
     }
 
     // metodi per gestire il contenuto di aziende
@@ -85,7 +88,7 @@ class AdminController extends Controller {
     public function modifyAzienda(Request $request) {
 
         $request->validate([
-            'nomeazienda' => ['required', 'string', 'max:30'],
+            'nomeazienda' => ['required', 'unique:aziende', 'string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string'],
@@ -128,7 +131,7 @@ class AdminController extends Controller {
     public function showModifyStaff($username) {
         return view('sezione-admin/gestione-membristaff')
                         ->with([
-                            'staffSel' => User::find($username),                           
+                            'staffSel' => User::find($username),
                             'azione' => 'mod'
         ]);
     }
@@ -163,15 +166,15 @@ class AdminController extends Controller {
         $user->Genere = $request->genere;
         $user->Livello = 2;
         $user->save();
-        
+
         // Creo il primo assegnamento all'Azienda del membro dello Staff
-        
+
         $primaAzienda = new GestoriAziende();
         $primaAzienda->UsernameUtente = $request->username;
         $primaAzienda->Id_Azienda = $request->azienda;
         $primaAzienda->save();
-        
-      //  event(new Registered($user));     Non credo serva a niente
+
+        //  event(new Registered($user));     Non credo serva a niente
         return redirect('gestione-membristaff')
                         ->with([
                             'azione' => 'view',
@@ -296,6 +299,16 @@ class AdminController extends Controller {
     }
 
     //Stats
+
+    public function viewStatistiche() {
+        $this->setup();
+        
+        return view('sezione-admin/statistiche')
+                        ->with(['utenti' => $this->listaUtenti,
+                            'offerte' => $this->listaOfferte                            
+        ]);
+    }
+
     public function numeroCoupon() {
         return DB::table('coupon')->count();
     }

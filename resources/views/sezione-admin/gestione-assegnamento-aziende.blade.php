@@ -2,104 +2,109 @@
 
 
 @section("title")
-    Gestione Assegnamento
+Gestione Assegnamento
 @endsection
 
 @section("link-scripts")
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
-    <script src="{{asset("js/gestione-assegnamento.js")}}"></script>
+<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+<script src="{{asset("js/gestione-assegnamento.js")}}"></script>
 @endsection
 
 @section("content")
 
-    <div class="spazio_blocco">
+<div class="spazio_blocco">
         @switch($azione)
 
             @case('view')
-                <h1>Gestione Assegnamento Azienda</h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Azienda</th>
-                        <th>Staff</th>
-                        <th>Modifica</th>
-                        <th>Elimina</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+    <h1>Gestione Assegnamento Azienda</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Azienda</th>
+                <th>Staff</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                    <!--popolo la tabella-->
+            <!--popolo la tabella-->
                     @foreach($aziendeAssegnate as $assegnamento)
-                        <tr>
+            <tr>
 
-                            <td>{{ $assegnamento->getNomeById() }}</td>
-                            <td class="nome-staff">{{ $assegnamento->UsernameUtente }}</td>
-                            <td>
-                                <a href="{{ route('modifica-assegnamento-view',[
+                <td>{{ $assegnamento->getNomeById() }}</td>
+                <td class="nome-staff">{{ $assegnamento->UsernameUtente }}</td>
+                <td>
+                    <a href="{{ route('modifica-assegnamento-view',[
                                     'id' => $assegnamento->id])
                                     }}">
-                                    <button id="mod assegnamento">Modifica</button>
-                                </a>
-                            </td>
-                            <td>                               
-                                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>                             
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-                <td colspan="6">
-                    <a href="{{ route('crea-assegnamento-view')}}">
-                    <button id="mod prom">Crea Nuova Azienda</button>
+                        <button id="mod assegnamento">Modifica</button>
                     </a>
                 </td>
+                <td>
+                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>
+                </td>
+            </tr>
+                    @endforeach
+        </tbody>
+    </table>
+            <td colspan="4">
+                <a href="{{ route('crea-assegnamento-view')}}">
+                    <button id="mod-az">Crea Nuova assegnamento</button>
+                </a>
+            </td>
+</div>
                 @break
 
             @case('mod')
-                <h1>Modifica Assegnamento</h1>
+    <h1>Modifica Assegnamento</h1>
 
-                <div id ="mod-assegnamento-sezione">
+    <div id ="mod-assegnamento-sezione">
                     {{ Form::open(['route' => 'modifica-assegnamento-conf']) }}
                     {{ Form::hidden('id', $assegnamentoSel->id) }}
 
-                    <div style="margin: 2%">
+        <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::select('nomeAzienda',$listaAziende ,$assegnamentoSel->getNomeById() ) }}
-                    </div>
+        </div>
 
-                    <div style="margin: 2%">
+        <div style="margin: 2%">
                         {{ Form::label('usernameStaff', 'Staff') }}
                         {{ Form::select('usernameStaff',$listastaff, $assegnamentoSel->UsernameUtente )}}
-                    </div>
-                    <br>
-                    @error('erroreAss')
-                    <span style="color: red">{{ $message }}</span>
-                    @enderror
+        </div>
+
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-                </div>
+        @include('layouts/tornaindietro')
+        <br>
+                    @error('erroreAss')
+        <span style="color: red">{{ $message }}</span>
+                    @enderror
+    </div>
 
                 @break
             @case('create')
 
-                <h1>Crea Assegnamento</h1>
-                <div id ="crea-assegnamento-sezione">
+    <h1>Crea Assegnamento</h1>
+    <div id ="crea-assegnamento-sezione">
                     {{ Form::open(['route' => 'crea-assegnamento-conf']) }}
-                    <div style="margin: 2%">
+        <div style="margin: 2%">
                         {{ Form::label('nomeazienda', 'NomeAzienda') }}
                         {{ Form::select('nomeAzienda', $listaAziende) }}
-                    </div>
-                    <div style="margin: 2%">
+        </div>
+        <div style="margin: 2%">
                         {{ Form::label('nomestaff', 'Staff') }}
                         {{ Form::select('nomestaff', $listastaff) }}
-                    </div>
-                    <br>
+        </div>
+        <br>
                     @error('erroreAss')
-                    <span style="color: red">{{ $message }}</span>
+        <span style="color: red">{{ $message }}</span>
                     @enderror
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-                </div>
+        @include('layouts/tornaindietro')
+    </div>
     @break
     @endswitch
+
 @endsection

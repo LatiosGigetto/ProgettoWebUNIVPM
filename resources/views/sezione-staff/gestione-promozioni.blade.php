@@ -31,7 +31,7 @@ Gestione Promozioni
                 <th>Descrizione</th>
                 <th>Azienda</th>
                 <th>Luogo</th>
-                <th>Scadenza</th>         
+                <th>Scadenza</th>
                 <th>Modifica</th>
                 <th>Elimina</th>
             </tr>
@@ -58,13 +58,13 @@ Gestione Promozioni
             @endforeach
         </tbody>
     </table>
-    
+
     <div style="display: flex; justify-content: center">
                     <a href="{{ route('crea-offerta')}}" style="margin: 1%">
                         <button >Aggiungi promozione</button>
                     </a>
-    </div>        
-    
+    </div>
+
     <div style="text-align: center">
                 @if(session('success'))
                 <strong style="color: green">{{ session('success') }}</strong>
@@ -72,7 +72,7 @@ Gestione Promozioni
                 @error('offerta-non-trovata')
                 <span style="color: red">{{ $message }}</span>
                 @enderror
-                
+
                 @include('paginator.paginator', ['paginator' => $offerte])
     </div>
     @break
@@ -128,7 +128,7 @@ Gestione Promozioni
         {{ Form::submit('Modifica') }}
         {{ Form::close() }}
 
-
+        @include('layouts/tornaindietro')
 
     </div>
 
@@ -182,6 +182,7 @@ Gestione Promozioni
         {{ Form::submit('Crea') }}
         {{ Form::close() }}
 
+        @include('layouts/tornaindietro')
 
     </div>
 
@@ -189,8 +190,8 @@ Gestione Promozioni
 
     @endswitch
 
-    
-    
+
+
 </div>
 
 @endsection
