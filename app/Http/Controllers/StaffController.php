@@ -87,12 +87,14 @@ class StaffController extends Controller {
 
         $request->validate([
             'luogo' => ['required', 'string', 'max:30'],
+            'oggetto' => ['required', 'string', 'max:99'],
             'descrizione' => ['required', 'string', 'max:999'],
             'validità' => ['required', 'date'],
         ]);
 
         Offerta::create([
             'Luogo' => $request->luogo,
+            'Oggetto' => $request->oggetto,
             'Descrizione' => $request->descrizione,
             'Validità' => $request->validità,
             'Id_Azienda' => $request->azienda
@@ -112,6 +114,7 @@ class StaffController extends Controller {
 
         $request->validate([
             'luogo' => ['required', 'string', 'max:30'],
+            'oggetto' => ['required', 'string', 'max:99'],
             'descrizione' => ['required', 'string', 'max:999'],
             'validità' => ['required', 'date'],
         ]);
@@ -119,6 +122,7 @@ class StaffController extends Controller {
         $offerta = Offerta::find($request->idOfferta);
 
         $offerta->Luogo = $request->luogo;
+        $offerta->Oggetto = $request->oggetto;
         $offerta->Descrizione = $request->descrizione;
         $offerta->Validità = $request->validità;
         $offerta->Id_Azienda = $request->azienda;

@@ -4,40 +4,32 @@
     Statistiche
 @endsection
 
+@section("link-scripts")
+
 <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+<script src="{{asset("js/statistiche.js")}}"></script>
+
+@endsection
 
 @section("content")
 
     <h1>Statistiche</h1>
-    <h3>Numero totale coupon emessi:</h3>
-    <h5>Lista coupon</h5>
+    <h2>Numero totale coupon emessi:</h2> <span id="totCoupon"></span>
+    <h3>Coupon emessi per offerta</h3>
     <div class="container" style="margin-left: 0; padding-left: 0">
-        <div class="row">
-            <div class="col col-2">
-                <p>Promozione 1</p>
-            </div>
+        {{ Form::open(['route' => 'stats-coupon']) }}
             <div class="col">
-                <button name="vediprom1" id="vediprom1">vedi numero coupon</button>
+                {{Form::label('offerta', "Scegli l'offerta") }}
+                {{Form::select('sceltaOfferta', $offerte->pluck('Oggetto', 'IdOfferta') }}
+                
+                {{Form::submit('Vedi numero coupon')}}
+                <strong style="display: none"></strong>
             </div>
+        
         </div>
-        <div class="row">
-            <div class="col col-2">
-                <p>Promozione 2</p>
-            </div>
-            <div class="col">
-                <button name="vediprom2" id="vediprom2">vedi numero coupon</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-2">
-                <p>Promozione 3</p>
-            </div>
-            <div class="col">
-                <button name="vediprom3" id="vediprom3">vedi numero coupon</button>
-            </div>
-        </div>
-    </div>
-    <h5>Lista clienti</h5>
+        
+    </div>  
+    <h3>Lista clienti</h3>
     <div class="container" style="margin-left: 0; padding-left: 0">
         <div class="row">
             <div class="col col-2">

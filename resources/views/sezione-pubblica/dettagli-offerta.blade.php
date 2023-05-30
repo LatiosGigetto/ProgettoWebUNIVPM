@@ -15,6 +15,11 @@
         <p>{{ $offerta->getNomeAzienda() }}</p>
 
         <br>
+        <strong>Oggetto offerta</strong>
+
+        <p>{{ $offerta->Oggetto }}</p>
+        
+        <br>
         <strong>Descrizione offerta</strong>
 
         <p>{{ $offerta->Descrizione }}</p>

@@ -37,7 +37,8 @@ Riepilogo acquisti
             @foreach($coupons as $coupon)
             <tr>
                 <td>
-                    <img style="width: 20%" src="images/logosito.png" alt="Descrizione dell'immagine">
+                    <img style="height: 100px; width: 100px" 
+                         src="data:image/png/jpeg;base64,{{ base64_encode($coupon->getOffertaByCoupon()->getLogoAzienda())}}" alt="Logo azienda">
                 </td>
                 <td>
                     <p>{{$coupon->getOffertaByCoupon()->getNomeAzienda()}} </p>
@@ -46,7 +47,7 @@ Riepilogo acquisti
                     <p>{{$coupon->Id_Coupon}} </p>
                 </td>
                 <td>
-                    <p>{{$coupon->getOffertaByCoupon()->Descrizione}}</p>
+                    <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
                 </td>
                 <td>
                     <button>Stampa</button>

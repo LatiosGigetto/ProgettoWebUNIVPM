@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `azienda` (
   `Id_Azienda` int(11) NOT NULL,
-  `NomeAzienda` varchar(30) NOT NULL,
+  `NomeAzienda` varchar(30) UNIQUE NOT NULL,
   `Logo` blob NOT NULL,
   `Sede` varchar(30) NOT NULL,
   `Descrizione` text NOT NULL,
@@ -81,6 +81,7 @@ CREATE TABLE `gestoriaziende` (
 CREATE TABLE `offerta` (
   `Id_Offerta` int(11) NOT NULL,
   `Id_Azienda` int(11) NOT NULL,
+  `Oggetto` varchar(99) NOT NULL,
   `Luogo` varchar(30) NOT NULL,
   `Descrizione` text NOT NULL,
   `Validità` date NOT NULL
