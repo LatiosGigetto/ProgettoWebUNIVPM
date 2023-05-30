@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $('.el-faq').on('click', function () {
 
-        if (confirm("Sei sicuro di voler eliminare questo utente?")) {
+        if (confirm("Sei sicuro di voler eliminare questa FAQ?")) {
 
             let idFaq = $(this).attr('name');
 

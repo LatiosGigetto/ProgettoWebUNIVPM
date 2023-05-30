@@ -179,6 +179,12 @@ return [
         'logo' => [
             'required' => "Non hai inserito il logo dell'azienda",
         ],
+        'domanda' => [
+            'required' => "Non hai inserito la domanda",
+        ],
+        'risposta' => [
+            'required' => "Non hai inserito la risposta",
+        ],
     ],
 
     /*
@@ -210,6 +216,8 @@ return [
         "logo" => "Il logo",
         "categoria" => "La categoria",
         "sede" => "La sede",
+        "domanda" => "La domanda",
+        "risposta" => "La risposta",
     ],
 
 ];
