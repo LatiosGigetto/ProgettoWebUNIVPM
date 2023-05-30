@@ -41,14 +41,19 @@ Gestione Assegnamento
                         <button id="mod assegnamento">Modifica</button>
                     </a>
                 </td>
-                <td>                               
-                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>                             
+                <td>
+                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>
                 </td>
             </tr>
                     @endforeach
         </tbody>
     </table>
-</div> 
+            <td colspan="4">
+                <a href="{{ route('crea-assegnamento-view')}}">
+                    <button id="mod-az">Crea Nuova assegnamento</button>
+                </a>
+            </td>
+</div>
                 @break
 
             @case('mod')
@@ -70,7 +75,7 @@ Gestione Assegnamento
 
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-
+        @include('layouts/tornaindietro')
         <br>
                     @error('erroreAss')
         <span style="color: red">{{ $message }}</span>
@@ -97,20 +102,9 @@ Gestione Assegnamento
                     @enderror
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
+        @include('layouts/tornaindietro')
     </div>
     @break
     @endswitch
-    
-    <div style="display: flex; justify-content: center">
-        <a href="{{ route('crea-assegnamento-view')}}">
-            <button id="mod prom" style="margin: 1%">Crea nuovo assegnamento</button>
-        </a>
 
-        <br>
-                @if(session('success'))
-        <strong style="color: green">{{ session('success') }}</strong>
-                @endif
-
-    </div>
-    
 @endsection

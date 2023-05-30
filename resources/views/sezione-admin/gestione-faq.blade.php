@@ -44,6 +44,16 @@ FAQ
                     @endforeach
         </tbody>
     </table>
+            <td colspan="4">
+                <a href="{{ route('crea-faq-view')}}">
+                    <button id="mod-az">Crea Nuova FAQ</button>
+                </a>
+            </td>
+        @if(session('success'))
+            <strong style="color: green">{{ session('success') }}</strong>
+        @endif
+
+    </div>
 
 </div>
 
@@ -72,6 +82,7 @@ FAQ
                 @enderror
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
+    @include('layouts/tornaindietro')
 </div>
                 @break
              @case('create')
@@ -97,19 +108,9 @@ FAQ
                 @enderror
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
+    @include('layouts/tornaindietro')
                  @break
     @endswitch
-    
-    <div style="display: flex; align-items: center; flex-direction: column">
-        <a href="{{ route('crea-faq-view')}}">
-            <button id="crea faq" style="margin: 3%">Crea Nuova Domanda</button>
-        </a>
 
-                @if(session('success'))
-        <strong style="color: green">{{ session('success') }}</strong>
-                @endif
-        
-    </div>
-    
 @endsection
 

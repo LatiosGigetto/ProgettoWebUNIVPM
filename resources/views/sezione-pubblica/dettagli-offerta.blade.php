@@ -31,16 +31,7 @@
                     genera
                 </button>
             </a>
-
-
-            <a href="{{ route('catalogo') }}">
-                <button name="tornaindietro" id="tornaindietro">
-                    Torna indietro
-                </button>
-            </a>
-
-
-
+            @include('layouts/tornaindietro')
         </div>
 
         @if(session('success'))

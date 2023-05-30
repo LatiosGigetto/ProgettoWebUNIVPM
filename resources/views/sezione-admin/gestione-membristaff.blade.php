@@ -60,11 +60,6 @@
                         <button id="crea staff">Crea nuovo membro staff</button>
                     </a>
                 </td>
-                <td colspan="4">
-                    <a href="{{ route('admin')}}">
-                        <button id="tornaindietro">Torna Indietro</button>
-                    </a>
-                </td>
                 @break
             @case('mod')
                 <h1>Modifica membro Staff</h1>
@@ -98,12 +93,7 @@
                     </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-
-                    <td colspan="4">
-                        <a href="{{ route('gestione-membristaff')}}">
-                            <button id="tornaindietro">Torna Indietro</button>
-                        </a>
-                    </td>
+                    @include('layouts/tornaindietro')
                 </div>
                 @break
             @case('create')
@@ -148,11 +138,7 @@
                     </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-                    <td colspan="4">
-                        <a href="{{ route('gestione-membristaff')}}">
-                            <button id="tornaindietro">Torna Indietro</button>
-                        </a>
-                    </td>
+                    @include('layouts/tornaindietro')
                 </div>
                 @break
         @endswitch

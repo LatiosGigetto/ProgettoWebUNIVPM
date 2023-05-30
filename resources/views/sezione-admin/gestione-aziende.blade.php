@@ -58,11 +58,6 @@ Gestione aziende
                     <button id="mod-az">Crea Nuova Azienda</button>
                 </a>
             </td>
-            <td colspan="4">
-                <a href="{{ route('admin')}}">
-                    <button id="tornaindietro">Torna Indietro</button>
-                </a>
-            </td>
 
     <div style="text-align: center">
                 @if(session('success'))
@@ -124,11 +119,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-        <td colspan="4">
-            <a href="{{ route('gestione-aziende')}}">
-                <button id="tornaindietro">Torna Indietro</button>
-            </a>
-        </td>
+        @include('layouts/tornaindietro')
     </div>
                 @break
             @case('create')
@@ -178,12 +169,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-        <td colspan="4">
-            <a href="{{ route('gestione-aziende')}}">
-                <button id="tornaindietro">Torna Indietro</button>
-            </a>
-        </td>
-    </div>
+        @include('layouts/tornaindietro')
                 @break
       @endswitch
 @endsection

@@ -45,11 +45,6 @@ Elimina sti Utenti
             @endforeach
         </tbody>
     </table>
-    <td colspan="4">
-        <a href="{{ route('admin')}}">
-            <button id="tornaindietro">Torna Indietro</button>
-        </a>
-    </td>
 </div>
 
 @endsection
