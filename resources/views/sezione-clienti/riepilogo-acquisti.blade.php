@@ -18,21 +18,21 @@ Riepilogo acquisti
 
 <div id="tabella_riepilgo" >
 
-    
-    
+
+
     <table>
         <thead>
-            
+
             <tr>
                 <th>Logo Azienda</th>
                 <th>Azienda</th>
-                <th>ID Coupon</th>       
+                <th>ID Coupon</th>
                 <th>Descrizione offerta</th>
                 <th>Stampa Coupon</th>
             </tr>
-            
+
         </thead>
-            
+
         <tbody>
             @foreach($coupons as $coupon)
             <tr>
@@ -44,26 +44,32 @@ Riepilogo acquisti
                 </td>
                 <td>
                     <p>{{$coupon->Id_Coupon}} </p>
-                </td>     
+                </td>
                 <td>
                     <p>{{$coupon->getOffertaByCoupon()->Descrizione}}</p>
                 </td>
                 <td>
-                    <button>Stampa</button>
+                    <a href="{{ route('coupon-generato', ['Id_Coupon' => $coupon->Id_Coupon]) }}">
+
+
+                    <button name="vaiallastampa" id="vaiallastampa">
+                        Stampa
+                        </button>
+                    </a>
                 </td>
             </tr>
             @endforeach
         </tbody>
 
     </table>
-    
-    
+
+
 </div>
 
 @else
 <div style="min-height: 25vw; display:flex; justify-content: center; align-items: center">
     <h1> Non hai ancora generato alcun coupon a tuo nome</h1>
-</div>  
+</div>
     @endif
 
 @endsection

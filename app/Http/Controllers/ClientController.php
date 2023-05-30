@@ -18,9 +18,9 @@ class ClientController extends Controller {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $generato = false;
         $randomstring = "";
-        
+
         // Controlla che non ci sia un coupon con ID uguale.
-        
+
         while (!$generato) {
 
             $randomString = substr(str_shuffle($characters), 0, 10);
@@ -29,11 +29,11 @@ class ClientController extends Controller {
                 continue;
             }
             $generato = true;
-            
+
         }
 
         // Controlla che sia un utente di Livello 1 a generare il coupon.
-        
+
         $user = Auth::user();
 
         if ($user->Livello != 1) {
@@ -48,16 +48,16 @@ class ClientController extends Controller {
                         ->withErrors(["error" => "Hai già un coupon per questa offerta!"]);
             }
         }
-        
+
         // Creazione del coupon effettivo.
-        
+
         $coupon = new Coupon;
         $coupon->UsernameUtente = $user->username;
         $coupon->Id_Offerta = $id_offerta;
         $coupon->Id_Coupon = $randomString;
         $coupon->save();
-       
-        
+
+
         return redirect()->back()->with('success', "L'acquisto è avvenuto con successo");
     }
 
@@ -77,4 +77,19 @@ class ClientController extends Controller {
       {
 
       } */
+    public function showCouponGenerato($Id_Coupon)
+    {
+        $usernameUtente = auth()->user()->username;
+        $coupon = Coupon::where('Id_Coupon', $Id_Coupon)
+            ->where('UsernameUtente', $usernameUtente)
+            ->first();
+
+        return view('sezione-clienti/coupon-generato', compact('coupon'));
+    }
+
+
+
+
+
+
 }

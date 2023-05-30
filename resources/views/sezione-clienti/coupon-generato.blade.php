@@ -1,29 +1,19 @@
-@extends('layouts.contenitore')
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{ asset('js/qrcode.min.js') }}"></script>
+</head>
 
-@section("title")
-    Coupon
-@endsection
+<body>
+<div class="container d-flex flex-column vh-100 justify-content-center align-items-center">
 
-@section('contenuto')
 
-    <!--TODO: come in dettagli offerta-->
-    <h2>Acquisto Verificato</h2>
-    <p>Il codice del tuo coupon è:
-        <br>
-        XXX_XXX_XXX
-    </p>
-    <img class=logosito src="images/logosito.png" alt="Descrizione dell'immagine">
-    <a href="linkdaseguire">Coupon generato</a>
-    <br>
-    <strong>Descrizione offerta</strong>
-    <br>
-    <div>
-        <button name="genera" id="genera">
-            continua ad acquistare
-        </button>
-        <button name="indietro" id="indietro">
-            riepilogo acquisti
-        </button>
-    </div>
 
-@endsection
+    <p>{{ $coupon->Id_Coupon }}</p>
+
+
+
+</div>
+</body>
+</html>
+

@@ -6,7 +6,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\ModificainfoController;
 use App\Http\Controllers\StaffController;
-
+use App\Http\Controllers\ClientController;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -49,8 +49,8 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 // Sezione riservata al Cliente (Livello 1)
 
-Route::view("/coupon-generato", "sezione-clienti/coupon-generato")->middleware("can:isUser")
-        ->name('coupon-generato');
+Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->name('coupon-generato');
+
 
 // Sezione riservata allo Staff (Livello 2)
 
