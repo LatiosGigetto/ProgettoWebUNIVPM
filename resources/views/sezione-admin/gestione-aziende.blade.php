@@ -114,7 +114,7 @@ Gestione aziende
                         {{ Form::label('descrizione', 'Descrizione') }}
                         {{ Form::textarea('descrizione', $aziendaSel->Descrizione) }}
             <br>
-                @error('descrizioneAzienda')
+                @error('descrizione')
             <span style="color: red">{{ $message }}</span>
                 @enderror
         </div>

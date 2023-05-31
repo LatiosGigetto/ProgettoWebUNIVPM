@@ -41,7 +41,7 @@ Gestione Promozioni
                 @foreach($offerte as $offerta)
                     <tr>
                         <td class='idOff'>{{ $offerta->Id_Offerta }}</td>
-                        <td class='descOff'>{{ $offerta->Descrizione }}</td>
+                        <td class='oggOff'>{{ $offerta->Oggetto }}</td>
                         <td class='nomeAz'>{{ $offerta->getNomeAzienda() }}</td>
                         <td class='luogoOff'>{{ $offerta->Luogo }}</td>
                         <td class='valOff'>{{ $offerta->Validità }}</td>
@@ -87,7 +87,7 @@ Gestione Promozioni
 
                 <div class="form-group">
                     {{ Form::label('descrizione', 'Descrizione') }}
-                    {{ Form::textarea('descrizione', $offertaSel->Descrizione, ['class' => 'form-control']) }}
+                    {{ Form::textarea('descrizione', $offertaSel->Oggetto, ['class' => 'form-control']) }}
                     @error('descrizione')
                     <span style="color: red">{{ $message }}</span>
                     @enderror
@@ -121,7 +121,7 @@ Gestione Promozioni
                 {{ Form::close() }}
             </div>
         </div>
-        @include('layouts/tornaindietro')
+        <a href="{{ route('gestione-promozioni') }}" class="btn btn-primary">Torna indietro</a>
 
     </div>
 
@@ -175,7 +175,7 @@ Gestione Promozioni
         {{ Form::submit('Crea') }}
         {{ Form::close() }}
 
-        @include('layouts/tornaindietro')
+        <a href="{{ route('gestione-promozioni') }}" class="btn btn-primary">Torna indietro</a>
 
     </div>
 

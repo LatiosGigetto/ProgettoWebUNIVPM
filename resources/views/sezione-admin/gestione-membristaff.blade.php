@@ -76,29 +76,49 @@
                         {{ Form::label('nome', 'Nome') }}
                         {{ Form::text('nome', $staffSel->Nome) }}
                     </div>
+                    <br>
+                @error('nome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('cognome', 'Cognome') }}
                         {{ Form::text('cognome', $staffSel->Cognome) }}
                     </div>
+                <br>
+                @error('cognome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('età', 'Età') }}
                         {{ Form::text('età', $staffSel->Età) }}
                     </div>
+                <br>
+                @error('età')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('telefono', 'Telefono') }}
                         {{ Form::text('telefono', $staffSel->Telefono) }}
                     </div>
+                <br>
+                @error('telefono')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
-                        {{ Form::label('mail', 'Mail') }}
-                        {{ Form::text('mail', $staffSel->Mail) }}
+                        {{ Form::label('email', 'Mail') }}
+                        {{ Form::text('email', $staffSel->Mail) }}
                     </div>
+                <br>
+                @error('email')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('genere', 'Genere') }}
                         {{ Form::select('genere',['maschio' => 'Maschio', 'femmina' => 'Femmina'], $staffSel ->Genere) }}
-                    </div>
+                    </div>              
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-                    @include('layouts/tornaindietro')
+                    <a href="{{ route('gestione-membristaff') }}" class="btn btn-primary">Torna indietro</a>
                 </div>
                 @break
             @case('create')
@@ -109,30 +129,58 @@
                     {{ Form::label('username', 'Username') }}
                     {{ Form::text('username', '') }}
                     </div>
+                    <br>
+                @error('username')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('password', 'Password') }}
                         {{ Form::password('password') }}
                     </div>
+                <br>
+                @error('password')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('nome', 'Nome') }}
                         {{ Form::text('nome', '') }}
                     </div>
+                <br>
+                @error('nome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('cognome', 'Cognome') }}
                         {{ Form::text('cognome', '') }}
                     </div>
+                <br>
+                @error('cognome')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('età', 'Età') }}
                         {{ Form::text('età', '') }}
                     </div>
+                <br>
+                @error('età')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('telefono', 'Telefono') }}
                         {{ Form::text('telefono', '') }}
                     </div>
+                <br>
+                @error('telefono')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
-                        {{ Form::label('mail', 'Mail') }}
-                        {{ Form::text('mail', '') }}
+                        {{ Form::label('email', 'Mail') }}
+                        {{ Form::text('email', '') }}
                     </div>
+                <br>
+                @error('email')
+                <span style="color: red">{{ $message }}</span>
+                @enderror
                     <div style="margin: 2%">
                         {{ Form::label('genere', 'Genere') }}
                         {{ Form::select('genere',['maschio' => 'Maschio', 'femmina' => 'Femmina'], '') }}
@@ -141,9 +189,10 @@
                         {{ Form::label('azienda', 'Azienda') }}
                         {{ Form::select('azienda', $listaAziende) }}
                     </div>
+                <br>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-                    @include('layouts/tornaindietro')
+                    <a href="{{ route('gestione-membristaff') }}" class="btn btn-primary">Torna indietro</a>
                 </div>
                 @break
         @endswitch
