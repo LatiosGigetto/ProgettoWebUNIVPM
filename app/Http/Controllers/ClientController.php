@@ -41,7 +41,7 @@ class ClientController extends Controller {
             return redirect()->back()->withErrors(["error" => "Non puoi ottenere Coupon con account Staff o Amministratore"]);
         }
 
-        $check = Coupon::where('Id_Offerta', $id_offerta)->first();
+        $check = Coupon::where('Id_Offerta', $id_offerta)->where('UsernameUtente', $user->username)->first();
         if ($check) {
             if ($id_offerta == $check->Id_Offerta) {
                 return redirect()->back()
