@@ -29,7 +29,7 @@ Gestione Promozioni
             <thead class="thead-dark">
                 <tr>
                     <th>ID Offerta</th>
-                    <th>Descrizione</th>
+                    <th>Oggetto</th>
                     <th>Azienda</th>
                     <th>Luogo</th>
                     <th>Scadenza</th>
@@ -96,7 +96,7 @@ Gestione Promozioni
 
             <div class="form-group">
                     {{ Form::label('descrizione', 'Descrizione') }}
-                    {{ Form::textarea('descrizione', $offertaSel->Oggetto, ['class' => 'form-control']) }}
+                    {{ Form::textarea('descrizione', $offertaSel->Descrizione, ['class' => 'form-control']) }}
                     @error('descrizione')
                 <span style="color: red">{{ $message }}</span>
                     @enderror
