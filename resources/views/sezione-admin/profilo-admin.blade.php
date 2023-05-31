@@ -5,20 +5,29 @@
 @endsection
 
 @section('content')
-    <div class="profilo">
+    <div class="container text-center  mt-5">
         <h2>Area riservata Amministratore ({{Auth::user()->username}})</h2>
-        <a href="{{route('gestione-aziende')}}">Gestione aziende</a>
-        <br>
-        <a href="{{route('gestione-membristaff')}}">Gestione staff</a>
-        <br>
-        <a href="{{route('gestione-assegnamento')}}">Assegna aziende</a>
-        <br>
-        <a href="{{route('gestione-faq')}}">Gestione FAQ</a>
-        <br>
-        <a href="{{route('statistiche')}}">Genera statistiche</a>
-        <br>
-        <a href="{{route('elimina-utenti')}}">Cancellazione utenti</a>
-    </div>
 
+        <div class="row  mt-3 ">
+            <div class="col-md-6 col-lg-4 ">
+                <a href="{{route('gestione-aziende')}}" class="btn btn-primary mt-4">Gestione aziende</a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="{{route('gestione-membristaff')}}" class="btn btn-primary mt-4">Gestione staff</a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="{{route('gestione-assegnamento')}}" class="btn btn-primary mt-4">Assegna aziende</a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="{{route('gestione-faq')}}" class="btn btn-primary mt-4">Gestione FAQ</a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="{{route('statistiche')}}" class="btn btn-primary mt-4">Genera statistiche</a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="{{route('elimina-utenti')}}" class="btn btn-primary mt-4">Cancellazione utenti</a>
+            </div>
+        </div>
+    </div>
 @endsection
 

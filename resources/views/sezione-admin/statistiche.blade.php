@@ -13,10 +13,11 @@ Statistiche
 
 @section("content")
 
+<div class="container text-center ">
 <h1>Statistiche</h1>
 
-<h2>Numero totale coupon emessi</h2> 
-<button id ="num-coupon">Vedi coupon totali</button><span id="coupon-tot"></span>
+<h2>Numero totale coupon emessi</h2>
+<button id ="num-coupon">Vedi coupon totali</button><strong id="coupon-tot"></strong>
 
 <h3>Coupon emessi per offerta</h3>
 
@@ -31,7 +32,7 @@ Statistiche
     </div>
     {{Form::close()}}
 </div>
- 
+
 <h3>Coupon emessi per utente</h3>
 <div class="container" style="margin-left: 0; padding-left: 0">
         {{ Form::open(['route' => 'stats-utente', 'id' => 'coupon-user-form']) }}
@@ -44,7 +45,7 @@ Statistiche
     </div>
     {{Form::close()}}
 </div>
-
+</div>
 @include("layouts/tornaindietro")
 @endsection
 

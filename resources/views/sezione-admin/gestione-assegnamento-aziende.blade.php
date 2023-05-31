@@ -12,13 +12,13 @@ Gestione Assegnamento
 
 @section("content")
 
-<div class="spazio_blocco">
+<div class="container text-center mt-3">
         @switch($azione)
 
             @case('view')
     <h1>Gestione Assegnamento Azienda</h1>
-    <table>
-        <thead>
+    <table class="table mt-4">
+        <thead class="thead-dark">
             <tr>
                 <th>Azienda</th>
                 <th>Staff</th>
@@ -38,11 +38,11 @@ Gestione Assegnamento
                     <a href="{{ route('modifica-assegnamento-view',[
                                     'id' => $assegnamento->id])
                                     }}">
-                        <button id="mod assegnamento">Modifica</button>
+                        <button class="btn btn-primary">Modifica</button>
                     </a>
                 </td>
                 <td>
-                    <button class="elim-ass" name="{{$assegnamento->id}}">Elimina</button>
+                    <button class="elim-ass btn btn-danger" name="{{$assegnamento->id}}">Elimina</button>
                 </td>
             </tr>
                     @endforeach
@@ -50,7 +50,7 @@ Gestione Assegnamento
     </table>
             <td colspan="4">
                 <a href="{{ route('crea-assegnamento-view')}}">
-                    <button id="mod-az">Crea Nuova assegnamento</button>
+                    <button class="btn btn-primary">Crea Nuova assegnamento</button>
                 </a>
             </td>
 </div>

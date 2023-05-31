@@ -31,16 +31,16 @@
                             <td>
                                 <img class="img-thumbnail" style="width: 100px; height: 100px" src="data:image/png/jpeg;base64,{{ base64_encode($coupon->getOffertaByCoupon()->getLogoAzienda())}}" alt="Logo azienda">
                             </td>
-                            <td>
+                            <td class="text-center align-middle">
                                 <p>{{$coupon->getOffertaByCoupon()->getNomeAzienda()}} </p>
                             </td>
-                            <td>
+                            <td class="text-center align-middle">
                                 <p>{{$coupon->Id_Coupon}} </p>
                             </td>
-                            <td>
+                            <td class="text-center align-middle">
                                 <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
                             </td>
-                            <td class="d-flex justify-content-center align-items-center">
+                            <td class="text-center align-middle">
                                 <a href="{{ route('coupon-generato', ['Id_Coupon' => $coupon->Id_Coupon]) }}">
                                     <button class="btn btn-primary">Stampa</button>
                                 </a>
