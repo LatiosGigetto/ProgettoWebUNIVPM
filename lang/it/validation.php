@@ -185,6 +185,9 @@ return [
         'risposta' => [
             'required' => "Non hai inserito la risposta",
         ],
+        'oggetto' => [
+            'required' => "Non hai inserito l'oggetto",
+        ],
     ],
 
     /*
@@ -211,13 +214,14 @@ return [
         'azienda' => 'L\'azienda',
         'validità' => 'La validità',
         'luogo' => 'Il luogo',
-        'nomeAzienda' => "Il nome dell'azienda",
+        'nomeazienda' => "Il nome dell'azienda",
         "descrizioneAzienda" => "La descrizione",
         "logo" => "Il logo",
         "categoria" => "La categoria",
         "sede" => "La sede",
         "domanda" => "La domanda",
         "risposta" => "La risposta",
+        "oggetto" => "L'oggetto",
     ],
 
 ];

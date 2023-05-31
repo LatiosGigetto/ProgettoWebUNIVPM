@@ -135,6 +135,15 @@ Route::get("/gestione-faq/elim/{id}", [AdminController::class , 'deleteFaq'])->m
 Route::get("/statistiche", [AdminController::class, 'viewStatistiche'])->middleware('can:isAdmin')
     ->name('statistiche');
 
+  Route::get("/statistiche/couponTot", [AdminController::class , 'numeroCoupon'])->middleware("can:isAdmin")
+    ->name("stats-tot");
+    
+    Route::post("/statistiche/off", [AdminController::class , 'numeroCouponPromozione'])->middleware("can:isAdmin")
+    ->name("stats-offerta");
+    
+    Route::post("/statistiche/user", [AdminController::class , 'numeroCouponUser'])->middleware("can:isAdmin")
+    ->name("stats-utente");
+
 // Rotte per eliminazione-utenti
 Route::get("/eliminazione-utenti", [AdminController::class, 'showGestioneUtenti'])->middleware('can:isAdmin')
     ->name('elimina-utenti');
@@ -159,8 +168,7 @@ Route::post("/gestione-assegnamento/crea", [AdminController::class , 'createAsse
     ->name("crea-assegnamento-conf");
 
 Route::get("/gestione-assegnamento/elim/{id}", [AdminController::class , 'deleteAssegnamento'])->middleware("can:isAdmin")
-    ->name("elimina-assegnamento-view");
-
+    ->name("elimina-assegnamento-view"); 
 
 // Rotte profilo in base al livello di autenticazione
 

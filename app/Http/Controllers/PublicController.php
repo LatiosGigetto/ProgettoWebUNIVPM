@@ -25,14 +25,9 @@ class PublicController extends Controller {
         return Azienda::where('Id_Azienda', $idAzienda)->get();
     }
 
-    public function getOffertaByID($idOfferta) {
-
-        return Offerta::where('Id_Offerta', $idOfferta)->first();
-    }
-
     public function showDettagliOfferta($idOfferta) {
 
-        $offerta = $this->getOffertaByID($idOfferta);
+        $offerta = Offerta::find($idOfferta);
 
         return view('sezione-pubblica/dettagli-offerta')->with('offerta', $offerta);
     }

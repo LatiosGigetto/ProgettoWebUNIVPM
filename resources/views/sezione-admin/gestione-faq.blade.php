@@ -83,7 +83,7 @@ FAQ
                 @enderror
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-    @include('layouts/tornaindietro')
+    <a href="{{ route('gestione-faq') }}" class="btn btn-primary">Torna indietro</a>
 </div>
                 @break
              @case('create')
@@ -109,7 +109,7 @@ FAQ
                 @enderror
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-    @include('layouts/tornaindietro')
+    <a href="{{ route('gestione-faq') }}" class="btn btn-primary">Torna indietro</a>
                  @break
     @endswitch
 

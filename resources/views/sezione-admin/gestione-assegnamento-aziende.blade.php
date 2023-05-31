@@ -75,11 +75,11 @@ Gestione Assegnamento
 
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-        @include('layouts/tornaindietro')
         <br>
                     @error('erroreAss')
         <span style="color: red">{{ $message }}</span>
                     @enderror
+        <a href="{{ route('gestione-assegnamento') }}" class="btn btn-primary">Torna indietro</a>
     </div>
 
                 @break
@@ -102,7 +102,7 @@ Gestione Assegnamento
                     @enderror
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-        @include('layouts/tornaindietro')
+        <a href="{{ route('gestione-assegnamento') }}" class="btn btn-primary">Torna indietro</a>
     </div>
     @break
     @endswitch
