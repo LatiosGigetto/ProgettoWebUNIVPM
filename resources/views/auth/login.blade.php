@@ -13,30 +13,43 @@
 
 <body>
 @section('content')
-    <!--TODO togliere lo stile inline-->
-    <!--TODO: i messaggi d'errore sono temporanei-->
-    <div
-        style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
-        <p>Inserisci le tue credenziali d'accesso</p>
+    <!--TODO: la larghezza della form è ancora da fissare (è da decidere in base alla grandezza del font)-->
+    <div class="container align-items-center d-flex h-100">
+        <div class="container text-center" style="border: 4px solid blue; width: 500px;">
+            <p>Inserisci le tue credenziali d'accesso</p>
 
-        {{ Form::open(array('route' => 'login'))}}
-        <div>
-            <div style="margin: 2%">
-                {{ Form::label('username', 'Nome Utente') }}
-                {{ Form::text('username', '') }}
-                <br>
-                @error('username')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('password', 'Password') }}
-                {{ Form::password('password') }}
-                <br>
-                @error('password')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
+            {{ Form::open(array('route' => 'login'))}}
+            <div class="container" style="width: 400px;">
+                <div class="row align-items-center">
+                    <div class="col-4" style="text-align: left;">
+                        {{ Form::label('username', 'Nome Utente') }}
+                    </div>
+                    <div class="col-8">
+                        {{ Form::text('username', '') }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        @error('username')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4" style="text-align: left;">
+                        {{ Form::label('password', 'Password') }}
+                    </div>
+                    <div class="col-8">
+                        {{ Form::password('password') }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        @error('password')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
             <div style="margin: 2%">
@@ -45,8 +58,9 @@
 
             {{ Form::close() }}
         </div>
-
     </div>
+
+
 @endsection
 
 </body>

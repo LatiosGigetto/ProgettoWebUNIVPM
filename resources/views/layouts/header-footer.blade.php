@@ -12,7 +12,7 @@
         <title>@yield('title')</title>
 
     </head>
-    <body style="background-color: white">
+    <body style="background-color: white; height: 100vh; display: flex; flex-direction: column;">
     <header style="background-color: #750C8E; border: 1px solid;">
 
         <div class="text-center mt-2">
@@ -85,7 +85,7 @@
         </div>
     </header>
 
-    <main style="min-height: 100vh">
+    <main style="flex: 1 0 auto;">
     @yield('content')
     </main>
 
