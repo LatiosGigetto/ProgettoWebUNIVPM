@@ -10,6 +10,12 @@
     max-height: 200px;
 }
 
+/* Card */
+.custom_card{
+    height: 200px;
+    object-fit: contain;
+}
+
 
 
 
@@ -97,10 +103,7 @@
     float: left
 }
 
-.spazio_blocco {
-    border: 1px solid;
-    width: 100%;
-}
+
 
 .blocco_offerta {
     border: 1px solid green;

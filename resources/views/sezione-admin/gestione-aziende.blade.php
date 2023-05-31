@@ -14,51 +14,52 @@ Gestione aziende
 
 @section("content")
 
-<div class="spazio_blocco">
+<div>
         @switch($azione)
 
             @case('view')
-    <h1>Gestione Aziende</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome Azienda</th>
-                <th>Tipologia</th>
-                <th>Logo</th>
-                <th>Sede</th>
-                <th>Descrizione</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <!--popolo la tabella-->
-                    @foreach($aziende as $azienda)
-                        <tr>
-                            <td>{{ $azienda-> NomeAzienda }}</td>
-                            <td>{{ $azienda->Categoria }}</td>
-                            <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}", style="width: 100px; height: 100px" }}></td>
-                            <td>{{ $azienda->Sede }}</td>
-                            <td>{{ $azienda->Descrizione }}</td>
-                            <td>
-                                <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda])}}">
-                                    <button id="mod-az">Modifica</button>
-                                </a>
-                            </td>
-                            <td>
-                                    <button class="elim-az" name="{{$azienda->Id_Azienda}}">Elimina</button>
-                            </td>
-                        </tr>
-                    @endforeach
-        </tbody>
-    </table>
+   <div class="container">
+            <h2 class="text-center">Gestione Aziende</h2>
+            <table class="table mt-4">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Nome Azienda</th>
+                    <th>Tipologia</th>
+                    <th>Logo</th>
+                    <th>Sede</th>
+                    <th>Descrizione</th>
+                    <th>Modifica</th>
+                    <th>Elimina</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($aziende as $azienda)
+                    <tr>
+                        <td>{{ $azienda->NomeAzienda }}</td>
+                        <td>{{ $azienda->Categoria }}</td>
+                        <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo) }}" style="width: 100px; height: 100px;"></td>
+                        <td>{{ $azienda->Sede }}</td>
+                        <td>{{ $azienda->Descrizione }}</td>
+                        <td>
+                            <a href="{{ route('modifica-azienda-view', ['id' => $azienda->Id_Azienda]) }}">
+                                <button class="btn btn-primary">Modifica</button>
+                            </a>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger elim-az" name="{{ $azienda->Id_Azienda }}">Elimina</button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+       <div class="text-center mt-4">
             <td colspan="4">
-                <a href="{{ route('crea-azienda-view')}}">
-                    <button id="mod-az">Crea Nuova Azienda</button>
+                <a href="{{ route('crea-azienda-view') }}">
+                    <button class="btn btn-primary">Crea Nuova Azienda</button>
                 </a>
             </td>
-
+       </div>
+</div>
     <div style="text-align: center">
                 @if(session('success'))
         <strong style="color: green">{{ session('success') }}</strong>

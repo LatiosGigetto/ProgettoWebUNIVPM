@@ -13,10 +13,10 @@ Elimina sti Utenti
 
 @section('content')
 
-<div class="spazio_blocco">
-    <h1>Eliminazione Utenti</h1>
-    <table>
-        <thead>
+    <div class="container text-center mt-4">
+        <h1>Eliminazione Utenti</h1>
+        <table class="table table-bordered mt-4">
+            <thead class="thead-dark">
             <tr>
                 <th>Username</th>
                 <th>Nome</th>
@@ -27,25 +27,26 @@ Elimina sti Utenti
                 <th>Genere</th>
                 <th>Elimina</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach($utenti as $utente)
-            <tr>
-                <td>{{ $utente-> username }}</td>
-                <td>{{ $utente-> Nome }}</td>
-                <td>{{ $utente-> Cognome }}</td>
-                <td>{{ $utente-> Telefono }}</td>
-                <td>{{ $utente-> Mail }}</td>
-                <td>{{ $utente-> Età }}</td>
-                <td>{{ $utente-> Genere }}</td>
-                <td>
-                        <button class="elim-utente" name="{{ $utente->username }}">Elimina</button>
-                </td>
-            </tr>
+                <tr>
+                    <td>{{ $utente->username }}</td>
+                    <td>{{ $utente->Nome }}</td>
+                    <td>{{ $utente->Cognome }}</td>
+                    <td>{{ $utente->Telefono }}</td>
+                    <td>{{ $utente->Mail }}</td>
+                    <td>{{ $utente->Età }}</td>
+                    <td>{{ $utente->Genere }}</td>
+                    <td>
+                        <button class="btn btn-danger elim-utente" name="{{ $utente->username }}">Elimina</button>
+                    </td>
+                </tr>
             @endforeach
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
+
 
 @endsection
 

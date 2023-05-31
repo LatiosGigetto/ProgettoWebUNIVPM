@@ -11,7 +11,7 @@
             @foreach($aziende as $azienda)
                 <div class="col-md-6 mb-4">
                     <div class="card">
-                        <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img-top" alt="Icona dell'azienda">
+                        <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img custom_card" alt="Icona dell'azienda">
                         <div class="card-body">
                             <h3 class="card-title">{{ $azienda->NomeAzienda }}</h3>
                             <p class="card-text">{{ $azienda->Descrizione }}</p>
