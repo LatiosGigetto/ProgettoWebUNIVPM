@@ -1,77 +1,63 @@
+
 @extends('layouts.header-footer')
 
 @section("title")
-Riepilogo acquisti
+    Riepilogo acquisti
 @endsection
 
-    @section("link-scripts")
-
-<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
-
-    @endsection
+@section("link-scripts")
+    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+@endsection
 
 @section('content')
+    <div class="container">
+        <h1 class="text-center mt-5">Riepilogo acquisti</h1>
 
-<h1 style="text-align: center">Riepilogo acquisti</h2>
+        @if($coupons->isNotEmpty())
+            <div class="table-responsive mt-5">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Logo Azienda</th>
+                        <th>Azienda</th>
+                        <th>ID Coupon</th>
+                        <th>Descrizione offerta</th>
+                        <th>Stampa Coupon</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($coupons as $coupon)
+                        <tr>
+                            <td>
+                                <img class="img-thumbnail" style="width: 100px; height: 100px" src="data:image/png/jpeg;base64,{{ base64_encode($coupon->getOffertaByCoupon()->getLogoAzienda())}}" alt="Logo azienda">
+                            </td>
+                            <td>
+                                <p>{{$coupon->getOffertaByCoupon()->getNomeAzienda()}} </p>
+                            </td>
+                            <td>
+                                <p>{{$coupon->Id_Coupon}} </p>
+                            </td>
+                            <td>
+                                <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
+                            </td>
+                            <td class="d-flex justify-content-center align-items-center">
+                                <a href="{{ route('coupon-generato', ['Id_Coupon' => $coupon->Id_Coupon]) }}">
+                                    <button class="btn btn-primary">Stampa</button>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
 
-@if($coupons->isNotEmpty())
+        @else
+            <div class="min-vh-25 d-flex justify-content-center align-items-center">
+                <h1> Non hai ancora generato alcun coupon a tuo nome</h1>
+            </div>
+        @endif
 
-<div id="tabella_riepilgo" >
+        @include('layouts/tornaindietro')
 
-
-
-    <table>
-        <thead>
-
-            <tr>
-                <th>Logo Azienda</th>
-                <th>Azienda</th>
-                <th>ID Coupon</th>
-                <th>Descrizione offerta</th>
-                <th>Stampa Coupon</th>
-            </tr>
-
-        </thead>
-
-        <tbody>
-            @foreach($coupons as $coupon)
-            <tr>
-                <td>
-                    <img style="height: 100px; width: 100px" 
-                         src="data:image/png/jpeg;base64,{{ base64_encode($coupon->getOffertaByCoupon()->getLogoAzienda())}}" alt="Logo azienda">
-                </td>
-                <td>
-                    <p>{{$coupon->getOffertaByCoupon()->getNomeAzienda()}} </p>
-                </td>
-                <td>
-                    <p>{{$coupon->Id_Coupon}} </p>
-                </td>
-                <td>
-                    <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
-                </td>
-                <td>
-                    <a href="{{ route('coupon-generato', ['Id_Coupon' => $coupon->Id_Coupon]) }}">
-
-
-                    <button name="vaiallastampa" id="vaiallastampa">
-                        Stampa
-                        </button>
-                    </a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-
-    </table>
-
-
-</div>
-
-@else
-<div style="min-height: 25vw; display:flex; justify-content: center; align-items: center">
-    <h1> Non hai ancora generato alcun coupon a tuo nome</h1>
-</div>
-    @endif
-@include('layouts/tornaindietro')
+    </div>
 @endsection
-

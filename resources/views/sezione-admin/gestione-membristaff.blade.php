@@ -14,52 +14,57 @@
 
 @section("content")
 
-    <div class="spazio_blocco">
+    <div>
         @switch($azione)
 
             @case('view')
-                <h1>Gestione membri dello staff</h1>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Staff</th>
-                        <th>Nome</th>
-                        <th>Cognome</th>
-                        <th>Telefono</th>
-                        <th>Mail</th>
-                        <th>Età</th>
-                        <th>Genere</th>
-                        <th>Modifica</th>
-                        <th>Elimina</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($staff as $membro_staff)
-                        <tr>
-                            <td>{{ $membro_staff-> username }}</td>
-                            <td>{{ $membro_staff-> Nome }}</td>
-                            <td>{{ $membro_staff-> Cognome }}</td>
-                            <td>{{ $membro_staff-> Telefono }}</td>
-                            <td>{{ $membro_staff-> Mail }}</td>
-                            <td>{{ $membro_staff-> Età }}</td>
-                            <td>{{ $membro_staff-> Genere }}</td>
-                            <td>
-                                <a href="{{ route('modifica-staff-view', ['username' => $membro_staff->username])}}">
-                                    <button id="mod staff">Modifica</button>
-                                </a>
-                            </td>
-                            <td>
-                                <button class="elim-staff" name="{{$membro_staff-> username}}">Elimina</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-                <td colspan="4">
-                    <a href="{{ route('crea-staff-view')}}">
-                        <button id="crea staff">Crea nuovo membro staff</button>
-                    </a>
-                </td>
+
+<div class="container text-center mt-4">
+    <h1>Gestione membri dello staff</h1>
+    <table class="table mx-auto mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>Staff</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Mail</th>
+                <th>Età</th>
+                <th>Genere</th>
+                <th>Modifica</th>
+                <th>Elimina</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($staff as $membro_staff)
+                <tr>
+                    <td>{{ $membro_staff->username }}</td>
+                    <td>{{ $membro_staff->Nome }}</td>
+                    <td>{{ $membro_staff->Cognome }}</td>
+                    <td>{{ $membro_staff->Telefono }}</td>
+                    <td>{{ $membro_staff->Mail }}</td>
+                    <td>{{ $membro_staff->Età }}</td>
+                    <td>{{ $membro_staff->Genere }}</td>
+                    <td>
+                        <a href="{{ route('modifica-staff-view', ['username' => $membro_staff->username])}}">
+                            <button class="btn btn-primary">Modifica</button>
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger elim-staff" name="{{ $membro_staff->username }}">Elimina</button>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="text-center mt-4">
+        <a href="{{ route('crea-staff-view')}}">
+            <button class="btn btn-primary">Crea nuovo membro staff</button>
+        </a>
+    </div>
+</div>
+
+
                 @break
             @case('mod')
                 <h1>Modifica membro Staff</h1>

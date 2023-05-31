@@ -1,21 +1,41 @@
-.image_logo_2{
-    width: 20px;
-    float: left;
-}
-h1{
-    text-align: center;
+/* bootstrap-custom.css */
+.table-responsive {
+    margin-top: 5rem;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
+.table-bordered {
+    /* Stili personalizzati per tabelle bordate */
 }
 
-tr, td {
-    border: 1px solid black;
-    padding: 8px;
+.table-bordered thead th {
+    /* Stili personalizzati per l'intestazione delle tabelle bordate */
 }
 
-tr {
-    background-color: grey;
+.table-bordered tbody td {
+    /* Stili personalizzati per le celle del corpo delle tabelle bordate */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    /* Stili personalizzati per le righe dispari delle tabelle a righe alternate */
+}
+
+.img-thumbnail {
+    width: 100px;
+    height: 100px;
+}
+
+.d-flex {
+    /* Stili personalizzati per layout flessibile */
+}
+
+.justify-content-center {
+    /* Stili personalizzati per allineamento orizzontale al centro */
+}
+
+.align-items-center {
+    /* Stili personalizzati per allineamento verticale al centro */
+}
+
+.btn-primary {
+    /* Stili personalizzati per i pulsanti di colore primario */
 }

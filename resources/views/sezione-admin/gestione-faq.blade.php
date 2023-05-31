@@ -16,39 +16,40 @@ FAQ
         @switch($azione)
 
             @case('view')
-    <h1>Gestione FAQ</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Domanda</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
-            </tr>
-        </thead>
 
-        <tbody>
+            <div class="container text-center mt-5">
+                <h1>Gestione FAQ</h1>
+                <table class="table table-bordered mx-auto mt-5">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Domanda</th>
+                        <th>Modifica</th>
+                        <th>Elimina</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     @foreach($faq as $Faq)
-            <tr>
-                <td>{{ $Faq-> Domanda }}</td>
-                <td>
-                    <a href="{{ route('modifica-faq-view', ['id' => $Faq->Id_Domanda])}}">
-                        <button id="mod faq">Modifica</button>
-                    </a>
-                </td>
-                <td>
-
-                    <button class="el-faq" name="{{$Faq->Id_Domanda}}">Elimina</button>
-
-                </td>
-            </tr>
+                        <tr>
+                            <td>{{ $Faq->Domanda }}</td>
+                            <td>
+                                <a href="{{ route('modifica-faq-view', ['id' => $Faq->Id_Domanda])}}">
+                                    <button class="btn btn-primary">Modifica</button>
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger el-faq" name="{{ $Faq->Id_Domanda }}">Elimina</button>
+                            </td>
+                        </tr>
                     @endforeach
-        </tbody>
-    </table>
-            <td colspan="4">
-                <a href="{{ route('crea-faq-view')}}">
-                    <button id="mod-az">Crea Nuova FAQ</button>
-                </a>
-            </td>
+                    </tbody>
+                </table>
+                <div class="text-center mt-4">
+                    <a href="{{ route('crea-faq-view')}}">
+                        <button class="btn btn-primary">Crea Nuova FAQ</button>
+                    </a>
+                </div>
+            </div>
+
         @if(session('success'))
             <strong style="color: green">{{ session('success') }}</strong>
         @endif
