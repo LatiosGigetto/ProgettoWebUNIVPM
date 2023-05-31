@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Azienda;
 use App\Models\FAQ;
 use App\Models\GestoriAziende;
+use App\Models\Coupon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
@@ -87,14 +88,33 @@ class AdminController extends Controller {
 
     public function modifyAzienda(Request $request) {
 
+        $azienda = Azienda::find($request->idAzienda);
+        
+        // Controllo se il nome dell'azienda è cambiato per decidere se inserire
+        // la validazione unique o meno.
+        
+        if ($azienda->NomeAzienda != $request->nomeazienda) {
+        
         $request->validate([
-            'nomeazienda' => ['required', 'unique:aziende', 'string', 'max:30'],
+            'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
             'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
             'sede' => ['required', 'string', 'max:30'],
             'descrizione' => ['required', 'string'],
             'categoria' => ['required', 'string', 'max:30'],
         ]);
-        $azienda = Azienda::find($request->idAzienda);
+        
+        } else {
+            
+            $request->validate([
+            'nomeazienda' => ['required', 'string', 'max:30'],
+            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
+            'sede' => ['required', 'string', 'max:30'],
+            'descrizione' => ['required', 'string'],
+            'categoria' => ['required', 'string', 'max:30'],
+        ]);
+            
+        }
+        
         $azienda->NomeAzienda = $request->nomeazienda;
         $azienda->Logo = $request->file('logo')->openFile()
                 ->fread($request->file('logo')->getSize());
@@ -149,7 +169,7 @@ class AdminController extends Controller {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
-            'mail' => ['required', 'string', 'email', 'max:30'],
+            'email' => ['required', 'string', 'email', 'max:30'],
             'username' => ['required', 'string', 'unique:utente', 'max:30'],
             'password' => ['required', 'max:255', Rules\Password::defaults()],
             'telefono' => ['required', 'string', 'max:10'],
@@ -158,7 +178,7 @@ class AdminController extends Controller {
         $user = new User();
         $user->Nome = $request->nome;
         $user->Cognome = $request->cognome;
-        $user->Mail = $request->mail;
+        $user->Mail = $request->email;
         $user->username = $request->username;
         $user->password = Hash::make($request->password);
         $user->Telefono = $request->telefono;
@@ -188,7 +208,7 @@ class AdminController extends Controller {
             'cognome' => ['required', 'string', 'max:30'],
             'età' => ['required', 'integer', 'max:999'],
             'telefono' => ['required', 'string', 'max:10'],
-            'mail' => ['required', 'string', 'email', 'max:30'],
+            'email' => ['required', 'string', 'email', 'max:30'],
         ]);
 
         $staff = User::find($request->username);
@@ -196,7 +216,7 @@ class AdminController extends Controller {
         $staff->Cognome = $request->cognome;
         $staff->Età = $request->età;
         $staff->Telefono = $request->telefono;
-        $staff->Mail = $request->mail;
+        $staff->Mail = $request->email;
         $staff->Genere = $request->genere;
         $staff->save();
         return redirect('gestione-membristaff')
@@ -310,15 +330,15 @@ class AdminController extends Controller {
     }
 
     public function numeroCoupon() {
-        return DB::table('coupon')->count();
+        return json_encode(Coupon::all()->count());
     }
 
     public function numeroCouponPromozione(Request $request) {
-        return DB::table('coupon')->where('Id_Offerta', $request->id_offerta)->count();
+        return json_encode(Coupon::where('Id_Offerta', $request->sceltaOfferta)->get()->count());
     }
 
     public function numeroCouponUser(Request $request) {
-        return DB::table('coupon')->where('UsernameUtente', $request->username)->count();
+        return json_encode(Coupon::where('UsernameUtente', $request->sceltaUser)->get()->count());
     }
 
     // metodo per la gestione degli asssegnamenti
