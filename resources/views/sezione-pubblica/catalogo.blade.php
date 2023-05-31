@@ -70,7 +70,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">{{$offerta->getNomeAzienda()}}</h4>
                                         <h5 class="card-title">{{$offerta->Luogo}}</h5>
-                                        <p class="card-text">{{$offerta->Descrizione}}</p>
+                                        <p class="card-text">{{$offerta->Oggetto}}</p>
                                         <a href="{{ route('dettagli-offerta', ['id' => $offerta->Id_Offerta])}}" class="btn btn-primary">Vai all'acquisto</a>
                                     </div>
                                 </div>

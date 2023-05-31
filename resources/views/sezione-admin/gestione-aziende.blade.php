@@ -79,10 +79,10 @@ Gestione aziende
                     {{ Form::open(['route' => 'modifica-azienda', 'files' => 'true']) }}
                     {{ Form::hidden('idAzienda', $aziendaSel->Id_Azienda) }}
         <div style="margin: 2%">
-                        {{ Form::label('nomeazienda', 'NomeAzienda') }}
+                        {{ Form::label('nomeazienda', 'Nome') }}
                         {{ Form::text('nomeazienda', $aziendaSel->NomeAzienda) }}
             <br>
-                @error('nomeAzienda')
+                @error('nomeazienda')
             <span style="color: red">{{ $message }}</span>
                 @enderror
         </div>
@@ -112,7 +112,7 @@ Gestione aziende
         </div>
         <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
-                        {{ Form::text('descrizione', $aziendaSel->Descrizione) }}
+                        {{ Form::textarea('descrizione', $aziendaSel->Descrizione) }}
             <br>
                 @error('descrizioneAzienda')
             <span style="color: red">{{ $message }}</span>
@@ -120,7 +120,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Modifica') }}
                     {{ Form::close() }}
-        @include('layouts/tornaindietro')
+        <a href="{{ route('gestione-aziende') }}" class="btn btn-primary">Torna indietro</a>
     </div>
                 @break
             @case('create')
@@ -129,7 +129,7 @@ Gestione aziende
     <div id ="crea-azienda-sezione">
                     {{ Form::open(['route' => 'crea-azienda', 'files' => 'true']) }}
         <div style="margin: 2%">
-                        {{ Form::label('nomeazienda', 'NomeAzienda') }}
+                        {{ Form::label('nomeazienda', 'Nome') }}
                         {{ Form::text('nomeazienda', '') }}
             <br>
                 @error('nomeazienda')
@@ -162,7 +162,7 @@ Gestione aziende
         </div>
         <div style="margin: 2%">
                         {{ Form::label('descrizione', 'Descrizione') }}
-                        {{ Form::text('descrizione', '') }}
+                        {{ Form::textarea('descrizione', '') }}
             <br>
                 @error('descrizione')
             <span style="color: red">{{ $message }}</span>
@@ -170,7 +170,7 @@ Gestione aziende
         </div>
                     {{ Form::submit('Crea') }}
                     {{ Form::close() }}
-        @include('layouts/tornaindietro')
+        <a href="{{ route('gestione-aziende') }}" class="btn btn-primary">Torna indietro</a>
                 @break
       @endswitch
 @endsection
