@@ -14,6 +14,7 @@ class Offerta extends Model {
 
     protected $fillable = [
         'Id_Azienda',
+        'Oggetto',
         'Luogo',
         'Descrizione',
         'Validità',
