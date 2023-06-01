@@ -4,11 +4,16 @@
     Dettagli offerta
 @endsection
 
+    @section("link-scripts")
+    
+    <script src="{{asset("js/generazione-coupon.js")}}"></script>
+    
+    @endsection
+    
 @section("contenuto")
     <div class="d-flex  align-items-center flex-column">
         <h2>Dettagli</h2>
         <img id="logosito" class="custom_card" src="data:image/png/jpeg;base64,{{ base64_encode($offerta->getLogoAzienda())}}" alt="Logo azienda offerta">
-
         <br>
         <strong>Nome Azienda</strong>
 
@@ -30,21 +35,17 @@
 
         <p>{{ $offerta->Luogo }}</p>
 
-        <div>
-            <a href="{{ route('acquisto', ['id' => $offerta->Id_Offerta]) }}">
-                <button name="generaofferta" id="generaofferta">
-                    genera
+        <div>        
+                <button name="{{$offerta->Id_Offerta}}" id="generacoupon">
+                    Genera Coupon
                 </button>
-            </a>
             @include('layouts/tornaindietro')
         </div>
-
-        @if(session('success'))
-            <span style="color: green">{{ session('success') }}</span>
-        @endif
-        @error("error")
-        <span style="color: red">{{ $message }}</span>
-        @enderror
+     
+        <span id="risultato", style="color: red; display: none"></span>
+        
+        <a href="" id="link-stampa" style="display: none" class="btn btn-primary ">Vai alla stampa</a>
+        
 
 @endsection
 
