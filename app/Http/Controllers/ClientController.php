@@ -38,14 +38,13 @@ class ClientController extends Controller {
 
         if ($user->Livello != 1) {
 
-            return redirect()->back()->withErrors(["error" => "Non puoi ottenere Coupon con account Staff o Amministratore"]);
+            return json_encode("utente-non-aut");
         }
 
         $check = Coupon::where('Id_Offerta', $id_offerta)->where('UsernameUtente', $user->username)->first();
         if ($check) {
             if ($id_offerta == $check->Id_Offerta) {
-                return redirect()->back()
-                        ->withErrors(["error" => "Hai già un coupon per questa offerta!"]);
+                return json_encode("offerta-posseduta");
             }
         }
 
@@ -58,7 +57,7 @@ class ClientController extends Controller {
         $coupon->save();
 
 
-        return redirect()->back()->with('success', "L'acquisto è avvenuto con successo");
+        return json_encode($coupon->Id_Coupon);
     }
 
     public function riepilogo() {

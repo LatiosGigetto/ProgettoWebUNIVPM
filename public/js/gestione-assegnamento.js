@@ -21,7 +21,7 @@ $(document).ready(function () {
         colonneNome.each(function () {
          
             if ($(this).text() === nomeStaff) {
-                console.log("lol");
+                
                 ultimo = false;
             }
 
