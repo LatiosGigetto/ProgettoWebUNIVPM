@@ -30,7 +30,7 @@ Home
                 <p>{{ $azienda->Descrizione }}.</p>
             </div>
         </div>
-            @endforeach           
+            @endforeach
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
@@ -40,11 +40,6 @@ Home
         <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </a>
-    <ul class="carousel-indicators mb-0" style="list-style-type: none">
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-    </ul>
 </div>
 @endsection
 @section('contenuto')
