@@ -6,15 +6,14 @@ use App\Models\Azienda;
 use App\Models\FAQ;
 use App\Models\GestoriAziende;
 use App\Models\Coupon;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Models\User;
 use App\Models\Offerta;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
     protected $listaAziende;
     protected $listaUtenti;
@@ -23,9 +22,11 @@ class AdminController extends Controller {
     protected $listaAssegnamenti;
     protected $listaOfferte;
 
-    public function setup() {
-
-        // carico nel costuttore la lista di tuple che devo manipolare
+    // Auth::user() ritorna null se si trova nel costruttore del Controller
+    // quindi si sposta il costruttore in un metodo custom da far runnare
+    // carico nel costuttore la lista di tuple che devo manipolare
+    public function setup()
+    {
         $this->listaAziende = Azienda::paginate(5);
         $this->listaUtenti = User::getUtenti();
         $this->listaStaff = User::getStaff();
@@ -35,33 +36,45 @@ class AdminController extends Controller {
     }
 
     // metodi per gestire il contenuto di aziende
-    public function showGestioneAziende() {
+
+    // azione=>view fa entrare nello switch
+    // passo alla vista la lista delle aziende come aziende
+    public function showGestioneAziende()
+    {
         $this->setup();
         return view('sezione-admin/gestione-aziende')
-                        ->with([
-                            'aziende' => $this->listaAziende,
-                            'azione' => 'view'
-        ]);
+            ->with([
+                'aziende' => $this->listaAziende,
+                'azione' => 'view'
+            ]);
     }
 
-    public function showModifyAzienda($id) {
-        //$this->setup();
+    // azione=>mod fa entrare nello switch
+    // find cerca i record nella tabella su base primary key
+    public function showModifyAzienda($id)
+    {
         return view('sezione-admin/gestione-aziende')
-                        ->with([
-                            'aziendaSel' => Azienda::find($id),
-                            'azione' => 'mod'
-        ]);
+            ->with([
+                'aziendaSel' => Azienda::find($id),
+                'azione' => 'mod'
+            ]);
     }
 
-    public function showCreaAzienda() {
+    // azione=>create fa entrare nello switch
+    public function showCreaAzienda()
+    {
         return view('sezione-admin/gestione-aziende')
-                        ->with([
-                            'azione' => 'create'
-        ]);
+            ->with([
+                'azione' => 'create'
+            ]);
     }
 
     //CRUD Aziende
-    public function createAzienda(Request $request) {
+
+    // ->file() rappresenta l'istanza del file caricato
+    // ->fread()legge il file e restituisce una stringa del file caricato
+    public function createAzienda(Request $request)
+    {
 
         $request->validate([
             'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
@@ -73,99 +86,113 @@ class AdminController extends Controller {
         $azienda = new Azienda();
         $azienda->NomeAzienda = $request->nomeazienda;
         $azienda->Logo = $request->file('logo')->openFile()
-                ->fread($request->file('logo')->getSize());
+            ->fread($request->file('logo')->getSize());
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
         $azienda->Id_Azienda = $request->idAzienda;
         $azienda->save();
         return redirect('gestione-aziende')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'Azienda creata con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'Azienda creata con successo'
+            ]);
     }
 
-    public function modifyAzienda(Request $request) {
+    public function modifyAzienda(Request $request)
+    {
 
         $azienda = Azienda::find($request->idAzienda);
-        
+
         // Controllo se il nome dell'azienda è cambiato per decidere se inserire
         // la validazione unique o meno.
-        
+
         if ($azienda->NomeAzienda != $request->nomeazienda) {
-        
-        $request->validate([
-            'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
-            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
-            'sede' => ['required', 'string', 'max:30'],
-            'descrizione' => ['required', 'string'],
-            'categoria' => ['required', 'string', 'max:30'],
-        ]);
-        
-        } else {
-            
+
             $request->validate([
-            'nomeazienda' => ['required', 'string', 'max:30'],
-            'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
-            'sede' => ['required', 'string', 'max:30'],
-            'descrizione' => ['required', 'string'],
-            'categoria' => ['required', 'string', 'max:30'],
-        ]);
-            
+                'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
+                'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
+                'sede' => ['required', 'string', 'max:30'],
+                'descrizione' => ['required', 'string'],
+                'categoria' => ['required', 'string', 'max:30'],
+            ]);
+
+        } else {
+
+            $request->validate([
+                'nomeazienda' => ['required', 'string', 'max:30'],
+                'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
+                'sede' => ['required', 'string', 'max:30'],
+                'descrizione' => ['required', 'string'],
+                'categoria' => ['required', 'string', 'max:30'],
+            ]);
+
         }
-        
+
         $azienda->NomeAzienda = $request->nomeazienda;
         $azienda->Logo = $request->file('logo')->openFile()
-                ->fread($request->file('logo')->getSize());
+            ->fread($request->file('logo')->getSize());
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
         $azienda->save();
         return redirect('gestione-aziende')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'Azienda modificata con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'Azienda modificata con successo'
+            ]);
     }
 
-    public function deleteAzienda($idAzienda) {
+    // destroy() distrugge l'istanza selezionata
+    public function deleteAzienda($idAzienda)
+    {
         $this->setup();
         $this->listaAziende = Azienda::destroy($idAzienda);
         return redirect('gestione-aziende')->with([
-                    'azione' => 'view',
-                    'success' => 'Azienda eliminata con successo'
+            'azione' => 'view',
+            'success' => 'Azienda eliminata con successo'
         ]);
     }
 
     // metodi per la gestione del contenuto staff
-    public function showGestioneStaff() {
+
+    // azione=>view fa entrare nello switch
+    // passo alla vista la lista dello staff come staff
+    public function showGestioneStaff()
+    {
         $this->setup();
         return view('sezione-admin/gestione-membristaff')
-                        ->with([
-                            'staff' => $this->listaStaff,
-                            'azione' => 'view'
-        ]);
+            ->with([
+                'staff' => $this->listaStaff,
+                'azione' => 'view'
+            ]);
     }
 
-    public function showModifyStaff($username) {
+    // azione=>mod fa entrare nello switch
+    // find cerca i record nella tabella su base primary key
+    public function showModifyStaff($username)
+    {
         return view('sezione-admin/gestione-membristaff')
-                        ->with([
-                            'staffSel' => User::find($username),
-                            'azione' => 'mod'
-        ]);
+            ->with([
+                'staffSel' => User::find($username),
+                'azione' => 'mod'
+            ]);
     }
 
-    public function showCreaStaff() {
+    // azione=>create fa entrare nello switch
+    // pluck restituisce un array di valori in base all'attributo selezionato
+    public function showCreaStaff()
+    {
         return view('sezione-admin/gestione-membristaff')
-                        ->with([
-                            'azione' => 'create',
-                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda')
-        ]);
+            ->with([
+                'azione' => 'create',
+                'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda')
+            ]);
     }
 
     //CRUD Staff
-    public function createStaff(Request $request) {
+    public function createStaff(Request $request)
+    {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
@@ -196,13 +223,14 @@ class AdminController extends Controller {
 
         //  event(new Registered($user));     Non credo serva a niente
         return redirect('gestione-membristaff')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'Membro staff creato con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'Membro staff creato con successo'
+            ]);
     }
 
-    public function modifyStaff(Request $request) {
+    public function modifyStaff(Request $request)
+    {
         $request->validate([
             'nome' => ['required', 'string', 'max:30'],
             'cognome' => ['required', 'string', 'max:30'],
@@ -220,48 +248,59 @@ class AdminController extends Controller {
         $staff->Genere = $request->genere;
         $staff->save();
         return redirect('gestione-membristaff')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'Membro staff modificato con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'Membro staff modificato con successo'
+            ]);
     }
 
-    public function deleteStaff($username) {
+    public function deleteStaff($username)
+    {
         $this->setup();
         $this->listaStaff = User::destroy($username);
         return redirect('gestione-membristaff')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'Membro staff eliminato con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'Membro staff eliminato con successo'
+            ]);
     }
 
     // metodi per la gestione di faq
-    public function showGestioneFaq() {
+
+    // azione=>view fa entrare nello switch
+    // passo alla vista la lista delle FAQ come faq
+    public function showGestioneFaq()
+    {
         $this->setup();
         return view('sezione-admin/gestione-faq')
-                        ->with(['faq' => $this->listaFaq,
-                            'azione' => 'view',
-        ]);
+            ->with(['faq' => $this->listaFaq,
+                'azione' => 'view',
+            ]);
     }
 
-    public function showModifyFaq($id) {
+    // azione=>mod fa entrare nello switch
+    // find cerca i record nella tabella su base primary key
+    public function showModifyFaq($id)
+    {
         return view('sezione-admin/gestione-faq')
-                        ->with([
-                            'faqSel' => FAQ::find($id),
-                            'azione' => 'mod'
-        ]);
+            ->with([
+                'faqSel' => FAQ::find($id),
+                'azione' => 'mod'
+            ]);
     }
 
-    public function showCreaFaq() {
+    // azione=>create fa entrare nello switch
+    public function showCreaFaq()
+    {
         return view('sezione-admin/gestione-faq')
-                        ->with([
-                            'azione' => 'create'
-        ]);
+            ->with([
+                'azione' => 'create'
+            ]);
     }
 
     // CRUD Faq
-    public function createFaq(Request $request) {
+    public function createFaq(Request $request)
+    {
         $request->validate([
             'domanda' => ['required', 'string'],
             'risposta' => ['required', 'string'],
@@ -271,13 +310,14 @@ class AdminController extends Controller {
         $faq->Risposta = $request->risposta;
         $faq->save();
         return redirect('gestione-faq')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'FAQ creata con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'FAQ creata con successo'
+            ]);
     }
 
-    public function modifyFaq(Request $request) {
+    public function modifyFaq(Request $request)
+    {
 
         $request->validate([
             'domanda' => ['required', 'string', 'max:100'],
@@ -288,31 +328,36 @@ class AdminController extends Controller {
         $faq->Risposta = $request->risposta;
         $faq->save();
         return redirect('gestione-faq')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'FAQ modificata con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'FAQ modificata con successo'
+            ]);
     }
 
-    public function deleteFaq($idFaq) {
+    public function deleteFaq($idFaq)
+    {
         $this->setup();
         $this->listaFaq = FAQ::destroy($idFaq);
         return redirect('gestione-faq')
-                        ->with([
-                            'azione' => 'view',
-                            'success' => 'FAQ eliminata con successo'
-        ]);
+            ->with([
+                'azione' => 'view',
+                'success' => 'FAQ eliminata con successo'
+            ]);
     }
 
     // metodo per la gestione di eliminazioni utenti
-    public function showGestioneUtenti() {
+    // passo alla vista la lista degli come utenti
+    public function showGestioneUtenti()
+    {
         $this->setup();
         return view('sezione-admin/eliminazione-utenti')
-                        ->with('utenti', $this->listaUtenti);
+            ->with('utenti', $this->listaUtenti);
     }
 
     // eliminazione utenti
-    public function deleteUtenti(Request $request) {
+    // ->first() prende il primo elem che soddisfa la condizione
+    public function deleteUtenti(Request $request)
+    {
         $user = User::where('Username', $request->username)->first();
         $user->delete();
         return redirect('eliminazione-utenti');
@@ -320,65 +365,82 @@ class AdminController extends Controller {
 
     //Stats
 
-    public function viewStatistiche() {
+    // passo alla vista la lista degli utenti come utenti
+    // passo alla vista la lista delle offerte come offerte
+    public function viewStatistiche()
+    {
         $this->setup();
-        
+
         return view('sezione-admin/statistiche')
-                        ->with(['utenti' => $this->listaUtenti,
-                            'offerte' => $this->listaOfferte                            
-        ]);
+            ->with(['utenti' => $this->listaUtenti,
+                'offerte' => $this->listaOfferte
+            ]);
     }
 
-    public function numeroCoupon() {
+    // il risultato viene restituito come json
+    // ->count() restituisce il numero di istanze
+    public function numeroCoupon()
+    {
         return json_encode(Coupon::all()->count());
     }
 
-    public function numeroCouponPromozione(Request $request) {
+    public function numeroCouponPromozione(Request $request)
+    {
         return json_encode(Coupon::where('Id_Offerta', $request->sceltaOfferta)->get()->count());
     }
 
-    public function numeroCouponUser(Request $request) {
+    public function numeroCouponUser(Request $request)
+    {
         return json_encode(Coupon::where('UsernameUtente', $request->sceltaUser)->get()->count());
     }
 
     // metodo per la gestione degli asssegnamenti
-    public function showGestioneAssegnamento() {
+
+    // azione=>view fa entrare nello switch
+    // passo alla vista la lista degli assegnamenti come aziendeAssegnate
+    public function showGestioneAssegnamento()
+    {
         $this->setup();
 
         return view('sezione-admin/gestione-assegnamento-aziende')
-                        ->with(['aziendeAssegnate' => $this->listaAssegnamenti,
-                            'azione' => 'view'
-        ]);
+            ->with(['aziendeAssegnate' => $this->listaAssegnamenti,
+                'azione' => 'view'
+            ]);
     }
 
-    public function showModifyAssegnamento($id) {
+    // azione=>mod fa entrare nello switch
+    public function showModifyAssegnamento($id)
+    {
         $this->setup();
         return view('sezione-admin/gestione-assegnamento-aziende')
-                        ->with([
-                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
-                            'listastaff' => $this->listaStaff->pluck('username', 'username'),
-                            'assegnamentoSel' => GestoriAziende::find($id),
-                            'azione' => 'mod'
-        ]);
+            ->with([
+                'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
+                'listastaff' => $this->listaStaff->pluck('username', 'username'),
+                'assegnamentoSel' => GestoriAziende::find($id),
+                'azione' => 'mod'
+            ]);
     }
 
-    public function showCreaAssegnamento() {
+    // azione=>create fa entrare nello switch
+    public function showCreaAssegnamento()
+    {
         $this->setup();
         return view('sezione-admin/gestione-assegnamento-aziende')
-                        ->with([
-                            'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
-                            'listastaff' => $this->listaStaff->pluck('username', 'username'),
-                            'azione' => 'create'
-        ]);
+            ->with([
+                'listaAziende' => Azienda::pluck('NomeAzienda', 'Id_Azienda'),
+                'listastaff' => $this->listaStaff->pluck('username', 'username'),
+                'azione' => 'create'
+            ]);
     }
 
     // CRUD Assegnamento
-    public function modifyAssegnamento(Request $request) {
+    public function modifyAssegnamento(Request $request)
+    {
 
         // query che cerca l'istanza
         $assegnamento = GestoriAziende::where(
-                                'Id_Azienda', $request->nomeAzienda)
-                        ->where('UsernameUtente', $request->usernameStaff)->first();
+            'Id_Azienda', $request->nomeAzienda)
+            ->where('UsernameUtente', $request->usernameStaff)->first();
 
         // check if alreay exist
         if ($assegnamento == null) {
@@ -387,40 +449,42 @@ class AdminController extends Controller {
             $assegnamento->Id_Azienda = $request->nomeAzienda;
             $assegnamento->save();
             return redirect('gestione-assegnamento-aziende')
-                            ->with([
-                                'azione' => 'view',
-                                'success' => 'Assegnamento modificato con successo'
-            ]);
+                ->with([
+                    'azione' => 'view',
+                    'success' => 'Assegnamento modificato con successo'
+                ]);
         } else {
             return redirect()->back()->withErrors(['erroreAss' => "L'assegnamento è già esistente per questa coppia"]);
         }
     }
 
-    public function deleteAssegnamento(Request $request) {
+    public function deleteAssegnamento(Request $request)
+    {
         $assegnamento = GestoriAziende::find($request->id);
 
         $assegnamento->delete();
         return redirect('gestione-assegnamento-aziende')->with([
-                    'azione' => 'view',
-                    'success' => 'Assegnamento eliminato con successo'
+            'azione' => 'view',
+            'success' => 'Assegnamento eliminato con successo'
         ]);
     }
 
-    public function createAssegnamento(Request $request) {
+    public function createAssegnamento(Request $request)
+    {
 
         $assegnamento = GestoriAziende::where(
-                                'Id_Azienda', $request->nomeAzienda)
-                        ->where('UsernameUtente', $request->nomestaff)->first();
+            'Id_Azienda', $request->nomeAzienda)
+            ->where('UsernameUtente', $request->nomestaff)->first();
         if ($assegnamento == null) {
             $assegnamento = new GestoriAziende();
             $assegnamento->UsernameUtente = $request->nomestaff;
             $assegnamento->Id_Azienda = $request->nomeAzienda;
             $assegnamento->save();
             return redirect('gestione-assegnamento-aziende')
-                            ->with([
-                                'azione' => 'view',
-                                'success' => 'Assegnamento creato con successo'
-            ]);
+                ->with([
+                    'azione' => 'view',
+                    'success' => 'Assegnamento creato con successo'
+                ]);
         } else {
             return redirect()->back()->withErrors(['erroreAss' => "L'assegnamento è già esistente per questa coppia"]);
         }
