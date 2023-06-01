@@ -32,6 +32,13 @@ class PublicController extends Controller {
         return view('sezione-pubblica/dettagli-offerta')->with('offerta', $offerta);
     }
 
+    public function showHome () {
+        
+        return view('sezione-pubblica/home')->with('aziende', Azienda::all());
+        
+    }
+    
+    
     // Funzione per prendere e paginare la lista offerte dato il nome e/o
     // il contenuto della descrizione di un'offerta.
 

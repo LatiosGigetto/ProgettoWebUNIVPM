@@ -20,10 +20,10 @@ use App\Http\Controllers\ClientController;
 
 // Sezione pubblica del sito
 
-Route::view('/', 'sezione-pubblica/home')
+Route::get('/', [PublicController::class, 'showHome'])
         ->name('home');
 
-Route::view('/home', 'sezione-pubblica/home')
+Route::get('/home', [PublicController::class, 'showHome'])
         ->name('home');
 
 Route::get('/lista-aziende', [PublicController::class, 'showAziendeList'])
