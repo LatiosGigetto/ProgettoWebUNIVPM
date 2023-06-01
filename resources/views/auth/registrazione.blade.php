@@ -1,159 +1,142 @@
-<!doctype html>
-
 @extends('layouts.header-footer')
 
-<html lang="it">
-<head>
-    @section("title")
-        Registrazione
-    @endsection
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-@section('content')
-    <!--TODO passare lo style inline in un .css-->
-    <!--<div style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
-        <p>Inserisci i dati per la registrazione</p>
-
-        <div>
-            <label>Nome utente</label>
-
-            <form name="username" style="margin: 2%">
-                <input required>
-            </form>
-
-            <label>Password</label>
-
-            <form name="password" style="margin: 2%">
-                <input required>
-            </form>
-
-            <label>Nome</label>
-
-            <form name="nome" style="margin: 2%">
-                <input required>
-            </form>
-
-            <label>Cognome</label>
-
-            <form name="cognome" style="margin: 2%">
-                <input required>
-            </form>
-
-            <label>Genere</label>
-
-            <select name="genere" style="margin: auto; margin-top: 2%; margin-bottom: 2%; display: block">
-                <option value="M">Maschio</option>
-                <option value="F">Femmina</option>
-            </select>
-
-            <label>Età</label>
-
-            <form name="eta" style="margin: 2%">
-                <input type="number" min="1">
-            </form>
-
-            <label>Indirizzo email</label>
-
-            <form name="email" style="margin: 2%">
-                <input type="email">
-            </form>
-
-            <div>
-
-            </div>
-        </div>
-    </div>
-    -->
-
-    <div
-        style="text-align: center; border: 4px solid blue; margin-top: 5%; margin-left: 25%; margin-right: 25%; margin-bottom: 5%">
-        <p>Inserisci i dati per la registrazione</p>
-        <div>
-            {{ Form::open(array('route' => 'registrazione'))}}
-            <div style="margin: 2%">
-                {{ Form::label('nome', 'Nome') }}
-                {{ Form::text('nome', '')}}
-                <br>
-                @error('nome')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('cognome', 'Cognome') }}
-                {{ Form::text('cognome', '') }}
-                <br>
-                @error('cognome')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('email', 'Email') }}
-                {{ Form::text('email', '') }}
-                <br>
-                @error('email')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('username', 'Nome Utente') }}
-                {{ Form::text('username', '') }}
-                <br>
-                @error('username')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('password', 'Password') }}
-                {{ Form::password('password') }}
-                <br>
-                @error('password')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('età', 'Età') }}
-                {{ Form::text('età','') }}
-                <br>
-                @error('età')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('telefono', 'Telefono') }}
-                {{ Form::text('telefono','') }}
-                <br>
-                @error('telefono')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::label('genere', 'Genere') }}
-                {{ Form::select('genere',['Maschio'=>'Maschio', 'Femmina'=>'Femmina']) }}
-                <br>
-                @error('genere')
-                <span style="color: red">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div style="margin: 2%">
-                {{ Form::submit('Registra') }}
-            </div>
-
-            {{ Form::close() }}
-        </div>
-    </div>
-
-</body>
-
+@section("title")
+    Registrazione
 @endsection
 
-</html>
+@section('content')
+    <div class="container align-items-center d-flex h-100">
+        <div class="container text-center form_container">
+            <p>Inserisci i dati per la registrazione</p>
+                {{ Form::open(array('route' => 'registrazione'))}}
+                <div class="container inner_form">
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('nome', 'Nome') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('nome', '')}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('nome')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('cognome', 'Cognome') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('cognome', '') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('cognome')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('email', 'Email') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('email', '') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('email')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('username', 'Nome Utente') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('username', '') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('username')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('password', 'Password') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::password('password') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('password')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('età', 'Età') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('età','') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('età')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('telefono', 'Telefono') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::text('telefono','') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('telefono')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row align-items-center p-1">
+                        <div class="col-4" style="text-align: left;">
+                            {{ Form::label('genere', 'Genere') }}
+                        </div>
+                        <div class="col-8">
+                            {{ Form::select('genere',['Maschio'=>'Maschio', 'Femmina'=>'Femmina']) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @error('genere')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 2%">
+                    {{ Form::submit('Registra') }}
+                </div>
+
+                {{ Form::close() }}
+        </div>
+    </div>
+@endsection

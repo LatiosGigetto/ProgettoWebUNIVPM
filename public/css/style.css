@@ -1,8 +1,36 @@
 /* Header e footer */
+body {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: #750C8E;
+    border: 1px solid;
+}
+
 .h-f_color{
-    /* TODO non si capisce perché non prende lo stile da qua */
     color: #FFCD00;
     --bs-nav-link-color: #FFCD00;
+}
+
+.auth_message {
+    text-align: right;
+    min-width: 100%;
+}
+
+#inner_header {
+    background-color: #A70BCD;
+}
+
+.header_btn {
+    background-color: #750C8E;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 /* Home */
@@ -16,6 +44,16 @@
     object-fit: contain;
 }
 
+/* Form */
+/* TODO: la larghezza della form è ancora da fissare (è da decidere in base alla grandezza del font) */
+.form_container {
+    border: 4px solid blue;
+    width: 500px;
+}
+
+.inner_form {
+    width: 400px;
+}
 
 
 
