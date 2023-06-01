@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Azienda extends Model {
+class Azienda extends Model
+{
 
     protected $table = 'azienda';
     protected $primaryKey = 'Id_Azienda';
@@ -19,12 +20,15 @@ class Azienda extends Model {
         'Categoria',
     ];
 
-    public static function getNomeAziendaById($id) {
+    public static function getNomeAziendaById($id)
+    {
 
         return Azienda::where('Id_Azienda', $id)->value('NomeAzienda');
     }
 
-    public function offerte() {
+    // definiamo la relazione 1 a 1 come previsto nel db
+    public function offerte()
+    {
         return $this->hasMany(Offerta::class);
     }
 

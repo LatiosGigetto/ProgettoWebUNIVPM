@@ -5,7 +5,8 @@ namespace app\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Offerta;
 
-class Coupon extends Model {
+class Coupon extends Model
+{
 
     protected $table = 'coupon';
     protected $primaryKey = 'Id_Coupon';
@@ -25,12 +26,14 @@ class Coupon extends Model {
 
     //Ritorna l'offerta associata al coupon
 
-    public function getOffertaByCoupon() {
+    public function getOffertaByCoupon()
+    {
         return Offerta::find($this->Id_Offerta);
     }
 
- 
-    public function getTable(){
+
+    public function getTable()
+    {
         return $this->table;
     }
 

@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GestoriAziende extends Model {
+class GestoriAziende extends Model
+{
 
     protected $table = 'gestoriaziende';
 
@@ -19,7 +20,8 @@ class GestoriAziende extends Model {
         'UsernameUtente'
     ];
 
-    public function getNomeById(){
+    public function getNomeById()
+    {
         return Azienda::getNomeAziendaById($this->Id_Azienda);
 
     }
