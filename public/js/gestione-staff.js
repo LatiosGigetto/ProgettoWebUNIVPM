@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let userStaff = $(this).attr('name');
 
-            window.location.href = '/gestione-membristaff/elim/' + userStaff;
+            window.location.href = './gestione-membristaff/elim/' + userStaff;
         }
     });
 

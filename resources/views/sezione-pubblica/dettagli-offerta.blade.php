@@ -45,7 +45,7 @@
 
         <span id="risultato", style="color: red; display: none"></span>
 
-        <button id="link-stampa" onclick="stampaPagina(this.name)" style="display: none" class="btn btn-primary ">Vai alla stampa</button>
+        <button id="link-stampa" onclick="stampaPaginaCatalogo(this.name)" style="display: none" class="btn btn-primary ">Vai alla stampa</button>
 
 
 @endsection

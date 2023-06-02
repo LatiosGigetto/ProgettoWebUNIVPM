@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let userUtente = $(this).attr('name');
 
-            window.location.href = '/eliminazione-utenti/' + userUtente;
+            window.location.href = './eliminazione-utenti/' + userUtente;
         }
     });
 

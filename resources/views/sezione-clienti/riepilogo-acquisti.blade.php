@@ -42,7 +42,7 @@
                                 <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
                             </td>
                             <td class="text-center align-middle">
-                                    <button onclick="stampaPagina(this.name)" class="btn btn-primary" name="{{$coupon->Id_Coupon}}">Stampa</button>
+                                    <button onclick="stampaPaginaProfilo(this.name)" class="btn btn-primary" name="{{$coupon->Id_Coupon}}">Stampa</button>
                                 </a>
                             </td>
                         </tr>

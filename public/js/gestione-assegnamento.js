@@ -35,7 +35,7 @@ $(document).ready(function () {
 
                 let userUtente = $(this).attr('name');
 
-                window.location.href = '/gestione-assegnamento/elim/' + userUtente;
+                window.location.href = './gestione-assegnamento/elim/' + userUtente;
             }
         } else {
 

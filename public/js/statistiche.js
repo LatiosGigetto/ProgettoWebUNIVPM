@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('#num-coupon').on('click', function () {
 
         $.ajax({
-            url: '/statistiche/couponTot',
+            url: './statistiche/couponTot',
             method: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -25,7 +25,7 @@ $(document).ready(function () {
         let token = $(this).find('input[name="_token"]').val();
 
         $.ajax({
-            url: "/statistiche/off",
+            url: "./statistiche/off",
             method: 'POST',
             data: datiFormOfferta,
             headers: {
@@ -55,7 +55,7 @@ $(document).ready(function () {
         let token = $(this).find('input[name="_token"]').val();
 
         $.ajax({
-            url: "/statistiche/user",
+            url: "./statistiche/user",
             method: 'POST',
             data: datiFormUser,
             headers: {

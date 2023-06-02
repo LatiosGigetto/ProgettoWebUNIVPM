@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let idAzienda = $(this).attr('name');
 
-            window.location.href = '/gestione-aziende/elim/' + idAzienda;
+            window.location.href = './gestione-aziende/elim/' + idAzienda;
         }
     });
 

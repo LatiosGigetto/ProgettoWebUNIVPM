@@ -8,7 +8,7 @@ $(document).ready(function () {
 
             let idFaq = $(this).attr('name');
 
-            window.location.href = '/gestione-faq/elim/' + idFaq;
+            window.location.href = './gestione-faq/elim/' + idFaq;
         }
     });
 

@@ -7,7 +7,7 @@ $(document).ready(function () {
         let idOff = $(this).attr('name');
 
         $.ajax({
-            url: "/acquisto/" + idOff,
+            url: "./acquisto/" + idOff,
             method: 'GET',
             dataType: 'json',
             success: function (response) {
