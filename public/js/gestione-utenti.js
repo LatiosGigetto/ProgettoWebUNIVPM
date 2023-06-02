@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     // Eliminazione utente con richiesta di conferma
@@ -13,4 +12,4 @@ $(document).ready(function () {
         }
     });
 
-});  
+});

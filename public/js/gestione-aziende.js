@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     // Eliminazione azienda con richiesta di conferma
@@ -13,4 +12,4 @@ $(document).ready(function () {
         }
     });
 
-});  
+});

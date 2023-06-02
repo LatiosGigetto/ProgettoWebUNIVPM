@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('#num-coupon').on('click', function () {
@@ -20,9 +19,9 @@ $(document).ready(function () {
     $('#coupon-off-form').on('submit', function (event) {
 
         let datiFormOfferta = $(this).serialize();
-    
+
         event.preventDefault();
-        
+
         let token = $(this).find('input[name="_token"]').val();
 
         $.ajax({
@@ -39,10 +38,10 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 $('#coupon-off').text("Qualcosa è andato storto, riprova").css(
-                        {
-                            color: 'red',
-                            display: 'block'
-                        });
+                    {
+                        color: 'red',
+                        display: 'block'
+                    });
             }
         });
     });
@@ -50,11 +49,11 @@ $(document).ready(function () {
     $('#coupon-user-form').on('submit', function (event) {
 
         let datiFormUser = $(this).serialize();
-    
+
         event.preventDefault();
 
         let token = $(this).find('input[name="_token"]').val();
-        
+
         $.ajax({
             url: "/statistiche/user",
             method: 'POST',
@@ -69,10 +68,10 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 $('#coupon-user').text("Qualcosa è andato storto, riprova").css(
-                        {
-                            color: 'red',
-                            display: 'block'
-                        });
+                    {
+                        color: 'red',
+                        display: 'block'
+                    });
             }
         });
     });
