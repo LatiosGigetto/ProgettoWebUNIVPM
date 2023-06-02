@@ -127,8 +127,8 @@
                         </div>
 
                         <div class="form-group my-2">
-                            {{ Form::label('usernameStaff', 'Staff') }}
-                            {{ Form::select('usernameStaff',$listastaff, '', ['class' => 'form-select']) }}
+                            {{ Form::label('nomestaff', 'Staff') }}
+                            {{ Form::select('nomestaff',$listastaff, '', ['class' => 'form-select']) }}
                         </div>
 
                         <div class="mt-4 mb-2">
