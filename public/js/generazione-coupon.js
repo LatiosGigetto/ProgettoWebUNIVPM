@@ -39,7 +39,7 @@ $(document).ready(function () {
                                     color: 'green'
                                 }
                         );
-                        $('#link-stampa').attr('href', '/sezione-clienti/coupon-generato/' + response).css('display', 'block');
+                        $('#link-stampa').attr('name', response).css('display', 'block');
                 }
             },
             error: function (xhr, status, error) {

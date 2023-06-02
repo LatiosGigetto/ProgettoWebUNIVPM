@@ -5,11 +5,12 @@
 @endsection
 
     @section("link-scripts")
-    
+
     <script src="{{asset("js/generazione-coupon.js")}}"></script>
-    
+    <script src="{{asset('js/stampa.js')}}"></script>
+
     @endsection
-    
+
 @section("contenuto")
     <div class="d-flex  align-items-center flex-column">
         <h2>Dettagli</h2>
@@ -35,17 +36,17 @@
 
         <p>{{ $offerta->Luogo }}</p>
 
-        <div>        
+        <div>
                 <button name="{{$offerta->Id_Offerta}}" id="generacoupon">
                     Genera Coupon
                 </button>
             @include('layouts/tornaindietro')
         </div>
-     
+
         <span id="risultato", style="color: red; display: none"></span>
-        
-        <a href="" id="link-stampa" style="display: none" class="btn btn-primary ">Vai alla stampa</a>
-        
+
+        <button id="link-stampa" onclick="stampaPagina(this.name)" style="display: none" class="btn btn-primary ">Vai alla stampa</button>
+
 
 @endsection
 
