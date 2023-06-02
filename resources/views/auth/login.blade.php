@@ -14,10 +14,10 @@
             <div class="container inner_form">
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('username', 'Nome Utente') }}
+                        {{ Form::label('username', 'Nome Utente', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('username', '') }}
+                        {{ Form::text('username', '', array('class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -29,10 +29,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('password', 'Password') }}
+                        {{ Form::label('password', 'Password', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::password('password') }}
+                        {{ Form::password('password', array('class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">

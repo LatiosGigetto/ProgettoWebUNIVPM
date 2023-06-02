@@ -13,10 +13,10 @@
             <div class="container inner_form">
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('nome', 'Nome') }}
+                        {{ Form::label('nome', 'Nome', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('nome', '',['placeholder' => $user->Nome]) }}
+                        {{ Form::text('nome', '', array('placeholder' => $user->Nome, 'class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -28,10 +28,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('cognome', 'Cognome') }}
+                        {{ Form::label('cognome', 'Cognome', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('cognome', '', ['placeholder' => $user->Cognome]) }}
+                        {{ Form::text('cognome', '', array('placeholder' => $user->Cognome, 'class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -43,10 +43,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('email', 'Email') }}
+                        {{ Form::label('email', 'Email', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('email', '', ['placeholder' => $user->Mail]) }}
+                        {{ Form::text('email', '', array('placeholder' => $user->Mail, 'class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -58,10 +58,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('età', 'Età') }}
+                        {{ Form::label('età', 'Età', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('età', '', ['placeholder' => $user->Età]) }}
+                        {{ Form::text('età', '', array('placeholder' => $user->Età, 'class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -73,10 +73,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('telefono', 'Telefono') }}
+                        {{ Form::label('telefono', 'Telefono', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::text('telefono', '', ['placeholder' => $user->Telefono]) }}
+                        {{ Form::text('telefono', '', array('placeholder' => $user->Telefono, 'class' => 'form-control border-black')) }}
                     </div>
                 </div>
                 <div class="row">
@@ -88,10 +88,10 @@
                 </div>
                 <div class="row align-items-center p-1">
                     <div class="col-4" style="text-align: left;">
-                        {{ Form::label('genere', 'Genere') }}
+                        {{ Form::label('genere', 'Genere', array('class' => 'form-label')) }}
                     </div>
                     <div class="col-8">
-                        {{ Form::select('genere', ['Maschio' => 'Maschio', 'Femmina' => 'Femmina'], $user->Genere) }}
+                        {{ Form::select('genere', ['Maschio' => 'Maschio', 'Femmina' => 'Femmina'], $user->Genere, array('class' => 'form-select border-black')) }}
                     </div>
                 </div>
                 {{--TODO: questa parte non dovrebbe servire--}}

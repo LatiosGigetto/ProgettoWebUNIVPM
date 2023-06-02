@@ -5,17 +5,17 @@
 @endsection
 
 @section('content')
-    <div class="container align-items-center d-flex h-100">
+    <div class="container align-items-center d-flex h-100 mt-1 mb-5">
         <div class="container text-center form_container">
             <p>Inserisci i dati per la registrazione</p>
                 {{ Form::open(array('route' => 'registrazione'))}}
                 <div class="container inner_form">
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('nome', 'Nome') }}
+                            {{ Form::label('nome', 'Nome', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('nome', '')}}
+                            {{ Form::text('nome', '', array('class' => 'form-control border-black'))}}
                         </div>
                     </div>
                     <div class="row">
@@ -27,10 +27,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('cognome', 'Cognome') }}
+                            {{ Form::label('cognome', 'Cognome', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('cognome', '') }}
+                            {{ Form::text('cognome', '', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -42,10 +42,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('email', 'Email') }}
+                            {{ Form::label('email', 'Email', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('email', '') }}
+                            {{ Form::text('email', '', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -57,10 +57,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('username', 'Nome Utente') }}
+                            {{ Form::label('username', 'Nome Utente', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('username', '') }}
+                            {{ Form::text('username', '', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -72,10 +72,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('password', 'Password') }}
+                            {{ Form::label('password', 'Password', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::password('password') }}
+                            {{ Form::password('password', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -87,10 +87,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('età', 'Età') }}
+                            {{ Form::label('età', 'Età', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('età','') }}
+                            {{ Form::text('età','', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -102,10 +102,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('telefono', 'Telefono') }}
+                            {{ Form::label('telefono', 'Telefono', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::text('telefono','') }}
+                            {{ Form::text('telefono','', array('class' => 'form-control border-black')) }}
                         </div>
                     </div>
                     <div class="row">
@@ -117,10 +117,10 @@
                     </div>
                     <div class="row align-items-center p-1">
                         <div class="col-4" style="text-align: left;">
-                            {{ Form::label('genere', 'Genere') }}
+                            {{ Form::label('genere', 'Genere', array('class' => 'form-label')) }}
                         </div>
                         <div class="col-8">
-                            {{ Form::select('genere',['Maschio'=>'Maschio', 'Femmina'=>'Femmina']) }}
+                            {{ Form::select('genere', array('Maschio' => 'Maschio', 'Femmina' => 'Femmina'), 'Maschio', array('class' => 'form-select border-black')) }}
                         </div>
                     </div>
                     <div class="row">
