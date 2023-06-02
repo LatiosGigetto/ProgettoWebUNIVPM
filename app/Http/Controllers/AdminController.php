@@ -475,6 +475,7 @@ class AdminController extends Controller
         $assegnamento = GestoriAziende::where(
             'Id_Azienda', $request->nomeAzienda)
             ->where('UsernameUtente', $request->nomestaff)->first();
+        //TODO: manca da gestire il caso in cui si cerca di assegnare un membro dello staff già assegnato
         if ($assegnamento == null) {
             $assegnamento = new GestoriAziende();
             $assegnamento->UsernameUtente = $request->nomestaff;
