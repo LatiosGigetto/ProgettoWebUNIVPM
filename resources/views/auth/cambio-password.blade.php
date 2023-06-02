@@ -14,10 +14,10 @@
         <div class="container inner_form" style="width: 500px;">
             <div class="row align-items-center p-1">
                 <div class="col-4" style="text-align: left;">
-                    {{ Form::label('vecchia_password', 'Vecchia Password') }}
+                    {{ Form::label('vecchia_password', 'Vecchia Password', array('class' => 'form-label')) }}
                 </div>
                 <div class="col-8">
-                    {{ Form::password('vecchia_password') }}
+                    {{ Form::password('vecchia_password', array('class' => 'form-control border-black')) }}
                 </div>
             </div>
             <div class="row">
@@ -29,10 +29,10 @@
             </div>
             <div class="row align-items-center p-1">
                 <div class="col-4" style="text-align: left;">
-                    {{ Form::label('nuova_password', 'Nuova Password') }}
+                    {{ Form::label('nuova_password', 'Nuova Password', array('class' => 'form-label')) }}
                 </div>
                 <div class="col-8">
-                    {{ Form::password('nuova_password') }}
+                    {{ Form::password('nuova_password', array('class' => 'form-control border-black')) }}
                 </div>
             </div>
             <div class="row">
