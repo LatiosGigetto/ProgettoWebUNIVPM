@@ -65,7 +65,7 @@
 
             <div style="margin: 2%">
                 {{ Form::label('nomeazienda', 'NomeAzienda') }}
-                {{ Form::select('nomeAzienda',$listaAziende ,$assegnamentoSel->getNomeById() ) }}
+                {{ Form::select('nomeAzienda',$listaAziende ,$assegnamentoSel->Id_Azienda ) }}
             </div>
 
             <div style="margin: 2%">

@@ -106,7 +106,7 @@
 
                             <div class="form-group">
                                 {{ Form::label('azienda', 'Azienda') }}
-                                {{ Form::select('azienda', $listaAziende, $offertaSel->getNomeAzienda(), ['class' => 'form-control']) }}
+                                {{ Form::select('azienda', $listaAziende, $offertaSel->Id_Azienda, ['class' => 'form-control']) }}
                                 @error('azienda')
                                 <span style="color: red">{{ $message }}</span>
                                 @enderror
