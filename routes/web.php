@@ -50,7 +50,8 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 // Sezione riservata al Cliente (Livello 1)
 
-Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->name('coupon-generato');
+Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->middleware("can:isUser")
+    ->name('coupon-generato');
 
 
 // Sezione riservata allo Staff (Livello 2)

@@ -7,6 +7,7 @@
 
 @section("link-scripts")
     <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+    <script src="{{asset('js/stampa.js')}}"></script>
 @endsection
 
 @section('content')
@@ -41,8 +42,7 @@
                                 <p>{{$coupon->getOffertaByCoupon()->Oggetto}}</p>
                             </td>
                             <td class="text-center align-middle">
-                                <a href="{{ route('coupon-generato', ['Id_Coupon' => $coupon->Id_Coupon]) }}">
-                                    <button class="btn btn-primary">Stampa</button>
+                                    <button onclick="stampaPagina(this.name)" class="btn btn-primary" name="{{$coupon->Id_Coupon}}">Stampa</button>
                                 </a>
                             </td>
                         </tr>
