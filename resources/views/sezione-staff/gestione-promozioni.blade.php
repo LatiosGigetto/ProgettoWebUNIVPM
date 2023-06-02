@@ -108,7 +108,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('azienda', 'Azienda') }}
-                            {{ Form::select('azienda', $listaAziende, $offertaSel->Id_Azienda, ['class' => 'form-control']) }}
+                            {{ Form::select('azienda', $listaAziende, $offertaSel->Id_Azienda, ['class' => 'form-select']) }}
                             @error('azienda')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
@@ -181,7 +181,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('azienda', 'Azienda') }}
-                            {{ Form::select('azienda', $listaAziende, '', ['class' => 'form-control']) }}
+                            {{ Form::select('azienda', $listaAziende, '', ['class' => 'form-select']) }}
                             @error('azienda')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
