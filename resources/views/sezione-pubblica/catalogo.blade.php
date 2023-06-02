@@ -77,7 +77,7 @@
                             </div>
                         @endforeach
                     </div>
-                    @include('paginator.paginator', ['paginator' => $offerte])
+                    @include('paginator.paginator', ['paginator' => $offerte->withQueryString()])
                 </div>
         @endswitch
     </div>
