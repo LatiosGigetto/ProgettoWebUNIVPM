@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     // Controllo la validità delle promozioni e mando un alert se ce n'è almeno
@@ -27,4 +26,4 @@ $(document).ready(function () {
         }
     });
 
-});  
+});

@@ -9,12 +9,12 @@ use App\Http\Controllers\ClientController;
 
 Route::middleware('guest')->group(function () {
     Route::get('registrazione', [RegisteredUserController::class, 'create'])
-                ->name('registrazione');
+        ->name('registrazione');
 
     Route::post('registrazione', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+        ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
