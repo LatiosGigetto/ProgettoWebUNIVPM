@@ -360,7 +360,7 @@ class AdminController extends Controller
     {
         $user = User::where('Username', $request->username)->first();
         $user->delete();
-        return redirect('eliminazione-utenti');
+        return redirect('eliminazione-utenti')->with('success', 'Utente eliminato con successo');
     }
 
     //Stats

@@ -22,7 +22,7 @@ $(document).ready(function () {
 
             let idOff = $(this).attr('name');
 
-            window.location.href = '/gestione-promozioni/elim/' + idOff;
+            window.location.href = './gestione-promozioni/elim/' + idOff;
         }
     });
 

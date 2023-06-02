@@ -47,6 +47,5 @@
             {{Form::close()}}
         </div>
     </div>
-    @include("layouts/tornaindietro")
 @endsection
 

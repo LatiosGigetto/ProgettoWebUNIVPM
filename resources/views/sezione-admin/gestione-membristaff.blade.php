@@ -64,7 +64,11 @@
                         </a>
                     </div>
                 </div>
-
+                <div style="text-align: center">
+                    @if(session('success'))
+                        <strong style="color: green">{{ session('success') }}</strong>
+                    @endif
+                </div>
 
                 @break
             @case('mod')

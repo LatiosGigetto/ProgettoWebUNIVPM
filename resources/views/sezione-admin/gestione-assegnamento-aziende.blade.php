@@ -47,12 +47,15 @@
                         </tr>
                     @endforeach
                     </tbody>
-                </table>
-                <td colspan="4">
+                </table>               
                     <a href="{{ route('crea-assegnamento-view')}}">
                         <button class="btn btn-primary">Crea Nuova assegnamento</button>
                     </a>
-                </td>
+                <div style="text-align: center">
+                    @if(session('success'))
+                        <strong style="color: green">{{ session('success') }}</strong>
+                    @endif                    
+                </div>
     </div>
     @break
 
@@ -75,11 +78,13 @@
 
             {{ Form::submit('Modifica') }}
             {{ Form::close() }}
+            
+            <a href="{{ route('gestione-assegnamento') }}" class="btn btn-primary">Torna indietro</a>
             <br>
             @error('erroreAss')
             <span style="color: red">{{ $message }}</span>
             @enderror
-            <a href="{{ route('gestione-assegnamento') }}" class="btn btn-primary">Torna indietro</a>
+            
         </div>
 
         @break
@@ -97,12 +102,13 @@
                 {{ Form::select('nomestaff', $listastaff) }}
             </div>
             <br>
-            @error('erroreAss')
-            <span style="color: red">{{ $message }}</span>
-            @enderror
             {{ Form::submit('Crea') }}
             {{ Form::close() }}
             <a href="{{ route('gestione-assegnamento') }}" class="btn btn-primary">Torna indietro</a>
+            <br>
+            @error('erroreAss')
+            <span style="color: red">{{ $message }}</span>
+            @enderror
         </div>
         @break
     @endswitch

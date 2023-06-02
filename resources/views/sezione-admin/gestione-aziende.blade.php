@@ -65,11 +65,7 @@
                 <div style="text-align: center">
                     @if(session('success'))
                         <strong style="color: green">{{ session('success') }}</strong>
-                    @endif
-                    @error('azienda-non-trovata')
-                    <span style="color: red">{{ $message }}</span>
-                    @enderror
-
+                    @endif                    
                     @include('paginator.paginator', ['paginator' => $aziende])
                 </div>
                 @break

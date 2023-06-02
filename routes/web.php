@@ -50,9 +50,17 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 // Sezione riservata al Cliente (Livello 1)
 
-Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->middleware("can:isUser")
+    Route::get('/profilo-cliente', [ClientController::class, 'show'])->middleware("can:isUser")
+	->name('profilo-cliente');
+
+	Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->middleware("can:isUser")
     ->name('coupon-generato');
 
+	Route::get('/dettagli-offerta/acquisto/{id}', [ClientController::class, 'acquista']) // Lascio stare il middleware qua poiché il check è effettuato server-side con AJAX
+	->name('acquisto');
+
+    Route::get("riepilogo", [ClientController::class, 'riepilogo'])->middleware("can:isUser")
+	->name('riepilogo');
 
 // Sezione riservata allo Staff (Livello 2)
 
