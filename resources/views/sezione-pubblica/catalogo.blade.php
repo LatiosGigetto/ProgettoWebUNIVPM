@@ -28,8 +28,11 @@
                 {{ Form::label('descrizione', 'Cerca per contenuto') }}
                 {{ Form::text('descrizione', old('descrizione'), ['class' => 'form-control']) }}
             </div>
+            <div class="form-group">
+                <br>
+                {{ Form::submit('Cerca', ['class' => 'btn btn-primary']) }}
+            </div>
 
-            {{ Form::submit('Cerca', ['class' => 'btn btn-primary']) }}
         </nav>
         {{ Form::close() }}
 
