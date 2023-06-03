@@ -68,7 +68,7 @@
                         @include('paginator.paginator', ['paginator' => $aziende])
                     </div>
                 </div>
-            @break
+                @break
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
@@ -126,56 +126,8 @@
                         </div>
                     </div>
                 </div>
-{{--                <h1>Modifica Azienda</h1>--}}
 
-{{--                <div id="mod-azienda-sezione">--}}
-{{--                    {{ Form::open(['route' => 'modifica-azienda', 'files' => 'true']) }}--}}
-{{--                    {{ Form::hidden('idAzienda', $aziendaSel->Id_Azienda) }}--}}
-{{--                    <div style="margin: 2%">--}}
-{{--                        {{ Form::label('nomeazienda', 'Nome') }}--}}
-{{--                        {{ Form::text('nomeazienda', $aziendaSel->NomeAzienda) }}--}}
-{{--                        <br>--}}
-{{--                        @error('nomeazienda')--}}
-{{--                        <span style="color: red">{{ $message }}</span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div style="margin: 2%">--}}
-{{--                        {{ Form::label('categoria', 'Categoria') }}--}}
-{{--                        {{ Form::text('categoria', $aziendaSel->Categoria) }}--}}
-{{--                        <br>--}}
-{{--                        @error('categoria')--}}
-{{--                        <span style="color: red">{{ $message }}</span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div style="margin: 2%">--}}
-{{--                        {{ Form::label('logo', 'Logo') }}--}}
-{{--                        {{ Form::file('logo') }}--}}
-{{--                        <br>--}}
-{{--                        @error('logo')--}}
-{{--                        <span style="color: red">{{ $message }}</span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div style="margin: 2%">--}}
-{{--                        {{ Form::label('sede', 'Sede') }}--}}
-{{--                        {{ Form::text('sede', $aziendaSel->Sede) }}--}}
-{{--                        <br>--}}
-{{--                        @error('sede')--}}
-{{--                        <span style="color: red">{{ $message }}</span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div style="margin: 2%">--}}
-{{--                        {{ Form::label('descrizione', 'Descrizione') }}--}}
-{{--                        {{ Form::textarea('descrizione', $aziendaSel->Descrizione) }}--}}
-{{--                        <br>--}}
-{{--                        @error('descrizione')--}}
-{{--                        <span style="color: red">{{ $message }}</span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    {{ Form::submit('Modifica') }}--}}
-{{--                    {{ Form::close() }}--}}
-{{--                    <a href="{{ route('gestione-aziende') }}" class="btn btn-primary">Torna indietro</a>--}}
-{{--                </div>--}}
-            @break
+                @break
 
             @case('create')
                 <div class="container w-75 form_container my-2">
@@ -232,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-            @break
-       @endswitch
+                @break
+        @endswitch
     </div>
 @endsection

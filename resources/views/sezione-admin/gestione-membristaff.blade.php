@@ -34,27 +34,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($staff as $membro_staff)
-                                <tr>
-                                    <td>{{ $membro_staff->username }}</td>
-                                    <td>{{ $membro_staff->Nome }}</td>
-                                    <td>{{ $membro_staff->Cognome }}</td>
-                                    <td>{{ $membro_staff->Telefono }}</td>
-                                    <td>{{ $membro_staff->Mail }}</td>
-                                    <td>{{ $membro_staff->Età }}</td>
-                                    <td>{{ $membro_staff->Genere }}</td>
-                                    <td>
-                                        <a href="{{ route('modifica-staff-view', ['username' => $membro_staff->username])}}">
-                                            <button class="btn btn-primary">Modifica</button>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger elim-staff" name="{{ $membro_staff->username }}">
-                                            Elimina
-                                        </button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($staff as $membro_staff)
+                            <tr>
+                                <td>{{ $membro_staff->username }}</td>
+                                <td>{{ $membro_staff->Nome }}</td>
+                                <td>{{ $membro_staff->Cognome }}</td>
+                                <td>{{ $membro_staff->Telefono }}</td>
+                                <td>{{ $membro_staff->Mail }}</td>
+                                <td>{{ $membro_staff->Età }}</td>
+                                <td>{{ $membro_staff->Genere }}</td>
+                                <td>
+                                    <a href="{{ route('modifica-staff-view', ['username' => $membro_staff->username])}}">
+                                        <button class="btn btn-primary">Modifica</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger elim-staff" name="{{ $membro_staff->username }}">
+                                        Elimina
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     <div class="text-center mt-4">
@@ -69,7 +69,7 @@
                         @endif
                     </div>
                 </div>
-            @break
+                @break
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-            @break
+                @break
 
             @case('create')
                 <div class="container w-75 form_container my-2">
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-            @break
+                @break
         @endswitch
     </div>
 
