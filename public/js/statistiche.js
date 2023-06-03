@@ -1,3 +1,6 @@
+
+// // Funzione che genera il numero di coupon totali con chiamata AJAX.
+
 $(document).ready(function () {
 
     $('#num-coupon').on('click', function () {
@@ -15,6 +18,9 @@ $(document).ready(function () {
             }
         });
     });
+
+// Funzione che genera il numero di coupon in base all'offerta scelta con chiamata
+// AJAX.
 
     $('#coupon-off-form').on('submit', function (event) {
 
@@ -38,13 +44,16 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 $('#coupon-off').text("Qualcosa è andato storto, riprova").css(
-                    {
-                        color: 'red',
-                        display: 'block'
-                    });
+                        {
+                            color: 'red',
+                            display: 'block'
+                        });
             }
         });
     });
+
+// Funzione che genera il numero di coupon in base all'utente scelto con chiamata
+// AJAX.
 
     $('#coupon-user-form').on('submit', function (event) {
 
@@ -68,10 +77,10 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 $('#coupon-user').text("Qualcosa è andato storto, riprova").css(
-                    {
-                        color: 'red',
-                        display: 'block'
-                    });
+                        {
+                            color: 'red',
+                            display: 'block'
+                        });
             }
         });
     });
