@@ -11,7 +11,7 @@
         @foreach($faqs as $faq)
             <li>
                 <h2>Q: {{ $faq->Domanda }}</h2>
-                <p>A:{{ $faq->Risposta }}</p>
+                <p>A: {{ $faq->Risposta }}</p>
             </li>
         @endforeach
     </ul>

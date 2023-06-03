@@ -14,10 +14,10 @@
         <div class="container inner_form" style="width: 500px;">
             <div class="row align-items-center p-1">
                 <div class="col-4" style="text-align: left;">
-                    {{ Form::label('vecchia_password', 'Vecchia Password', array('class' => 'form-label')) }}
+                    {{ Form::label('vecchia_password', 'Vecchia Password', ['class' => 'form-label']) }}
                 </div>
                 <div class="col-8">
-                    {{ Form::password('vecchia_password', array('class' => 'form-control border-black')) }}
+                    {{ Form::password('vecchia_password', ['class' => 'form-control border-black']) }}
                 </div>
             </div>
             <div class="row">
@@ -48,7 +48,7 @@
         </div>
 
         <div style="margin: 2%">
-            {{ Form::submit('Conferma') }}
+            {{ Form::submit('Conferma', ['class' => 'btn btn-primary']) }}
         </div>
 
         {{ Form::close() }}

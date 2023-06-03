@@ -133,7 +133,7 @@
                 </div>
 
                 <div style="margin: 2%">
-                    {{ Form::submit('Registra') }}
+                    {{ Form::submit('Registra', ['class' => 'btn btn-primary']) }}
                 </div>
 
                 {{ Form::close() }}
