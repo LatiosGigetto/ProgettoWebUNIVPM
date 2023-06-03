@@ -12,6 +12,7 @@
         <div class="d-flex justify-content-center">
             <a href="{{route('cambia-password')}}" class="btn btn-primary mx-4">Cambia password</a>
             <a href="{{route('modifica-info')}}" class="btn btn-primary mx-4">Modifica informazioni personali</a>
+            <a href="{{route("gestione-promozioni")}}" class="btn btn-primary mx-4">Gestione promozioni</a>
 
 
         </div>
