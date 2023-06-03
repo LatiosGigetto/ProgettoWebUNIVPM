@@ -45,7 +45,7 @@
                     @foreach($aziende as $azienda)
 
                             <div class="col-md-4 mb-4">
-                                <div class="card">
+                                <div class="card pt-3">
                                     <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img-top custom_card" alt="Logo Azienda">
                                     <div class="card-body">
                                         <strong class="card-title">{{$azienda->NomeAzienda}}</strong>
@@ -73,7 +73,7 @@
                     <div class="row justify-content-center mt-4">
                         @foreach($offerte as $offerta)
                             <div class="col-md-4 mb-4">
-                                <div class="card" style="height: 100%">
+                                <div class="card pt-4" style="height: 100%">
                                     <img src="data:image/png/jpeg;base64,{{ base64_encode($offerta->getLogoAzienda())}}" class="card-img-top custom_card" alt="Logo Azienda">
                                     <div class="card-body">
                                         <h4 class="card-title">{{$offerta->getNomeAzienda()}}</h4>

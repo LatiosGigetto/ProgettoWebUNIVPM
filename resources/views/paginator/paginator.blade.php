@@ -1,32 +1,48 @@
 @if ($paginator->lastPage() != 1)
-    <div id="pagination">
+    <ul class="pagination justify-content-center">
 
         <!-- Link alla prima pagina -->
         @if (!$paginator->onFirstPage())
-            <a href="{{ $paginator->url(1) }}">Torna all'inizio</a> |
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->url(1) }}">Torna all'inizio</a>
+            </li>
         @else
-            Vai all'inizio |
+            <li class="page-item disabled">
+                <span class="page-link">Torna all'inizio</span>
+            </li>
         @endif
 
         <!-- Link alla pagina precedente -->
         @if ($paginator->currentPage() != 1)
-            <a href="{{ $paginator->previousPageUrl() }}">&lt; Precedente</a> |
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->previousPageUrl() }}">Precedente</a>
+            </li>
         @else
-            &lt; Precedente |
+            <li class="page-item disabled">
+                <span class="page-link">Precedente</span>
+            </li>
         @endif
 
         <!-- Link alla pagina successiva -->
         @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}">Successivo &gt;</a> |
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->nextPageUrl() }}">Successivo</a>
+            </li>
         @else
-            Successivo &gt; |
+            <li class="page-item disabled">
+                <span class="page-link">Successivo</span>
+            </li>
         @endif
 
         <!-- Link all'ultima pagina -->
         @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->url($paginator->lastPage()) }}">Vai alla fine</a>
+            <li class="page-item">
+                <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}">Vai alla fine</a>
+            </li>
         @else
-            Vai alla fine
+            <li class="page-item disabled">
+                <span class="page-link">Vai alla fine</span>
+            </li>
         @endif
-    </div>
+    </ul>
 @endif

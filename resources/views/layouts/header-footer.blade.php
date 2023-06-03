@@ -23,22 +23,22 @@
 
     <div class="container-fluid text-center">
         @auth
-            <div class="row auth_message">
+            <div class="row auth_message mx-0">
                 <b>Benvenuto, {{ Auth::user()->username }}</b>
             </div>
         @else
-            <div class="row auth_message">
+            <div class="row auth_message mx-0">
                 <b>Non sei registrato.</b>
             </div>
         @endif
 
-        <div class="row" id="inner_header">
+        <div class="row py-2" id="inner_header">
             <div class="col-sm-auto">
                 <ul class="nav">
-                    <li class="nav-item border border-black border-2 rounded-2 header_btn">
+                    <li class="nav-item rounded-2 header_btn mx-2">
                         <a class="nav-link h-f_color" href="{{route('catalogo')}}">Catalogo Offerte</a>
                     </li>
-                    <li class="nav-item border border-black border-2 rounded-2 header_btn">
+                    <li class="nav-item rounded-2 header_btn mx-2">
                         <a class="nav-link h-f_color" href="{{route('lista-aziende')}}">Lista Aziende </a>
                     </li>
                 </ul>
@@ -49,24 +49,24 @@
             @auth
                 <div class="col-sm-auto">
                     <ul class="nav nav-pills justify-content-end">
-                        <li class="nav-item border border-black border-2 rounded-2 header_btn">
+                        <li class="nav-item rounded-2 header_btn mx-2">
                             <a class="nav-link h-f_color" href=""
                                onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                             <form id="logout" action="{{ route('logout') }}" method="POST"
                                   style="display: none;">@csrf</form>
                         </li>
                         @can('isUser')
-                            <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                            <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
                                 <a class="nav-link h-f_color" href="{{route('profilo-cliente')}}">Profilo</a>
                             </li>
                         @endcan
                         @can('isStaff')
-                            <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                            <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
                                 <a class="nav-link h-f_color" href="{{route('staff')}}">Profilo</a>
                             </li>
                         @endcan
                         @can('isAdmin')
-                            <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                            <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
                                 <a class="nav-link h-f_color" href="{{route('admin')}}">Profilo</a>
                             </li>
                         @endcan
@@ -75,10 +75,10 @@
             @else
                 <div class="col-sm-auto">
                     <ul class="nav nav-pills justify-content-end">
-                        <li class="nav-item border border-black border-2 rounded-2 header_btn">
+                        <li class="nav-item rounded-2 header_btn mx-2">
                             <a class="nav-link h-f_color" href="{{route('registrazione')}}">Registrati</a>
                         </li>
-                        <li class="nav-item border border-black border-2 rounded-2 bg-primary">
+                        <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
                             <a class="nav-link h-f_color" href="{{route('login')}}">Login</a>
                         </li>
                     </ul>
