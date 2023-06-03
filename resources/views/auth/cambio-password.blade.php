@@ -8,7 +8,7 @@
     <!--TODO togliere lo stile inline-->
     <div class="container align-items-center d-flex h-100">
         <div class="container text-center form_container" style="width: 600px;">
-        <h3>Cambio Password</h3>
+        <strong style="font-size: x-large">Cambio Password</strong>
 
         {{ Form::open(array('route' => 'cambia-password'))}}
         <div class="container inner_form" style="width: 500px;">
