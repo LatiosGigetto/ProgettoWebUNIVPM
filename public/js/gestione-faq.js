@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // Eliminazione utente con richiesta di conferma
+    // Eliminazione FAQ con richiesta di conferma
 
     $('.el-faq').on('click', function () {
 

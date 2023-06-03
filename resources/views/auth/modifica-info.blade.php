@@ -105,7 +105,7 @@ modifica-info
         </div>
 
         <div style="margin: 2%">
-                {{ Form::submit('Modifica') }}
+                {{ Form::submit('Modifica', ['class' => 'btn btn-primary']) }}
         </div>
 
             {{ Form::close() }}

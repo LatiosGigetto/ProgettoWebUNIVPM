@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // Eliminazione utente con richiesta di conferma
+    // Eliminazione membro staff con richiesta di conferma
 
     $('.elim-staff').on('click', function () {
 

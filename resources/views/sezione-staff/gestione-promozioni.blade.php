@@ -54,7 +54,7 @@
                     </table>
 
                     <div class="d-flex justify-content-center">
-                        <a href="{{ route('crea-offerta')}}" class="btn btn-success" style="margin: 1%">Aggiungi
+                        <a href="{{ route('crea-offerta')}}" class="btn btn-primary" style="margin: 1%">Aggiungi
                             promozione</a>
                     </div>
 
@@ -69,7 +69,7 @@
                         @include('paginator.paginator', ['paginator' => $offerte])
                     </div>
                 </div>
-            @break
+                @break
 
             @case('mod')
                 <!--TODO: fixare la larghezza-->
@@ -87,16 +87,6 @@
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
-
-<!-- Il codice che segue è demoniaco -->
-{{--                        <div class="form-group">--}}
-{{--                            {{ Form::label('oggetto', 'Oggetto') }}--}}
-{{--                            {{ Form::text('oggetto', $offertaSel->Oggetto, ['class' => 'form-control']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('oggetto')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
 
                         <div class="form-group my-2">
                             {{ Form::label('descrizione', 'Descrizione') }}
@@ -136,7 +126,7 @@
                         <a href="{{ route('gestione-promozioni') }}" class="btn btn-primary">Torna indietro</a>
                     </div>
                 </div>
-            @break
+                @break
 
             @case('create')
                 <div class="container w-75 form_container my-2">
@@ -152,15 +142,7 @@
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
-<!--TODO: Qualcuno mi spieghi perché questi blocchi di codice hanno un'altezza extra a caso-->
-{{--                        <div class="form-group my-2">--}}
-{{--                            {{ Form::label('oggetto', 'Oggetto') }}--}}
-{{--                            {{ Form::text('oggetto', '', ['class' => 'form-control']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('oggetto')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
+
 
                         <div class="form-group my-2">
                             {{ Form::label('descrizione', 'Descrizione') }}
@@ -170,15 +152,6 @@
                             @enderror
                         </div>
 
-{{--                        <div class="form-group my-2">--}}
-{{--                            {{ Form::label('descrizione', 'Descrizione') }}--}}
-{{--                            {{ Form::textarea('descrizione', '', ['class' => 'form-control']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('descrizione')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
-
                         <div class="form-group my-2">
                             {{ Form::label('azienda', 'Azienda') }}
                             {{ Form::select('azienda', $listaAziende, '', ['class' => 'form-select']) }}
@@ -186,15 +159,6 @@
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
-
-{{--                        <div class="form-group my-2">--}}
-{{--                            {{ Form::label('azienda', 'Azienda') }}--}}
-{{--                            {{ Form::select('azienda', $listaAziende, '', ['class' => 'form-select']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('azienda')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
 
                         <div class="form-group my-2">
                             {{ Form::label('luogo', 'Luogo') }}
@@ -204,15 +168,6 @@
                             @enderror
                         </div>
 
-{{--                        <div class="form-group my-2">--}}
-{{--                            {{ Form::label('luogo', 'Luogo') }}--}}
-{{--                            {{ Form::text('luogo', '', ['class' => 'form-control']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('luogo')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
-
                         <div class="form-group my-2">
                             {{ Form::label('validità', 'Validità') }}
                             {{ Form::text('validità', '', ['class' => 'form-control']) }}
@@ -220,15 +175,6 @@
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
-
-{{--                        <div class="form-group my-2">--}}
-{{--                            {{ Form::label('validità', 'Validità') }}--}}
-{{--                            {{ Form::text('validità', '', ['class' => 'form-control']) }}--}}
-{{--                            <br>--}}
-{{--                            @error('validità')--}}
-{{--                            <span style="color: red">{{ $message }}</span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
 
                         <div class="mt-4 mb-2">
                             {{ Form::submit('Crea', ['class' => 'btn btn-primary']) }}
@@ -238,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-            @break
+                @break
 
         @endswitch
 

@@ -22,7 +22,6 @@
     <h2>{{ $coupon->Id_Coupon }}</h2>
 
 
-
 </div>
 </body>
 </html>

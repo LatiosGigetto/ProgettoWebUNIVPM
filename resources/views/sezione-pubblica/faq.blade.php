@@ -7,23 +7,12 @@
 @section("contenuto")
     <h1>Domande frequenti</h1>
 
-    <ul class="faqList">
+    <ul style="list-style-type: none; margin-top: 10%; text-align: left;">
         @foreach($faqs as $faq)
             <li>
-                <h4 onclick="toggleAnswer(this)">Q: {{ $faq->Domanda }}</h4>
-                <p class="hiddenContent" style="display: none;">A:{{ $faq->Risposta }}</p>
+                <h2>Q: {{ $faq->Domanda }}</h2>
+                <p>A: {{ $faq->Risposta }}</p>
             </li>
         @endforeach
     </ul>
-
-    <script>
-        function toggleAnswer(question) {
-            var answer = question.nextElementSibling;
-            if (answer.style.display === 'none') {
-                answer.style.display = 'block';
-            } else {
-                answer.style.display = 'none';
-            }
-        }
-    </script>
 @endsection

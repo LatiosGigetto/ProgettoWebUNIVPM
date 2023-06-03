@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    // Generazione coupon con chiamata AJAX
+
     $('#generacoupon').on('click', function (event) {
 
         event.preventDefault();
@@ -12,8 +14,9 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
 
-                // Controlla se l'utente può effettivamente generare il coupon
-
+                // Controlla se l'utente può effettivamente generare il coupon.
+                // Il controller restituisce una stringa JSON encoded in base al risultato.
+                
                 switch (response) {
 
                     case("utente-non-aut"):

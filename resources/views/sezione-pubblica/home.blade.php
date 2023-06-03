@@ -7,6 +7,18 @@ Home
 @section('link-scripts')
     @parent
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    
+    // Funzione per far funzionare il carosello con l'aiuto di Bootstrap
+    
+    var myCarousel = document.querySelector('#carouselExampleCaptions')
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 5000, // imposta l'intervallo di tempo tra le slide (in millisecondi)
+        wrap: true, // abilita il loop delle slide
+    });
+</script>
 @endsection
 
 @section('carosello')
@@ -55,13 +67,5 @@ Home
 </div>
 
 
-{{--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    var myCarousel = document.querySelector('#carouselExampleCaptions')
-    var carousel = new bootstrap.Carousel(myCarousel, {
-        interval: 5000, // imposta l'intervallo di tempo tra le slide (in millisecondi)
-        wrap: true, // abilita il loop delle slide
-    });
-</script>
+
 @endsection

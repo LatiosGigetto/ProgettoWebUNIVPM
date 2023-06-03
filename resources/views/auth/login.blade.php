@@ -45,7 +45,7 @@
             </div>
 
             <div style="margin: 2%">
-                {{ Form::submit('Accedi') }}
+                {{ Form::submit('Accedi', ['class' => 'btn btn-primary']) }}
             </div>
 
             {{ Form::close() }}
