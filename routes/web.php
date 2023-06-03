@@ -64,6 +64,9 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 
 // Sezione riservata allo Staff (Livello 2)
 
+Route::get("/profilo-staff", [StaffController::class, 'showDettagliProfilo'])->middleware("can:isStaff")
+    ->name('staff');
+
 Route::get("/gestione-promozioni", [StaffController::class, 'showGestioneOfferta'])->middleware("can:isStaff")
     ->name("gestione-promozioni");
 
@@ -185,8 +188,7 @@ Route::get("/gestione-assegnamento/elim/{id}", [AdminController::class, 'deleteA
 Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')
     ->name('cliente');
 
-Route::view('/profilo/staff', 'sezione-staff/profilo-staff')->middleware('can:isStaff')
-    ->name('staff');
+
 
 Route::view('/profilo/admin', 'sezione-admin/profilo-admin')->middleware('can:isAdmin')
     ->name('admin');
