@@ -168,6 +168,14 @@
                         </div>
 
                         <div class="form-group my-2">
+                            {{ Form::label('password', 'Password') }}
+                            {{ Form::password('password', ['class' => 'form-control']) }}
+                            @error('password')
+                            <span style="color: red">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group my-2">
                             {{ Form::label('età', 'Età') }}
                             {{ Form::text('età', '', ['class' => 'form-control']) }}
                             @error('età')
