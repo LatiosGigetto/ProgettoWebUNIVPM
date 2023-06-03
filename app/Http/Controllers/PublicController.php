@@ -15,7 +15,7 @@ class PublicController extends Controller {
 
     public function showAziendeList() {
 
-        $aziende = Azienda::paginate(10);
+        $aziende = Azienda::paginate(4);
 
         return view('sezione-pubblica/lista-aziende')->with('aziende', $aziende);
     }
@@ -107,11 +107,16 @@ class PublicController extends Controller {
         return view('sezione-pubblica/faq')->with('faqs', $faq);
     }
 
+    /* Sono piuttosto sicuro che questa funzione non serva a niente e non sia 
+     * mai usata ma per sicurezza la commento e basta per ora.
+    
     public function show($id)
     {
         $azienda = Azienda::with('offerte')->find($id);
 
         return view('azienda.show', compact('azienda'));
     }
+
+    */
 
 }
