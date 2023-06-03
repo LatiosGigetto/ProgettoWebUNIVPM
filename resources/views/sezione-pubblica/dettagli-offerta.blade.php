@@ -38,9 +38,18 @@
         <p>{{ $offerta->Luogo }}</p>
 
         <div>
+            @auth
             <button class="btn btn-primary mb-4 " name="{{$offerta->Id_Offerta}}" id="generacoupon">
                 Genera Coupon
             </button>
+            @endauth
+            @guest
+            <a href="{{route("login")}}"
+            <button class="btn btn-primary mb-4 " name="{{$offerta->Id_Offerta}}">
+                Genera Coupon
+            </button>
+            </a>
+            @endguest
             @include('layouts/tornaindietro')
         </div>
 

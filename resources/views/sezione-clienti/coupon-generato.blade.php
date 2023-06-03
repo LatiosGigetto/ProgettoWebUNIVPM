@@ -17,6 +17,7 @@
     <br>
     <h2 style="text-align: center">{{ $coupon->getOffertaByCoupon()->Descrizione }}</h2>
     <br>
+    <h2 style="text-align: center">Cliente: {{ $user->Nome  }} {{ $user->Cognome }}</h2>
     <br>
     <br>
     <h2>{{ $coupon->Id_Coupon }}</h2>

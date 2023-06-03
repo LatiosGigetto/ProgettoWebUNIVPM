@@ -78,12 +78,15 @@ class ClientController extends Controller {
       } */
     public function showCouponGenerato($Id_Coupon)
     {
-        $usernameUtente = auth()->user()->username;
+        $user = auth()->user();
         $coupon = Coupon::where('Id_Coupon', $Id_Coupon)
-            ->where('UsernameUtente', $usernameUtente)
+            ->where('UsernameUtente', $user->username)
             ->first();
 
-        return view('sezione-clienti/coupon-generato', compact('coupon'));
+        return view('sezione-clienti/coupon-generato')->with([
+            'user' => $user,
+            'coupon' => $coupon
+        ]);
     }
 
 
