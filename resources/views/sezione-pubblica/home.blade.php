@@ -64,6 +64,7 @@ Home
     <h3>Come uso i coupon?</h3>
     <p>Le modalità di utilizzo variano da offerta a offerta. Consulta la descrizione dell'offerta per più dettagli. Ricordati che puoi sempre stampare
         il coupon con tutti i dettagli necessari dalla tua Area Privata del profilo utente!</p>
+    <a href="{{ asset('files/tesina.pdf') }}" download>Scarica documentazione</a>
 </div>
 
 
