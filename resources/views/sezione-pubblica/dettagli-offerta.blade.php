@@ -37,7 +37,7 @@
         <p>{{ $offerta->Luogo }}</p>
 
         <div>
-                <button name="{{$offerta->Id_Offerta}}" id="generacoupon">
+                <button class="btn btn-primary mb-4 " name="{{$offerta->Id_Offerta}}" id="generacoupon">
                     Genera Coupon
                 </button>
             @include('layouts/tornaindietro')
