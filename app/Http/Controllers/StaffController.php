@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\GestoriAziende;
 use App\Models\Offerta;
 use App\Models\Azienda;
-
+use App\Models\User;
 class StaffController extends Controller {
 
     protected $currentStaff;
@@ -141,7 +141,7 @@ class StaffController extends Controller {
 
         $this->setup();
 
-        if ($offerta = Offerta::destroy($idOff)) {
+        if (Offerta::destroy($idOff)) {
 
             return redirect('gestione-promozioni')->with([
                         'azione' => 'view',
@@ -152,5 +152,11 @@ class StaffController extends Controller {
             return redirect('gestione-promozioni')->withErrors(["offerta-non-trovta" => "Qualcosa è andato storto. L'offerta non è stata trovata"]);
         }
     }
+
+    public function showDettagliProfilo() {
+        $currentStaff = Auth::user();
+        return view('sezione-staff/profilo-staff')->with('currentStaff',$currentStaff);
+    }
+
 
 }
