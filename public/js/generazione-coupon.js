@@ -16,7 +16,7 @@ $(document).ready(function () {
 
                 // Controlla se l'utente può effettivamente generare il coupon.
                 // Il controller restituisce una stringa JSON encoded in base al risultato.
-                
+
                 switch (response) {
 
                     case("utente-non-aut"):
@@ -36,10 +36,11 @@ $(document).ready(function () {
                         );
                         break;
                     default:
-                        $('#risultato').text("Codice coupon: " + response).css(
+                        $('#risultato').html("Hai generato il coupon con successo!<br>Il suo codice è: " + response).css(
                                 {
                                     display: 'inline',
-                                    color: 'green'
+                                    color: 'green',
+                                    marginTop: '20px'
                                 }
                         );
                         $('#link-stampa').attr('name', response).css('display', 'block');

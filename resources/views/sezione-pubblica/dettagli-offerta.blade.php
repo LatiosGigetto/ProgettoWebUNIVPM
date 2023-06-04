@@ -5,10 +5,8 @@
 @endsection
 
 @section("link-scripts")
-
     <script src="{{asset("js/generazione-coupon.js")}}"></script>
     <script src="{{asset('js/stampa.js')}}"></script>
-
 @endsection
 
 @section("contenuto")
@@ -44,7 +42,7 @@
             </button>
             @endauth
             @guest
-            <a href="{{route("login")}}"
+            <a href="{{route("login")}}">
             <button class="btn btn-primary mb-4 " name="{{$offerta->Id_Offerta}}">
                 Genera Coupon
             </button>
@@ -53,13 +51,10 @@
             @include('layouts/tornaindietro')
         </div>
 
-        <span id="risultato" , style="color: red; display: none"></span>
+        <span id="risultato" style="color: red; display: none"></span>
 
         <button id="link-stampa" onclick="stampaPaginaCatalogo(this.name)" style="display: none"
                 class="btn btn-primary ">Vai alla stampa
         </button>
-
-
-        @endsection
-
     </div>
+@endsection

@@ -19,16 +19,16 @@
 
         {{ Form::open(['route' => 'ricerca-offerte', 'method' => 'GET'])}}
         <nav id="barradiricerca" class="mt-4" style="display: none;">
-            <div class="form-group">
+            <div class="form-group mx-1">
                 {{ Form::label('azienda', 'Cerca per azienda') }}
                 {{ Form::text('azienda', old('azienda'), ['class' => 'form-control']) }}
             </div>
 
-            <div class="form-group">
+            <div class="form-group mx-1">
                 {{ Form::label('descrizione', 'Cerca per contenuto') }}
                 {{ Form::text('descrizione', old('descrizione'), ['class' => 'form-control']) }}
             </div>
-            <div class="form-group">
+            <div class="form-group mx-1">
                 <br>
                 {{ Form::submit('Cerca', ['class' => 'btn btn-primary']) }}
             </div>

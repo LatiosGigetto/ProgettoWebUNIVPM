@@ -11,8 +11,8 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <h1 class="text-center mt-5">Riepilogo acquisti</h1>
+    <div class="container py-4">
+        <h1 class="text-center">Riepilogo acquisti</h1>
 
         @if($coupons->isNotEmpty())
             <div class="table-responsive mt-5">

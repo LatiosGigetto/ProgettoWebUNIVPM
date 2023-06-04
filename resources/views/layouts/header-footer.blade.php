@@ -93,18 +93,18 @@
 </main>
 
 <footer>
-    <div class="container-fluid">
+    <div class="container-fluid my-1">
         <div class="row">
             <div class="col">
                 <img src="{{ asset("images/longe.png") }}" class="rounded" style="width: 50px;" alt="longe">
             </div>
-            <div class="col text-center" style="align-self: center">
+            <div class="col text-center align-self-center">
                 <div class="h-f_color">
                     <b>Diritti</b>
                 </div>
             </div>
             <div class="col text-end nav flex-column">
-                <a class="nav-link h-f_color p-0" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
+                <a class="nav-link h-f_color p-0 under" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
                 <a class="nav-link h-f_color p-0" href="{{route('faq')}}" style="text-decoration: underline">Faq</a>
             </div>
         </div>

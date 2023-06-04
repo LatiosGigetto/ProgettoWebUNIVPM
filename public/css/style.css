@@ -29,6 +29,10 @@ header, footer {
     background-color: #750C8E;
 }
 
+.header_btn:hover {
+    filter: brightness(0.8);
+}
+
 main {
     flex: 1 0 auto;
 }

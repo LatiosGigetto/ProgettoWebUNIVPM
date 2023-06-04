@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container text-center">
+    <div class="container text-center py-4">
         <h2 class="mb-4">Area riservata Utente (cliente)</h2>
         <div class="d-flex justify-content-center">
             <a href="{{route('cambia-password')}}" class="btn btn-primary mx-4">Cambia password</a>

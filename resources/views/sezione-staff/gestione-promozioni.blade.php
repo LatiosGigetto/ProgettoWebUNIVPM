@@ -6,13 +6,11 @@
 @endsection
 
 @section("link-scripts")
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
     <script src="{{asset("js/gestione-promo.js")}}"></script>
 @endsection
 
 @section('content')
-    <div class="container d-flex align-items-center h-100">
-
+    <div class="container d-flex align-items-center h-100 py-4">
         @switch($azione)
 
             @case('view')
@@ -21,15 +19,15 @@
 
                     <table class="table mx-auto">
                         <thead class="thead-dark">
-                        <tr>
-                            <th>ID Offerta</th>
-                            <th>Oggetto</th>
-                            <th>Azienda</th>
-                            <th>Luogo</th>
-                            <th>Scadenza</th>
-                            <th>Modifica</th>
-                            <th>Elimina</th>
-                        </tr>
+                            <tr>
+                                <th>ID Offerta</th>
+                                <th>Oggetto</th>
+                                <th>Azienda</th>
+                                <th>Luogo</th>
+                                <th>Scadenza</th>
+                                <th>Modifica</th>
+                                <th>Elimina</th>
+                            </tr>
                         </thead>
                         <tbody>
                         @foreach($offerte as $offerta)
@@ -187,7 +185,6 @@
                 @break
 
         @endswitch
-
     </div>
 @endsection
 
