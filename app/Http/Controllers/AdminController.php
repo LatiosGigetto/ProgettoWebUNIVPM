@@ -111,7 +111,7 @@ class AdminController extends Controller
 
             $request->validate([
                 'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
-                'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
+                'logo' => ['file', 'mimes:png,jpg,jpeg', 'max:64'],
                 'sede' => ['required', 'string', 'max:30'],
                 'descrizione' => ['required', 'string'],
                 'categoria' => ['required', 'string', 'max:30'],
@@ -121,7 +121,7 @@ class AdminController extends Controller
 
             $request->validate([
                 'nomeazienda' => ['required', 'string', 'max:30'],
-                'logo' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
+                'logo' => ['nullable', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
                 'sede' => ['required', 'string', 'max:30'],
                 'descrizione' => ['required', 'string'],
                 'categoria' => ['required', 'string', 'max:30'],
@@ -130,8 +130,13 @@ class AdminController extends Controller
         }
 
         $azienda->NomeAzienda = $request->nomeazienda;
+        
+        // Cambio il logo solo se l'utente ne ha inserito uno nuovo
+        
+        if ($request->hasFile('logo')) {
         $azienda->Logo = $request->file('logo')->openFile()
             ->fread($request->file('logo')->getSize());
+        }
         $azienda->Sede = $request->sede;
         $azienda->Descrizione = $request->descrizione;
         $azienda->Categoria = $request->categoria;
