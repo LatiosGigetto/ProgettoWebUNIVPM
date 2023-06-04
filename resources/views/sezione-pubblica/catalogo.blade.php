@@ -6,7 +6,6 @@
 
 @section("link-scripts")
 
-<link rel="stylesheet" href="{{asset("css/style.css")}}">
 <script  src="{{asset("js/catalogo.js")}}"></script>
 
 @endsection

@@ -1,12 +1,11 @@
 @extends('layouts.header-footer')
 
 @section('title')
-    FAQ
+    Gestione FAQ
 @endsection
 
 @section("link-scripts")
 
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
     <script src="{{asset("js/gestione-faq.js")}}"></script>
 
 @endsection

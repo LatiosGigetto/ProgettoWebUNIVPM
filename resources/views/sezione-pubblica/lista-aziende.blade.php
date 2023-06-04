@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-Lista aziende
+Lista Aziende
 @endsection
 
 @section('content')

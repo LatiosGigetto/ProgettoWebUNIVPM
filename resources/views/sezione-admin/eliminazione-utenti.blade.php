@@ -1,12 +1,11 @@
 @extends('layouts.header-footer')
 
 @section("title")
-Elimina sti Utenti
+Eliminazione Utenti
 @endsection
 
 @section("link-scripts")
 
-<link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
 <script src="{{asset("js/gestione-utenti.js")}}"></script>
 
 @endsection

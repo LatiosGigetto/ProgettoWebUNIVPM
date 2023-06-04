@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Gestione aziende
+    Gestione Aziende
 @endsection
 
 @section("link-scripts")

@@ -1,7 +1,7 @@
 @extends('layouts.contenitore')
 
 @section('title')
-    Dettagli offerta
+    Dettagli Offerta
 @endsection
 
 @section("link-scripts")

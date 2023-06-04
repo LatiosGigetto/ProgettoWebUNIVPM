@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-modifica-info
+Modifica Informazioni
 @endsection
 
 @section('content')

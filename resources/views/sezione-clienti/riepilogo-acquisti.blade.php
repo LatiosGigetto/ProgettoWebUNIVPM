@@ -2,12 +2,13 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Riepilogo acquisti
+    Riepilogo Acquisti
 @endsection
 
 @section("link-scripts")
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
+    
     <script src="{{asset('js/stampa.js')}}"></script>
+    
 @endsection
 
 @section('content')
