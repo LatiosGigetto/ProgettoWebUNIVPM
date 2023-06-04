@@ -68,7 +68,7 @@
             @break
 
             @case('mod')
-                <div class="container w-75 form_container my-2">
+                <div class="container w-75 form_container mb-4">
                     <h1 class="text-center">Modifica Azienda</h1>
 
                     <div id="crea-azienda-sezione">
@@ -127,7 +127,7 @@
                 @break
 
             @case('create')
-                <div class="container w-75 form_container my-2">
+                <div class="container w-75 form_container mb-4">
                     <h1 class="text-center">Crea Azienda</h1>
 
                     <div id="crea-azienda-sezione">
