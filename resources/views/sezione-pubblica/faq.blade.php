@@ -1,7 +1,7 @@
 @extends('layouts.contenitore')
 
 @section("title")
-    Le FAQ
+    FAQ
 @endsection
 
 @section("contenuto")
