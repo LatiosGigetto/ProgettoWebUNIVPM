@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="container text-center  mt-5">
+    <div class="container text-center h-100 py-4">
         <h2>Area riservata Amministratore ({{Auth::user()->username}})</h2>
 
-        <div class="row  mt-3 ">
+        <div class="row m-auto" style="width: 65%;">
             <div class="col-md-6 col-lg-4 ">
                 <a href="{{route('gestione-aziende')}}" class="btn btn-primary mt-4">Gestione aziende</a>
             </div>

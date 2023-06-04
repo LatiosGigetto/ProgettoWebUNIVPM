@@ -13,13 +13,13 @@
 
 @section('content')
 
-    <div class="container d-flex align-items-center h-100">
+    <div class="container d-flex align-items-center h-100 py-4">
         @switch($azione)
 
             @case('view')
-                <div class="container text-center my-4">
+                <div class="container text-center">
                     <h1>Gestione FAQ</h1>
-                    <table class="table table-bordered mx-auto mt-5">
+                    <table class="table table-bordered mx-auto">
                         <thead class="thead-dark">
                         <tr>
                             <th>Domanda</th>

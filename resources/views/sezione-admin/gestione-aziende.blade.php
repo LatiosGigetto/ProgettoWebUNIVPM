@@ -1,26 +1,22 @@
 @extends('layouts.header-footer')
 
-
 @section("title")
     Gestione aziende
 @endsection
 
 @section("link-scripts")
-
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
     <script src="{{asset("js/gestione-aziende.js")}}"></script>
-
 @endsection
 
 @section("content")
 
-    <div class="container d-flex align-items-center h-100">
+    <div class="container d-flex align-items-center h-100 pt-4">
         @switch($azione)
 
             @case('view')
                 <div class="container">
                     <h2 class="text-center">Gestione Aziende</h2>
-                    <table class="table mt-4">
+                    <table class="table my-2">
                         <thead class="thead-dark">
                         <tr>
                             <th>Nome Azienda</th>
@@ -54,10 +50,10 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="text-center mt-4">
+                    <div class="text-center mb-4">
                         <td colspan="4">
                             <a href="{{ route('crea-azienda-view') }}">
-                                <button class="btn btn-primary mb-1">Crea Nuova Azienda</button>
+                                <button class="btn btn-primary">Crea Nuova Azienda</button>
                             </a>
                         </td>
                     </div>
@@ -65,10 +61,11 @@
                         @if(session('success'))
                             <strong style="color: green">{{ session('success') }}</strong>
                         @endif
+
                         @include('paginator.paginator', ['paginator' => $aziende])
                     </div>
                 </div>
-                @break
+            @break
 
             @case('mod')
                 <div class="container w-75 form_container my-2">

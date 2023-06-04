@@ -1,22 +1,20 @@
 @extends('layouts.header-footer')
 
-
 @section("title")
     Gestione Assegnamento
 @endsection
 
 @section("link-scripts")
-    <link rel="stylesheet" href="{{asset("css/tabelle.css")}}">
     <script src="{{asset("js/gestione-assegnamento.js")}}"></script>
 @endsection
 
 @section("content")
 
-    <div class="container d-flex align-items-center h-100">
+    <div class="container d-flex h-100 py-4">
         @switch($azione)
 
             @case('view')
-                <div class="container text-center my-4">
+                <div class="container text-center">
                     <h1>Gestione Assegnamento Azienda</h1>
                     <table class="table mt-4">
                         <thead class="thead-dark">
@@ -55,7 +53,7 @@
                         @endif
                     </div>
                 </div>
-                @break
+            @break
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
@@ -86,8 +84,7 @@
                         </div>
                     </div>
                 </div>
-
-                @break
+            @break
 
             @case('create')
                 <div class="container w-75 form_container my-2">
@@ -117,8 +114,7 @@
                         </div>
                     </div>
                 </div>
-
-                @break
+            @break
         @endswitch
     </div>
 @endsection

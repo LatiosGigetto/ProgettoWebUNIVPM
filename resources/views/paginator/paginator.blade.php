@@ -1,5 +1,5 @@
 @if ($paginator->lastPage() != 1)
-    <ul class="pagination justify-content-center">
+    <ul class="pagination justify-content-center my-2">
 
         <!-- Link alla prima pagina -->
         @if (!$paginator->onFirstPage())
