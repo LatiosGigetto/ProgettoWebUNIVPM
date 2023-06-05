@@ -22,7 +22,7 @@ Home
 
 @section('carosello')
     <!-- Carosello -->
-    <div id="carouselExampleCaptions" class="carousel slide w-100" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="images/longe.png" class="image_carousel" alt="Doggo">
