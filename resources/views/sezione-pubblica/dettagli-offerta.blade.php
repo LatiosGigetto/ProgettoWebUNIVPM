@@ -10,7 +10,7 @@
 @endsection
 
 @section("contenuto")
-    <div class="d-flex  align-items-center flex-column">
+    <div class="d-flex align-items-center flex-column">
         <h2>Dettagli</h2>
         <img id="logosito" class="custom_card"
              src="data:image/png/jpeg;base64,{{ base64_encode($offerta->getLogoAzienda())}}" alt="Logo azienda offerta">

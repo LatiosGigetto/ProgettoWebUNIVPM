@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html lang="it">
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="{{asset('js/stampa.js')}}"></script>
+        <title>Stampa coupon</title>
     </head>
 
     <body>
@@ -21,8 +22,6 @@
             <br>
             <br>
             <h2>{{ $coupon->Id_Coupon }}</h2>
-
-
         </div>
     </body>
 </html>

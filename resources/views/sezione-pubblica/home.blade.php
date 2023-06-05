@@ -19,7 +19,7 @@
             <div class="carousel-item active">
                 <img src="images/longe.png" class="image_carousel" alt="Doggo">
                 <div>
-                    <h5>Benvenuto!</h5>
+                    <strong>Benvenuto!</strong>
                     <p>Scorri per vedere le aziende di cui offriamo sconti...</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="carousel-item">
                 <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="image_carousel" alt="Logo azienda {!! $azienda->NomeAzienda !!}">
                 <div>
-                    <h5>{{ $azienda->NomeAzienda }}</h5>
+                    <strong>{{ $azienda->NomeAzienda }}</strong>
                     <p>{{ $azienda->Descrizione }}.</p>
                 </div>
             </div>

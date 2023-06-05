@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="container align-items-center d-flex h-100 mt-1 mb-5">
+    <div class="container align-items-center d-flex h-100 py-4">
         <div class="container text-center form_container">
-            <p>Inserisci i dati per la registrazione</p>
+            <h2 class="titolo_form mb-3">Inserisci i dati per la registrazione</h2>
                 {{ Form::open(array('route' => 'registrazione'))}}
                 <div class="container inner_form">
                     <div class="row align-items-center p-1">

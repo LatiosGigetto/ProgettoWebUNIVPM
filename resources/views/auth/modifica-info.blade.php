@@ -8,7 +8,7 @@ Modifica Informazioni
 <!-- Gli utenti di livello 1 non possono cambiare username poiché chiave e password perché c'è una sezione apposita -->
 <div class="container align-items-center d-flex h-100 py-5">
     <div class="container text-center form_container">
-        <strong style="font-size: x-large">Modifica le tue informazioni personali</strong>
+        <h2 class="titolo_form mb-3">Modifica le tue informazioni personali</h2>
             {{ Form::open(array('route' => 'modifica-info')) }}
         <div class="container inner_form">
             <div class="row align-items-center p-1">

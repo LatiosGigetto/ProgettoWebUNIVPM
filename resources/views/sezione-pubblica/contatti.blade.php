@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenuto')
-    <h2 id="titolo_sezione">Contatti</h1>
+    <h2 id="titolo_contatti">Contatti</h2>
     <h3>Informazioni utili per contattare l'amministratore</h3>
     <address id="contatti">
         <p>Amministratore: {{ $admin->Nome }} {{ $admin->Cognome}}</p>

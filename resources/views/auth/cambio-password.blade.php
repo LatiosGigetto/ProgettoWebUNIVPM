@@ -7,11 +7,11 @@
 @section('content')
     <!--TODO togliere lo stile inline-->
     <div class="container align-items-center d-flex h-100">
-        <div class="container text-center form_container" style="width: 600px;">
-        <strong style="font-size: x-large">Cambio Password</strong>
+        <div class="container text-center form_container_larger">
+        <h2 class="titolo_form mb-3">Cambio Password</h2>
 
         {{ Form::open(array('route' => 'cambia-password'))}}
-        <div class="container inner_form" style="width: 500px;">
+        <div class="container inner_form_larger">
             <div class="row align-items-center p-1">
                 <div class="col-4" style="text-align: left;">
                     {{ Form::label('vecchia_password', 'Vecchia Password', ['class' => 'form-label']) }}
@@ -29,10 +29,10 @@
             </div>
             <div class="row align-items-center p-1">
                 <div class="col-4" style="text-align: left;">
-                    {{ Form::label('nuova_password', 'Nuova Password', array('class' => 'form-label')) }}
+                    {{ Form::label('nuova_password', 'Nuova Password', ['class' => 'form-label']) }}
                 </div>
                 <div class="col-8">
-                    {{ Form::password('nuova_password', array('class' => 'form-control border-black')) }}
+                    {{ Form::password('nuova_password', ['class' => 'form-control border-black']) }}
                 </div>
             </div>
             <div class="row">

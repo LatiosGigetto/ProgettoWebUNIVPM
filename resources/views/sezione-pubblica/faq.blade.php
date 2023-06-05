@@ -5,12 +5,12 @@
 @endsection
 
 @section("contenuto")
-    <h1>Domande frequenti</h1>
+    <h2 id="titolo_faq">Domande frequenti</h2>
 
-    <ul style="list-style-type: none; margin-top: 10%; text-align: left;">
+    <ul id="elenco_risposte">
         @foreach($faqs as $faq)
             <li>
-                <h2 class="domanda">Q: {{ $faq->Domanda }}</h2>
+                <h3 class="domanda">Q: {{ $faq->Domanda }}</h3>
                 <p>A: {{ $faq->Risposta }}</p>
             </li>
         @endforeach
