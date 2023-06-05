@@ -1,28 +1,20 @@
 @extends('layouts.contenitore')
 
 @section('title')
-Home
+    Home
 @endsection
 
 @section('link-scripts')
     @parent
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{--TODO: questo tag andrebbe cancellato(???)
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">--}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // Funzione per far funzionare il carosello con l'aiuto di Bootstrap
-
-        var myCarousel = document.querySelector('#carouselExampleCaptions')
-        var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 5000, // imposta l'intervallo di tempo tra le slide (in millisecondi)
-            wrap: true, // abilita il loop delle slide
-        });
-    </script>
+    <script src="{{asset("js/carosello.js")}}"></script>
 @endsection
 
 @section('carosello')
-    <!-- Carosello -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <!--Abbiamo fatto il carosello con l'aiuto di Bootstrap-->
+    <div id="carouselWithCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="images/longe.png" class="image_carousel" alt="Doggo">
@@ -33,22 +25,22 @@ Home
             </div>
 
             @foreach($aziende as $azienda)
-                <div class="carousel-item">
-                    <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="image_carousel" alt="Logo azienda {!! $azienda->NomeAzienda !!}">
-                    <div>
-                        <h5>{{ $azienda->NomeAzienda }}</h5>
-                        <p>{{ $azienda->Descrizione }}.</p>
-                    </div>
+            <div class="carousel-item">
+                <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="image_carousel" alt="Logo azienda {!! $azienda->NomeAzienda !!}">
+                <div>
+                    <h5>{{ $azienda->NomeAzienda }}</h5>
+                    <p>{{ $azienda->Descrizione }}.</p>
                 </div>
+            </div>
             @endforeach
         </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselWithCaptions" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </a>
 
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#carouselWithCaptions" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </a>
@@ -56,7 +48,6 @@ Home
 @endsection
 
 @section('contenuto')
-    <!-- Altro codice -->
     <div style="margin: auto;">
         <h2>Benvenuti su Doggo Discount!</h2>
         <p>Doggo Discount è il sito che fa per voi quando cercate qualsiasi tipo di coupon sconto per le vostre catene preferite nella regione Marche!</p>

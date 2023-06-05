@@ -10,7 +10,7 @@
     <ul style="list-style-type: none; margin-top: 10%; text-align: left;">
         @foreach($faqs as $faq)
             <li>
-                <h2>Q: {{ $faq->Domanda }}</h2>
+                <h2 class="domanda">Q: {{ $faq->Domanda }}</h2>
                 <p>A: {{ $faq->Risposta }}</p>
             </li>
         @endforeach

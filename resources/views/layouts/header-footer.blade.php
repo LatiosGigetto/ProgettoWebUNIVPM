@@ -1,3 +1,6 @@
+<!--Questa è la pagina dedicata all'header e al footer e fungerà da template per tutte le altre pagine,
+        per questo motivo i tag <head> e <body> sono richiamati soltanto qui-->
+
 <!doctype html>
 <html lang="it">
 <head>
@@ -10,7 +13,9 @@
 
     @yield('link-scripts')
 
-    <title>@yield('title')</title>
+    <title>
+    @yield('title')
+    </title>
 </head>
 <body>
     <header>
@@ -20,10 +25,11 @@
             <h1 class="h-f_color">Doggo Discount</h1>
         </div>
 
+        <!--Il container è di tipo fluid perché volevamo un container con larghezza piena-->
         <div class="container-fluid text-center">
             @auth
                 <div class="row auth_message mx-0">
-                    <b>Benvenuto, {{ Auth::user()->username }}</b>
+                    <b>Benvenuto {{ Auth::user()->username }}!</b>
                 </div>
             @else
                 <div class="row auth_message mx-0">
@@ -31,7 +37,10 @@
                 </div>
             @endif
 
+            <!--inner_header ha un colore leggermente diverso rispetto al resto dell'header-->
             <div class="row py-2" id="inner_header">
+                <!--La colonna è di tipo sm perché volevamo impostare un breakpoint il più piccolo possibile ed
+                    è anche di tipo auto perché volevamo che fosse larga giusto giusto per farci stare i due bottoni-->
                 <div class="col-sm-auto">
                     <ul class="nav">
                         <li class="nav-item rounded-2 header_btn mx-2">
@@ -42,42 +51,47 @@
                         </li>
                     </ul>
                 </div>
+                <!--Questa colonna è vuota perché volevamo lasciare lo spazio in mezzo tra i bottoni a sinistra
+                    e quelli a destra-->
                 <div class="col">
 
                 </div>
                 @auth
                     <div class="col-sm-auto">
-                        <ul class="nav nav-pills justify-content-end">
+                        <ul class="nav justify-content-end">
                             <li class="nav-item rounded-2 header_btn mx-2">
                                 <a class="nav-link h-f_color" href=""
                                    onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                                 <form id="logout" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">@csrf</form>
+                                      style="display: none;">
+                                    <!--TODO: cosa fa il csrf?-->
+                                    @csrf
+                                </form>
                             </li>
                             @can('isUser')
-                                <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
-                                    <a class="nav-link h-f_color" href="{{route('profilo-cliente')}}">Profilo</a>
-                                </li>
+                            <li class="nav-item rounded-2 mx-2 bg-primary">
+                                <a class="nav-link h-f_color" href="{{route('profilo-cliente')}}">Profilo</a>
+                            </li>
                             @endcan
                             @can('isStaff')
-                                <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
-                                    <a class="nav-link h-f_color" href="{{route('staff')}}">Profilo</a>
-                                </li>
+                            <li class="nav-item rounded-2 mx-2 bg-primary">
+                                <a class="nav-link h-f_color" href="{{route('staff')}}">Profilo</a>
+                            </li>
                             @endcan
                             @can('isAdmin')
-                                <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
-                                    <a class="nav-link h-f_color" href="{{route('admin')}}">Profilo</a>
-                                </li>
+                            <li class="nav-item rounded-2 mx-2 bg-primary">
+                                <a class="nav-link h-f_color" href="{{route('admin')}}">Profilo</a>
+                            </li>
                             @endcan
                         </ul>
                     </div>
                 @else
                     <div class="col-sm-auto">
-                        <ul class="nav nav-pills justify-content-end">
+                        <ul class="nav justify-content-end">
                             <li class="nav-item rounded-2 header_btn mx-2">
                                 <a class="nav-link h-f_color" href="{{route('registrazione')}}">Registrati</a>
                             </li>
-                            <li class="nav-item rounded-2 header_btn mx-2 bg-primary">
+                            <li class="nav-item rounded-2 mx-2 bg-primary">
                                 <a class="nav-link h-f_color" href="{{route('login')}}">Login</a>
                             </li>
                         </ul>
@@ -87,6 +101,7 @@
         </div>
     </header>
 
+    <!--Qui dentro ci sarà il contenuto vero e proprio delle varie pagine-->
     <main>
         @yield('content')
     </main>
@@ -103,7 +118,7 @@
                     </div>
                 </div>
                 <div class="col text-end nav flex-column">
-                    <a class="nav-link h-f_color p-0 under" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
+                    <a class="nav-link h-f_color p-0" href="{{route('contatti')}}" style="text-decoration: underline">Contatti</a>
                     <a class="nav-link h-f_color p-0" href="{{route('faq')}}" style="text-decoration: underline">Faq</a>
                 </div>
             </div>

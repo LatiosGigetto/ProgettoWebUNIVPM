@@ -11,9 +11,14 @@ header, footer {
     border: 1px solid;
 }
 
-.h-f_color{
+.h-f_color {
     color: #FFCD00;
     --bs-nav-link-color: #FFCD00;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 70px;
 }
 
 .auth_message {
@@ -47,6 +52,25 @@ main {
 /* Home */
 .image_carousel{
     max-height: 200px;
+}
+
+/* Contatti */
+#titolo_sezione {
+    font-size: 50px;
+}
+
+#contatti {
+    font-size: 20px;
+}
+
+/* FAQ */
+.domanda {
+    font-size: 24px;
+}
+
+/* Catalogo */
+.titolo_catalogo {
+    font-size: 50px;
 }
 
 /* Card */

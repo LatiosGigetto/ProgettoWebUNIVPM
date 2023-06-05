@@ -12,7 +12,7 @@ Lista Aziende
                     <div class="card h-100 pt-4">
                         <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img custom_card" alt="Icona dell'azienda">
                         <div class="card-body">
-                            <h3 class="card-title">{{ $azienda->NomeAzienda }}</h3>
+                            <h2 class="card-title">{{ $azienda->NomeAzienda }}</h2>
                             <p class="card-text">{{ $azienda->Descrizione }}</p>
                         </div>
                     </div>
