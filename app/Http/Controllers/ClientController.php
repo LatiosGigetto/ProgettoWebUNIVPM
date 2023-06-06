@@ -17,7 +17,6 @@ class ClientController extends Controller {
     public function acquista($id_offerta) {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $generato = false;
-        $randomstring = "";
 
         // Controlla che non ci sia un coupon con ID uguale.
 
