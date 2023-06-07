@@ -10,9 +10,10 @@ use App\Models\User;
 
 class ClientController extends Controller {
 
-    public function __construct() {
-        $this->coupon = new Coupon;
-    }
+    //TODO: questo controller è da eliminare perché non viene usato (presumo)
+//    public function __construct() {
+//        $this->coupon = new Coupon;
+//    }
 
     public function acquista($id_offerta) {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -21,7 +22,10 @@ class ClientController extends Controller {
         // Controlla che non ci sia un coupon con ID uguale.
 
         while (!$generato) {
-
+            //  Generazione di una stringa casuale:
+            //  str_shuffle scambia l'ordine della stringa $characters in maniera casuale,
+            //  mentre substr seleziona i primi dieci caratteri (offset dice da quale carattere partire e
+            //  lenght dice quanti caratteri prendere)
             $randomString = substr(str_shuffle($characters), 0, 10);
 
             if ($randomString == Coupon::find($randomString)) {
@@ -42,9 +46,7 @@ class ClientController extends Controller {
 
         $check = Coupon::where('Id_Offerta', $id_offerta)->where('UsernameUtente', $user->username)->first();
         if ($check) {
-            if ($id_offerta == $check->Id_Offerta) {
-                return json_encode("offerta-posseduta");
-            }
+            return json_encode("offerta-posseduta");
         }
 
         // Creazione del coupon effettivo.
@@ -54,7 +56,6 @@ class ClientController extends Controller {
         $coupon->Id_Offerta = $id_offerta;
         $coupon->Id_Coupon = $randomString;
         $coupon->save();
-
 
         return json_encode($coupon->Id_Coupon);
     }

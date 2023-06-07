@@ -1,13 +1,11 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Catalogo
+Catalogo
 @endsection
 
 @section("link-scripts")
-
 <script  src="{{asset("js/catalogo.js")}}"></script>
-
 @endsection
 
 @section("content")
@@ -24,14 +22,13 @@
             </div>
 
             <div class="form-group mx-1">
-                {{ Form::label('descrizione', 'Cerca per contenuto') }}
-                {{ Form::text('descrizione', old('descrizione'), ['class' => 'form-control']) }}
+                {{ Form::label('oggetto', 'Cerca per contenuto') }}
+                {{ Form::text('oggetto', old('oggetto'), ['class' => 'form-control']) }}
             </div>
             <div class="form-group mx-1">
                 <br>
                 {{ Form::submit('Cerca', ['class' => 'btn btn-primary']) }}
             </div>
-
         </nav>
         {{ Form::close() }}
 
@@ -42,29 +39,26 @@
                 </div>
                 <div class="row justify-content-center mt-4">
                     @foreach($aziende as $azienda)
-
-                            <div class="col-md-4 mb-4">
-                                <div class="card pt-3">
-                                    <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img-top custom_card" alt="Logo Azienda">
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{$azienda->NomeAzienda}}</h3>
-                                        <div class="d-flex justify-content-between align-items-end">
-                                            <a href="{{ route('ricerca-offerte', ['azienda' => $azienda->NomeAzienda])}}" class="btn btn-primary">Vai alle offerte</a>
-                                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card pt-3">
+                                <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="card-img-top custom_card" alt="Logo Azienda">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{$azienda->NomeAzienda}}</h3>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <a href="{{ route('ricerca-offerte', ['azienda' => $azienda->NomeAzienda])}}" class="btn btn-primary">Vai alle offerte</a>
                                     </div>
                                 </div>
                             </div>
-
-
+                        </div>
                     @endforeach
                 </div>
-                @break
+            @break
 
             @case (false)
                 <div class="text-center mt-5">
                     <h2>Nessuna offerta corrisponde ai parametri di ricerca.</h2>
                 </div>
-                @break
+            @break
 
             @default
                 <div class="container mt-4">

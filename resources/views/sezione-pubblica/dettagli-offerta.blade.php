@@ -1,7 +1,7 @@
 @extends('layouts.contenitore')
 
 @section('title')
-    Dettagli Offerta
+Dettagli Offerta
 @endsection
 
 @section("link-scripts")
@@ -35,6 +35,9 @@
 
         <p>{{ $offerta->Luogo }}</p>
 
+        <!--Attenzione: abbiamo definito due volte lo stesso bottone perché attiva una funzione JavaScript,
+            normalmente basterebbe una volta sola perché il middleware gestisce in automatico gli indirizzamenti
+            in base alla sessione-->
         <div>
             @auth
             <button class="btn btn-primary mb-4 " name="{{$offerta->Id_Offerta}}" id="generacoupon">

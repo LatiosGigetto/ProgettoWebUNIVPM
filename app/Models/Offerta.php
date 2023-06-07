@@ -27,10 +27,8 @@ class Offerta extends Model
         return Azienda::where('id_Azienda', $this->Id_Azienda)->value('NomeAzienda');
     }
 
-
     public function getLogoAzienda()
     {
         return Azienda::where('id_Azienda', $this->Id_Azienda)->value('Logo');
     }
-
 }

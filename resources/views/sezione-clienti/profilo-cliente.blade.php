@@ -11,7 +11,6 @@
             <a href="{{route('cambia-password')}}" class="btn btn-primary mx-4">Cambia password</a>
             <a href="{{route('modifica-info')}}" class="btn btn-primary mx-4">Modifica informazioni personali</a>
             <a href="{{route('riepilogo')}}" class="btn btn-primary mx-4">Coupon generati</a>
-
         </div>
 
         <h3 class="mt-4">Dettagli utente</h3>

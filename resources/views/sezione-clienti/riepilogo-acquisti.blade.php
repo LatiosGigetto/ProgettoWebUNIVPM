@@ -1,14 +1,11 @@
-
 @extends('layouts.header-footer')
 
 @section("title")
-    Riepilogo Acquisti
+Riepilogo Acquisti
 @endsection
 
 @section("link-scripts")
-    
-    <script src="{{asset('js/stampa.js')}}"></script>
-    
+<script src="{{asset('js/stampa.js')}}"></script>
 @endsection
 
 @section('content')
@@ -44,7 +41,6 @@
                             </td>
                             <td class="text-center align-middle">
                                     <button onclick="stampaPaginaProfilo(this.name)" class="btn btn-primary" name="{{$coupon->Id_Coupon}}">Stampa</button>
-                                </a>
                             </td>
                         </tr>
                     @endforeach

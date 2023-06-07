@@ -39,8 +39,9 @@ Route::get("/contatti", [PublicController::class, 'showContatti'])
 Route::get("/catalogo", [PublicController::class, 'showAziendeInCatalogo'])
     ->name('catalogo');
 
-Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
-    ->name('ricerca-offerte');
+/* TODO: questa rotta serve effettivamente a qualcosa? */
+//Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
+//    ->name('ricerca-offerte');
 
 Route::get("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
     ->name('ricerca-offerte');

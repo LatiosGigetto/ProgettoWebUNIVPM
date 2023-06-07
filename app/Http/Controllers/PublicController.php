@@ -27,18 +27,19 @@ class PublicController extends Controller {
 
     public function showDettagliOfferta($idOfferta) {
 
+        //Usiamo il metodo fine() perché l'id è chiave primaria nella tabella
         $offerta = Offerta::find($idOfferta);
 
         return view('sezione-pubblica/dettagli-offerta')->with('offerta', $offerta);
     }
 
     public function showHome () {
-        
+
         return view('sezione-pubblica/home')->with('aziende', Azienda::all());
-        
+
     }
-    
-    
+
+
     // Funzione per prendere e paginare la lista offerte dato il nome e/o
     // il contenuto della descrizione di un'offerta.
 
@@ -47,14 +48,14 @@ class PublicController extends Controller {
         // Crea un Builder di Offerta che prende solo quelle non scadute.
 
         $dataOdierna = Date::now()->toDateString();
-        
+
         $offerte = Offerta::where('Validità', '>=', $dataOdierna);
 
         // Variabili per storare l'ingresso della richiesta.
         // flash() se le salva nella sessione per riprenderle nella vista.
 
         $nomeAzienda = $request->azienda;
-        $descrizione = $request->descrizione;
+        $oggetto = $request->oggetto;
 
         $request->flash();
 
@@ -65,17 +66,19 @@ class PublicController extends Controller {
             // Prende gli id associati ai nomi, li trasforma in array e li
             // confronta con le offerte del database.
 
+            //Qui vengono ricavati gli id delle aziende che corrispondono alla ricerca
             $id = Azienda::where('NomeAzienda', 'LIKE', '%' . $nomeAzienda . '%')
                             ->pluck('id_Azienda')->toArray();
+            //Qui la lista delle offerte viene aggiornata filtrando in base all'id dell'azienda
             $offerte = $offerte->whereIn('Id_Azienda', $id);
 
         }
 
-        if ($descrizione != "") {
+        if ($oggetto != "") {
 
-            // Ritorna le offerte in base al contenuto della variabile $descrizione.
+            // Ritorna le offerte in base al contenuto della variabile $oggetto.
 
-            $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $descrizione . '%');
+            $offerte = $offerte->where('Oggetto', 'LIKE', '%' . $oggetto . '%');
         }
 
         $offerte = $offerte->paginate(5);
@@ -107,9 +110,9 @@ class PublicController extends Controller {
         return view('sezione-pubblica/faq')->with('faqs', $faq);
     }
 
-    /* Sono piuttosto sicuro che questa funzione non serva a niente e non sia 
+    /* Sono piuttosto sicuro che questa funzione non serva a niente e non sia
      * mai usata ma per sicurezza la commento e basta per ora.
-    
+
     public function show($id)
     {
         $azienda = Azienda::with('offerte')->find($id);
