@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Auth\ModificainfoController;
-use App\Http\Controllers\ClientController;
+
 
 Route::middleware('guest')->group(function () {
     Route::get('registrazione', [RegisteredUserController::class, 'create'])

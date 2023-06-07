@@ -22,7 +22,7 @@ class ChangePasswordController extends Controller
         ]);
 
         $user = Auth::user();
-
+        //Hash serve per criptografare le password
         if (Hash::check($request->vecchia_password, $user->password)) {
             $user->password = Hash::make($request->nuova_password);
             $user->save();

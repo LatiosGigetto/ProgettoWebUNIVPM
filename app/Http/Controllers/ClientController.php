@@ -44,7 +44,7 @@ class ClientController extends Controller {
             return json_encode("utente-non-aut");
         }
 
-        $check = Coupon::where('Id_Offerta', $id_offerta)->where('UsernameUtente', $user->username)->first();
+        $check = Coupon::find($id_offerta);
         if ($check) {
             return json_encode("offerta-posseduta");
         }
@@ -79,9 +79,9 @@ class ClientController extends Controller {
     public function showCouponGenerato($Id_Coupon)
     {
         $user = auth()->user();
-        $coupon = Coupon::where('Id_Coupon', $Id_Coupon)
-            ->where('UsernameUtente', $user->username)
-            ->first();
+        //uso il find perchè l'Id è chiave primaria
+        $coupon = Coupon::find($Id_Coupon);
+
 
         return view('sezione-clienti/coupon-generato')->with([
             'user' => $user,

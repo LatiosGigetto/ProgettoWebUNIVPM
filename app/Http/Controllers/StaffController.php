@@ -22,9 +22,9 @@ class StaffController extends Controller {
 
         $this->currentStaff = Auth::user()->username;
         $this->currentAziende = GestoriAziende::where('UsernameUtente', $this->currentStaff)
-                        ->pluck('Id_Azienda', 'Id_Azienda')->toArray();
-        $this->currentOfferte = Offerta::whereIn('id_Azienda', $this->currentAziende);
-        return;
+                        ->pluck('Id_Azienda')->toArray();
+        $this->currentOfferte = Offerta::whereIn('Id_azienda', $this->currentAziende);
+
     }
 
     public function showGestioneOfferta() {
@@ -33,6 +33,7 @@ class StaffController extends Controller {
 
         return view('sezione-staff/gestione-promozioni')
                         ->with([
+                            // le offerte sono prese dal $currentAziende del setup
                             'offerte' => $this->currentOfferte->paginate(5),
                             'azione' => 'view'
         ]);
@@ -53,7 +54,7 @@ class StaffController extends Controller {
         // modificare un'offerta inesistente scrivendo numeri nell'URL.
         // A quanto pare non è richiesta come feature ma la tengo comunque
         // almeno nella gestione aziende.
-        
+
         if ($offerta != null) {
 
             return view('sezione-staff/gestione-promozioni')
@@ -63,7 +64,7 @@ class StaffController extends Controller {
                                 'offertaSel' => Offerta::find($id)
             ]);
         } else {
-            
+
             return redirect('gestione-promozioni')->withErrors([
                         "offerta-non-trovata" => "Offerta non trovata, qualcosa è andato storto"
             ]);
@@ -159,7 +160,7 @@ class StaffController extends Controller {
     }
 
     // Mostra le informazioni del membro dello Staff nel suo profilo
-    
+
     public function showDettagliProfilo() {
         $currentStaff = Auth::user();
         return view('sezione-staff/profilo-staff')->with('currentStaff',$currentStaff);

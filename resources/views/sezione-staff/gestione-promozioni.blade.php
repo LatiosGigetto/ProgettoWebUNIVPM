@@ -70,7 +70,7 @@
                 @break
 
             @case('mod')
-                <!--TODO: fixare la larghezza-->
+
                 <div class="container w-75 form_container my-2">
                     <h1 class="text-center">Modifica Offerta</h1>
 

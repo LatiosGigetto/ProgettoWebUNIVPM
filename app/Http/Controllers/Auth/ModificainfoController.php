@@ -17,7 +17,6 @@ class ModificainfoController extends Controller {
     public function create() {
         $user = Auth::user(); // Ottieni l'utente corrente autenticato
         return view('auth/modifica-info', ['user' => $user]);
-        // return view('auth/modifica-info');
     }
 
     public function store(Request $request) {
@@ -25,7 +24,6 @@ class ModificainfoController extends Controller {
             'nome' => ['nullable', 'string', 'max:30'],
             'cognome' => ['nullable', 'string', 'max:30'],
             'email' => ['nullable', 'string', 'email', 'max:30'],
-            //'username' => ['string', 'unique:utente', 'max:30'],
             'telefono' => ['nullable', 'string', 'max:10'],
             'età' => ['nullable', 'integer', 'max:200']
         ]);
@@ -42,9 +40,6 @@ class ModificainfoController extends Controller {
         if ($request->input('email') != null) {
             $user->Mail = $request->input('mail');
         }
-       /* if ($request->input('username') != null) {
-            $user->username = $request->input('username');
-        } */
         if ($request->input('telefono') != null) {
             $user->Telefono = $request->input('telefono');
         }

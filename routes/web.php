@@ -3,8 +3,6 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
-use App\Http\Controllers\Auth;
-use App\Http\Controllers\Auth\ModificainfoController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ClientController;
 
@@ -38,10 +36,6 @@ Route::get("/contatti", [PublicController::class, 'showContatti'])
 
 Route::get("/catalogo", [PublicController::class, 'showAziendeInCatalogo'])
     ->name('catalogo');
-
-/* TODO: questa rotta serve effettivamente a qualcosa? */
-//Route::post("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
-//    ->name('ricerca-offerte');
 
 Route::get("/catalogo/ricerca", [PublicController::class, 'showOfferte'])
     ->name('ricerca-offerte');

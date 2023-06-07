@@ -20,10 +20,10 @@ class PublicController extends Controller {
         return view('sezione-pubblica/lista-aziende')->with('aziende', $aziende);
     }
 
-    public function getAziendaByID($idAzienda) {
+    /*public function getAziendaByID($idAzienda) {
 
         return Azienda::where('Id_Azienda', $idAzienda)->get();
-    }
+    } */
 
     public function showDettagliOfferta($idOfferta) {
 
@@ -78,7 +78,7 @@ class PublicController extends Controller {
 
             // Ritorna le offerte in base al contenuto della variabile $oggetto.
 
-            $offerte = $offerte->where('Oggetto', 'LIKE', '%' . $oggetto . '%');
+            $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $oggetto . '%');
         }
 
         $offerte = $offerte->paginate(5);

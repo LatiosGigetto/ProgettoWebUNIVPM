@@ -55,7 +55,7 @@ class RegisteredUserController extends Controller {
                     'Genere' => $request->genere
         ]);
 
-        event(new Registered($user));
+       // event(new Registered($user));
 
         Auth::login($user);
 
