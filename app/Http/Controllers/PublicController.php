@@ -55,7 +55,7 @@ class PublicController extends Controller {
         // flash() se le salva nella sessione per riprenderle nella vista.
 
         $nomeAzienda = $request->azienda;
-        $oggetto = $request->oggetto;
+        $descrizione = $request->descrizione;
 
         $request->flash();
 
@@ -74,11 +74,11 @@ class PublicController extends Controller {
 
         }
 
-        if ($oggetto != "") {
+        if ($descrizione != "") {
 
             // Ritorna le offerte in base al contenuto della variabile $oggetto.
 
-            $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $oggetto . '%');
+            $offerte = $offerte->where('Descrizione', 'LIKE', '%' . $descrizione . '%');
         }
 
         $offerte = $offerte->paginate(5);

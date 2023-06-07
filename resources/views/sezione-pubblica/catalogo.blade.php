@@ -22,8 +22,8 @@ Catalogo
             </div>
 
             <div class="form-group mx-1">
-                {{ Form::label('oggetto', 'Cerca per contenuto') }}
-                {{ Form::text('oggetto', old('oggetto'), ['class' => 'form-control']) }}
+                {{ Form::label('descrizione', 'Cerca per contenuto') }}
+                {{ Form::text('descrizione', old('descrizione'), ['class' => 'form-control']) }}
             </div>
             <div class="form-group mx-1">
                 <br>
