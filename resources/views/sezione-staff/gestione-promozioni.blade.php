@@ -15,7 +15,7 @@
 
             @case('view')
                 <div class="container">
-                    <h1 class="text-center">Gestione Promozioni</h1>
+                    <h2 class="text-center">Gestione Promozioni</h2>
 
                     <table class="table mx-auto">
                         <thead class="thead-dark">
@@ -72,7 +72,7 @@
             @case('mod')
 
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Modifica Offerta</h1>
+                    <h2 class="text-center">Modifica Offerta</h2>
 
                     <div id="mod-off-sezione">
                         {{ Form::open(['route' => 'modifica-offerta']) }}
@@ -128,7 +128,7 @@
 
             @case('create')
                 <div class="container w-75 form_container my-2">
-                    <h1>Crea Offerta</h1>
+                    <h2>Crea Offerta</h2>
 
                     <div id="crea-off-sezione">
                         {{ Form::open(['route' => 'crea-offerta']) }}

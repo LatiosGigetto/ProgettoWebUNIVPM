@@ -10,7 +10,7 @@ Riepilogo Acquisti
 
 @section('content')
     <div class="container py-4">
-        <h1 class="text-center">Riepilogo acquisti</h1>
+        <h2 class="text-center">Riepilogo acquisti</h2>
 
         @if($coupons->isNotEmpty())
             <div class="table-responsive mt-5">
@@ -50,7 +50,7 @@ Riepilogo Acquisti
 
         @else
             <div class="min-vh-25 d-flex justify-content-center align-items-center">
-                <h1> Non hai ancora generato alcun coupon a tuo nome</h1>
+                <h2> Non hai ancora generato alcun coupon a tuo nome</h2>
             </div>
         @endif
 

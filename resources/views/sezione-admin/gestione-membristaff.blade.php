@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Gestione Aziende
+Gestione Aziende
 @endsection
 
 @section("link-scripts")
@@ -18,7 +18,7 @@
 
             @case('view')
                 <div class="container text-center">
-                    <h1>Gestione membri dello staff</h1>
+                    <h2>Gestione membri dello staff</h2>
                     <table class="table mx-auto mt-4">
                         <thead class="thead-dark">
                         <tr>
@@ -73,7 +73,7 @@
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Modifica membro Staff</h1>
+                    <h2 class="text-center">Modifica membro Staff</h2>
 
                     <div id="mod-staff-sezione">
                         {{ Form::open(['route' => 'modifica-staff-conf']) }}
@@ -138,7 +138,7 @@
 
             @case('create')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Crea membro Staff</h1>
+                    <h2 class="text-center">Crea membro Staff</h2>
 
                     <div id="crea-staff-sezione">
                         {{ Form::open(['route' => 'crea-staff-conf']) }}

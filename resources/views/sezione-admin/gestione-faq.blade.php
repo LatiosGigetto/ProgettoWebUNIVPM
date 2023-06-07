@@ -17,7 +17,7 @@
 
             @case('view')
                 <div class="container text-center">
-                    <h1>Gestione FAQ</h1>
+                    <h2>Gestione FAQ</h2>
                     <table class="table table-bordered mx-auto">
                         <thead class="thead-dark">
                         <tr>
@@ -57,7 +57,7 @@
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Modifica faq</h1>
+                    <h2 class="text-center">Modifica faq</h2>
 
                     <div id="mod-faq-sezione">
                         {{ Form::open(['route' => 'modifica-faq-conf']) }}
@@ -91,7 +91,7 @@
 
             @case('create')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Crea nuova faq</h1>
+                    <h2 class="text-center">Crea nuova faq</h2>
 
                     <div id="mod-faq-sezione">
                         {{ Form::open(['route' => 'crea-faq-conf']) }}

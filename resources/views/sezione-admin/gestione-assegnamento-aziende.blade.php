@@ -15,7 +15,7 @@
 
             @case('view')
                 <div class="container text-center">
-                    <h1>Gestione Assegnamento Azienda</h1>
+                    <h2>Gestione Assegnamento Azienda</h2>
                     <table class="table mt-4">
                         <thead class="thead-dark">
                         <tr>
@@ -57,14 +57,14 @@
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Modifica assegnamento</h1>
+                    <h2 class="text-center">Modifica assegnamento</h2>
 
                     <div id="mod-assegnamento-sezione">
                         {{ Form::open(['route' => 'modifica-assegnamento-conf']) }}
                         {{ Form::hidden('id', $assegnamentoSel->id) }}
 
                         <div class="form-group my-2">
-                            {{ Form::label('nomeazienda', 'nomeAzienda') }}
+                            {{ Form::label('nomeazienda', 'Nome azienda') }}
                             {{ Form::select('nomeAzienda', $listaAziende, $assegnamentoSel->Id_Azienda, ['class' => 'form-select']) }}
                         </div>
 
@@ -88,7 +88,7 @@
 
             @case('create')
                 <div class="container w-75 form_container my-2">
-                    <h1 class="text-center">Crea assegnamento</h1>
+                    <h2 class="text-center">Crea assegnamento</h2>
 
                     <div id="crea-assegnamento-sezione">
                         {{ Form::open(['route' => 'crea-assegnamento-conf']) }}

@@ -130,9 +130,9 @@ class AdminController extends Controller
         }
 
         $azienda->NomeAzienda = $request->nomeazienda;
-        
+
         // Cambio il logo solo se l'utente ne ha inserito uno nuovo
-        
+
         if ($request->hasFile('logo')) {
         $azienda->Logo = $request->file('logo')->openFile()
             ->fread($request->file('logo')->getSize());
@@ -441,13 +441,14 @@ class AdminController extends Controller
     // CRUD Assegnamento
     public function modifyAssegnamento(Request $request)
     {
+        //TODO: perché nomeAzienda e usernameStaff della request hanno degli id al posto dei loro valori???
 
         // query che cerca l'istanza
         $assegnamento = GestoriAziende::where(
             'Id_Azienda', $request->nomeAzienda)
             ->where('UsernameUtente', $request->usernameStaff)->first();
 
-        // check if alreay exist
+        // check if already exist
         if ($assegnamento == null) {
             $assegnamento = GestoriAziende::find($request->id);
             $assegnamento->UsernameUtente = $request->usernameStaff;

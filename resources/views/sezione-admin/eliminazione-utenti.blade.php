@@ -13,7 +13,7 @@ Eliminazione Utenti
 @section('content')
 
 <div class="container text-center mt-4">
-    <h1>Eliminazione Utenti</h1>
+    <h2>Eliminazione Utenti</h2>
     <table class="table table-bordered mt-4">
         <thead class="thead-dark">
             <tr>

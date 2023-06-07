@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section('title')
-    Ciao, Capo!
+Ciao, Capo!
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.header-footer')
 
 @section("title")
-    Statistiche
+Statistiche
 @endsection
 
 @section("link-scripts")
@@ -10,10 +10,10 @@
 
 @section("content")
     <div class="container text-center h-100 w-50 py-4">
-        <h1 class="mb-3">Statistiche</h1>
+        <h2 class="mb-3" id="statistiche">Statistiche</h2>
 
         <div class="row">
-            <h2>Numero totale coupon emessi</h2>
+            <h3>Numero totale coupon emessi</h3>
 
             <div class="text-center">
                 <button class=" btn btn-primary" id="num-coupon">Vedi coupon totali</button>

@@ -33,7 +33,7 @@
                             <tr>
                                 <td>{{ $azienda->NomeAzienda }}</td>
                                 <td>{{ $azienda->Categoria }}</td>
-                                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo) }}"
+                                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo) }}" alt="logo azienda"
                                          style="width: 100px; height: 100px;"></td>
                                 <td>{{ $azienda->Sede }}</td>
                                 <td>{{ $azienda->Descrizione }}</td>
@@ -51,11 +51,9 @@
                         </tbody>
                     </table>
                     <div class="text-center mb-4">
-                        <td colspan="4">
-                            <a href="{{ route('crea-azienda-view') }}">
-                                <button class="btn btn-primary">Crea Nuova Azienda</button>
-                            </a>
-                        </td>
+                        <a href="{{ route('crea-azienda-view') }}">
+                            <button class="btn btn-primary">Crea Nuova Azienda</button>
+                        </a>
                     </div>
                     <div class="text-center">
                         @if(session('success'))
