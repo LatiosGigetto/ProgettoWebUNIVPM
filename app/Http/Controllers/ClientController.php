@@ -44,7 +44,7 @@ class ClientController extends Controller {
             return json_encode("utente-non-aut");
         }
 
-        $check = Coupon::find($id_offerta);
+        $check = Coupon::where('Id_Offerta', $id_offerta)->where('UsernameUtente', $user->username)->first();
         if ($check) {
             return json_encode("offerta-posseduta");
         }
