@@ -15,20 +15,23 @@
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
+                <!-- Non mi piacciono questi doppi <br> ma è l'8 giugno -->
                 <img src="images/longe.png" class="image_carousel" alt="Doggo">
-                <div>
-                    <strong>Benvenuto!</strong>
-                    <p>Scorri per vedere le aziende di cui offriamo sconti...</p>
-                </div>
+                <br>
+                <br>
+                    <strong>Benvenuto su Doggo Discount!</strong>
+                <br>
+                <br>
             </div>
 
             @foreach($aziende as $azienda)
             <div class="carousel-item">
                 <img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo)}}" class="image_carousel" alt="Logo azienda {!! $azienda->NomeAzienda !!}">
-                <div>
+                <br>
+                <br>
                     <strong>{{ $azienda->NomeAzienda }}</strong>
-                    <p>{{ $azienda->Descrizione }}.</p>
-                </div>
+                <br>
+                <br>
             </div>
             @endforeach
         </div>
