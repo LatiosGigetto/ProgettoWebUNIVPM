@@ -7,13 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ModificainfoController extends Controller {
-    /*
-      public function __construct()
-      {
-      $this->middleware('auth');
-      }
-     */
-
     public function create() {
         $user = Auth::user(); // Ottieni l'utente corrente autenticato
         return view('auth/modifica-info', ['user' => $user]);
@@ -21,11 +14,11 @@ class ModificainfoController extends Controller {
 
     public function store(Request $request) {
         $request->validate([
-            'nome' => ['nullable', 'string', 'max:30'],
-            'cognome' => ['nullable', 'string', 'max:30'],
+            'nome' => ['nullable', 'string', 'max:30', 'alpha:ascii'],
+            'cognome' => ['nullable', 'string', 'max:30', 'alpha:ascii'],
             'email' => ['nullable', 'string', 'email', 'max:30'],
-            'telefono' => ['nullable', 'string', 'max:10'],
-            'età' => ['nullable', 'integer', 'max:200']
+            'telefono' => ['nullable', 'string', 'max:10', 'regex:/^[0-9]+$/'],
+            'età' => ['nullable', 'integer', 'min:12', 'max:200']
         ]);
 
         $user = Auth::user();
