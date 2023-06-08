@@ -64,7 +64,6 @@
                                    onclick="event.preventDefault(); document.getElementById('logout').submit();">Logout</a>
                                 <form id="logout" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
-                                    <!--TODO: cosa fa il csrf?-->
                                     @csrf
                                 </form>
                             </li>

@@ -10,11 +10,6 @@ use App\Models\User;
 
 class ClientController extends Controller {
 
-    //TODO: questo controller è da eliminare perché non viene usato (presumo)
-//    public function __construct() {
-//        $this->coupon = new Coupon;
-//    }
-
     public function acquista($id_offerta) {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $generato = false;

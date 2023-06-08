@@ -14,7 +14,6 @@ class ChangePasswordController extends Controller
         return view('auth/cambio-password');
     }
 
-    //TODO: sistemare i messaggi d'errore in modo che funzioni meglio il controllo sulla vecchia password
     public function store(Request $request) {
         $request->validate([
             'vecchia_password' => 'required',

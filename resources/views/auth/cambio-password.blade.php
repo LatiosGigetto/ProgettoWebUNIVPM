@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <!--TODO togliere lo stile inline-->
     <div class="container align-items-center d-flex h-100">
         <div class="container text-center form_container_larger">
         <h2 class="titolo_form mb-3">Cambio Password</h2>
