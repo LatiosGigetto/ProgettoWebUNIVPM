@@ -83,7 +83,7 @@
                         <div class="form-group my-2">
                             {{ Form::label('categoria', 'Categoria') }}
                             {{ Form::text('categoria', $aziendaSel->Categoria, ['class' => 'form-control']) }}
-                            @error('oggetto')
+                            @error('categoria')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
@@ -106,7 +106,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('descrizione', 'Descrizione') }}
-                            {{ Form::text('descrizione', $aziendaSel->Descrizione, ['class' => 'form-control']) }}
+                            {{ Form::textarea('descrizione', $aziendaSel->Descrizione, ['class' => 'form-control']) }}
                             @error('descrizione')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
@@ -141,7 +141,7 @@
                         <div class="form-group my-2">
                             {{ Form::label('categoria', 'Categoria') }}
                             {{ Form::text('categoria', '', ['class' => 'form-control']) }}
-                            @error('oggetto')
+                            @error('categoria')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
@@ -164,7 +164,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('descrizione', 'Descrizione') }}
-                            {{ Form::text('descrizione', '', ['class' => 'form-control']) }}
+                            {{ Form::textarea('descrizione', '', ['class' => 'form-control']) }}
                             @error('descrizione')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
