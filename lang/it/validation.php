@@ -154,6 +154,7 @@ return [
         ],
         'telefono' => [
             'required' => "Non hai inserito il numero di telefono",
+            'regex' => "Il formato del numero di telefono non è valido"
         ],
         'descrizione' => [
             'required' => "Non hai inserito la descrizione",

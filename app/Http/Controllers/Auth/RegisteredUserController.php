@@ -35,13 +35,13 @@ class RegisteredUserController extends Controller {
     // definisco le regole per i parametri
 
         $request->validate([
-            'nome' => ['required', 'string', 'max:30'],
+            'nome' => ['required', 'string', 'max:30', 'alpha:ascii'],
             'cognome' => ['required', 'string', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:30'],
             'username' => ['required', 'string', 'unique:utente', 'max:30'],
             'password' => ['required', 'max:255', Rules\Password::defaults()],
-            'telefono' => ['required', 'string', 'max:10'],
-            'età' => ['required', 'integer', 'max:999']
+            'telefono' => ['nullable', 'string', 'max:10', 'regex:/^[0-9]+$/'],
+            'età' => ['required', 'integer', 'min:12', 'max:200']
         ]);
 
         $user = User::create([
