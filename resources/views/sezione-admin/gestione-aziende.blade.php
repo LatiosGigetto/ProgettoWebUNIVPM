@@ -33,8 +33,7 @@
                             <tr>
                                 <td>{{ $azienda->NomeAzienda }}</td>
                                 <td>{{ $azienda->Categoria }}</td>
-                                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo) }}" alt="logo azienda"
-                                         style="width: 100px; height: 100px;"></td>
+                                <td><img src="data:image/png/jpeg;base64,{{ base64_encode($azienda->Logo) }}" alt="logo azienda" class="logo_azienda"></td>
                                 <td>{{ $azienda->Sede }}</td>
                                 <td>{{ $azienda->Descrizione }}</td>
                                 <td>

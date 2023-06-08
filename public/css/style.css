@@ -51,7 +51,9 @@ main {
 
 /* Home */
 .image_carousel{
-    max-height: 200px;
+    height: 200px;
+    max-width: 70%;
+    object-fit: contain;
 }
 
 /* Contatti */
@@ -86,6 +88,7 @@ main {
 /* Card */
 .custom_card{
     height: 200px;
+    max-width: 100%;
     object-fit: contain;
 }
 
@@ -115,4 +118,11 @@ main {
 /* statistiche */
 #statistiche {
     font-size: 50px;
+}
+
+/* gestione aziende */
+.logo_azienda {
+    height: 100px;
+    max-width: 100px;
+    object-fit: contain;
 }
