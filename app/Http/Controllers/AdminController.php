@@ -307,8 +307,8 @@ class AdminController extends Controller
     public function createFaq(Request $request)
     {
         $request->validate([
-            'domanda' => ['required', 'string'],
-            'risposta' => ['required', 'string'],
+            'domanda' => ['required', 'string', 'max:100'],
+            'risposta' => ['required', 'string', 'max:999'],
         ]);
         $faq = new FAQ();
         $faq->Domanda = $request->domanda;

@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <a href="{{ route('crea-assegnamento-view')}}">
-                        <button class="btn btn-primary">Crea Nuova assegnamento</button>
+                        <button class="btn btn-primary">Crea nuovo assegnamento</button>
                     </a>
                     <div style="text-align: center">
                         @if(session('success'))

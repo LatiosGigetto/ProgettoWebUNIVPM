@@ -57,7 +57,7 @@
 
             @case('mod')
                 <div class="container w-75 form_container my-2">
-                    <h2 class="text-center">Modifica faq</h2>
+                    <h2 class="text-center">Modifica FAQ</h2>
 
                     <div id="mod-faq-sezione">
                         {{ Form::open(['route' => 'modifica-faq-conf']) }}
@@ -73,7 +73,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('risposta', 'Risposta') }}
-                            {{ Form::text('risposta', $faqSel->Risposta, ['class' => 'form-control']) }}
+                            {{ Form::textarea('risposta', $faqSel->Risposta, ['class' => 'form-control']) }}
                             @error('risposta')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
@@ -91,7 +91,7 @@
 
             @case('create')
                 <div class="container w-75 form_container my-2">
-                    <h2 class="text-center">Crea nuova faq</h2>
+                    <h2 class="text-center">Crea nuova FAQ</h2>
 
                     <div id="mod-faq-sezione">
                         {{ Form::open(['route' => 'crea-faq-conf']) }}
@@ -106,7 +106,7 @@
 
                         <div class="form-group my-2">
                             {{ Form::label('risposta', 'Risposta') }}
-                            {{ Form::text('risposta', '', ['class' => 'form-control']) }}
+                            {{ Form::textarea('risposta', '', ['class' => 'form-control']) }}
                             @error('risposta')
                             <span style="color: red">{{ $message }}</span>
                             @enderror
