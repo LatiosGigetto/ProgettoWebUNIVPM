@@ -69,7 +69,7 @@
                             </li>
                             @can('isUser')
                             <li class="nav-item rounded-2 mx-2 bg-primary">
-                                <a class="nav-link h-f_color" href="{{route('profilo-cliente')}}">Profilo</a>
+                                <a class="nav-link h-f_color" href="{{route('cliente')}}">Profilo</a>
                             </li>
                             @endcan
                             @can('isStaff')

@@ -46,7 +46,7 @@ Route::get("/dettagli-offerta/{id}", [PublicController::class, 'showDettagliOffe
 // Sezione riservata al Cliente (Livello 1)
 
     Route::get('/profilo-cliente', [ClientController::class, 'show'])->middleware("can:isUser")
-	->name('profilo-cliente');
+	->name('cliente');
 
 	Route::get("/sezione-clienti/coupon-generato/{Id_Coupon}", [ClientController::class, 'showCouponGenerato'])->middleware("can:isUser")
     ->name('coupon-generato');
@@ -179,10 +179,6 @@ Route::get("/gestione-assegnamento/elim/{id}", [AdminController::class, 'deleteA
     ->name("elimina-assegnamento-view");
 
 // Rotte profilo in base al livello di autenticazione
-
-Route::view('/profilo/cliente', 'sezione-clienti/profilo-cliente')->middleware('can:isUser')
-    ->name('cliente');
-
 
 
 Route::view('/profilo/admin', 'sezione-admin/profilo-admin')->middleware('can:isAdmin')
