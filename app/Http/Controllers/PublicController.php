@@ -96,7 +96,7 @@ class PublicController extends Controller {
     }
 
     public function showAziendeInCatalogo() {
-        $aziende = Azienda::paginate(5);
+        $aziende = Azienda::paginate(6);
         return view('sezione-pubblica/catalogo')->with(['offerte' => 'inizio', 'aziende' => $aziende]);
     }
 

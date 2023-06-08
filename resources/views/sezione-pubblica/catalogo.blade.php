@@ -52,6 +52,7 @@ Catalogo
                         </div>
                     @endforeach
                 </div>
+         @include('paginator.paginator', ['paginator' => $aziende])
             @break
 
             @case (false)
