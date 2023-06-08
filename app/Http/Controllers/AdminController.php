@@ -199,13 +199,13 @@ class AdminController extends Controller
     public function createStaff(Request $request)
     {
         $request->validate([
-            'nome' => ['required', 'string', 'max:30', 'alpha:ascii'],
-            'cognome' => ['required', 'string', 'max:30', 'alpha:ascii'],
+            'nome' => ['required', 'string', 'max:30'],
+            'cognome' => ['required', 'string', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:30'],
             'username' => ['required', 'string', 'unique:utente', 'max:30'],
             'password' => ['required', 'max:255', Rules\Password::defaults()],
             'telefono' => ['required', 'string', 'max:10', 'regex:/^[0-9]+$/'],
-            'età' => ['required', 'integer', 'min:12', 'max:200'],
+            'età' => ['required', 'integer', 'min:13', 'max:200'],
         ]);
         $user = new User();
         $user->Nome = $request->nome;
@@ -237,9 +237,9 @@ class AdminController extends Controller
     public function modifyStaff(Request $request)
     {
         $request->validate([
-            'nome' => ['required', 'string', 'max:30', 'alpha:ascii'],
-            'cognome' => ['required', 'string', 'max:30', 'alpha:ascii'],
-            'età' => ['required', 'integer', 'min:12', 'max:200'],
+            'nome' => ['required', 'string', 'max:30'],
+            'cognome' => ['required', 'string', 'max:30'],
+            'età' => ['required', 'integer', 'min:13', 'max:200'],
             'telefono' => ['required', 'string', 'max:10', 'regex:/^[0-9]+$/'],
             'email' => ['required', 'string', 'email', 'max:30'],
         ]);

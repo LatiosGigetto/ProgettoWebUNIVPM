@@ -14,11 +14,11 @@ class ModificainfoController extends Controller {
 
     public function store(Request $request) {
         $request->validate([
-            'nome' => ['nullable', 'string', 'max:30', 'alpha:ascii'],
-            'cognome' => ['nullable', 'string', 'max:30', 'alpha:ascii'],
+            'nome' => ['nullable', 'string', 'max:30'],
+            'cognome' => ['nullable', 'string', 'max:30'],
             'email' => ['nullable', 'string', 'email', 'max:30'],
             'telefono' => ['nullable', 'string', 'max:10', 'regex:/^[0-9]+$/'],
-            'età' => ['nullable', 'integer', 'min:12', 'max:200']
+            'età' => ['nullable', 'integer', 'min:13', 'max:200']
         ]);
 
         $user = Auth::user();
@@ -31,7 +31,7 @@ class ModificainfoController extends Controller {
             $user->Cognome = $request->input('cognome');
         }
         if ($request->input('email') != null) {
-            $user->Mail = $request->input('mail');
+            $user->Mail = $request->input('email');
         }
         if ($request->input('telefono') != null) {
             $user->Telefono = $request->input('telefono');
