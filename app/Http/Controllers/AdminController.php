@@ -113,7 +113,7 @@ class AdminController extends Controller
                 'nomeazienda' => ['required', 'unique:azienda', 'string', 'max:30'],
                 'logo' => ['file', 'mimes:png,jpg,jpeg', 'max:64'],
                 'sede' => ['required', 'string', 'max:30'],
-                'descrizione' => ['required', 'string'],
+                'descrizione' => ['required', 'string', 'max:999'],
                 'categoria' => ['required', 'string', 'max:30'],
             ]);
 
@@ -123,7 +123,7 @@ class AdminController extends Controller
                 'nomeazienda' => ['required', 'string', 'max:30'],
                 'logo' => ['nullable', 'file', 'mimes:png,jpg,jpeg', 'max:64'],
                 'sede' => ['required', 'string', 'max:30'],
-                'descrizione' => ['required', 'string'],
+                'descrizione' => ['required', 'string', 'max:999'],
                 'categoria' => ['required', 'string', 'max:30'],
             ]);
 
